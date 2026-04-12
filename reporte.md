@@ -154,16 +154,47 @@ Creemos que la transición entre turnos de cuidado será más fluida **si** impl
 
 #### 1.2.2.4. Lean UX Canvas
 
-| | |
-|---|---|
-| **Business Problem** | Los cuidadores de personas con discapacidad manejan información crítica de salud de forma desordenada y sin herramientas pensadas para eso, lo que genera riesgos para el paciente y agotamiento en quien cuida. |
-| **Business Outcomes** | Menos errores de medicación. Mejor coordinación entre cuidadores. Tasas de retención superiores al 60% al tercer mes de uso. |
-| **Users & Customers** | Segmento 1: Cuidadores formales e informales de personas con discapacidad. Segmento 2: Familiares que quieren seguimiento del cuidado sin ser el cuidador principal. |
-| **User Benefits** | Gestión centralizada de tratamientos y rutinas. Historial completo siempre disponible. Alertas oportunas y coordinación real con otros cuidadores. |
-| **Solution Ideas** | App móvil multiplataforma con calendario de medicación y terapias, sistema de alertas, carpeta de documentos, historial de evolución y perfiles compartidos. |
-| **Hypotheses** | Los cuidadores adoptarán la app si la configuración inicial no les toma más de 10 minutos. Las familias valorarán ver el estado del paciente en tiempo real. Compartir perfiles mejorará la coordinación entre turnos. |
-| **¿Qué es lo más importante que necesitamos aprender primero?** | ¿Los cuidadores están dispuestos a registrar información durante su jornada, o lo perciben como una carga extra? |
-| **¿Cuál es el mínimo trabajo necesario para aprender lo siguiente?** | Entrevistas con al menos 6 cuidadores (3 formales, 3 informales) para entender cómo trabajan hoy y dónde sienten más fricción en la gestión del cuidado. |
+<table>
+  <tr>
+    <td valign="top" width="33%">
+      <b>1. Business Problem</b><br><br>
+      Los cuidadores de personas con discapacidad manejan información crítica de salud de forma desordenada y sin herramientas pensadas para eso, lo que genera riesgos para el paciente y agotamiento en quien cuida.
+    </td>
+    <td rowspan="2" valign="top" width="33%">
+      <b>5. Solution Ideas</b><br><br>
+      App móvil multiplataforma con calendario de medicación y terapias, sistema de alertas, carpeta de documentos, historial de evolución y perfiles compartidos.
+    </td>
+    <td valign="top" width="33%">
+      <b>2. Business Outcomes</b><br><br>
+      Menos errores de medicación. Mejor coordinación entre cuidadores. Tasas de retención superiores al 60% al tercer mes de uso.
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <b>3. Users & Customers</b><br><br>
+      Segmento 1: Cuidadores formales e informales de personas con discapacidad.<br><br>
+      Segmento 2: Familiares que quieren seguimiento del cuidado sin ser el cuidador principal.
+    </td>
+    <td valign="top">
+      <b>4. User Benefits</b><br><br>
+      Gestión centralizada de tratamientos y rutinas. Historial completo siempre disponible. Alertas oportunas y coordinación real con otros cuidadores.
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <b>6. Hypotheses</b><br><br>
+      Los cuidadores adoptarán la app si la configuración inicial no les toma más de 10 minutos. Las familias valorarán ver el estado del paciente en tiempo real. Compartir perfiles mejorará la coordinación entre turnos.
+    </td>
+    <td valign="top">
+      <b>7. What's the most important thing we need to learn first?</b><br><br>
+      ¿Los cuidadores están dispuestos a registrar información durante su jornada, o lo perciben como una carga extra?
+    </td>
+    <td valign="top">
+      <b>8. What's the least amount of work we need to do to learn the next most important thing?</b><br><br>
+      Entrevistas con al menos 6 cuidadores (3 formales, 3 informales) para entender cómo trabajan hoy y dónde sienten más fricción en la gestión del cuidado.
+    </td>
+  </tr>
+</table>
 
 ---
 
