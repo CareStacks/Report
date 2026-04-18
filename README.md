@@ -39,8 +39,8 @@
     <td></td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
+    <td>Nikaido Vargas, Javier Masaru</td>
+    <td>U20221G099</td>
   </tr>
   <tr>
     <td></td>
