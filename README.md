@@ -523,8 +523,113 @@ Implementar un modelo de mejora continua basado en datos y feedback de usuarios.
 - Iteraciones frecuentes del producto.
 - Incorporación de feedback directo de cuidadores y familiares.
 ## 2.2. Entrevistas <a id="22-entrevistas"></a>
+
+Esta sección presenta el diseño y la estructura de las entrevistas que serán realizadas a los segmentos objetivo, con el fin de comprender sus necesidades, problemas actuales y oportunidades de mejora en la gestión del cuidado de personas con discapacidad.
+
+---
 ### 2.2.1. Diseño de entrevistas <a id="221-diseno-de-entrevistas"></a>
+
+Se diseñaron entrevistas semiestructuradas dirigidas a los dos segmentos objetivo identificados: cuidadores y familiares.
+
+---
+
+#### Segmento 1: Cuidadores
+
+El objetivo es entender cómo gestionan actualmente el cuidado diario, qué herramientas utilizan y qué dificultades enfrentan.
+
+**Preguntas principales:**
+- ¿Nos podría indicar su nombre, edad y cuánto tiempo lleva realizando actividades de cuidado?
+- ¿Cómo organiza actualmente la medicación y terapias del paciente?
+- ¿Qué herramientas utiliza en su día a día?
+- ¿Ha tenido problemas por falta de coordinación o información?
+- ¿Cómo se comunica con otros cuidadores o familiares?
+- ¿Qué aspectos considera más difíciles en el cuidado diario?
+- ¿Qué funcionalidades le gustaría tener en una aplicación de apoyo?
+- ¿Qué espera mejorar con una solución digital?
+
+---
+
+#### Segmento 2: Familiares
+
+El objetivo es comprender el nivel de visibilidad que tienen sobre el cuidado del paciente.
+
+**Preguntas principales:**
+- ¿Nos podría indicar su nombre, edad y relación con el paciente?
+- ¿Cómo se informa actualmente sobre el estado del paciente?
+- ¿Con qué frecuencia necesita recibir información?
+- ¿Ha tenido dificultades para acceder a información confiable?
+- ¿Qué le genera mayor preocupación respecto al cuidado?
+- ¿Qué le gustaría poder ver o controlar desde su celular?
+- ¿Qué le daría mayor tranquilidad?
+- ¿Qué funcionalidades esperaría de una aplicación?
+
+---
 ### 2.2.2. Registro de entrevistas <a id="222-registro-de-entrevistas"></a>
+#### Segmento: Cuidadores
+
+---
+
+### Entrevista 1
+
+**Información del entrevistado**
+
+- Nombre:  
+- Edad:  
+- Procedencia:  
+- Tiempo como cuidador:  
+- Tipo de cuidado (familiar / profesional):  
+
+**Resumen:**  
+(Describir brevemente cómo gestiona el cuidado, herramientas que usa, problemas y necesidades detectadas)
+
+---
+
+### Entrevista 2
+
+**Información del entrevistado**
+
+- Nombre:  
+- Edad:  
+- Procedencia:  
+- Tiempo como cuidador:  
+- Tipo de cuidado (familiar / profesional):  
+
+**Resumen:**  
+(Describir brevemente cómo gestiona el cuidado, herramientas que usa, problemas y necesidades detectadas)
+
+---
+
+#### Segmento: Familiares
+
+---
+
+### Entrevista 1
+
+**Información del entrevistado**
+
+- Nombre:  
+- Edad:  
+- Procedencia:  
+- Relación con el paciente:  
+
+**Resumen:**  
+(Describir cómo obtiene información, preocupaciones, problemas y expectativas)
+
+---
+
+### Entrevista 2
+
+**Información del entrevistado**
+
+- Nombre:  
+- Edad:  
+- Procedencia:  
+- Relación con el paciente:  
+
+**Resumen:**  
+(Describir cómo obtiene información, preocupaciones, problemas y expectativas)
+
+---
 ### 2.2.3. Análisis de entrevistas <a id="223-analisis-de-entrevistas"></a>
 
 ## 2.3. Needfinding <a id="23-needfinding"></a>
