@@ -201,8 +201,327 @@
 
 ## 2.1. Competidores
 ### 2.1.1. Análisis competitivo <a id="211-analisis-competitivo"></a>
+
+# Capítulo II: Requirements & Analysis
+
+### 2.1.1 Competitive Analysis Landscape
+
+<table>
+  <tr>
+    <th colspan="6">Competitive Analysis Landscape</th>
+  </tr>
+
+  <tr>
+    <th>¿Por qué llevar a cabo este análisis?</th>
+    <th colspan="5">
+      ¿Cómo podemos diseñar una solución digital eficiente, confiable y diferenciada que permita a los cuidadores y familiares coordinar el cuidado de personas con discapacidad en tiempo real, reduciendo errores, mejorando la comunicación y brindando visibilidad completa del estado del paciente?
+    </th>
+  </tr>
+
+  <tr>
+    <th rowspan="4">Perfil</th>
+    <th></th>
+    <th>CareConnect</th>
+    <th>Medisafe</th>
+    <th>MyTherapy</th>
+    <th>CareZone</th>
+  </tr>
+
+  <tr>
+    <td><b>Overview</b></td>
+    <td>
+      Aplicación móvil enfocada en la gestión integral del cuidado de personas con discapacidad. 
+      Permite coordinar tratamientos, registrar evolución del paciente y compartir información entre múltiples cuidadores en tiempo real.
+    </td>
+    <td>
+      Aplicación enfocada en recordatorios de medicación para pacientes individuales.
+    </td>
+    <td>
+      Aplicación orientada al seguimiento de salud, hábitos y tratamientos médicos.
+    </td>
+    <td>
+      Plataforma que permite organizar información médica y documentos de pacientes.
+    </td>
+  </tr>
+
+  <tr>
+    <td><b>Ventaja competitiva</b></td>
+    <td>
+      Integración completa del cuidado colaborativo en una sola plataforma con múltiples usuarios.
+    </td>
+    <td>
+      Alta especialización en recordatorios de medicación.
+    </td>
+    <td>
+      Interfaz simple y monitoreo continuo de salud.
+    </td>
+    <td>
+      Organización de información médica familiar.
+    </td>
+  </tr>
+
+  <tr>
+    <td><b>¿Qué valor ofrece a los clientes?</b></td>
+    <td>
+      Mejora la coordinación entre cuidadores, reduce errores en el cuidado y permite acceso centralizado a información crítica del paciente.
+    </td>
+    <td>
+      Reduce olvidos en la toma de medicamentos.
+    </td>
+    <td>
+      Permite seguimiento de tratamientos y hábitos de salud.
+    </td>
+    <td>
+      Facilita el almacenamiento y acceso a información médica.
+    </td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">Perfil de Marketing</th>
+    <td><b>Mercado Objetivo</b></td>
+    <td>
+      Cuidadores y familiares de personas con discapacidad en entornos domiciliarios.
+    </td>
+    <td>
+      Pacientes individuales con tratamientos médicos.
+    </td>
+    <td>
+      Personas con enfermedades crónicas.
+    </td>
+    <td>
+      Familias que gestionan información médica.
+    </td>
+  </tr>
+
+  <tr>
+    <td><b>Estrategias de Marketing</b></td>
+    <td>
+      Marketing digital, enfoque en bienestar, confianza y facilidad de uso.
+    </td>
+    <td>
+      Marketing orientado a salud personal.
+    </td>
+    <td>
+      Promoción en bienestar y seguimiento de salud.
+    </td>
+    <td>
+      Enfoque en organización familiar.
+    </td>
+  </tr>
+
+  <tr>
+    <th rowspan="3">Perfil de Producto</th>
+    <td><b>Productos & Servicios</b></td>
+    <td>
+      Aplicación móvil multiplataforma con calendario, alertas, historial clínico y perfiles compartidos.
+    </td>
+    <td>
+      Aplicación móvil de recordatorios de medicación.
+    </td>
+    <td>
+      Aplicación móvil de seguimiento de salud.
+    </td>
+    <td>
+      Plataforma web y móvil para organización médica.
+    </td>
+  </tr>
+
+  <tr>
+    <td><b>Precios & Costos</b></td>
+    <td>
+      Modelo freemium con funcionalidades premium.
+    </td>
+    <td>
+      Freemium.
+    </td>
+    <td>
+      Freemium.
+    </td>
+    <td>
+      Freemium.
+    </td>
+  </tr>
+
+  <tr>
+    <td><b>Canales de distribución (Web y/o Móvil)</b></td>
+    <td>Móvil</td>
+    <td>Móvil</td>
+    <td>Móvil</td>
+    <td>Web y móvil</td>
+  </tr>
+
+  <tr>
+    <th rowspan="4">Análisis SWOT</th>
+    <td><b>Fortalezas</b></td>
+    <td>
+      Solución integral enfocada en coordinación, centralización y colaboración entre usuarios.
+    </td>
+    <td>
+      Alta especialización en medicación.
+    </td>
+    <td>
+      Interfaz intuitiva.
+    </td>
+    <td>
+      Organización básica de datos médicos.
+    </td>
+  </tr>
+
+  <tr>
+    <td><b>Debilidades</b></td>
+    <td>
+      Aplicación en etapa inicial sin posicionamiento consolidado.
+    </td>
+    <td>
+      No permite colaboración entre múltiples usuarios.
+    </td>
+    <td>
+      No integra completamente la información médica.
+    </td>
+    <td>
+      Funcionalidades limitadas.
+    </td>
+  </tr>
+
+  <tr>
+    <td><b>Oportunidades</b></td>
+    <td>
+      Crecimiento del sector salud digital y necesidad de soluciones colaborativas.
+    </td>
+    <td>
+      Expansión hacia gestión integral del cuidado.
+    </td>
+    <td>
+      Integración con nuevas tecnologías.
+    </td>
+    <td>
+      Mejora de funcionalidades y expansión.
+    </td>
+  </tr>
+
+  <tr>
+    <td><b>Amenazas</b></td>
+    <td>
+      Competidores ya posicionados y barreras de adopción inicial.
+    </td>
+    <td>
+      Nuevas aplicaciones más completas.
+    </td>
+    <td>
+      Saturación del mercado.
+    </td>
+    <td>
+      Falta de innovación.
+    </td>
+  </tr>
+
+</table>
+
 ### 2.1.2. Estrategias y tácticas frente a competidores <a id="212-estrategias-y-tacticas-frente-a-competidores"></a>
 
+A partir del análisis competitivo realizado en la sección anterior, se identificaron diversas oportunidades y debilidades en los competidores actuales (Medisafe, MyTherapy y CareZone). En base a estos hallazgos, se plantean las siguientes estrategias y tácticas para posicionar a CareConnect como una solución diferenciada en el mercado:
+
+---
+
+### 1. Diferenciación mediante coordinación en tiempo real
+
+Se identificó que competidores como Medisafe y MyTherapy se enfocan principalmente en recordatorios individuales, sin permitir la interacción o coordinación entre múltiples usuarios, mientras que CareZone solo centraliza información sin ofrecer comunicación dinámica.
+
+**Estrategia:**  
+Implementar un sistema de coordinación en tiempo real entre cuidadores y familiares.
+
+**Tácticas:**
+- Sistema de notificaciones en tiempo real sobre medicación y eventos.
+- Confirmación de actividades realizadas (ej: medicación administrada).
+- Alertas automáticas en caso de incumplimiento o eventos críticos.
+
+---
+
+### 2. Plataforma integral de cuidado
+
+Los competidores actuales ofrecen soluciones parciales: Medisafe se enfoca en medicación, MyTherapy en seguimiento de salud y CareZone en almacenamiento de información.
+
+**Estrategia:**  
+Ofrecer una plataforma integral que centralice todos los aspectos del cuidado en una sola aplicación.
+
+**Tácticas:**
+- Integración de calendario de medicación y terapias.
+- Registro de historial clínico y evolución del paciente.
+- Almacenamiento de documentos médicos en una carpeta digital.
+- Unificación de todas las funcionalidades en una sola interfaz.
+
+---
+
+### 3. Enfoque en el cuidado colaborativo
+
+Ninguno de los competidores actuales permite una gestión eficiente entre múltiples cuidadores y familiares.
+
+**Estrategia:**  
+Permitir la gestión colaborativa del cuidado mediante perfiles compartidos.
+
+**Tácticas:**
+- Sistema de usuarios múltiples vinculados a un mismo paciente.
+- Acceso compartido a historial, eventos y registros.
+- Control de permisos según tipo de usuario (cuidador, familiar).
+
+---
+
+### 4. Mejora de la experiencia del usuario (UX/UI)
+
+Se observó que varias soluciones no están diseñadas para contextos de uso bajo presión ni para usuarios con bajo conocimiento tecnológico.
+
+**Estrategia:**  
+Desarrollar una interfaz intuitiva, rápida y centrada en el usuario.
+
+**Tácticas:**
+- Diseño mobile-first enfocado en dispositivos Android de gama media.
+- Navegación simple con flujos cortos.
+- Interfaces claras para tareas críticas (registro, consulta, alertas).
+- Pruebas de usabilidad con cuidadores reales.
+
+---
+
+### 5. Enfoque en un nicho específico (discapacidad)
+
+Los competidores actuales no están especializados en el cuidado de personas con discapacidad.
+
+**Estrategia:**  
+Posicionar a CareConnect como una solución especializada en este segmento.
+
+**Tácticas:**
+- Adaptación de funcionalidades a rutinas complejas de cuidado.
+- Diseño accesible y comprensible.
+- Comunicación centrada en bienestar y apoyo al cuidador.
+
+---
+
+### 6. Estrategia de crecimiento y adopción
+
+Se identificó que algunos competidores tienen alcance limitado o no están enfocados en LATAM.
+
+**Estrategia:**  
+Expandir la plataforma mediante estrategias digitales y alianzas estratégicas.
+
+**Tácticas:**
+- Campañas en redes sociales dirigidas a cuidadores y familias.
+- Alianzas con centros de salud y organizaciones de apoyo.
+- Modelo freemium para facilitar adopción inicial.
+- Programas de recomendación entre usuarios.
+
+---
+
+### 7. Mejora continua basada en datos
+
+Los competidores presentan limitaciones en personalización y evolución del producto.
+
+**Estrategia:**  
+Implementar un modelo de mejora continua basado en datos y feedback de usuarios.
+
+**Tácticas:**
+- Recolección de métricas de uso dentro de la app.
+- Análisis del comportamiento del usuario.
+- Iteraciones frecuentes del producto.
+- Incorporación de feedback directo de cuidadores y familiares.
 ## 2.2. Entrevistas <a id="22-entrevistas"></a>
 ### 2.2.1. Diseño de entrevistas <a id="221-diseno-de-entrevistas"></a>
 ### 2.2.2. Registro de entrevistas <a id="222-registro-de-entrevistas"></a>
