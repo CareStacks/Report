@@ -20,9 +20,9 @@
 ### Informe de Trabajo Final
 <br>
 
-**Startup:**
+**Startup:** CareStacks
 
-**Producto:**
+**Producto:** CareConnect
 <br>
 
 <table>
@@ -31,20 +31,20 @@
     <th>Código</th>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
+    <td>Salcedo Champi, Matias Rodolfo</td>
+    <td>U202319698</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
+    <td>Costa Morales, Christofer William</td>
+    <td>U202315968</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
+    <td>Nikaido Vargas, Javier Masaru</td>
+    <td>U20221G099</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
+    <td>Osores Marchese, Pietro</td>
+    <td>U202310971</td>
   </tr>
   <tr>
     <td>Santillan Alvarado, Melina Liz</td>
@@ -60,6 +60,10 @@
 ---
 
 # Registro de Versiones del Informe
+
+| Versión | Fecha | Autor | Descripción de modificación |
+|---|---|---|---|
+| 1 | 21/04/2026 | Salcedo Champi, Matias Rodolfo; Santillan Alvarado, Melina Liz; Costa Morales, Christofer William; Nikaido Vargas, Javier Masaru; Osores Marchese, Pietro | Avance 1: En esta primera entrega se avanzó con el capítulo 1, 2 y 3 de forma organizada para empezar con el proyecto de CareStacks, estableciendo la idea, un estudio del contexto y las features, respectivamente. |
 
 ---
 
