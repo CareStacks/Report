@@ -673,9 +673,191 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 ### 2.5.2. Context Mapping <a id="252-context-mapping"></a>
 
 ### 2.5.3. Software Architecture <a id="253-software-architecture"></a>
+
+En esta sección se presenta la representación de la arquitectura de software para la solución CareConnect, aplicando el C4 Model y utilizando Structurizr como herramienta de elaboración. La arquitectura abarca todos los productos digitales que forman parte del alcance: el Landing Page, los Web Services (RESTful API), y la Mobile Application nativa y multiplataforma. Los diagramas presentados a continuación permiten visualizar la solución desde distintos niveles de abstracción, partiendo del contexto general del sistema, pasando por la descomposición en containers, hasta la distribución física del despliegue.
+
 #### 2.5.3.1. Software Architecture Context Level Diagrams <a id="2531-software-architecture-context-level-diagrams"></a>
+
+El Context Diagram muestra el sistema CareConnect como una caja central, rodeado por los actores que interactúan con él y los sistemas externos de los cuales depende. Este diagrama permite entender el alcance del sistema y sus principales relaciones a alto nivel.
+
+Los actores identificados son:
+
+- **Caregiver (Cuidador):** Usuario principal que gestiona la medicación, terapias, registros clínicos y coordinación del cuidado diario del paciente. Interactúa con el sistema a través de la Mobile Application.
+- **Family Member (Familiar):** Usuario que supervisa el estado del paciente y recibe notificaciones sobre el cuidado. Accede al sistema mediante la Mobile Application.
+- **Visitor (Visitante):** Persona que accede al Landing Page para conocer el modelo de negocio y las características del producto antes de registrarse.
+
+Los sistemas externos identificados son:
+
+- **Email Service (e.g., SendGrid):** Utilizado para el envío de correos de verificación, recuperación de contraseña y notificaciones por email.
+- **Push Notification Service (e.g., Firebase Cloud Messaging):** Servicio externo para el envío de notificaciones push a los dispositivos móviles de cuidadores y familiares.
+- **Identity Provider:** Servicio de autenticación externo que permite el inicio de sesión mediante proveedores como Google Sign-In.
+
+```mermaid
+C4Context
+    title System Context Diagram - CareConnect
+
+    Person(caregiver, "Caregiver", "Gestiona medicación, terapias, registros clínicos y coordinación del cuidado diario del paciente.")
+    Person(family, "Family Member", "Supervisa el estado del paciente y recibe notificaciones sobre el cuidado.")
+    Person(visitor, "Visitor", "Accede al Landing Page para conocer el producto.")
+
+    System(careconnect, "CareConnect Platform", "Plataforma de coordinación del cuidado de personas con discapacidad. Incluye Landing Page, Mobile App y RESTful API.")
+
+    System_Ext(email, "Email Service", "SendGrid - Envío de correos de verificación, recuperación de contraseña y notificaciones.")
+    System_Ext(push, "Push Notification Service", "Firebase Cloud Messaging - Envío de notificaciones push a dispositivos móviles.")
+    System_Ext(idp, "Identity Provider", "Google Sign-In - Autenticación externa de usuarios.")
+
+    Rel(caregiver, careconnect, "Gestiona cuidado del paciente", "HTTPS")
+    Rel(family, careconnect, "Monitorea estado del paciente", "HTTPS")
+    Rel(visitor, careconnect, "Visita Landing Page", "HTTPS")
+    Rel(careconnect, email, "Envía emails", "HTTPS/SMTP")
+    Rel(careconnect, push, "Envía notificaciones push", "HTTPS")
+    Rel(careconnect, idp, "Autentica usuarios", "HTTPS/OAuth 2.0")
+```
+
+*Figura 1. Software Architecture Context Level Diagram para CareConnect.*
+
 #### 2.5.3.2. Software Architecture Container Level Diagrams <a id="2532-software-architecture-container-level-diagrams"></a>
+
+El Container Diagram descompone el sistema CareConnect en sus elementos de alto nivel, mostrando cómo se distribuyen las responsabilidades entre los distintos containers y las principales decisiones de tecnología adoptadas. Cada container representa una unidad desplegable que ejecuta código o almacena datos.
+
+Los containers identificados son:
+
+- **Landing Page:** Sitio web desarrollado con React. Presenta el modelo de negocio, las características del producto y los enlaces de descarga. Es accedido por visitantes a través de un navegador web.
+- **Mobile Application:** Aplicación nativa desarrollada con Kotlin para Android y estrategia cross-platform con Flutter/Dart o Kotlin Multiplatform (KMP). Constituye la interfaz principal mediante la cual cuidadores y familiares interactúan con el sistema. Se comunica con el API Gateway a través de HTTPS/JSON.
+- **API Gateway / RESTful Web Services:** Backend desarrollado con Spring Boot (Java) siguiendo el estilo arquitectónico RESTful API. Expone los endpoints para la gestión de pacientes, medicación, terapias, historial clínico, notificaciones y autenticación. Documentado con OpenAPI Specification vía Swagger.
+- **Database:** Base de datos relacional que persiste la información de usuarios, pacientes, registros clínicos, medicación, terapias y configuraciones del sistema. Almacena los datos de los bounded contexts identificados en el diseño estratégico.
+- **Local Storage (SQLite / Room):** Almacenamiento local en el dispositivo móvil que permite el acceso offline a información crítica del paciente, medicación pendiente y registros recientes, cumpliendo con el requisito de almacenamiento local especificado.
+
+Las relaciones principales entre containers son:
+
+| Origen | Destino | Descripción | Protocolo |
+|--------|---------|-------------|-----------|
+| Mobile Application | API Gateway | Consume endpoints RESTful para operaciones CRUD y consultas | HTTPS / JSON |
+| Mobile Application | Local Storage | Almacena y consulta datos para acceso offline | SQLite / Room |
+| Mobile Application | Push Notification Service | Recibe notificaciones push | FCM |
+| API Gateway | Database | Persiste y consulta datos del dominio | JDBC / JPA |
+| API Gateway | Email Service | Envía correos de verificación y notificaciones | HTTPS / SMTP |
+| API Gateway | Push Notification Service | Dispara notificaciones push a dispositivos | HTTPS |
+| Landing Page | Visitor | Presenta información del producto | HTTPS |
+
+```mermaid
+C4Container
+    title Container Diagram - CareConnect
+
+    Person(caregiver, "Caregiver", "Gestiona el cuidado diario del paciente.")
+    Person(family, "Family Member", "Monitorea el estado del paciente.")
+    Person(visitor, "Visitor", "Conoce el producto.")
+
+    System_Boundary(careconnect, "CareConnect Platform") {
+        Container(landing, "Landing Page", "React", "Presenta el modelo de negocio, características del producto y enlaces de descarga.")
+        Container(mobile, "Mobile Application", "Kotlin / Flutter", "Interfaz principal para cuidadores y familiares. Gestión de medicación, terapias, historial y coordinación.")
+        Container(api, "API Gateway", "Spring Boot / Java", "RESTful Web Services. Expone endpoints para gestión de pacientes, medicación, terapias, historial, notificaciones y autenticación. Documentado con OpenAPI/Swagger.")
+        ContainerDb(db, "Database", "PostgreSQL", "Almacena usuarios, pacientes, registros clínicos, medicación, terapias y configuraciones.")
+        ContainerDb(local, "Local Storage", "SQLite / Room", "Almacenamiento offline en dispositivo móvil con datos críticos del paciente.")
+    }
+
+    System_Ext(email, "Email Service", "SendGrid")
+    System_Ext(push, "Push Notification Service", "Firebase Cloud Messaging")
+    System_Ext(idp, "Identity Provider", "Google Sign-In")
+
+    Rel(visitor, landing, "Visita", "HTTPS")
+    Rel(caregiver, mobile, "Usa", "")
+    Rel(family, mobile, "Usa", "")
+    Rel(mobile, api, "Consume API", "HTTPS/JSON")
+    Rel(mobile, local, "Lee/Escribe datos offline", "SQLite")
+    Rel(api, db, "Persiste datos", "JDBC/JPA")
+    Rel(api, email, "Envía emails", "HTTPS/SMTP")
+    Rel(api, push, "Dispara notificaciones", "HTTPS")
+    Rel(api, idp, "Verifica autenticación", "OAuth 2.0")
+    Rel(push, mobile, "Envía notificaciones push", "FCM")
+```
+
+*Figura 2. Software Architecture Container Level Diagram para CareConnect.*
+
 #### 2.5.3.3. Software Architecture Deployment Diagrams <a id="2533-software-architecture-deployment-diagrams"></a>
+
+El Deployment Diagram muestra la distribución física del sistema CareConnect, destacando cómo los componentes de software se despliegan sobre la infraestructura de hardware y los entornos de ejecución. Este diagrama permite visualizar los nodos físicos y virtuales, las relaciones de red entre ellos y la asignación de containers a cada nodo.
+
+Los nodos de despliegue identificados son:
+
+- **User's Mobile Device (Android):**
+  - Ejecuta la **Mobile Application** (APK distribuido vía Firebase App Distribution).
+  - Contiene el **Local Storage** (SQLite/Room) para persistencia offline.
+  - Se comunica con el backend a través de HTTPS sobre internet.
+
+- **User's Web Browser:**
+  - Renderiza el **Landing Page** estático, servido desde un proveedor de hosting.
+
+- **Cloud Hosting Provider (e.g., Railway / Render / AWS):**
+  - **Web Server Node:** Aloja el **API Gateway / RESTful Web Services** (Spring Boot). Recibe peticiones HTTPS desde la Mobile Application y ejecuta la lógica de negocio.
+  - **Database Server Node:** Aloja la **Database** relacional (e.g., PostgreSQL / MySQL). Accedida únicamente desde el Web Server Node a través de la red interna del proveedor.
+
+- **Static Hosting Provider (e.g., GitHub Pages / Netlify / Vercel):**
+  - Sirve los archivos estáticos del **Landing Page** (HTML, CSS, JS) a los navegadores web de los visitantes.
+
+- **Firebase (Google Cloud):**
+  - **Firebase Cloud Messaging:** Servicio de notificaciones push que envía alertas a los dispositivos móviles.
+  - **Firebase App Distribution:** Servicio para la distribución y prueba de la aplicación móvil en dispositivos antes del lanzamiento.
+
+- **External Email Service (e.g., SendGrid):**
+  - Procesa y envía correos electrónicos disparados desde el backend.
+
+Las conexiones de red principales son:
+
+| Origen | Destino | Protocolo | Descripción |
+|--------|---------|-----------|-------------|
+| Mobile Device | Cloud Web Server | HTTPS | Consumo de RESTful API |
+| Mobile Device | Firebase Cloud Messaging | HTTPS | Recepción de notificaciones push |
+| Web Browser | Static Hosting | HTTPS | Carga del Landing Page |
+| Cloud Web Server | Database Server | TCP/JDBC | Persistencia de datos |
+| Cloud Web Server | SendGrid | HTTPS/SMTP | Envío de emails |
+| Cloud Web Server | Firebase Cloud Messaging | HTTPS | Disparo de notificaciones |
+
+```mermaid
+C4Deployment
+    title Deployment Diagram - CareConnect
+
+    Deployment_Node(userDevice, "User's Mobile Device", "Android") {
+        Container(mobileApp, "Mobile Application", "Kotlin / Flutter", "Interfaz principal del sistema.")
+        ContainerDb(localStorage, "Local Storage", "SQLite / Room", "Persistencia offline.")
+    }
+
+    Deployment_Node(userBrowser, "User's Web Browser", "Chrome / Firefox / Safari") {
+        Container(landingPage, "Landing Page", "React", "Sitio web del producto.")
+    }
+
+    Deployment_Node(cloud, "Cloud Hosting Provider", "Railway / Render / AWS") {
+        Deployment_Node(webServer, "Web Server Node", "Linux / Docker") {
+            Container(apiServer, "API Gateway", "Spring Boot / Java", "RESTful Web Services.")
+        }
+        Deployment_Node(dbServer, "Database Server Node", "Managed DB") {
+            ContainerDb(database, "Database", "PostgreSQL", "Base de datos relacional.")
+        }
+    }
+
+    Deployment_Node(staticHost, "Static Hosting", "Vercel / Netlify / GitHub Pages") {
+        Container(staticFiles, "Landing Page Files", "HTML/CSS/JS Bundle", "Archivos estáticos del Landing Page.")
+    }
+
+    Deployment_Node(firebase, "Firebase", "Google Cloud") {
+        System_Ext(fcm, "Firebase Cloud Messaging", "Notificaciones push.")
+        System_Ext(appDist, "Firebase App Distribution", "Distribución de APK para testing.")
+    }
+
+    Deployment_Node(emailProvider, "Email Provider", "SendGrid") {
+        System_Ext(emailService, "Email Service", "Envío de correos transaccionales.")
+    }
+
+    Rel(mobileApp, apiServer, "Consume API", "HTTPS/JSON")
+    Rel(mobileApp, localStorage, "Lee/Escribe", "SQLite")
+    Rel(userBrowser, staticFiles, "Carga", "HTTPS")
+    Rel(apiServer, database, "Persiste datos", "TCP/JDBC")
+    Rel(apiServer, fcm, "Dispara notificaciones", "HTTPS")
+    Rel(apiServer, emailService, "Envía emails", "HTTPS/SMTP")
+    Rel(fcm, mobileApp, "Push notifications", "FCM")
+```
+
+*Figura 3. Software Architecture Deployment Diagram para CareConnect.*
 
 ## 2.6. Tactical-Level Domain-Driven Design <a id="26-tactical-level-domain-driven-design"></a>
 ### 2.6.x. Bounded Context <a id="26x-bounded-context"></a>
