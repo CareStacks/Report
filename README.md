@@ -693,6 +693,7 @@ Los sistemas externos identificados son:
 - **Identity Provider:** Servicio de autenticación externo que permite el inicio de sesión mediante proveedores como Google Sign-In.
 
 ```mermaid
+%%{init: {'theme': 'dark'}}%%
 C4Context
     title System Context Diagram - CareConnect
 
@@ -712,6 +713,13 @@ C4Context
     Rel(careconnect, email, "Envía emails", "HTTPS/SMTP")
     Rel(careconnect, push, "Envía notificaciones push", "HTTPS")
     Rel(careconnect, idp, "Autentica usuarios", "HTTPS/OAuth 2.0")
+
+    UpdateRelStyle(caregiver, careconnect, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(family, careconnect, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(visitor, careconnect, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(careconnect, email, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(careconnect, push, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(careconnect, idp, $textColor="#ffffff", $lineColor="#ffffff")
 ```
 
 *Figura 1. Software Architecture Context Level Diagram para CareConnect.*
@@ -741,6 +749,7 @@ Las relaciones principales entre containers son:
 | Landing Page | Visitor | Presenta información del producto | HTTPS |
 
 ```mermaid
+%%{init: {'theme': 'dark'}}%%
 C4Container
     title Container Diagram - CareConnect
 
@@ -770,6 +779,17 @@ C4Container
     Rel(api, push, "Dispara notificaciones", "HTTPS")
     Rel(api, idp, "Verifica autenticación", "OAuth 2.0")
     Rel(push, mobile, "Envía notificaciones push", "FCM")
+
+    UpdateRelStyle(visitor, landing, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(caregiver, mobile, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(family, mobile, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(mobile, api, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(mobile, local, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(api, db, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(api, email, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(api, push, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(api, idp, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(push, mobile, $textColor="#ffffff", $lineColor="#ffffff")
 ```
 
 *Figura 2. Software Architecture Container Level Diagram para CareConnect.*
@@ -814,6 +834,7 @@ Las conexiones de red principales son:
 | Cloud Web Server | Firebase Cloud Messaging | HTTPS | Disparo de notificaciones |
 
 ```mermaid
+%%{init: {'theme': 'dark'}}%%
 C4Deployment
     title Deployment Diagram - CareConnect
 
@@ -850,6 +871,13 @@ C4Deployment
     Rel(apiServer, fcm, "Dispara notificaciones", "HTTPS")
     Rel(apiServer, emailService, "Envía emails", "HTTPS/SMTP")
     Rel(fcm, mobileApp, "Push notifications", "FCM")
+
+    UpdateRelStyle(mobileApp, apiServer, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(mobileApp, localStorage, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(apiServer, database, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(apiServer, fcm, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(apiServer, emailService, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(fcm, mobileApp, $textColor="#ffffff", $lineColor="#ffffff")
 ```
 
 *Figura 3. Software Architecture Deployment Diagram para CareConnect.*
