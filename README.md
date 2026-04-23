@@ -779,6 +779,94 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 | **Description** | Como cuidador, deseo acceder a los documentos del paciente para apoyar en su seguimiento. |
 | **Acceptance Criteria** | Escenario 1: Acceso autorizado <br> Dado que el cuidador tiene permisos de acceso <br> Cuando consulta los documentos del paciente <br> Entonces el sistema permite su visualización <br><br> Escenario 2: Acceso denegado <br> Dado que el cuidador no tiene permisos <br> Cuando intenta acceder a los documentos <br> Entonces el sistema bloquea el acceso y muestra un mensaje de restricción |
 
+---
+
+### TS01 – Persistencia de eventos de agenda
+
+| **Story ID** | TS01 |
+|--------------|------|
+| **User** | Desarrollador |
+| **Priority** | Alta |
+| **Description** | Como desarrollador, quiero implementar la persistencia de eventos de salud (citas y medicación) para garantizar su almacenamiento y consulta eficiente. |
+| **Acceptance Criteria** | Escenario 1: Almacenamiento exitoso <br> Dado que se recibe un evento válido <br> Cuando el sistema lo procesa <br> Entonces el evento se almacena correctamente en la base de datos <br><br> Escenario 2: Integridad de datos <br> Dado que ocurre un error en el almacenamiento <br> Cuando el sistema intenta guardar el evento <br> Entonces se evita la persistencia de datos incompletos |
+
+---
+
+### TS02 – Gestión de estado de eventos
+
+| **Story ID** | TS02 |
+|--------------|------|
+| **User** | Desarrollador |
+| **Priority** | Alta |
+| **Description** | Como desarrollador, quiero implementar la lógica de cambio de estado de los eventos (pendiente, confirmado, incumplido) para reflejar el seguimiento del paciente. |
+| **Acceptance Criteria** | Escenario 1: Cambio de estado válido <br> Dado que existe un evento registrado <br> Cuando se actualiza su estado <br> Entonces el sistema persiste el nuevo estado correctamente <br><br> Escenario 2: Validación de transición <br> Dado un estado inválido <br> Cuando se intenta actualizar <br> Entonces el sistema rechaza la operación |
+
+---
+
+### TS03 – Programación de notificaciones
+
+| **Story ID** | TS03 |
+|--------------|------|
+| **User** | Desarrollador |
+| **Priority** | Alta |
+| **Description** | Como desarrollador, quiero implementar un servicio de programación que genere notificaciones basadas en la fecha y hora de los eventos registrados. |
+| **Acceptance Criteria** | Escenario 1: Programación correcta <br> Dado que existe un evento con fecha definida <br> Cuando se agenda la notificación <br> Entonces el sistema programa su envío correctamente <br><br> Escenario 2: Reprogramación <br> Dado que el evento cambia de horario <br> Cuando se actualiza <br> Entonces la notificación se reprograma automáticamente |
+
+---
+
+### TS04 – Envío de notificaciones
+
+| **Story ID** | TS04 |
+|--------------|------|
+| **User** | Desarrollador |
+| **Priority** | Alta |
+| **Description** | Como desarrollador, quiero implementar el mecanismo de envío de notificaciones push hacia pacientes y cuidadores según reglas de negocio. |
+| **Acceptance Criteria** | Escenario 1: Envío exitoso <br> Dado que existe una notificación programada <br> Cuando se cumple la condición de envío <br> Entonces el sistema envía la notificación al destinatario <br><br> Escenario 2: Manejo de fallos <br> Dado que falla el envío <br> Cuando ocurre el error <br> Entonces el sistema registra el incidente y reintenta según configuración |
+
+---
+
+### TS05 – Control de acceso a notificaciones
+
+| **Story ID** | TS05 |
+|--------------|------|
+| **User** | Desarrollador |
+| **Priority** | Media |
+| **Description** | Como desarrollador, quiero implementar validaciones de permisos para asegurar que solo usuarios autorizados reciban notificaciones. |
+| **Acceptance Criteria** | Escenario 1: Acceso autorizado <br> Dado que el usuario tiene permisos <br> Cuando se genera una notificación <br> Entonces el sistema permite su envío <br><br> Escenario 2: Acceso restringido <br> Dado que el usuario no tiene permisos <br> Cuando se genera una notificación <br> Entonces el sistema bloquea el envío |
+
+---
+
+### TS06 – Almacenamiento de documentos
+
+| **Story ID** | TS06 |
+|--------------|------|
+| **User** | Desarrollador |
+| **Priority** | Alta |
+| **Description** | Como desarrollador, quiero implementar el almacenamiento de documentos médicos en un sistema seguro para garantizar su disponibilidad. |
+| **Acceptance Criteria** | Escenario 1: Almacenamiento correcto <br> Dado que se recibe un archivo válido <br> Cuando el sistema lo procesa <br> Entonces el documento se almacena correctamente <br><br> Escenario 2: Validación de archivo <br> Dado un archivo inválido <br> Cuando se intenta almacenar <br> Entonces el sistema rechaza la operación |
+
+---
+
+### TS07 – Gestión de metadatos de documentos
+
+| **Story ID** | TS07 |
+|--------------|------|
+| **User** | Desarrollador |
+| **Priority** | Media |
+| **Description** | Como desarrollador, quiero implementar el registro de metadatos (tipo, fecha, paciente, descripción) asociados a cada documento. |
+| **Acceptance Criteria** | Escenario 1: Registro de metadatos <br> Dado que se almacena un documento <br> Cuando se registran sus atributos <br> Entonces el sistema guarda correctamente los metadatos <br><br> Escenario 2: Consistencia <br> Dado datos incompletos <br> Cuando se intenta registrar <br> Entonces el sistema valida y rechaza la operación |
+
+---
+
+### TS08 – Control de acceso a documentos
+
+| **Story ID** | TS08 |
+|--------------|------|
+| **User** | Desarrollador |
+| **Priority** | Alta |
+| **Description** | Como desarrollador, quiero implementar mecanismos de autorización para controlar el acceso a documentos entre paciente y cuidador. |
+| **Acceptance Criteria** | Escenario 1: Acceso permitido <br> Dado que el cuidador tiene permisos <br> Cuando solicita acceso <br> Entonces el sistema permite visualizar el documento <br><br> Escenario 2: Acceso denegado <br> Dado que no tiene permisos <br> Cuando intenta acceder <br> Entonces el sistema bloquea la operación |
+
 ### 2.4.2. Impact Mapping <a id="242-impact-mapping"></a>
 ### 2.4.3. Product Backlog <a id="243-product-backlog"></a>
 
