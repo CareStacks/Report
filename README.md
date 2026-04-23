@@ -666,190 +666,136 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 
 | Epic ID | Nombre de la Épica        | Descripción                                                                                           |
 |---------|---------------------------|-------------------------------------------------------------------------------------------------------|
-| EP01    | Gestión de Agenda         | Como paciente o tutor, quiero gestionar eventos de salud para organizar medicación y citas en el tiempo. |
-| EP02    | Gestión de Notificaciones | Como paciente o tutor, quiero recibir notificaciones para dar seguimiento oportuno a los eventos de salud. |
-| EP03    | Gestión de Documentos     | Como paciente o tutor, quiero gestionar documentos médicos para mantener un registro accesible.      |
-| EP04    | Acceso Compartido         | Como paciente, quiero compartir mi perfil con un tutor para permitir el seguimiento de mi estado de salud. |
-| EP05    | Diario de Seguimiento     | Como paciente o tutor, quiero registrar notas de seguimiento para monitorear la evolución del estado de salud. |
-| EP06    | Autenticación             | Como paciente o tutor, quiero acceder al sistema de forma segura para proteger mi información personal. |
+| EP01    | Gestión de Agenda         | Como paciente o cuidador, quiero gestionar eventos de salud para organizar medicación y citas en el tiempo. |
+| EP02    | Gestión de Notificaciones | Como paciente o cuidador, quiero recibir notificaciones para dar seguimiento oportuno a los eventos de salud. |
+| EP03    | Gestión de Documentos     | Como paciente o cuidador, quiero gestionar documentos médicos para mantener un registro accesible.    |
+| EP04    | Acceso Compartido         | Como paciente, quiero compartir mi perfil con un cuidador para permitir el seguimiento de mi estado de salud. |
+| EP05    | Diario de Seguimiento     | Como paciente o cuidador, quiero registrar notas de seguimiento para monitorear la evolución del estado de salud. |
+| EP06    | Autenticación             | Como paciente o cuidador, quiero acceder al sistema de forma segura para proteger mi información personal. |
 
 ### US01 – Registrar evento de salud
 
-| Story ID | User               | Priority | Epic               |
-|----------|--------------------|----------|--------------------|
-| US01     | Paciente / Tutor   | Alta     | Gestión de Agenda  |
-
-| Title |
-|-------|
-| Registrar evento de salud |
-
-| Description |
-|-------------|
-| Como paciente o tutor, deseo registrar un evento de salud (medicación o cita) para organizar las actividades médicas en un calendario. |
-
-| Acceptance Criteria |
-|---------------------|
-| Escenario 1: Registro exitoso de evento <br> Dado que el paciente o tutor ingresa datos válidos del evento <br> Cuando registra el evento de salud <br> Entonces el sistema almacena el evento correctamente en la agenda <br><br> Escenario 2: Validación de datos obligatorios <br> Dado que el paciente o tutor omite datos obligatorios <br> Cuando intenta registrar el evento <br> Entonces el sistema muestra un mensaje de error indicando los campos requeridos <br><br> Escenario 3: Visualización del evento <br> Dado que el evento fue registrado correctamente <br> Cuando el paciente o tutor accede al calendario <br> Entonces el evento se visualiza en la fecha correspondiente |
+| Campo                | Descripción |
+|---------------------|-------------|
+| Story ID            | US01 |
+| User                | Paciente / Cuidador |
+| Priority            | Alta |
+| Epic                | Gestión de Agenda |
+| Title               | Registrar evento de salud |
+| Description         | Como paciente o cuidador, deseo registrar un evento de salud (medicación o cita) para organizar las actividades médicas en un calendario. |
+| Acceptance Criteria | Escenario 1: Registro exitoso de evento <br> Dado que el paciente o cuidador ingresa datos válidos del evento <br> Cuando registra el evento de salud <br> Entonces el sistema almacena el evento correctamente en la agenda <br><br> Escenario 2: Validación de datos obligatorios <br> Dado que el paciente o cuidador omite datos obligatorios <br> Cuando intenta registrar el evento <br> Entonces el sistema muestra un mensaje de error indicando los campos requeridos <br><br> Escenario 3: Visualización del evento <br> Dado que el evento fue registrado correctamente <br> Cuando el paciente o cuidador accede al calendario <br> Entonces el evento se visualiza en la fecha correspondiente |
 
 ---
 
 ### US02 – Confirmar evento de salud
 
-| Story ID | User     | Priority | Epic               |
-|----------|----------|----------|--------------------|
-| US02     | Paciente | Alta     | Gestión de Agenda  |
-
-| Title |
-|-------|
-| Confirmar evento de salud |
-
-| Description |
-|-------------|
-| Como paciente, deseo confirmar un evento de salud para registrar el cumplimiento de mi tratamiento. |
-
-| Acceptance Criteria |
-|---------------------|
-| Escenario 1: Confirmación exitosa <br> Dado que existe un evento programado <br> Cuando el paciente confirma el evento <br> Entonces el sistema actualiza su estado a “confirmado” <br><br> Escenario 2: Visualización del estado <br> Dado que el evento fue confirmado <br> Cuando el paciente accede al calendario <br> Entonces el estado del evento se muestra como confirmado |
+| Campo                | Descripción |
+|---------------------|-------------|
+| Story ID            | US02 |
+| User                | Paciente |
+| Priority            | Alta |
+| Epic                | Gestión de Agenda |
+| Title               | Confirmar evento de salud |
+| Description         | Como paciente, deseo confirmar un evento de salud para registrar el cumplimiento de mi tratamiento. |
+| Acceptance Criteria | Escenario 1: Confirmación exitosa <br> Dado que existe un evento programado <br> Cuando el paciente confirma el evento <br> Entonces el sistema actualiza su estado a “confirmado” <br><br> Escenario 2: Visualización del estado <br> Dado que el evento fue confirmado <br> Cuando el paciente accede al calendario <br> Entonces el estado del evento se muestra como confirmado |
 
 ---
 
 ### US03 – Reprogramar evento de salud
 
-| Story ID | User               | Priority | Epic               |
-|----------|--------------------|----------|--------------------|
-| US03     | Paciente / Tutor   | Media    | Gestión de Agenda  |
-
-| Title |
-|-------|
-| Reprogramar evento de salud |
-
-| Description |
-|-------------|
-| Como paciente o tutor, deseo reprogramar un evento de salud para ajustarlo a cambios en la disponibilidad. |
-
-| Acceptance Criteria |
-|---------------------|
-| Escenario 1: Reprogramación exitosa <br> Dado que existe un evento previamente registrado <br> Cuando el paciente o tutor modifica la fecha u hora <br> Entonces el sistema actualiza el evento correctamente <br><br> Escenario 2: Validación de conflicto <br> Dado que existe otro evento en el mismo horario <br> Cuando el paciente o tutor intenta reprogramar <br> Entonces el sistema evita el conflicto y muestra una advertencia |
+| Campo                | Descripción |
+|---------------------|-------------|
+| Story ID            | US03 |
+| User                | Paciente / Cuidador |
+| Priority            | Media |
+| Epic                | Gestión de Agenda |
+| Title               | Reprogramar evento de salud |
+| Description         | Como paciente o cuidador, deseo reprogramar un evento de salud para ajustarlo a cambios en la disponibilidad. |
+| Acceptance Criteria | Escenario 1: Reprogramación exitosa <br> Dado que existe un evento previamente registrado <br> Cuando el paciente o cuidador modifica la fecha u hora <br> Entonces el sistema actualiza el evento correctamente <br><br> Escenario 2: Validación de conflicto <br> Dado que existe otro evento en el mismo horario <br> Cuando el paciente o cuidador intenta reprogramar <br> Entonces el sistema evita el conflicto y muestra una advertencia |
 
 ---
 
 ### US04 – Recibir recordatorios de eventos
 
-| Story ID | User     | Priority | Epic                       |
-|----------|----------|----------|----------------------------|
-| US04     | Paciente | Alta     | Gestión de Notificaciones  |
-
-| Title |
-|-------|
-| Recibir recordatorios de eventos |
-
-| Description |
-|-------------|
-| Como paciente, deseo recibir recordatorios de mis eventos de salud para cumplir con mis actividades programadas. |
-
-| Acceptance Criteria |
-|---------------------|
-| Escenario 1: Envío de recordatorio <br> Dado que existe un evento programado <br> Cuando se aproxima la hora del evento <br> Entonces el paciente recibe una notificación <br><br> Escenario 2: Contenido de la notificación <br> Dado que se genera una notificación <br> Cuando el paciente la visualiza <br> Entonces esta contiene información relevante del evento |
+| Campo                | Descripción |
+|---------------------|-------------|
+| Story ID            | US04 |
+| User                | Paciente |
+| Priority            | Alta |
+| Epic                | Gestión de Notificaciones |
+| Title               | Recibir recordatorios de eventos |
+| Description         | Como paciente, deseo recibir recordatorios de mis eventos de salud para cumplir con mis actividades programadas. |
+| Acceptance Criteria | Escenario 1: Envío de recordatorio <br> Dado que existe un evento programado <br> Cuando se aproxima la hora del evento <br> Entonces el paciente recibe una notificación <br><br> Escenario 2: Contenido de la notificación <br> Dado que se genera una notificación <br> Cuando el paciente la visualiza <br> Entonces esta contiene información relevante del evento |
 
 ---
 
 ### US05 – Recibir alertas de incumplimiento
 
-| Story ID | User  | Priority | Epic                       |
-|----------|-------|----------|----------------------------|
-| US05     | Tutor | Alta     | Gestión de Notificaciones  |
-
-| Title |
-|-------|
-| Recibir alertas de incumplimiento |
-
-| Description |
-|-------------|
-| Como tutor, deseo recibir alertas cuando un evento no es confirmado para supervisar al paciente. |
-
-| Acceptance Criteria |
-|---------------------|
-| Escenario 1: Generación de alerta <br> Dado que un evento no ha sido confirmado <br> Cuando se supera el tiempo límite establecido <br> Entonces el tutor recibe una alerta de incumplimiento <br><br> Escenario 2: Validación de permisos <br> Dado que el tutor no tiene acceso al paciente <br> Cuando se genera la alerta <br> Entonces el sistema no envía la notificación |
+| Campo                | Descripción |
+|---------------------|-------------|
+| Story ID            | US05 |
+| User                | Cuidador |
+| Priority            | Alta |
+| Epic                | Gestión de Notificaciones |
+| Title               | Recibir alertas de incumplimiento |
+| Description         | Como cuidador, deseo recibir alertas cuando un evento no es confirmado para supervisar al paciente. |
+| Acceptance Criteria | Escenario 1: Generación de alerta <br> Dado que un evento no ha sido confirmado <br> Cuando se supera el tiempo límite establecido <br> Entonces el cuidador recibe una alerta de incumplimiento <br><br> Escenario 2: Validación de permisos <br> Dado que el cuidador no tiene acceso al paciente <br> Cuando se genera la alerta <br> Entonces el sistema no envía la notificación |
 
 ---
 
 ### US06 – Visualizar notificaciones
 
-| Story ID | User  | Priority | Epic                       |
-|----------|-------|----------|----------------------------|
-| US06     | Tutor | Media    | Gestión de Notificaciones  |
-
-| Title |
-|-------|
-| Visualizar notificaciones |
-
-| Description |
-|-------------|
-| Como tutor, deseo visualizar las notificaciones recibidas para monitorear el estado del paciente. |
-
-| Acceptance Criteria |
-|---------------------|
-| Escenario 1: Consulta de notificaciones <br> Dado que existen notificaciones registradas <br> Cuando el tutor accede a la sección de notificaciones <br> Entonces el sistema muestra la lista de notificaciones <br><br> Escenario 2: Orden de visualización <br> Dado que existen múltiples notificaciones <br> Cuando el tutor las visualiza <br> Entonces se muestran ordenadas por fecha o prioridad |
+| Campo                | Descripción |
+|---------------------|-------------|
+| Story ID            | US06 |
+| User                | Cuidador |
+| Priority            | Media |
+| Epic                | Gestión de Notificaciones |
+| Title               | Visualizar notificaciones |
+| Description         | Como cuidador, deseo visualizar las notificaciones recibidas para monitorear el estado del paciente. |
+| Acceptance Criteria | Escenario 1: Consulta de notificaciones <br> Dado que existen notificaciones registradas <br> Cuando el cuidador accede a la sección de notificaciones <br> Entonces el sistema muestra la lista de notificaciones <br><br> Escenario 2: Orden de visualización <br> Dado que existen múltiples notificaciones <br> Cuando el cuidador las visualiza <br> Entonces se muestran ordenadas por fecha o prioridad |
 
 ---
 
 ### US07 – Subir documento médico
 
-| Story ID | User               | Priority | Epic                   |
-|----------|--------------------|----------|------------------------|
-| US07     | Paciente / Tutor   | Alta     | Gestión de Documentos  |
-
-| Title |
-|-------|
-| Subir documento médico |
-
-| Description |
-|-------------|
-| Como paciente o tutor, deseo subir documentos médicos para mantener un registro digital accesible. |
-
-| Acceptance Criteria |
-|---------------------|
-| Escenario 1: Carga exitosa <br> Dado que el paciente o tutor selecciona un archivo válido <br> Cuando lo sube al sistema <br> Entonces el documento se almacena correctamente <br><br> Escenario 2: Validación de archivo <br> Dado que el archivo no cumple con formato o tamaño permitido <br> Cuando el paciente o tutor intenta subirlo <br> Entonces el sistema muestra un mensaje de error |
+| Campo                | Descripción |
+|---------------------|-------------|
+| Story ID            | US07 |
+| User                | Paciente / Cuidador |
+| Priority            | Alta |
+| Epic                | Gestión de Documentos |
+| Title               | Subir documento médico |
+| Description         | Como paciente o cuidador, deseo subir documentos médicos para mantener un registro digital accesible. |
+| Acceptance Criteria | Escenario 1: Carga exitosa <br> Dado que el paciente o cuidador selecciona un archivo válido <br> Cuando lo sube al sistema <br> Entonces el documento se almacena correctamente <br><br> Escenario 2: Validación de archivo <br> Dado que el archivo no cumple con formato o tamaño permitido <br> Cuando el paciente o cuidador intenta subirlo <br> Entonces el sistema muestra un mensaje de error |
 
 ---
 
 ### US08 – Consultar documentos
 
-| Story ID | User               | Priority | Epic                   |
-|----------|--------------------|----------|------------------------|
-| US08     | Paciente / Tutor   | Media    | Gestión de Documentos  |
-
-| Title |
-|-------|
-| Consultar documentos |
-
-| Description |
-|-------------|
-| Como paciente o tutor, deseo consultar los documentos almacenados para revisar información médica. |
-
-| Acceptance Criteria |
-|---------------------|
-| Escenario 1: Visualización de documentos <br> Dado que existen documentos almacenados <br> Cuando el paciente o tutor accede a la sección correspondiente <br> Entonces el sistema muestra la lista de documentos disponibles |
+| Campo                | Descripción |
+|---------------------|-------------|
+| Story ID            | US08 |
+| User                | Paciente / Cuidador |
+| Priority            | Media |
+| Epic                | Gestión de Documentos |
+| Title               | Consultar documentos |
+| Description         | Como paciente o cuidador, deseo consultar los documentos almacenados para revisar información médica. |
+| Acceptance Criteria | Escenario 1: Visualización de documentos <br> Dado que existen documentos almacenados <br> Cuando el paciente o cuidador accede a la sección correspondiente <br> Entonces el sistema muestra la lista de documentos disponibles |
 
 ---
 
 ### US09 – Acceder a documentos compartidos
 
-| Story ID | User  | Priority | Epic                   |
-|----------|-------|----------|------------------------|
-| US09     | Tutor | Media    | Gestión de Documentos  |
-
-| Title |
-|-------|
-| Acceder a documentos compartidos |
-
-| Description |
-|-------------|
-| Como tutor, deseo acceder a los documentos del paciente para apoyar en su seguimiento. |
-
-| Acceptance Criteria |
-|---------------------|
-| Escenario 1: Acceso autorizado <br> Dado que el tutor tiene permisos de acceso <br> Cuando consulta los documentos del paciente <br> Entonces el sistema permite su visualización <br><br> Escenario 2: Acceso denegado <br> Dado que el tutor no tiene permisos <br> Cuando intenta acceder a los documentos <br> Entonces el sistema bloquea el acceso y muestra un mensaje de restricción |
+| Campo                | Descripción |
+|---------------------|-------------|
+| Story ID            | US09 |
+| User                | Cuidador |
+| Priority            | Media |
+| Epic                | Gestión de Documentos |
+| Title               | Acceder a documentos compartidos |
+| Description         | Como cuidador, deseo acceder a los documentos del paciente para apoyar en su seguimiento. |
+| Acceptance Criteria | Escenario 1: Acceso autorizado <br> Dado que el cuidador tiene permisos de acceso <br> Cuando consulta los documentos del paciente <br> Entonces el sistema permite su visualización <br><br> Escenario 2: Acceso denegado <br> Dado que el cuidador no tiene permisos <br> Cuando intenta acceder a los documentos <br> Entonces el sistema bloquea el acceso y muestra un mensaje de restricción |
 
 ### 2.4.2. Impact Mapping <a id="242-impact-mapping"></a>
 ### 2.4.3. Product Backlog <a id="243-product-backlog"></a>
