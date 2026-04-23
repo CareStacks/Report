@@ -573,16 +573,33 @@ El objetivo es comprender el nivel de visibilidad que tienen sobre el cuidado de
 
 **Información del entrevistado**
 
-- Nombre:  
-- Edad:  
-- Procedencia:  
-- Tiempo como cuidador:  
-- Tipo de cuidado (familiar / profesional):  
+- Nombre: Giancarlo  
+- Edad: 20 años  
+- Procedencia: Perú 
+- Tiempo como cuidador: 1 año  
+- Tipo de cuidado: Cuidador de adultos mayores a domicilio  
 
-**Resumen:**  
-(Describir brevemente cómo gestiona el cuidado, herramientas que usa, problemas y necesidades detectadas)
+**Resumen:**
+
+El entrevistado indicó que actualmente gestiona el cuidado del paciente mediante herramientas mayormente manuales. Para la medicación utiliza pastilleros semanales organizados con base en recetas médicas, complementando con alarmas en su celular para recordar los horarios. Las terapias y citas médicas las registra en un cuaderno físico junto con el historial del paciente.
+
+En cuanto a herramientas, utiliza dispositivos médicos básicos como tensiómetro, oxímetro y termómetro, además de un cuaderno de bitácora para registrar eventos relevantes. A nivel digital, emplea principalmente alarmas y WhatsApp para comunicarse con los familiares.
+
+El entrevistado señaló que uno de los principales problemas es la falta de coordinación durante los cambios de turno, donde la información no siempre se transmite correctamente, lo que puede generar pérdida de datos importantes sobre el estado del paciente.
+
+Respecto a las dificultades del cuidado diario, mencionó el manejo de cambios de humor y episodios de confusión del paciente, así como la falta de apoyo inmediato de profesionales de salud para resolver dudas.
+
+En relación con una posible solución digital, destacó la necesidad de funcionalidades como:
+- Registro compartido en tiempo real entre cuidadores  
+- Confirmación de administración de medicamentos  
+- Recordatorios automáticos  
+- Historial de signos vitales  
+- Sección de notas para relevo de turno  
+
+Finalmente, el entrevistado espera que una solución digital le permita reducir la carga mental, mejorar la organización del cuidado y generar mayor confianza con los familiares, al brindarles visibilidad del estado del paciente en tiempo real.
 
 ---
+
 
 ### Entrevista 2
 
