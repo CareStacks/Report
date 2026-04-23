@@ -822,8 +822,8 @@ C4Deployment
         ContainerDb(localStorage, "Local Storage", "SQLite / Room", "Persistencia offline.")
     }
 
-    Deployment_Node(userBrowser, "User's Web Browser", "Chrome / Firefox / Safari") {
-        Container(landingPage, "Landing Page", "React", "Sitio web del producto.")
+    Deployment_Node(staticHost, "Static Hosting", "Vercel / Netlify / GitHub Pages") {
+        Container(landingPage, "Landing Page", "React", "Sitio web del producto servido al navegador del visitante.")
     }
 
     Deployment_Node(cloud, "Cloud Hosting Provider", "Railway / Render / AWS") {
@@ -835,22 +835,17 @@ C4Deployment
         }
     }
 
-    Deployment_Node(staticHost, "Static Hosting", "Vercel / Netlify / GitHub Pages") {
-        Container(staticFiles, "Landing Page Files", "HTML/CSS/JS Bundle", "Archivos estáticos del Landing Page.")
-    }
-
     Deployment_Node(firebase, "Firebase", "Google Cloud") {
-        System_Ext(fcm, "Firebase Cloud Messaging", "Notificaciones push.")
-        System_Ext(appDist, "Firebase App Distribution", "Distribución de APK para testing.")
+        Container(fcm, "Firebase Cloud Messaging", "FCM", "Servicio de notificaciones push.")
+        Container(appDist, "Firebase App Distribution", "Firebase", "Distribución de APK para testing.")
     }
 
     Deployment_Node(emailProvider, "Email Provider", "SendGrid") {
-        System_Ext(emailService, "Email Service", "Envío de correos transaccionales.")
+        Container(emailService, "Email Service", "SendGrid API", "Envío de correos transaccionales.")
     }
 
     Rel(mobileApp, apiServer, "Consume API", "HTTPS/JSON")
     Rel(mobileApp, localStorage, "Lee/Escribe", "SQLite")
-    Rel(userBrowser, staticFiles, "Carga", "HTTPS")
     Rel(apiServer, database, "Persiste datos", "TCP/JDBC")
     Rel(apiServer, fcm, "Dispara notificaciones", "HTTPS")
     Rel(apiServer, emailService, "Envía emails", "HTTPS/SMTP")
