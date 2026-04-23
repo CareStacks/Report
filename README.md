@@ -1099,6 +1099,68 @@ C4Deployment
 ##### 2.6.x.6.1. Bounded Context Domain Layer Class Diagrams <a id="26x61-domain-layer-class-diagrams"></a>
 ##### 2.6.x.6.2. Bounded Context Database Design Diagram <a id="26x62-database-design-diagram"></a>
 
+### 2.6.1. Bounded Context: Agenda
+
+#### 2.6.1.1. Domain Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| Agenda | Aggregate Root | Gestiona la consistencia transaccional de los eventos de salud del paciente. |
+| HealthEvent | Entity | Representa un evento de salud, como una cita médica, medicación o actividad terapéutica. |
+| Reminder | Entity | Representa un recordatorio asociado a un evento programado. |
+| EventDateTime | Value Object | Encapsula la fecha y hora del evento. |
+| EventStatus | Value Object | Representa el estado actual del evento. |
+| EventType | Value Object | Define la categoría del evento de salud. |
+| EventSchedulerService | Domain Service | Gestiona las reglas de programación de eventos. |
+| ScheduleValidationService | Domain Service | Valida conflictos y restricciones de horario. |
+| AgendaRepository | Repository | Define el contrato de persistencia del agregado Agenda. |
+| EventCreatedEvent | Domain Event | Se publica cuando se crea un evento. |
+| EventConfirmedEvent | Domain Event | Se publica cuando se confirma un evento. |
+| EventRescheduledEvent | Domain Event | Se publica cuando se reprograma un evento. |
+| EventDeletedEvent | Domain Event | Se publica cuando se elimina un evento. |
+
+#### 2.6.1.2. Interface Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| AgendaActivity | Activity | Punto de entrada principal del módulo de agenda. |
+| CalendarFragment | Fragment | Presenta los eventos de salud en formato calendario. |
+| EventDetailFragment | Fragment | Muestra la información detallada de un evento seleccionado. |
+| AgendaViewModel | ViewModel | Gestiona el estado de la interfaz y coordina Commands y Queries con la capa de aplicación. |
+
+#### 2.6.1.3. Application Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| CreateEventCommand | Command | Solicita la creación de un nuevo evento de salud. |
+| ConfirmEventCommand | Command | Solicita la confirmación de un evento programado. |
+| RescheduleEventCommand | Command | Solicita la reprogramación de un evento existente. |
+| DeleteEventCommand | Command | Solicita la eliminación de un evento. |
+| CreateEventHandler | Command Handler | Procesa la creación de eventos. |
+| ConfirmEventHandler | Command Handler | Procesa la confirmación de eventos. |
+| RescheduleEventHandler | Command Handler | Procesa la reprogramación de eventos. |
+| DeleteEventHandler | Command Handler | Procesa la eliminación de eventos. |
+| GetEventsQuery | Query | Recupera todos los eventos registrados. |
+| GetEventByIdQuery | Query | Recupera un evento por su identificador. |
+| GetEventsByDateQuery | Query | Recupera los eventos programados para una fecha específica. |
+| GetEventsHandler | Query Handler | Procesa la consulta de todos los eventos. |
+| GetEventByIdHandler | Query Handler | Procesa la consulta por identificador. |
+| GetEventsByDateHandler | Query Handler | Procesa la consulta por fecha. |
+| EventDTO | DTO | Transfiere información de eventos entre capas. |
+| ReminderDTO | DTO | Transfiere información de recordatorios. |
+
+#### 2.6.1.4. Infrastructure Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| AgendaRepositoryImpl | Repository Implementation | Implementa la persistencia del agregado Agenda. |
+| AppDatabase | Database | Configura la base de datos local utilizando Room. |
+| EventDao | DAO | Proporciona operaciones de acceso a datos para eventos. |
+| EventEntity | Persistence Entity | Representa un evento dentro de la base de datos local. |
+| NotificationService | Service | Gestiona el envío de notificaciones locales. |
+| WorkManagerScheduler | Scheduler | Programa recordatorios y tareas en segundo plano. |
+| EventMapper | Mapper | Convierte objetos entre Domain, DTO y Persistence. |
+
 ---
 
 # Capítulo III: Solution UI/UX Design
