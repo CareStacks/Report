@@ -549,21 +549,24 @@ El objetivo es entender cómo gestionan actualmente el cuidado diario, qué herr
 
 ---
 
-#### Segmento 2: Familiares
+#### Segmento 2: Pacientes geriátricos
 
-El objetivo es comprender el nivel de visibilidad que tienen sobre el cuidado del paciente.
+El objetivo de este segmento es comprender cómo los pacientes gestionan su propio cuidado, qué dificultades tienen para seguir sus tratamientos y qué tipo de apoyo digital necesitan para mejorar su autonomía.
 
 **Preguntas principales:**
-- ¿Nos podría indicar su nombre, edad y relación con el paciente?
-- ¿Cómo se informa actualmente sobre el estado del paciente?
-- ¿Con qué frecuencia necesita recibir información?
-- ¿Ha tenido dificultades para acceder a información confiable?
-- ¿Qué le genera mayor preocupación respecto al cuidado?
-- ¿Qué le gustaría poder ver o controlar desde su celular?
-- ¿Qué le daría mayor tranquilidad?
-- ¿Qué funcionalidades esperaría de una aplicación?
-
+- ¿Nos podría indicar su nombre, edad y si actualmente recibe apoyo de un cuidador?
+- ¿Cómo recuerda tomar sus medicamentos o asistir a sus citas médicas?
+- ¿Ha tenido dificultades para seguir su tratamiento o rutina diaria?
+- ¿Qué es lo que más le cuesta recordar o controlar en su día a día?
+- ¿Utiliza celular o alguna aplicación actualmente? ¿Para qué?
+- ¿Qué tipo de recordatorios le ayudarían más (alarmas, notificaciones, mensajes)?
+- ¿Le gustaría poder ver sus actividades o medicamentos en una sola pantalla?
+- ¿Qué le haría sentir más seguro o tranquilo respecto a su cuidado?
+- ¿Qué tan fácil o difícil le resulta usar aplicaciones móviles?
+- ¿Qué funcionalidades le gustaría tener en una aplicación que le ayude en su cuidado?
+- 
 ---
+
 ### 2.2.2. Registro de entrevistas <a id="222-registro-de-entrevistas"></a>
 #### Segmento: Cuidadores
 
