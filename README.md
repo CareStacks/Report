@@ -576,7 +576,7 @@ El objetivo de este segmento es comprender cómo los pacientes gestionan su prop
 
 **Información del entrevistado**
 
-- Nombre: Giancarlo  
+- Nombre: Giancarlo Castañeda  
 - Edad: 20 años  
 - Procedencia: Perú 
 - Tiempo como cuidador: 1 año  
