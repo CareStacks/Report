@@ -1340,7 +1340,7 @@ Clasificación del usuario dentro del sistema, como paciente o cuidador, que det
 | **User** | Paciente /Cuidador |
 | **Priority** | Alta |
 | **Epic** |  Autenticación  |
-| **Description** | Como usuario, quiero tener permiso para poder  |
+| **Description** | Como usuario, quiero tener permiso para poder crear mi propia cuenta |
 | **Acceptance Criteria** | Escenario 1:  Creación de cuenta <br> Dado que el usuario otorgo los datos validos <br> Cuando registra su cuenta  <br> usuario es creado <br><br> Escenario 2: Creación denegada <br> Dado que el usuario no ya exite <br> Cuando intenta ingresar el correo <br> Entonces el sistema bloquea el acceso y muestra un mensaje de "el usuario con este correo ya existe"|
 
 ---
@@ -1550,7 +1550,7 @@ Clasificación del usuario dentro del sistema, como paciente o cuidador, que det
 | **Description** | Como desarrollador, quiero permitir la visualización de perfiles compartidos. |
 | **Acceptance Criteria** | Escenario 1: Consulta exitosa<br> Dado que el usuario tiene acceso<br>Cuando consulta el perfil<br>Entonces se muestra la información<br><br>Escenario 2: Acceso inválido<br>Dado que no tiene permisos<br>Cuando intenta acceder<br>Entonces se bloquea el acceso |
 
-### TS14 – Consulta de perfil compartido
+### TS14 – Revocación de acceso
 
 | **Story ID** | TS14 |
 |--------------|------|
@@ -1570,35 +1570,35 @@ Clasificación del usuario dentro del sistema, como paciente o cuidador, que det
 | Orden | User Story ID | Título | Descripción | Story Points |
 |------:|---------------|--------|-------------|-------------|
 | 1 | US1 | Registrar evento de salud | Como paciente o cuidador, deseo registrar un evento de salud (medicación o cita) para organizar las actividades médicas en un calendario. | 3 |
-| 2 | US2 | Consulta de Precios | Como visitante, deseo ver los planes y precios para evaluar mi presupuesto. | 3 |
-| 3 | US3 | Formulario de Contacto | Como visitante, deseo enviar mis datos para solicitar información o una demo comercial. | 3 |
-| 4 | US4 | Sección ¿Cómo funciona? | Como visitante, deseo entender el proceso del servicio antes de contratar. | 2 |
-| 5 | US5 | Testimonios Reales | Como visitante, deseo leer reseñas para confiar en la marca. | 2 |
-| 6 | US6 | Implementación i18n | Como visitante, deseo cambiar idioma ES/EN para navegar cómodamente. | 5 |
-| 7 | US7 | Contratar Plan | Como administrador, deseo elegir un plan para digitalizar y escalar mi operación. | 5 |
-| 8 | US8 | Registro de Conductores | Como administrador, deseo crear cuentas de conductores para asignar responsabilidades. | 3 |
-| 9 | US9 | Alta de Alumnos | Como administrador, deseo registrar alumnos para incluirlos en rutas. | 5 |
-| 10 | US10 | Registro de Padres | Como administrador, deseo registrar padres para habilitar monitoreo. | 3 |
-| 11 | US11 | Creación de Rutas | Como administrador, deseo crear rutas y paradas para optimizar tiempos. | 8 |
-| 12 | US12 | Asignación de Roles | Como administrador, deseo asignar conductores a rutas para organizar operaciones. | 3 |
-| 13 | US13 | Inicio de Trayecto | Como conductor, deseo iniciar la ruta para notificar que estoy en camino. | 3 |
-| 14 | US14 | Marcación de Abordaje | Como conductor, deseo registrar el abordaje para confirmar asistencia. | 5 |
-| 15 | US15| Rastreo en Tiempo Real | Como padre, deseo ver la movilidad en el mapa para calcular hora de llegada. | 8 |
-| 16 | US16 | Alerta de Proximidad | Como padre, deseo recibir aviso cuando el vehículo esté cerca. | 5 |
-| 17 | TS1 | Confirmación de Llegada | Como padre, deseo saber si mi hijo llegó al colegio para estar tranquilo. | 3 |
-| 18 | TS2 | Finalización de Ruta | Como conductor, deseo cerrar la ruta para concluir el servicio. | 2 |
-| 19 | TS3 | Reporte de Incidencias | Como conductor, deseo informar retrasos o problemas durante la ruta. | 5 |
-| 20 | TS4 | Navegación Integrada | Como conductor, deseo abrir mapas externos para usar la mejor ruta disponible. | 3 |
-| 21 | TS5 | Analítica de Flota | Como administrador, deseo revisar métricas de rendimiento operativo. | 8 |
-| 22 | TS6 | Historial de Asistencia | Como padre, deseo revisar asistencia mensual de mi hijo. | 5 |
-| 23 | TS7 | Bitácora de Viajes | Como conductor, deseo consultar historial de viajes realizados. | 3 |
-| 24 | TS8 | Perfil del Estudiante | Como padre, deseo registrar alergias o datos médicos relevantes. | 5 |
-| 25 | TS9 | Chat con Soporte | Como padre, deseo reportar ausencias o dudas desde la app. | 5 |
-| 26 | TS10 | Botón de Pánico | Como conductor, deseo activar SOS en emergencias críticas. | 8 |
-| 26 | TS11 | Botón de Pánico | Como conductor, deseo activar SOS en emergencias críticas. | 8 |
-| 26 | TS12 | Botón de Pánico | Como conductor, deseo activar SOS en emergencias críticas. | 8 |
-| 26 | TS13 | Botón de Pánico | Como conductor, deseo activar SOS en emergencias críticas. | 8 |
-| 26 | TS14 | Botón de Pánico | Como conductor, deseo activar SOS en emergencias críticas. | 8 |
+| 2 | US2 | Confirmar evento de salud | Como paciente, deseo confirmar un evento de salud para registrar el cumplimiento de mi tratamiento. | 3 |
+| 3 | US3 | Reprogramar evento de salud | Como paciente o cuidador, deseo reprogramar un evento de salud para ajustarlo a cambios en la disponibilidad. | 3 |
+| 4 | US4 | Recibir recordatorios de eventos | Como paciente, deseo recibir recordatorios de mis eventos de salud para cumplir con mis actividades programadas. | 2 |
+| 5 | US5 | Recibir alertas de incumplimiento | Como cuidador, deseo recibir alertas cuando un evento no es confirmado para supervisar al paciente.| 2 |
+| 6 | US6 | Visualizar notificaciones | Como cuidador, deseo visualizar las notificaciones recibidas para monitorear el estado del paciente. | 1 |
+| 7 | US7 | Subir documento médico | Como paciente o cuidador, deseo subir documentos médicos para mantener un registro digital accesible. | 2 |
+| 8 | US8 | Consultar documentos | Como paciente o cuidador, deseo consultar los documentos almacenados para revisar información médica. | 1 |
+| 9 | US9 | Acceder a documentos compartidos | Como cuidador, deseo acceder a los documentos del paciente para apoyar en su seguimiento. | 3|
+| 10 | US10 |  Registrar cuenta | Como usuario, quiero tener permiso para poder crear mi propia cuenta| 2 |
+| 11 | US11 | Validar acceso por rol | Como usuario, quiero validar el acceso según el rol del que poseo. | 3|
+| 12 | US12 | Escribir nota | Como paciente o cuidador, quiero escribir notas en mi diario para registrar mi estado o el de mi familiar. | 2 |
+| 13 | US13 | Consultar diarios compartidos | Como cuidador, quiero consultar el diario compartido del paciente para conocer su estado. | 3 |
+| 14 | US14 | Compartir perfil | Como paciente, quiero compartir mi perfil con familiares para que puedan ver mi información. | 3 |
+| 15 | US15| Consultar perfil compartido | Como cuidador, quiero consultar el perfil compartido del paciente para acceder a su información. | 3 |
+| 16 | US16 | Revocar acceso | Como paciente, quiero revocar el acceso a mi perfil para controlar quién puede ver mi información. | 3 |
+| 17 | TS1 | Persistencia de eventos de agenda | Como desarrollador, quiero implementar la persistencia de eventos de salud (citas y medicación) para garantizar su almacenamiento y consulta eficiente. | 3 |
+| 18 | TS2 | Gestión de estado de eventos | Como desarrollador, quiero implementar la lógica de cambio de estado de los eventos (pendiente, confirmado, incumplido) para reflejar el seguimiento del paciente. | 3 |
+| 19 | TS3 | Programación de notificaciones | Como desarrollador, quiero implementar un servicio de programación que genere notificaciones basadas en la fecha y hora de los eventos registrados. | 3 |
+| 20 | TS4 | Envío de notificaciones | Como desarrollador, quiero implementar el mecanismo de envío de notificaciones push hacia pacientes y cuidadores según reglas de negocio. | 2 |
+| 21 | TS5 | Control de acceso a notificaciones | Como desarrollador, quiero implementar validaciones de permisos para asegurar que solo usuarios autorizados reciban notificaciones. | 3 |
+| 22 | TS6 | Almacenamiento de documentos| Como desarrollador, quiero implementar el almacenamiento de documentos médicos en un sistema seguro para garantizar su disponibilidad. | 2 |
+| 23 | TS7 | Gestión de metadatos de documentos |Como desarrollador, quiero implementar el registro de metadatos (tipo, fecha, paciente, descripción) asociados a cada documento. | 3 |
+| 24 | TS8 | Control de acceso a documentos | Como desarrollador, quiero implementar mecanismos de autorización para controlar el acceso a documentos entre paciente y cuidador. | 3 |
+| 25 | TS9 | Persistencia de usuarios | Como desarrollador, quiero implementar la persistencia de usuarios para garantizar el registro correcto en la base de datos | 2 |
+| 26 | TS10 | Autorización basada en roles | Como desarrollador, quiero implementar validación de acceso por roles para garantizar seguridad en los recursos. | 2 |
+| 26 | TS11 | Persistencia de notas | Como desarrollador, quiero almacenar notas del diario para asegurar su disponibilidad. | 2 |
+| 26 | TS12 | Consulta de diario compartido | Como desarrollador, quiero implementar la consulta de diarios compartidos para permitir acceso a cuidadores. | 3 |
+| 26 | TS13 | Consulta de perfil compartido | Como desarrollador, quiero permitir la visualización de perfiles compartidos. | 3 |
+| 26 | TS14 | Revocación de acceso | Como desarrollador, quiero implementar la revocación de accesos para controlar permisos. | 5 |
 
 
 ## 2.5. Strategic-Level Domain-Driven Design <a id="25-strategic-level-domain-driven-design"></a>
