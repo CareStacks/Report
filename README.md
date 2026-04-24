@@ -1076,6 +1076,94 @@ Las tareas con alta frecuencia y alta importancia en ambos segmentos deben resol
 ### 2.3.4. Empathy Mapping <a id="234-empathy-mapping"></a>
 ### 2.3.5. Ubiquitous Language <a id="235-ubiquitous-language"></a>
 
+#### Health Event (Evento de salud)
+Registro de una actividad relacionada con la salud del paciente, como una cita médica o la administración de medicación.
+
+---
+
+#### Appointment (Cita médica)
+Evento de salud programado entre un paciente y un profesional de salud en una fecha y hora específica.
+
+---
+
+#### Medication Event (Evento de medicación)
+Evento de salud que representa la administración o toma de un medicamento en un horario definido.
+
+---
+
+#### Patient (Paciente)
+Usuario principal del sistema que gestiona su información de salud, eventos, documentos y seguimiento personal.
+
+---
+
+#### Caregiver (Cuidador)
+Usuario autorizado por el paciente para supervisar su información de salud y apoyar su seguimiento.
+
+---
+
+#### Agenda (Agenda de salud)
+Sistema que organiza y gestiona los eventos de salud del paciente en el tiempo, como citas y medicación.
+
+---
+
+#### Event Status (Estado del evento)
+Condición de un evento de salud dentro del sistema, como pendiente, confirmado o no confirmado.
+
+---
+
+#### Event Confirmation (Confirmación de evento)
+Acción mediante la cual el paciente valida la realización de un evento de salud programado.
+
+---
+
+#### Reschedule (Reprogramación)
+Modificación de la fecha u hora de un evento de salud previamente registrado.
+
+---
+
+#### Notification (Notificación)
+Mensaje informativo generado por el sistema para alertar al paciente o cuidador sobre eventos relevantes.
+
+---
+
+#### Alert (Alerta)
+Notificación de alta prioridad enviada al cuidador cuando ocurre un incumplimiento o situación crítica.
+
+---
+
+#### Medical Document (Documento médico)
+Archivo digital que contiene información clínica del paciente, como resultados, recetas o informes médicos.
+
+---
+
+#### Access Sharing (Acceso compartido)
+Mecanismo mediante el cual el paciente otorga acceso a su información a un cuidador autorizado.
+
+---
+
+#### Permission (Permiso de acceso)
+Reglas que determinan qué información puede visualizar o gestionar un cuidador dentro del sistema.
+
+---
+
+#### Diary Entry (Entrada de diario)
+Registro cualitativo del paciente o cuidador sobre el estado, experiencia o seguimiento del paciente.
+
+---
+
+#### Diary (Diario de seguimiento)
+Conjunto de entradas que permiten llevar un registro cualitativo del estado del paciente.
+
+---
+
+#### Authentication (Autenticación)
+Proceso de verificación de identidad del usuario para permitir el acceso al sistema.
+
+---
+
+#### User Role (Rol de usuario)
+Clasificación del usuario dentro del sistema, como paciente o cuidador, que determina sus permisos de acceso.
+
 ## 2.4. Requirements specification <a id="24-requirements-specification"></a>
 ### 2.4.1. User Stories <a id="241-user-stories"></a>
 
