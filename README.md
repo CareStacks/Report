@@ -1913,6 +1913,22 @@ El Class Diagram de la capa de dominio del bounded context Notificaciones muestr
 
 *Figura 5. Domain Layer Class Diagram del bounded context Notificaciones.*
 
+##### 2.6.2.6.2. Bounded Context Database Design Diagram
+
+El Database Design Diagram del bounded context Notificaciones muestra el esquema relacional que soporta la persistencia del agregado NotificationCenter y sus entidades asociadas. Está compuesto por cuatro tablas propias del contexto (`notifications`, `alerts`, `notification_preferences` y `notification_delivery_attempts`) y una referencia conceptual a la tabla `users`, que pertenece al bounded context de Autenticación y se muestra únicamente a efectos de integridad referencial. Cada notificación se asocia a un destinatario mediante `recipient_id`, puede referenciar al evento de salud que la originó (`health_event_id`, cuya autoridad reside en el bounded context Agenda) y mantiene una trazabilidad temporal de su ciclo de vida (scheduled → sent → delivered → read / failed). La tabla `notification_delivery_attempts` implementa la bitácora de reintentos requerida por la historia técnica TS04 (Envío de notificaciones), mientras que `alerts` captura las alertas de incumplimiento generadas por la historia US05 y, opcionalmente, referencia la notificación que las disparó.
+
+| Tabla | Propósito | Historias de usuario / técnicas |
+|-------|-----------|--------------------------------|
+| `notifications` | Almacena las notificaciones programadas, enviadas y leídas. | US04, US06, TS03, TS04 |
+| `alerts` | Almacena las alertas de incumplimiento generadas para los cuidadores. | US05 |
+| `notification_preferences` | Persiste las preferencias de canal y tipo por usuario. | US06 |
+| `notification_delivery_attempts` | Registra los intentos de envío y sus fallos para reintentos. | TS04 |
+| `users` *(referenciada)* | Tabla propietaria del bounded context Autenticación. | TS05 |
+
+![Figura 6. Database Design Diagram del bounded context Notificaciones](assets/notificaciones-db-diagram.png)
+
+*Figura 6. Database Design Diagram del bounded context Notificaciones.*
+
 ---
 
 # 2.6.3. Bounded Context: Diary
@@ -1966,10 +1982,14 @@ El Class Diagram de la capa de dominio del bounded context Notificaciones muestr
 | DiaryMapper | Mapper | Convierte entre Domain, DTO y Persistence models. |
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
+![ Bounded Context Software Architecture Component Level Diagrams](assets/components_diary.jpeg)
+
 #### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
-##### 2.6.3.6.2. Bounded Context Database Design Diagram
+![ Bounded Context Domain Layer Class Diagrams](assets/daigram.png)
 
+##### 2.6.3.6.2. Bounded Context Database Design Diagram
+![Bounded Context Database Design Diagram](assets/diagram_dairy.png)
 ### 2.6.4. Bounded Context: Compartir Perfiles <a id="264-bounded-context"></a>
 
 Este bounded context gestiona el ciclo de vida del acceso compartido entre un paciente y sus familiares. Cubre las historias de usuario **US14** (compartir perfil), **US15** (consultar perfil compartido) y **US16** (revocar acceso), correspondientes a la épica **EP04 – Acceso Compartido**. Se integra con el bounded context de Notificaciones mediante eventos de dominio para informar cuando un acceso es creado, aceptado o revocado.
