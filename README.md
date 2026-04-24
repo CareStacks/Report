@@ -639,6 +639,7 @@ En relación con una solución digital, el entrevistado propuso funcionalidades 
 
 Finalmente, el entrevistado espera que una solución digital le permita mejorar la organización, reducir errores en el cuidado y tener mayor tranquilidad al contar con un historial claro del paciente, evitando depender únicamente de la memoria o de la comunicación informal.
 
+---
 ### Entrevista 3
 
 **Información del entrevistado**
