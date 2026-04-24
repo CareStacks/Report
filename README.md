@@ -781,6 +781,90 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 
 ---
 
+### US10 – Registrar cuenta
+
+| **Story ID** | US10 |
+|-----------|-------|
+| **User** | Paciente /Cuidador |
+| **Priority** | Alta |
+| **Epic** |  Autenticación  |
+| **Description** | Como usuario, quiero tener permiso para poder  |
+| **Acceptance Criteria** | Escenario 1:  Creación de cuenta <br> Dado que el usuario otorgo los datos validos <br> Cuando registra su cuenta  <br> usuario es creado <br><br> Escenario 2: Creación denegada <br> Dado que el usuario no ya exite <br> Cuando intenta ingresar el correo <br> Entonces el sistema bloquea el acceso y muestra un mensaje de "el usuario con este correo ya existe"|
+
+---
+
+### US11 – Validar acceso por rol
+
+| **Story ID** | US10 |
+|-----------|-------|
+| **User** | Paciente/Cuidador |
+| **Priority** | Alta |
+| **Epic** |  Autenticación  |
+| **Description** | Como usuario, quiero validar el acceso según el rol del que poseo.   |
+| **Acceptance Criteria** | Escenario 1: Acceso permitido <br> Dado que el usuario tiene permisos válidos <br> Cuando abre la aplicación <br> Entonces el sistema le muestra lo que posee<br><br> Escenario 2: Acceso denegado <br> Dado que el usuario no tiene permisos <br> Cuando intenta acceder a otra pestaña <br> Entonces el sistema bloquea el acceso y muestra un mensaje de restricción |
+
+---
+
+### US12 – Escribir nota
+
+| **Story ID** | US10 |
+|-----------|-------|
+| **User** | Paciente/Cuidador |
+| **Priority** | Media |
+| **Epic** |  Diario de Seguimiento  |
+| **Description** | Como paciente o cuidador, quiero escribir notas en mi diario para registrar mi estado o el de mi familiar. |
+| **Acceptance Criteria** | Escenario 1: Nota registrada <br> Dado que el cuidador o paciente ingreso contenido válido <br> Cuando guardo la nota <br> Entonces la nota se almacena correctamente <br><br> Escenario 2: Nota vacía <br> Dado que el cuidador o paciente no ingreso ningún contenido <br> Cuando intento guardar <br> Entonces el sistema muestra un mensaje error |
+
+---
+
+### US13 – Consultar diarios compartidos
+
+| **Story ID** | US10 |
+|-----------|-------|
+| **User** |  Cuidador|
+| **Priority** | Media |
+| **Epic** |  Diario de Seguimiento  |
+| **Description** | Como cuidador, quiero consultar el diario compartido del paciente para conocer su estado.  |
+| **Acceptance Criteria** | Escenario 1: Consulta exitosa <br> Dado que el cuidador posee acceso autorizado <br> Cuando consulta el diario del paciente <br> Entonces el sistema le muestra las notas <br><br> Escenario 2: Acceso denegado <br> Dado que el paciente no tiene permisos <br> Cuando intenta acceder a las notas del cuidador <br> Entonces el sistema bloquea el acceso y muestra un mensaje de restricción |
+
+---
+
+### US14 – Compartir perfil
+
+| **Story ID** | US10 |
+|-----------|-------|
+| **User** | Cuidador |
+| **Priority** |  Alta |
+| **Epic** |  Acceso Compartido   |
+| **Description** |  Como paciente, quiero compartir mi perfil con familiares para que puedan ver mi información.|
+| **Acceptance Criteria** | Escenario 1: Compartir exitoso <br> Dado que el familiar es un usuario válido <br> Cuando comparto mi perfil <br> Entonces el sistema el acceso a su cuenta es aceptado<br><br> Escenario 2: Error al compartir <br> Dado que el familiar no es un usuario válido <br> Cuando intenta acceder a los documentos <br> Entonces el sistema muestra un mensaje de usuario no existe |
+
+---
+
+### US15 – Consultar perfil compartido
+
+| **Story ID** | US10 |
+|-----------|-------|
+| **User** | Cuidador |
+| **Priority** | Media |
+| **Epic** |  Acceso Compartido   |
+| **Description** | Como cuidador, quiero consultar el perfil compartido del paciente para acceder a su información.  |
+| **Acceptance Criteria** | Escenario 1: Consulta exitosa <br> Dado el paciente me dio permiso <br> Cuando consulto el perfil <br> Entonces se muestra la información <br><br> Escenario 2: Acceso inválido <br> Dado que el paciente no tiene permisos <br> Cuando intenta consultar el perfil <br> Entonces el sistema bloquea el acceso y muestra un mensaje de restricción |
+
+---
+
+### US16 – Revocar acceso
+
+| **Story ID** | US10 |
+|-----------|-------|
+| **User** | Paciente |
+| **Priority** | Media |
+| **Epic** |  Acceso Compartido  |
+| **Description** | Como paciente, quiero revocar el acceso a mi perfil para controlar quién puede ver mi información.  |
+| **Acceptance Criteria** | Escenario 1: Revocación exitosa <br> Dado que el paciente otorgo los permisos <br> Cuando revoca el acceso <br> Entonces el sistema quita los privilegios al cuidador <br><br> Escenario 2: Acción no permitida <br> Dado que el paciente ya revoco el permiso al cuidador <br> Cuando intenta revocar el acceso <br> Entonces el sistema le muestra un mensaje de error |
+
+---
+
 ### TS01 – Persistencia de eventos de agenda
 
 | **Story ID** | TS01 |
