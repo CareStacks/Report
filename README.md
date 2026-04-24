@@ -933,7 +933,145 @@ A partir de ambos segmentos, se identifican los siguientes insights clave:
 CareConnect debe enfocarse en resolver la desorganización actual del cuidado, proporcionando una solución confiable, intuitiva y centrada en las necesidades reales de los usuarios.
 ## 2.3. Needfinding <a id="23-needfinding"></a>
 ### 2.3.1. User Personas <a id="231-user-personas"></a>
+
+En esta sección se presentan los arquetipos construidos a partir de los hallazgos recogidos en el análisis de competencia (§2.1) y en el análisis de entrevistas (§2.2.3). Cada ficha concentra datos demográficos, hábitos, objetivos, frustraciones y nivel de adopción tecnológica observados durante la investigación, y sirve de referencia para las decisiones de diseño de CareConnect. Se elaboró una ficha por cada segmento objetivo definido en el Capítulo I (§1.3): el cuidador de pacientes geriátricos y el paciente geriátrico con autonomía parcial o acompañada.
+
+Los atributos destacados son los que aparecieron de forma transversal en las entrevistas: uso intensivo del celular como herramienta principal, dependencia de soluciones no especializadas (WhatsApp, pastilleros, cuadernos), alta carga mental en cuidadores y necesidad de simplicidad extrema en pacientes. Estos rasgos orientan el tono, la jerarquía de información y las prioridades funcionales del producto.
+
+---
+
+#### User Persona 1 — Valeria Huamán (Cuidadora informal)
+
+![Foto referencial - Valeria Huamán](assets/persona_valeria.png)
+
+| Atributo | Valor |
+|---|---|
+| **Nombre** | Valeria Huamán Soto |
+| **Edad** | 28 años |
+| **Género** | Femenino |
+| **Ocupación** | Asistente administrativa a tiempo parcial; cuidadora informal de su abuela |
+| **Ubicación** | Lima Metropolitana, zona urbana (San Miguel) |
+| **NSE** | C |
+| **Estado civil** | Soltera, vive con su familia extendida |
+| **Educación** | Superior técnica (Administración) |
+| **Persona a cargo** | Abuela de 74 años con hipertensión, artrosis y movilidad reducida |
+| **Tiempo cuidando** | 1 año y 8 meses |
+| **Dispositivo principal** | Smartphone Android gama media |
+
+**Biografía:**
+Valeria divide su día entre el trabajo administrativo y el cuidado de su abuela, a quien asiste junto con su madre y una tía. Asumió el rol porque es la más hábil con el celular y se encarga de coordinar medicamentos, citas y turnos por WhatsApp. Lleva el control en un cuaderno y en alarmas del teléfono, pero varias veces ha tenido que llamar a su madre para confirmar si la abuela ya tomó una dosis. Le preocupa equivocarse y repite los mensajes "por las dudas".
+
+**Objetivos:**
+- Saber siempre en qué punto del tratamiento está su abuela sin tener que preguntar.
+- Que cualquier cuidador de la familia pueda continuar el cuidado sin perder información.
+- Reducir el tiempo que dedica a coordinar turnos y copiar datos entre herramientas.
+- Tener evidencia rápida cuando el médico pide historial o dosis administradas.
+
+**Frustraciones:**
+- WhatsApp se llena de mensajes y termina perdiendo la indicación original.
+- No hay forma fácil de confirmar si otra persona ya administró el medicamento.
+- Copia la receta en el cuaderno y luego la vuelve a escribir en el celular para compartirla.
+- El doctor le pide evolución semanal y tiene que reconstruirla de memoria.
+- Olvidó una dosis por estar en una reunión de trabajo y cargó con la culpa varios días.
+
+**Comportamientos y hábitos:**
+- Revisa el celular cada 30 - 45 minutos durante su jornada.
+- Usa alarmas con etiquetas específicas ("Enalapril 10mg", "Control cardio lunes").
+- Combina WhatsApp, Google Calendar, notas del celular y cuaderno físico.
+- Prefiere apps con flujos cortos; abandona si pide registrarse con más de tres datos.
+
+**Nivel tecnológico:** Medio-alto. Se maneja bien con apps cotidianas (banca móvil, pedidos, mensajería) pero no con herramientas clínicas especializadas.
+
+**Motivaciones:** Cariño familiar, responsabilidad compartida, reducción de errores, tranquilidad de saber que todo queda registrado.
+
+**Frase representativa:**
+> "Lo que más me estresa no es hacer las cosas, es acordarme de todo y avisarle a los demás sin equivocarme."
+
+---
+
+#### User Persona 2 — Don Rafael Medina (Paciente geriátrico)
+
+![Foto referencial - Rafael Medina](assets/persona_rafael.png)
+
+| Atributo | Valor |
+|---|---|
+| **Nombre** | Rafael Medina Paredes |
+| **Edad** | 72 años |
+| **Género** | Masculino |
+| **Ocupación** | Contador jubilado |
+| **Ubicación** | Lima Metropolitana, zona urbana (Surquillo) |
+| **NSE** | C |
+| **Estado civil** | Casado; su hija lo visita a diario |
+| **Educación** | Superior universitaria |
+| **Condición** | Diabetes tipo 2 controlada, hipertensión, leve pérdida de memoria reciente |
+| **Autonomía** | Parcial — cocina simple, camina solo dentro de casa, depende de apoyo para citas y medicación compleja |
+| **Dispositivo principal** | Smartphone Android gama media con letras grandes |
+
+**Biografía:**
+Don Rafael vive con su esposa y recibe visitas frecuentes de su hija, quien coordina la medicación y acompaña las citas médicas. Maneja su celular para llamadas, WhatsApp y alarmas simples, pero se confunde cuando una app tiene demasiados menús o pide muchos pasos. Su mayor preocupación es "no molestar" a la familia, por lo que a veces omite avisar malestares pequeños. Le gusta sentir que participa de su propio cuidado.
+
+**Objetivos:**
+- Recordar sin ayuda qué medicamento toma y a qué hora.
+- Confirmar rápido que ya hizo una actividad del día (tomar pastilla, hacer ejercicio).
+- Consultar sus próximas citas sin llamar a su hija.
+- Comunicar cómo se siente de forma simple cuando algo no anda bien.
+
+**Frustraciones:**
+- A veces duda si ya tomó la medicación o no, y termina no tomándola por miedo a duplicar dosis.
+- Las apps que prueba tienen textos pequeños, botones poco claros y demasiados menús.
+- Siente que depende mucho de su hija para cosas que antes resolvía solo.
+- Se pierde entre recetas físicas, resultados y comprobantes de farmacia.
+
+**Comportamientos y hábitos:**
+- Usa el celular varias veces al día, siempre para tareas sencillas.
+- Pide a su hija que le configure alarmas y le explique instrucciones médicas nuevas.
+- Prefiere la voz y las imágenes grandes a leer textos largos.
+- Evita probar apps nuevas a menos que alguien de confianza se las instale.
+
+**Nivel tecnológico:** Bajo-medio. Funciones básicas dominadas; se incomoda con navegación compleja o formularios.
+
+**Motivaciones:** Mantener autonomía, no sentirse una carga, cuidar su salud para seguir compartiendo tiempo con su familia.
+
+**Frase representativa:**
+> "Yo quiero saber qué toca hacer hoy sin tener que llamar a mi hija por cada cosita."
+
+---
+
 ### 2.3.2. User Task Matrix <a id="232-user-task-matrix"></a>
+
+A partir de los dos User Personas definidos en §2.3.1 —Valeria Huamán (cuidadora informal) y Don Rafael Medina (paciente geriátrico)—, se consolidan las tareas que ambos segmentos realizan en su día a día para llevar adelante el cuidado geriátrico. Es importante precisar que estas tareas se identifican con independencia de la existencia de CareConnect: representan actividades que los usuarios ya ejecutan con las herramientas que tienen a mano (WhatsApp, cuadernos, alarmas, llamadas, memoria), y que cualquier solución de software debería facilitar, no reemplazar.
+
+Para cada tarea se indica la **Frecuencia** con la que el segmento la realiza (Alta / Media / Baja) y la **Importancia** que tiene dentro del proceso de cuidado (Alta / Media / Baja). La escala se apoya en los porcentajes obtenidos en el análisis de entrevistas (§2.2.3).
+
+| **Tarea** | **Valeria (Cuidadora)**<br>Frecuencia | **Valeria (Cuidadora)**<br>Importancia | **Rafael (Paciente)**<br>Frecuencia | **Rafael (Paciente)**<br>Importancia |
+|---|:---:|:---:|:---:|:---:|
+| Administrar y/o tomar la medicación según horario | Alta | Alta | Alta | Alta |
+| Recordar y confirmar si una dosis ya fue administrada | Alta | Alta | Alta | Alta |
+| Registrar observaciones del paciente (síntomas, ánimo, signos) | Alta | Alta | Media | Media |
+| Consultar la rutina y actividades del día (controles, terapias) | Alta | Alta | Alta | Alta |
+| Agendar y asistir a citas médicas | Media | Alta | Media | Alta |
+| Coordinar el cambio de turno entre cuidadores | Alta | Alta | N/A | N/A |
+| Comunicar cambios o malestares del paciente a familiares / médicos | Alta | Alta | Media | Alta |
+| Consultar historial clínico y evolución del paciente | Media | Alta | Baja | Media |
+| Gestionar documentos médicos (recetas, resultados, comprobantes) | Media | Alta | Baja | Media |
+| Buscar información sobre tratamiento o medicamentos | Media | Media | Baja | Media |
+| Solicitar apoyo a cuidador o familiar ante una duda | Media | Media | Alta | Alta |
+| Reportar que una actividad del día fue completada | Alta | Media | Alta | Alta |
+
+---
+
+**Tareas con mayor frecuencia e importancia:**
+La administración y confirmación de medicación, la consulta de la rutina diaria y el reporte de actividades completadas son tareas que ambos segmentos realizan con frecuencia alta y consideran de alta importancia. Esto es consistente con el 100% de entrevistados que mencionó la medicación como eje del cuidado y con las funcionalidades más solicitadas en §2.2.3 (recordatorios, confirmación de medicación, visualización simple de actividades).
+
+**Principales coincidencias entre ambos segmentos:**
+Ambos User Personas coinciden en necesitar certeza sobre el estado del tratamiento: Valeria necesita saber si alguien más ya administró una dosis, y Rafael necesita saber si él mismo ya la tomó. Ambos usan el celular como herramienta principal y valoran la rapidez para acceder a información crítica. También comparten la tarea de consultar la rutina diaria y reportar su cumplimiento, aunque con matices: Valeria la vive como responsabilidad operativa, Rafael como una forma de participar en su propio cuidado.
+
+**Principales diferencias:**
+Las tareas vinculadas a la coordinación (cambio de turno, gestión documental, comunicación con múltiples actores) concentran alta frecuencia e importancia solo para Valeria; en Rafael aparecen con baja frecuencia porque las delega en su hija o esposa. En contraste, "solicitar apoyo" es una tarea de alta frecuencia para Rafael y media para Valeria, lo que refleja la asimetría de autonomía entre ambos: el paciente busca apoyo, el cuidador lo provee.
+
+**Implicaciones para el diseño:**
+Las tareas con alta frecuencia y alta importancia en ambos segmentos deben resolverse con flujos mínimos (uno o dos tap) y visibilidad inmediata en la pantalla principal. Las tareas asimétricas —coordinación para el cuidador, solicitud de apoyo para el paciente— justifican vistas diferenciadas por rol dentro de una misma aplicación compartida. El resto de tareas (consulta de historial, gestión documental, búsqueda de información) puede vivir detrás de un segundo nivel de navegación sin perjudicar la experiencia.
+
 ### 2.3.3. User Journey Mapping <a id="233-user-journey-mapping"></a>
 ### 2.3.4. Empathy Mapping <a id="234-empathy-mapping"></a>
 ### 2.3.5. Ubiquitous Language <a id="235-ubiquitous-language"></a>
