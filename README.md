@@ -964,133 +964,78 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 
 ### 2.5.3. Software Architecture <a id="253-software-architecture"></a>
 
-En esta sección se presenta la representación de la arquitectura de software para la solución CareConnect, aplicando el C4 Model y utilizando Structurizr como herramienta de elaboración. La arquitectura abarca todos los productos digitales que forman parte del alcance: el Landing Page, los Web Services (RESTful API), y la Mobile Application nativa y multiplataforma. Los diagramas presentados a continuación permiten visualizar la solución desde distintos niveles de abstracción, partiendo del contexto general del sistema, pasando por la descomposición en containers, hasta la distribución física del despliegue.
+En esta sección se presenta la representación de la arquitectura de software para la solución CareConnect, aplicando el C4 Model y utilizando Structurizr como herramienta de elaboración. La arquitectura abarca todos los productos digitales que forman parte del alcance: el Landing Page, los Web Services (RESTful API), y la Mobile Application nativa y multiplataforma. Los diagramas presentados a continuación permiten visualizar la solución desde distintos niveles de abstracción, partiendo del contexto general del sistema, pasando por la descomposición en containers y en sus seis bounded contexts, hasta la distribución física del despliegue.
+
+La solución está organizada alrededor de seis bounded contexts identificados durante el diseño estratégico, uno por cada épica del producto:
+
+| Bounded Context | Épica | Responsabilidad principal |
+|-----------------|-------|---------------------------|
+| Agenda | EP01 Gestión de Agenda | Gestión de eventos de salud, citas y medicación en el calendario. |
+| Notificaciones | EP02 Gestión de Notificaciones | Programación, envío y visualización de recordatorios y alertas. |
+| Documentos | EP03 Gestión de Documentos | Almacenamiento, consulta y control de acceso a documentos médicos. |
+| Acceso Compartido | EP04 Acceso Compartido | Compartir y revocar el perfil del paciente con los cuidadores. |
+| Diario de Seguimiento | EP05 Diario de Seguimiento | Registro y consulta de notas sobre la evolución del paciente. |
+| Autenticación | EP06 Autenticación | Gestión de cuentas, sesiones y control de acceso por rol. |
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams <a id="2531-software-architecture-context-level-diagrams"></a>
 
 El Context Diagram muestra el sistema CareConnect como una caja central, rodeado por los actores que interactúan con él y los sistemas externos de los cuales depende. Este diagrama permite entender el alcance del sistema y sus principales relaciones a alto nivel.
 
-Los actores identificados son:
+Los actores identificados corresponden exactamente a los dos segmentos objetivo de la solución:
 
-- **Caregiver (Cuidador):** Usuario principal que gestiona la medicación, terapias, registros clínicos y coordinación del cuidado diario del paciente. Interactúa con el sistema a través de la Mobile Application.
-- **Family Member (Familiar):** Usuario que supervisa el estado del paciente y recibe notificaciones sobre el cuidado. Accede al sistema mediante la Mobile Application.
-- **Visitor (Visitante):** Persona que accede al Landing Page para conocer el modelo de negocio y las características del producto antes de registrarse.
+- **Geriatric Patient (Paciente geriátrico):** Usuario que utiliza la aplicación para recibir recordatorios de medicación y citas, confirmar sus eventos de salud, registrar notas en su diario y compartir su perfil con cuidadores. Interactúa con el sistema a través de la Mobile Application.
+- **Caregiver (Cuidador):** Usuario que supervisa al paciente, gestiona la medicación, terapias y registros clínicos, recibe alertas de incumplimiento y consulta el perfil compartido del paciente. Interactúa con el sistema a través de la Mobile Application.
 
 Los sistemas externos identificados son:
 
 - **Email Service (e.g., SendGrid):** Utilizado para el envío de correos de verificación, recuperación de contraseña y notificaciones por email.
-- **Push Notification Service (e.g., Firebase Cloud Messaging):** Servicio externo para el envío de notificaciones push a los dispositivos móviles de cuidadores y familiares.
+- **Push Notification Service (e.g., Firebase Cloud Messaging):** Servicio externo para el envío de notificaciones push a los dispositivos móviles de pacientes y cuidadores.
 - **Identity Provider:** Servicio de autenticación externo que permite el inicio de sesión mediante proveedores como Google Sign-In.
 
-```mermaid
-%%{init: {'theme': 'dark'}}%%
-C4Context
-    title System Context Diagram - CareConnect
-
-    Person(caregiver, "Caregiver", "Gestiona medicación, terapias, registros clínicos y coordinación del cuidado diario del paciente.")
-    Person(family, "Family Member", "Supervisa el estado del paciente y recibe notificaciones sobre el cuidado.")
-    Person(visitor, "Visitor", "Accede al Landing Page para conocer el producto.")
-
-    System(careconnect, "CareConnect Platform", "Plataforma de coordinación del cuidado de personas con discapacidad. Incluye Landing Page, Mobile App y RESTful API.")
-
-    System_Ext(email, "Email Service", "SendGrid - Envío de correos de verificación, recuperación de contraseña y notificaciones.")
-    System_Ext(push, "Push Notification Service", "Firebase Cloud Messaging - Envío de notificaciones push a dispositivos móviles.")
-    System_Ext(idp, "Identity Provider", "Google Sign-In - Autenticación externa de usuarios.")
-
-    Rel(caregiver, careconnect, "Gestiona cuidado del paciente", "HTTPS")
-    Rel(family, careconnect, "Monitorea estado del paciente", "HTTPS")
-    Rel(visitor, careconnect, "Visita Landing Page", "HTTPS")
-    Rel(careconnect, email, "Envía emails", "HTTPS/SMTP")
-    Rel(careconnect, push, "Envía notificaciones push", "HTTPS")
-    Rel(careconnect, idp, "Autentica usuarios", "HTTPS/OAuth 2.0")
-
-    UpdateRelStyle(caregiver, careconnect, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(family, careconnect, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(visitor, careconnect, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(careconnect, email, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(careconnect, push, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(careconnect, idp, $textColor="#ffffff", $lineColor="#ffffff")
-```
+![Figura 1. Software Architecture Context Level Diagram para CareConnect](assets/context-diagram.png)
 
 *Figura 1. Software Architecture Context Level Diagram para CareConnect.*
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams <a id="2532-software-architecture-container-level-diagrams"></a>
 
-El Container Diagram descompone el sistema CareConnect en sus elementos de alto nivel, mostrando cómo se distribuyen las responsabilidades entre los distintos containers y las principales decisiones de tecnología adoptadas. Cada container representa una unidad desplegable que ejecuta código o almacena datos.
+El Container Diagram descompone el sistema CareConnect en sus elementos de alto nivel, mostrando cómo se distribuyen las responsabilidades entre los distintos containers y las principales decisiones de tecnología adoptadas. El diagrama se organiza en cinco filas horizontales, de arriba hacia abajo: los dos segmentos objetivo, la capa de clientes (Mobile App y Landing Page), el API Gateway con sus seis bounded contexts dispuestos en una cuadrícula, la capa de persistencia y los sistemas externos. Esta disposición evita el cruce de flechas y deja visible la descomposición estratégica.
 
 Los containers identificados son:
 
-- **Landing Page:** Sitio web desarrollado con React. Presenta el modelo de negocio, las características del producto y los enlaces de descarga. Es accedido por visitantes a través de un navegador web.
-- **Mobile Application:** Aplicación nativa desarrollada con Kotlin para Android y estrategia cross-platform con Flutter/Dart o Kotlin Multiplatform (KMP). Constituye la interfaz principal mediante la cual cuidadores y familiares interactúan con el sistema. Se comunica con el API Gateway a través de HTTPS/JSON.
-- **API Gateway / RESTful Web Services:** Backend desarrollado con Spring Boot (Java) siguiendo el estilo arquitectónico RESTful API. Expone los endpoints para la gestión de pacientes, medicación, terapias, historial clínico, notificaciones y autenticación. Documentado con OpenAPI Specification vía Swagger.
-- **Database:** Base de datos relacional que persiste la información de usuarios, pacientes, registros clínicos, medicación, terapias y configuraciones del sistema. Almacena los datos de los bounded contexts identificados en el diseño estratégico.
-- **Local Storage (SQLite / Room):** Almacenamiento local en el dispositivo móvil que permite el acceso offline a información crítica del paciente, medicación pendiente y registros recientes, cumpliendo con el requisito de almacenamiento local especificado.
+- **Landing Page:** Sitio web desarrollado con React. Presenta el modelo de negocio, las características del producto y los enlaces de descarga.
+- **Mobile Application:** Aplicación nativa desarrollada con Kotlin para Android y estrategia cross-platform con Flutter/Dart o Kotlin Multiplatform (KMP). Constituye la interfaz principal mediante la cual el paciente geriátrico y el cuidador interactúan con el sistema. Se comunica con el API Gateway a través de HTTPS/JSON.
+- **API Gateway (RESTful Web Services):** Backend desarrollado con Spring Boot (Java) siguiendo el estilo arquitectónico RESTful API y documentado con OpenAPI/Swagger. Se organiza internamente en seis módulos, uno por cada bounded context:
+  - **Autenticación Service:** Endpoints para registro, login y validación de acceso por rol.
+  - **Acceso Compartido Service:** Endpoints para compartir, consultar y revocar el perfil del paciente.
+  - **Agenda Service:** Endpoints para la gestión de eventos de salud (citas, medicación, terapias).
+  - **Notificaciones Service:** Endpoints para la programación, consulta y marcado de notificaciones y alertas.
+  - **Documentos Service:** Endpoints para la carga, consulta y control de acceso a documentos médicos.
+  - **Diario Service:** Endpoints para registrar y consultar notas de seguimiento.
+- **Database:** Base de datos relacional (PostgreSQL) que persiste la información de los seis bounded contexts.
+- **Local Storage (SQLite / Room):** Almacenamiento local en el dispositivo móvil que permite el acceso offline a información crítica del paciente, medicación pendiente y registros recientes.
 
 Las relaciones principales entre containers son:
 
 | Origen | Destino | Descripción | Protocolo |
 |--------|---------|-------------|-----------|
-| Mobile Application | API Gateway | Consume endpoints RESTful para operaciones CRUD y consultas | HTTPS / JSON |
+| Mobile Application | API Gateway | Consume endpoints RESTful de los seis bounded contexts | HTTPS / JSON |
 | Mobile Application | Local Storage | Almacena y consulta datos para acceso offline | SQLite / Room |
 | Mobile Application | Push Notification Service | Recibe notificaciones push | FCM |
 | API Gateway | Database | Persiste y consulta datos del dominio | JDBC / JPA |
-| API Gateway | Email Service | Envía correos de verificación y notificaciones | HTTPS / SMTP |
-| API Gateway | Push Notification Service | Dispara notificaciones push a dispositivos | HTTPS |
-| Landing Page | Visitor | Presenta información del producto | HTTPS |
+| Notificaciones Service | Email Service / Push Notification Service | Envía emails y notificaciones push | HTTPS / SMTP |
+| Autenticación Service | Email Service / Identity Provider | Envía emails transaccionales y verifica autenticación federada | HTTPS / OAuth 2.0 |
 
-```mermaid
-%%{init: {'theme': 'dark'}}%%
-C4Container
-    title Container Diagram - CareConnect
+![Figura 2. Software Architecture Container Level Diagram para CareConnect](assets/container-diagram.png)
 
-    Person(caregiver, "Caregiver", "Gestiona el cuidado diario del paciente.")
-    Person(family, "Family Member", "Monitorea el estado del paciente.")
-    Person(visitor, "Visitor", "Conoce el producto.")
-
-    System_Boundary(careconnect, "CareConnect Platform") {
-        Container(landing, "Landing Page", "React", "Presenta el modelo de negocio, características del producto y enlaces de descarga.")
-        Container(mobile, "Mobile Application", "Kotlin / Flutter", "Interfaz principal para cuidadores y familiares. Gestión de medicación, terapias, historial y coordinación.")
-        Container(api, "API Gateway", "Spring Boot / Java", "RESTful Web Services. Expone endpoints para gestión de pacientes, medicación, terapias, historial, notificaciones y autenticación. Documentado con OpenAPI/Swagger.")
-        ContainerDb(db, "Database", "PostgreSQL", "Almacena usuarios, pacientes, registros clínicos, medicación, terapias y configuraciones.")
-        ContainerDb(local, "Local Storage", "SQLite / Room", "Almacenamiento offline en dispositivo móvil con datos críticos del paciente.")
-    }
-
-    System_Ext(email, "Email Service", "SendGrid")
-    System_Ext(push, "Push Notification Service", "Firebase Cloud Messaging")
-    System_Ext(idp, "Identity Provider", "Google Sign-In")
-
-    Rel(visitor, landing, "Visita", "HTTPS")
-    Rel(caregiver, mobile, "Usa", "")
-    Rel(family, mobile, "Usa", "")
-    Rel(mobile, api, "Consume API", "HTTPS/JSON")
-    Rel(mobile, local, "Lee/Escribe datos offline", "SQLite")
-    Rel(api, db, "Persiste datos", "JDBC/JPA")
-    Rel(api, email, "Envía emails", "HTTPS/SMTP")
-    Rel(api, push, "Dispara notificaciones", "HTTPS")
-    Rel(api, idp, "Verifica autenticación", "OAuth 2.0")
-    Rel(push, mobile, "Envía notificaciones push", "FCM")
-
-    UpdateRelStyle(visitor, landing, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(caregiver, mobile, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(family, mobile, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(mobile, api, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(mobile, local, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(api, db, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(api, email, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(api, push, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(api, idp, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(push, mobile, $textColor="#ffffff", $lineColor="#ffffff")
-```
-
-*Figura 2. Software Architecture Container Level Diagram para CareConnect.*
+*Figura 2. Software Architecture Container Level Diagram para CareConnect, con el API Gateway descompuesto en sus seis bounded contexts y organizado en capas horizontales para evitar cruces.*
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams <a id="2533-software-architecture-deployment-diagrams"></a>
 
-El Deployment Diagram muestra la distribución física del sistema CareConnect, destacando cómo los componentes de software se despliegan sobre la infraestructura de hardware y los entornos de ejecución. Este diagrama permite visualizar los nodos físicos y virtuales, las relaciones de red entre ellos y la asignación de containers a cada nodo.
+El Deployment Diagram muestra la distribución física del sistema CareConnect, destacando cómo los componentes de software se despliegan sobre la infraestructura de hardware y los entornos de ejecución. Este diagrama permite visualizar los nodos físicos y virtuales, las relaciones de red entre ellos y la asignación de containers a cada nodo. El API Gateway empaqueta en un mismo despliegue los seis bounded contexts (Agenda, Notificaciones, Documentos, Acceso Compartido, Diario y Autenticación), que comparten el mismo motor de persistencia relacional.
 
 Los nodos de despliegue identificados son:
 
-- **User's Mobile Device (Android):**
+- **User's Mobile Device (Android):** Utilizado tanto por el paciente geriátrico como por el cuidador.
   - Ejecuta la **Mobile Application** (APK distribuido vía Firebase App Distribution).
   - Contiene el **Local Storage** (SQLite/Room) para persistencia offline.
   - Se comunica con el backend a través de HTTPS sobre internet.
@@ -1123,52 +1068,7 @@ Las conexiones de red principales son:
 | Cloud Web Server | SendGrid | HTTPS/SMTP | Envío de emails |
 | Cloud Web Server | Firebase Cloud Messaging | HTTPS | Disparo de notificaciones |
 
-```mermaid
-%%{init: {'theme': 'dark'}}%%
-C4Deployment
-    title Deployment Diagram - CareConnect
-
-    Deployment_Node(userDevice, "User's Mobile Device", "Android") {
-        Container(mobileApp, "Mobile Application", "Kotlin / Flutter", "Interfaz principal del sistema.")
-        ContainerDb(localStorage, "Local Storage", "SQLite / Room", "Persistencia offline.")
-    }
-
-    Deployment_Node(staticHost, "Static Hosting", "Vercel / Netlify / GitHub Pages") {
-        Container(landingPage, "Landing Page", "React", "Sitio web del producto servido al navegador del visitante.")
-    }
-
-    Deployment_Node(cloud, "Cloud Hosting Provider", "Railway / Render / AWS") {
-        Deployment_Node(webServer, "Web Server Node", "Linux / Docker") {
-            Container(apiServer, "API Gateway", "Spring Boot / Java", "RESTful Web Services.")
-        }
-        Deployment_Node(dbServer, "Database Server Node", "Managed DB") {
-            ContainerDb(database, "Database", "PostgreSQL", "Base de datos relacional.")
-        }
-    }
-
-    Deployment_Node(firebase, "Firebase", "Google Cloud") {
-        Container(fcm, "Firebase Cloud Messaging", "FCM", "Servicio de notificaciones push.")
-        Container(appDist, "Firebase App Distribution", "Firebase", "Distribución de APK para testing.")
-    }
-
-    Deployment_Node(emailProvider, "Email Provider", "SendGrid") {
-        Container(emailService, "Email Service", "SendGrid API", "Envío de correos transaccionales.")
-    }
-
-    Rel(mobileApp, apiServer, "Consume API", "HTTPS/JSON")
-    Rel(mobileApp, localStorage, "Lee/Escribe", "SQLite")
-    Rel(apiServer, database, "Persiste datos", "TCP/JDBC")
-    Rel(apiServer, fcm, "Dispara notificaciones", "HTTPS")
-    Rel(apiServer, emailService, "Envía emails", "HTTPS/SMTP")
-    Rel(fcm, mobileApp, "Push notifications", "FCM")
-
-    UpdateRelStyle(mobileApp, apiServer, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(mobileApp, localStorage, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(apiServer, database, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(apiServer, fcm, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(apiServer, emailService, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(fcm, mobileApp, $textColor="#ffffff", $lineColor="#ffffff")
-```
+![Figura 3. Software Architecture Deployment Diagram para CareConnect](assets/deployment-diagram.png)
 
 *Figura 3. Software Architecture Deployment Diagram para CareConnect.*
 
@@ -1358,90 +1258,11 @@ Este bounded context es responsable de la planificación, envío, recepción, vi
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-El Component Diagram del bounded context Notificaciones descompone el API Gateway en los componentes internos responsables de la programación, el envío, el control de acceso y la consulta de notificaciones, así como sus relaciones con los sistemas externos FCM y SendGrid, con la base de datos y con el bounded context Agenda.
+El Component Diagram del bounded context Notificaciones presenta, en un layout vertical y con un número reducido de componentes, la organización interna del módulo en cuatro capas claramente separadas: Interface (API REST), Application (servicio de aplicación), Domain (servicios de dominio) e Infrastructure (repositorio, scheduler y adaptadores a FCM y SendGrid). También muestra la integración de entrada desde la Mobile Application y desde el bounded context Agenda, y las salidas hacia la base de datos y los servicios externos.
 
-```mermaid
-%%{init: {'theme': 'dark'}}%%
-C4Component
-    title Component Diagram - Bounded Context: Notificaciones
+![Figura 4. Component Level Diagram del bounded context Notificaciones](assets/notificaciones-component-diagram.png)
 
-    Container(mobile, "Mobile Application", "Kotlin / Flutter", "Interfaz del cuidador y del paciente.")
-    Container_Ext(agenda, "Bounded Context: Agenda", "Spring Boot Module", "Publica eventos de dominio de eventos de salud.")
-    ContainerDb(db, "Database", "PostgreSQL", "Persistencia de notificaciones, alertas y preferencias.")
-    System_Ext(fcm, "Firebase Cloud Messaging", "FCM", "Envío de notificaciones push.")
-    System_Ext(email, "SendGrid", "Email Service", "Envío de notificaciones por email.")
-
-    Container_Boundary(notif, "Bounded Context: Notificaciones") {
-        Component(ctrl, "NotificationController", "Spring REST Controller", "Expone endpoints para consulta y gestión de notificaciones (US06).")
-        Component(alertCtrl, "AlertController", "Spring REST Controller", "Expone endpoints para alertas activas (US05).")
-        Component(prefCtrl, "NotificationPreferencesController", "Spring REST Controller", "Expone endpoints para configurar preferencias.")
-
-        Component(appSvc, "NotificationApplicationService", "Application Service", "Orquesta Commands y Queries del bounded context.")
-        Component(alertSvc, "AlertApplicationService", "Application Service", "Orquesta la generación y consulta de alertas.")
-
-        Component(dispatch, "NotificationDispatchService", "Domain Service", "Aplica reglas de dispatch según canal y prioridad.")
-        Component(evalSvc, "AlertEvaluationService", "Domain Service", "Evalúa incumplimientos para disparar alertas.")
-        Component(policy, "NotificationAccessPolicy", "Domain Service", "Valida permisos del destinatario (TS05).")
-
-        Component(repo, "NotificationRepositoryImpl", "Repository Implementation", "Persiste el agregado NotificationCenter.")
-        Component(fcmAdapter, "FCMPushNotificationAdapter", "Infrastructure Adapter", "Integra con Firebase Cloud Messaging.")
-        Component(emailAdapter, "SendGridEmailAdapter", "Infrastructure Adapter", "Integra con SendGrid.")
-        Component(scheduler, "WorkManagerNotificationScheduler", "Scheduler", "Programa envíos y reintentos (TS03).")
-        Component(listener, "AgendaEventListener", "Event Listener", "Escucha eventos del contexto Agenda.")
-    }
-
-    Rel(mobile, ctrl, "Consume API", "HTTPS/JSON")
-    Rel(mobile, alertCtrl, "Consume API", "HTTPS/JSON")
-    Rel(mobile, prefCtrl, "Consume API", "HTTPS/JSON")
-
-    Rel(ctrl, appSvc, "Delegates")
-    Rel(alertCtrl, alertSvc, "Delegates")
-    Rel(prefCtrl, appSvc, "Delegates")
-
-    Rel(appSvc, dispatch, "Uses")
-    Rel(appSvc, policy, "Uses")
-    Rel(appSvc, repo, "Reads/Writes")
-    Rel(appSvc, scheduler, "Schedules")
-
-    Rel(alertSvc, evalSvc, "Uses")
-    Rel(alertSvc, policy, "Uses")
-    Rel(alertSvc, repo, "Reads/Writes")
-
-    Rel(dispatch, fcmAdapter, "Dispatches push")
-    Rel(dispatch, emailAdapter, "Dispatches email")
-
-    Rel(listener, appSvc, "Triggers scheduling")
-    Rel(agenda, listener, "Publishes domain events")
-
-    Rel(repo, db, "Persists", "JDBC")
-    Rel(fcmAdapter, fcm, "Sends push", "HTTPS")
-    Rel(emailAdapter, email, "Sends email", "HTTPS/SMTP")
-    Rel(fcm, mobile, "Push notification", "FCM")
-
-    UpdateRelStyle(mobile, ctrl, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(mobile, alertCtrl, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(mobile, prefCtrl, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(ctrl, appSvc, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(alertCtrl, alertSvc, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(prefCtrl, appSvc, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(appSvc, dispatch, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(appSvc, policy, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(appSvc, repo, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(appSvc, scheduler, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(alertSvc, evalSvc, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(alertSvc, policy, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(alertSvc, repo, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(dispatch, fcmAdapter, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(dispatch, emailAdapter, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(listener, appSvc, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(agenda, listener, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(repo, db, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(fcmAdapter, fcm, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(emailAdapter, email, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(fcm, mobile, $textColor="#ffffff", $lineColor="#ffffff")
-```
-
-*Figura 4. Component Level Diagram del bounded context Notificaciones.*
+*Figura 4. Component Level Diagram del bounded context Notificaciones, organizado por capas.*
 
 #### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -1449,214 +1270,7 @@ C4Component
 
 El Class Diagram de la capa de dominio del bounded context Notificaciones muestra el agregado NotificationCenter, sus entidades internas (Notification, Alert, NotificationPreference), los value objects que describen su comportamiento, los domain services que encapsulan las reglas de negocio y los domain events que comunican cambios relevantes hacia otros contextos.
 
-```mermaid
-%%{init: {'theme': 'dark'}}%%
-classDiagram
-    direction LR
-
-    class NotificationCenter {
-        <<Aggregate Root>>
-        -RecipientId recipientId
-        -List~Notification~ notifications
-        -List~Alert~ alerts
-        -NotificationPreference preferences
-        +scheduleNotification(content, scheduledAt, type, priority) Notification
-        +sendNotification(notificationId) void
-        +cancelScheduled(notificationId) void
-        +markAsRead(notificationId) void
-        +triggerAlert(healthEventId, reason) Alert
-        +updatePreferences(preferences) void
-    }
-
-    class Notification {
-        <<Entity>>
-        -UUID id
-        -RecipientId recipientId
-        -NotificationContent content
-        -NotificationType type
-        -NotificationPriority priority
-        -NotificationStatus status
-        -DeliveryChannel channel
-        -ScheduledAt scheduledAt
-        +schedule() void
-        +markAsSent() void
-        +markAsDelivered() void
-        +markAsRead() void
-        +markAsFailed(reason) void
-    }
-
-    class Alert {
-        <<Entity>>
-        -UUID id
-        -UUID healthEventId
-        -RecipientId recipientId
-        -NotificationPriority priority
-        -String reason
-        -Instant triggeredAt
-        -boolean acknowledged
-        +acknowledge() void
-    }
-
-    class NotificationPreference {
-        <<Entity>>
-        -RecipientId recipientId
-        -Set~DeliveryChannel~ enabledChannels
-        -Set~NotificationType~ enabledTypes
-        -boolean quietHoursEnabled
-        +enableChannel(channel) void
-        +disableChannel(channel) void
-        +allows(type, channel) boolean
-    }
-
-    class NotificationContent {
-        <<Value Object>>
-        -String title
-        -String message
-        -Map payload
-    }
-
-    class NotificationType {
-        <<Value Object>>
-        <<enumeration>>
-        REMINDER
-        ALERT
-        INFO
-    }
-
-    class NotificationPriority {
-        <<Value Object>>
-        <<enumeration>>
-        LOW
-        MEDIUM
-        HIGH
-        CRITICAL
-    }
-
-    class NotificationStatus {
-        <<Value Object>>
-        <<enumeration>>
-        SCHEDULED
-        SENT
-        DELIVERED
-        READ
-        FAILED
-    }
-
-    class DeliveryChannel {
-        <<Value Object>>
-        <<enumeration>>
-        PUSH
-        EMAIL
-        IN_APP
-    }
-
-    class RecipientId {
-        <<Value Object>>
-        -UUID value
-    }
-
-    class ScheduledAt {
-        <<Value Object>>
-        -Instant value
-        +isDue(now) boolean
-    }
-
-    class NotificationDispatchService {
-        <<Domain Service>>
-        +dispatch(notification, preference) void
-    }
-
-    class AlertEvaluationService {
-        <<Domain Service>>
-        +shouldTriggerAlert(healthEvent) boolean
-        +evaluate(center, healthEvent) Alert
-    }
-
-    class NotificationAccessPolicy {
-        <<Domain Service>>
-        +canReceive(recipientId, notification) boolean
-    }
-
-    class NotificationRepository {
-        <<Repository>>
-        +findByRecipient(recipientId) NotificationCenter
-        +save(center) void
-    }
-
-    class NotificationScheduledEvent {
-        <<Domain Event>>
-        +UUID notificationId
-        +RecipientId recipientId
-        +Instant scheduledAt
-    }
-
-    class NotificationSentEvent {
-        <<Domain Event>>
-        +UUID notificationId
-        +Instant sentAt
-    }
-
-    class NotificationDeliveredEvent {
-        <<Domain Event>>
-        +UUID notificationId
-        +Instant deliveredAt
-    }
-
-    class NotificationReadEvent {
-        <<Domain Event>>
-        +UUID notificationId
-        +Instant readAt
-    }
-
-    class AlertTriggeredEvent {
-        <<Domain Event>>
-        +UUID alertId
-        +UUID healthEventId
-        +RecipientId recipientId
-        +Instant triggeredAt
-    }
-
-    class NotificationFailedEvent {
-        <<Domain Event>>
-        +UUID notificationId
-        +String reason
-        +Instant failedAt
-    }
-
-    NotificationCenter "1" *-- "*" Notification : contains
-    NotificationCenter "1" *-- "*" Alert : contains
-    NotificationCenter "1" *-- "1" NotificationPreference : configures
-    NotificationCenter --> RecipientId : identifies
-
-    Notification --> NotificationContent : has
-    Notification --> NotificationType : typed as
-    Notification --> NotificationPriority : prioritized by
-    Notification --> NotificationStatus : currently
-    Notification --> DeliveryChannel : delivered via
-    Notification --> ScheduledAt : scheduled for
-    Notification --> RecipientId : targets
-
-    Alert --> NotificationPriority : prioritized by
-    Alert --> RecipientId : targets
-
-    NotificationPreference --> DeliveryChannel : enables
-    NotificationPreference --> NotificationType : enables
-
-    NotificationDispatchService ..> Notification : dispatches
-    NotificationDispatchService ..> NotificationPreference : honors
-    AlertEvaluationService ..> NotificationCenter : evaluates
-    AlertEvaluationService ..> Alert : produces
-    NotificationAccessPolicy ..> Notification : authorizes
-
-    NotificationRepository ..> NotificationCenter : persists
-
-    NotificationCenter ..> NotificationScheduledEvent : emits
-    NotificationCenter ..> NotificationSentEvent : emits
-    NotificationCenter ..> NotificationDeliveredEvent : emits
-    NotificationCenter ..> NotificationReadEvent : emits
-    NotificationCenter ..> AlertTriggeredEvent : emits
-    NotificationCenter ..> NotificationFailedEvent : emits
-```
+![Figura 5. Domain Layer Class Diagram del bounded context Notificaciones](assets/notificaciones-class-diagram.png)
 
 *Figura 5. Domain Layer Class Diagram del bounded context Notificaciones.*
 
