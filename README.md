@@ -1276,6 +1276,63 @@ El Class Diagram de la capa de dominio del bounded context Notificaciones muestr
 
 ---
 
+# 2.6.3. Bounded Context: Diary
+
+## 2.6.3.1. Domain Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| Diary | Aggregate Root | Gestiona la consistencia de las entradas del diario del paciente. |
+| DiaryEntry | Entity | Representa una nota registrada por el paciente. |
+| EntryContent | Value Object | Encapsula el contenido textual de la nota del diario. |
+| EntryDate | Value Object | Representa la fecha de creación de la entrada. |
+| DiaryRepository | Repository | Define el contrato de persistencia del diario de seguimiento. |
+| DiaryEntryCreatedEvent | Domain Event | Se publica cuando se crea una nueva entrada en el diario. |
+| DiaryEntryUpdatedEvent | Domain Event | Se publica cuando se actualiza una entrada existente. |
+| DiaryEntryDeletedEvent | Domain Event | Se publica cuando se elimina una entrada del diario. |
+
+## 2.6.3.2. Interface Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| DiaryActivity | Activity | Punto de entrada principal del módulo diario. |
+| DiaryEntryFragment | Fragment | Permite crear y visualizar entradas del diario. |
+| DiaryDetailFragment | Fragment | Muestra el detalle de una entrada seleccionada. |
+| DiaryViewModel | ViewModel | Gestiona el estado de la interfaz y la comunicación con Application Layer. |
+
+## 2.6.3.3. Application Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| CreateDiaryEntryCommand | Command | Solicita la creación de una nueva entrada. |
+| UpdateDiaryEntryCommand | Command | Solicita la actualización de una entrada existente. |
+| DeleteDiaryEntryCommand | Command | Solicita la eliminación de una entrada del diario. |
+| CreateDiaryEntryHandler | Command Handler | Procesa la creación de entradas del diario. |
+| UpdateDiaryEntryHandler | Command Handler | Procesa la actualización de entradas. |
+| DeleteDiaryEntryHandler | Command Handler | Procesa la eliminación de entradas. |
+| GetDiaryEntriesQuery | Query | Recupera todas las entradas del diario. |
+| GetDiaryEntryByIdQuery | Query | Recupera una entrada específica por ID. |
+| GetDiaryEntriesHandler | Query Handler | Procesa la consulta de todas las entradas. |
+| GetDiaryEntryByIdHandler | Query Handler | Procesa la consulta por identificador. |
+| DiaryEntryDTO | DTO | Transfiere información de entradas entre capas. |
+
+## 2.6.3.4. Infrastructure Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| DiaryRepositoryImpl | Repository Implementation | Implementa la persistencia del diario usando base de datos local. |
+| AppDatabase | Database | Configuración de la base de datos del sistema. |
+| DiaryDao | DAO | Acceso a datos de las entradas del diario. |
+| DiaryEntity | Persistence Entity | Representa una entrada del diario en la base de datos. |
+| DiaryMapper | Mapper | Convierte entre Domain, DTO y Persistence models. |
+
+#### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
+#### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
+##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
+##### 2.6.3.6.2. Bounded Context Database Design Diagram
+
+---
+
 # Capítulo III: Solution UI/UX Design
 
 ## 3.1. Product design <a id="31-product-design"></a>
