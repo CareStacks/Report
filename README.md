@@ -69,6 +69,9 @@
 
 # Project Report Collaboration Insights
 
+
+
+
 ---
 
 # Contenido
@@ -1033,6 +1036,64 @@ Busca una herramienta que le permita tener todo organizado en un solo lugar y ev
 **Conclusión del entrevistado:**
 
 Espera mejorar su organización diaria y reducir los errores en su tratamiento mediante una herramienta fácil de usar.
+
+### Entrevista 3
+
+![Pacientes](<assets/Entrevista 3 de Pacientes Geriatricos.png>)
+
+**Información del entrevistado**
+
+- Nombre: Laura Marcela Rios  
+- Edad: 78 años  
+- Procedencia: Magdalena, Lima  
+- ¿Cuenta con apoyo de cuidador?: No (Pero vive con su familia)  
+- Nivel de autonomía: Alta  
+- ¿Utiliza celular?: Sí  
+
+---
+
+**Resumen:**
+
+El entrevistado indicó que gestiona su cuidado de forma independiente, utilizando principalmente alarmas y recordatorios en su celular o tablet que usa. Sin embargo, reconoce que en ocasiones se olvida y sus hijos o las mismas alarmas le hacen acordar de sus medicamentos que debe de tomar
+
+---
+
+**Gestión del cuidado actual:**
+
+Se apoya en su sus alarmas y recordatorios en su celular y tablet. Además, de poder caminar e ir a sus citas de manera presencial y sin ayuda, en la mayoria de casos.
+
+---
+
+**Dificultades identificadas:**
+- Olvido ocasional de fechas  
+- Discapacidad fisica en ciertos momentos  
+- Dificultad para guardar sus documentos de una manera centralizada
+
+---
+
+**Uso de tecnología:**
+
+Utiliza celular para llamadas, WhatsApp y bastante para alarmas y su calendario. Además, del uso frecuente de Tablet para sus entretenimiento u/o comunicación. Se siente cómoda con tecnología.
+
+---
+
+**Necesidades y expectativas:**
+
+Busca una herramienta que le permita tener todo organizado en un solo lugar y evitar olvidos y que sea una manera rapida de transmitirle a sus hijos en caso la tengan que ayudar.
+
+---
+
+**Funcionalidades sugeridas:**
+- Recordatorios automáticos  
+- Agendado de citas acompañada
+- Historial de documentos y citas pasadas
+
+---
+
+**Conclusión del entrevistado:**
+
+Espera mejorar su organización diaria y reducir los errores y accidentes que pueda subrir en su tratamiento o camino a este, mediante una herramienta fácil de usar.
+
 ---
 ### 2.2.3. Análisis de entrevistas <a id="223-analisis-de-entrevistas"></a>
 
