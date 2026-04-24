@@ -1799,105 +1799,66 @@ Las conexiones de red principales son:
 
 ### 2.6.2. Bounded Context: Notificaciones
 
-Este bounded context es responsable de la planificación, envío, recepción, visualización y control de acceso de las notificaciones y alertas que reciben pacientes y cuidadores dentro de la plataforma CareConnect. Cubre las historias de usuario US04 (recordatorios de eventos), US05 (alertas de incumplimiento) y US06 (visualización de notificaciones), así como las historias técnicas TS03 (programación), TS04 (envío) y TS05 (control de acceso). Se integra con Firebase Cloud Messaging (FCM) para push, con SendGrid para email y con el bounded context de Agenda a través de eventos de dominio.
+Este bounded context es responsable de la planificación, envío, recepción y visualización de las notificaciones (incluidas las alertas de incumplimiento) que reciben el paciente geriátrico y el cuidador dentro de la plataforma CareConnect. Cubre las historias de usuario US04 (recordatorios de eventos), US05 (alertas de incumplimiento) y US06 (visualización de notificaciones), así como las historias técnicas TS03 (programación) y TS04 (envío). Se integra con Firebase Cloud Messaging (FCM) para push y con el bounded context de Agenda mediante eventos de dominio. Las alertas se modelan como notificaciones con `type = ALERT` y `priority = HIGH/CRITICAL`, evitando duplicar entidad y tabla. Las preferencias básicas de canal (`push_enabled`, `email_enabled`) residen en la tabla `users` del bounded context Autenticación.
 
 #### 2.6.2.1. Domain Layer
 
 | Componente | Tipo | Descripción |
 |-----------|------|-------------|
-| NotificationCenter | Aggregate Root | Gestiona la consistencia transaccional de las notificaciones y alertas de un destinatario. |
-| Notification | Entity | Representa una notificación individual (recordatorio, alerta o informativa) dirigida a un usuario. |
-| Alert | Entity | Representa una alerta de incumplimiento generada cuando un evento no es confirmado a tiempo. |
-| NotificationPreference | Entity | Representa las preferencias del usuario sobre canales y tipos de notificación. |
+| NotificationCenter | Aggregate Root | Gestiona la consistencia transaccional de las notificaciones de un destinatario, incluidas las alertas (notificaciones con `type = ALERT`). |
+| Notification | Entity | Representa una notificación individual. Cuando su `type` es `ALERT` cumple la función de alerta de incumplimiento (US05). |
 | NotificationContent | Value Object | Encapsula el título, el mensaje y el payload asociado a la notificación. |
-| NotificationType | Value Object | Define la categoría de la notificación (REMINDER, ALERT, INFO). |
-| NotificationPriority | Value Object | Representa el nivel de prioridad de la notificación (LOW, MEDIUM, HIGH, CRITICAL). |
-| NotificationStatus | Value Object | Representa el estado actual de la notificación (SCHEDULED, SENT, DELIVERED, READ, FAILED). |
-| DeliveryChannel | Value Object | Indica el canal de entrega de la notificación (PUSH, EMAIL, IN_APP). |
-| RecipientId | Value Object | Identifica de forma única al destinatario (paciente o cuidador). |
-| ScheduledAt | Value Object | Encapsula la fecha y hora programada de envío. |
-| NotificationDispatchService | Domain Service | Aplica las reglas de negocio para despachar una notificación al canal adecuado. |
-| AlertEvaluationService | Domain Service | Evalúa si se debe generar una alerta de incumplimiento ante un evento no confirmado. |
-| NotificationAccessPolicy | Domain Service | Valida que el destinatario tenga los permisos necesarios para recibir la notificación (TS05). |
+| NotificationType | Value Object | Categoría de la notificación: `REMINDER`, `ALERT` o `INFO`. |
+| NotificationPriority | Value Object | Nivel de prioridad: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`. |
+| NotificationStatus | Value Object | Estado actual: `SCHEDULED`, `SENT`, `DELIVERED`, `READ`, `FAILED`. |
+| DeliveryChannel | Value Object | Canal de entrega: `PUSH` o `IN_APP`. |
+| NotificationDispatchService | Domain Service | Aplica las reglas de negocio para despachar una notificación por el canal adecuado. Único domain service del contexto. |
 | NotificationRepository | Repository | Define el contrato de persistencia del agregado NotificationCenter. |
-| NotificationScheduledEvent | Domain Event | Se publica cuando se programa una nueva notificación. |
-| NotificationSentEvent | Domain Event | Se publica cuando se envía una notificación al canal de entrega. |
-| NotificationDeliveredEvent | Domain Event | Se publica cuando el canal confirma la entrega al dispositivo. |
-| NotificationReadEvent | Domain Event | Se publica cuando el destinatario marca la notificación como leída. |
-| AlertTriggeredEvent | Domain Event | Se publica cuando se genera una alerta de incumplimiento. |
-| NotificationFailedEvent | Domain Event | Se publica cuando falla el envío o la entrega de la notificación. |
+| NotificationStatusChangedEvent | Domain Event | Se publica ante cada transición de estado (scheduled → sent → delivered → read / failed), incluidas las transiciones correspondientes a alertas. |
 
 #### 2.6.2.2. Interface Layer
 
 | Componente | Tipo | Descripción |
 |-----------|------|-------------|
 | NotificationCenterActivity | Activity | Punto de entrada principal del módulo de notificaciones en la aplicación móvil. |
-| NotificationListFragment | Fragment | Presenta la lista de notificaciones recibidas ordenadas por fecha y prioridad (US06). |
+| NotificationListFragment | Fragment | Presenta la lista de notificaciones recibidas ordenadas por fecha y prioridad (US06). Las notificaciones con `type = ALERT` se renderizan con estilo destacado (US05). |
 | NotificationDetailFragment | Fragment | Muestra el contenido detallado de una notificación seleccionada. |
-| AlertBannerFragment | Fragment | Presenta alertas críticas de incumplimiento de manera prominente al cuidador (US05). |
-| NotificationSettingsFragment | Fragment | Permite al usuario configurar sus preferencias de notificación. |
 | NotificationViewModel | ViewModel | Gestiona el estado de la lista y el detalle, coordinando Commands y Queries con la capa de aplicación. |
-| AlertsViewModel | ViewModel | Gestiona el estado de las alertas activas visibles para el cuidador. |
-| NotificationPreferencesViewModel | ViewModel | Gestiona el estado de las preferencias de notificación del usuario. |
 
 #### 2.6.2.3. Application Layer
 
 | Componente | Tipo | Descripción |
 |-----------|------|-------------|
-| ScheduleNotificationCommand | Command | Solicita la programación de una nueva notificación (TS03). |
-| SendNotificationCommand | Command | Solicita el envío inmediato de una notificación (TS04). |
+| ScheduleNotificationCommand | Command | Solicita la programación de una notificación. Sirve para recordatorios y alertas (TS03, US05). Admite `sendImmediately: boolean` para envíos inmediatos (TS04). |
 | CancelScheduledNotificationCommand | Command | Solicita la cancelación de una notificación previamente programada. |
 | MarkNotificationAsReadCommand | Command | Solicita el marcado de una notificación como leída. |
-| TriggerAlertCommand | Command | Solicita la generación de una alerta de incumplimiento (US05). |
-| UpdateNotificationPreferencesCommand | Command | Solicita la actualización de las preferencias del usuario. |
-| ScheduleNotificationHandler | Command Handler | Procesa la programación de notificaciones. |
-| SendNotificationHandler | Command Handler | Procesa el envío de notificaciones a través del canal correspondiente. |
-| CancelScheduledNotificationHandler | Command Handler | Procesa la cancelación de notificaciones programadas. |
+| ScheduleNotificationHandler | Command Handler | Procesa la programación y el envío inmediato de notificaciones. |
+| CancelScheduledNotificationHandler | Command Handler | Procesa la cancelación. |
 | MarkNotificationAsReadHandler | Command Handler | Procesa el marcado de lectura. |
-| TriggerAlertHandler | Command Handler | Procesa la generación de alertas, aplicando NotificationAccessPolicy. |
-| UpdateNotificationPreferencesHandler | Command Handler | Procesa la actualización de preferencias. |
 | GetNotificationsQuery | Query | Recupera todas las notificaciones del destinatario. |
-| GetNotificationByIdQuery | Query | Recupera una notificación por su identificador. |
 | GetUnreadNotificationsQuery | Query | Recupera las notificaciones no leídas del destinatario. |
-| GetActiveAlertsQuery | Query | Recupera las alertas activas del cuidador. |
-| GetNotificationPreferencesQuery | Query | Recupera las preferencias de notificación del usuario. |
 | GetNotificationsHandler | Query Handler | Procesa la consulta de todas las notificaciones. |
-| GetNotificationByIdHandler | Query Handler | Procesa la consulta por identificador. |
-| GetUnreadNotificationsHandler | Query Handler | Procesa la consulta de notificaciones no leídas. |
-| GetActiveAlertsHandler | Query Handler | Procesa la consulta de alertas activas. |
-| GetNotificationPreferencesHandler | Query Handler | Procesa la consulta de preferencias. |
-| HealthEventCreatedListener | Event Listener | Reacciona al evento EventCreatedEvent del contexto Agenda para programar recordatorios. |
-| HealthEventRescheduledListener | Event Listener | Reacciona al evento EventRescheduledEvent para reprogramar notificaciones. |
-| HealthEventMissedListener | Event Listener | Reacciona al vencimiento sin confirmación para disparar TriggerAlertCommand. |
-| NotificationDTO | DTO | Transfiere información de notificaciones entre capas. |
-| AlertDTO | DTO | Transfiere información de alertas. |
-| NotificationPreferenceDTO | DTO | Transfiere información de preferencias de notificación. |
+| GetUnreadNotificationsHandler | Query Handler | Procesa la consulta de no leídas. |
+| AgendaEventsListener | Event Listener | Escucha los eventos del bounded context Agenda (`EventCreated`, `EventRescheduled`, `EventMissed`) y dispara `ScheduleNotificationCommand` con el tipo correspondiente. Reemplaza a los tres listeners separados del diseño anterior. |
+| NotificationDTO | DTO | Transfiere información de notificaciones entre capas. Absorbe el antiguo `AlertDTO`. |
 
 #### 2.6.2.4. Infrastructure Layer
 
 | Componente | Tipo | Descripción |
 |-----------|------|-------------|
 | NotificationRepositoryImpl | Repository Implementation | Implementa la persistencia del agregado NotificationCenter. |
-| AppDatabase | Database | Configura la base de datos local utilizando Room para persistencia offline de notificaciones. |
-| NotificationDao | DAO | Proporciona operaciones de acceso a datos para las notificaciones. |
-| AlertDao | DAO | Proporciona operaciones de acceso a datos para las alertas. |
-| NotificationPreferenceDao | DAO | Proporciona operaciones de acceso a datos para las preferencias. |
-| NotificationEntity | Persistence Entity | Representa una notificación dentro de la base de datos local. |
-| AlertEntity | Persistence Entity | Representa una alerta dentro de la base de datos local. |
-| NotificationPreferenceEntity | Persistence Entity | Representa las preferencias dentro de la base de datos local. |
+| AppDatabase | Database | Configura la base de datos local utilizando Room para persistencia offline. |
+| NotificationDao | DAO | Proporciona las operaciones de acceso a datos sobre la tabla `notifications`. |
+| NotificationEntity | Persistence Entity | Representa una notificación en la base de datos. Incluye los campos `retry_count` y `last_error` para la política de reintentos (TS04). |
 | FCMPushNotificationAdapter | External Service Adapter | Adaptador hacia Firebase Cloud Messaging para el envío de notificaciones push (TS04). |
-| SendGridEmailAdapter | External Service Adapter | Adaptador hacia SendGrid para el envío de notificaciones por correo electrónico. |
 | CareConnectFirebaseMessagingService | Platform Service | Servicio Android que recibe las notificaciones push entregadas por FCM. |
-| WorkManagerNotificationScheduler | Scheduler | Programa el envío diferido de notificaciones y el reintento ante fallos (TS03). |
-| AlertEvaluationWorker | Background Worker | Worker periódico que dispara AlertEvaluationService sobre eventos vencidos sin confirmación. |
+| WorkManagerNotificationScheduler | Scheduler | Programa el envío diferido de notificaciones y los reintentos ante fallos (TS03, TS04). |
 | NotificationMapper | Mapper | Convierte objetos Notification entre Domain, DTO y Persistence. |
-| AlertMapper | Mapper | Convierte objetos Alert entre Domain, DTO y Persistence. |
-| NotificationPreferenceMapper | Mapper | Convierte objetos NotificationPreference entre Domain, DTO y Persistence. |
 | RetryPolicyConfig | Configuration | Define la política de reintentos para fallos de envío (TS04). |
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-El Component Diagram del bounded context Notificaciones presenta, en un layout vertical y con un número reducido de componentes, la organización interna del módulo en cuatro capas claramente separadas: Interface (API REST), Application (servicio de aplicación), Domain (servicios de dominio) e Infrastructure (repositorio, scheduler y adaptadores a FCM y SendGrid). También muestra la integración de entrada desde la Mobile Application y desde el bounded context Agenda, y las salidas hacia la base de datos y los servicios externos.
+El Component Diagram del bounded context Notificaciones presenta, en un layout vertical, la organización interna del módulo en cuatro capas claramente separadas: Interface (un único REST controller), Application (un application service unificado y un listener único de eventos de Agenda), Domain (un único domain service de despacho) e Infrastructure (repositorio, scheduler y adaptador hacia FCM). El diagrama refleja la versión simplificada del contexto, en la que las alertas se tratan como notificaciones con `type = ALERT` y las preferencias se gestionan desde el bounded context Autenticación.
 
 ![Figura 4. Component Level Diagram del bounded context Notificaciones](assets/notificaciones-component-diagram.png)
 
@@ -1907,7 +1868,7 @@ El Component Diagram del bounded context Notificaciones presenta, en un layout v
 
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-El Class Diagram de la capa de dominio del bounded context Notificaciones muestra el agregado NotificationCenter, sus entidades internas (Notification, Alert, NotificationPreference), los value objects que describen su comportamiento, los domain services que encapsulan las reglas de negocio y los domain events que comunican cambios relevantes hacia otros contextos.
+El Class Diagram de la capa de dominio del bounded context Notificaciones muestra el agregado NotificationCenter, la entidad Notification (que absorbe las alertas mediante el value object `NotificationType`), los value objects que describen su comportamiento, el domain service de despacho, el repositorio y un único domain event que representa las transiciones de estado del ciclo de vida.
 
 ![Figura 5. Domain Layer Class Diagram del bounded context Notificaciones](assets/notificaciones-class-diagram.png)
 
@@ -1915,15 +1876,12 @@ El Class Diagram de la capa de dominio del bounded context Notificaciones muestr
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
-El Database Design Diagram del bounded context Notificaciones muestra el esquema relacional que soporta la persistencia del agregado NotificationCenter y sus entidades asociadas. Está compuesto por cuatro tablas propias del contexto (`notifications`, `alerts`, `notification_preferences` y `notification_delivery_attempts`) y una referencia conceptual a la tabla `users`, que pertenece al bounded context de Autenticación y se muestra únicamente a efectos de integridad referencial. Cada notificación se asocia a un destinatario mediante `recipient_id`, puede referenciar al evento de salud que la originó (`health_event_id`, cuya autoridad reside en el bounded context Agenda) y mantiene una trazabilidad temporal de su ciclo de vida (scheduled → sent → delivered → read / failed). La tabla `notification_delivery_attempts` implementa la bitácora de reintentos requerida por la historia técnica TS04 (Envío de notificaciones), mientras que `alerts` captura las alertas de incumplimiento generadas por la historia US05 y, opcionalmente, referencia la notificación que las disparó.
+El Database Design Diagram del bounded context Notificaciones muestra un esquema relacional reducido, compuesto por una única tabla propia (`notifications`) y una referencia conceptual a la tabla `users`, cuya autoridad reside en el bounded context de Autenticación. Esta simplificación es posible gracias a tres decisiones tomadas sobre el diseño original: (1) las alertas se modelan como notificaciones con `type = ALERT`, eliminando la tabla `alerts`; (2) la política de reintentos de envío se implementa con dos columnas (`retry_count` y `last_error`) en lugar de una tabla auxiliar de intentos; (3) las preferencias de notificación se gestionan en la tabla `users` del bounded context Autenticación (`push_enabled`, `email_enabled`).
 
 | Tabla | Propósito | Historias de usuario / técnicas |
 |-------|-----------|--------------------------------|
-| `notifications` | Almacena las notificaciones programadas, enviadas y leídas. | US04, US06, TS03, TS04 |
-| `alerts` | Almacena las alertas de incumplimiento generadas para los cuidadores. | US05 |
-| `notification_preferences` | Persiste las preferencias de canal y tipo por usuario. | US06 |
-| `notification_delivery_attempts` | Registra los intentos de envío y sus fallos para reintentos. | TS04 |
-| `users` *(referenciada)* | Tabla propietaria del bounded context Autenticación. | TS05 |
+| `notifications` | Almacena todas las notificaciones (recordatorios, alertas e informativas) programadas, enviadas y leídas, junto con su ciclo de vida y los datos de reintento de envío. | US04, US05, US06, TS03, TS04 |
+| `users` *(referenciada)* | Tabla propietaria del bounded context Autenticación. Incluye las preferencias básicas de canal del usuario. | — |
 
 ![Figura 6. Database Design Diagram del bounded context Notificaciones](assets/notificaciones-db-diagram.png)
 
