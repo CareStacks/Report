@@ -795,7 +795,7 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 
 ### US11 – Validar acceso por rol
 
-| **Story ID** | US10 |
+| **Story ID** | US11 |
 |-----------|-------|
 | **User** | Paciente/Cuidador |
 | **Priority** | Alta |
@@ -807,7 +807,7 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 
 ### US12 – Escribir nota
 
-| **Story ID** | US10 |
+| **Story ID** | US12 |
 |-----------|-------|
 | **User** | Paciente/Cuidador |
 | **Priority** | Media |
@@ -819,7 +819,7 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 
 ### US13 – Consultar diarios compartidos
 
-| **Story ID** | US10 |
+| **Story ID** | US13 |
 |-----------|-------|
 | **User** |  Cuidador|
 | **Priority** | Media |
@@ -831,7 +831,7 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 
 ### US14 – Compartir perfil
 
-| **Story ID** | US10 |
+| **Story ID** | US14 |
 |-----------|-------|
 | **User** | Cuidador |
 | **Priority** |  Alta |
@@ -843,7 +843,7 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 
 ### US15 – Consultar perfil compartido
 
-| **Story ID** | US10 |
+| **Story ID** | US15 |
 |-----------|-------|
 | **User** | Cuidador |
 | **Priority** | Media |
@@ -855,7 +855,7 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 
 ### US16 – Revocar acceso
 
-| **Story ID** | US10 |
+| **Story ID** | US16 |
 |-----------|-------|
 | **User** | Paciente |
 | **Priority** | Media |
