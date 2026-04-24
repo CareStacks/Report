@@ -603,22 +603,75 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 
 ---
 
-
 ### Entrevista 2
 
 **Información del entrevistado**
 
-- Nombre:  
-- Edad:  
-- Procedencia:  
-- Tiempo como cuidador:  
-- Tipo de cuidado (familiar / profesional):  
+- Nombre: Renzo Uribe  
+- Edad: 20 años  
+- Procedencia: Perú  
+- Tiempo como cuidador: 2 años  
+- Tipo de cuidado: Cuidador de adultos mayores a domicilio  
 
-**Resumen:**  
-(Describir brevemente cómo gestiona el cuidado, herramientas que usa, problemas y necesidades detectadas)
+**Resumen:**
 
----
+El entrevistado indicó que gestiona el cuidado del paciente mediante una combinación de herramientas manuales y digitales. Para la medicación utiliza un pastillero semanal organizado por horarios (mañana, tarde y noche). En cuanto a terapias y citas médicas, emplea tanto un calendario físico como herramientas digitales como Google Calendar.
 
+Respecto a las herramientas utilizadas en su día a día, mencionó el uso de hojas de papel, aplicaciones de notas y múltiples alarmas en su celular. Además, registra información relevante como alimentación, signos vitales y cambios de ánimo en notas personales.
+
+El entrevistado señaló que uno de los principales problemas es la falta de coordinación e información, especialmente durante cambios de turno o cuando los familiares no comunican cambios en la medicación. Esto puede generar incertidumbre sobre si el paciente ya recibió una dosis o si hubo modificaciones en el tratamiento.
+
+En cuanto a la comunicación, utiliza principalmente WhatsApp; sin embargo, considera que no es eficiente debido a la pérdida de información entre mensajes, lo que dificulta la búsqueda de datos importantes en situaciones críticas.
+
+Entre las principales dificultades del cuidado diario, destacó:
+- La responsabilidad de manejar múltiples pacientes  
+- El control del stock de medicamentos y suministros  
+- La necesidad de recordar citas y tareas  
+- La gestión de cambios de ánimo en los pacientes  
+- La dependencia de la memoria ante la falta de un sistema centralizado  
+
+En relación con una solución digital, el entrevistado propuso funcionalidades como:
+- Registro compartido de medicación con confirmación de dosis  
+- Alertas automáticas en caso de olvido  
+- Bitácora de salud con registro de signos vitales  
+- Visualización gráfica para seguimiento médico  
+- Botón de emergencia con notificación a familiares y envío de ubicación  
+
+Finalmente, el entrevistado espera que una solución digital le permita mejorar la organización, reducir errores en el cuidado y tener mayor tranquilidad al contar con un historial claro del paciente, evitando depender únicamente de la memoria o de la comunicación informal.
+
+### Entrevista 3
+
+**Información del entrevistado**
+
+- Nombre: Sebastián Rubio Ortiz  
+- Edad: 20 años  
+- Procedencia: Perú  
+- Tiempo como cuidador: Aproximadamente 1 año  
+- Tipo de cuidado: Cuidador informal (inicio familiar y experiencia progresiva)  
+
+**Resumen:**
+
+El entrevistado indicó que organiza el cuidado del paciente utilizando principalmente herramientas digitales. Para la programación de citas y terapias emplea aplicaciones como Google Calendar, mientras que para la medicación utiliza una combinación de pastilleros físicos y recordatorios digitales en su celular.
+
+En cuanto a las herramientas utilizadas, mencionó el uso constante del teléfono móvil para alarmas, cronómetros, notas y comunicación mediante WhatsApp. Señaló que estas herramientas son útiles, pero no están integradas entre sí.
+
+El entrevistado destacó que uno de los principales problemas es la falta de coordinación entre cuidadores, especialmente debido al uso de distintos métodos (digitales y manuales). Indicó que el “choque generacional” dificulta la organización, ya que algunos cuidadores prefieren registrar información en papel, lo que puede generar pérdida de datos o falta de actualización en cambios de medicación.
+
+Respecto a la comunicación, indicó que se realiza principalmente a través de grupos de WhatsApp, lo cual puede generar desorden y dificultar el acceso rápido a información relevante.
+
+Entre las principales dificultades del cuidado diario, mencionó:
+- La alta carga mental asociada a la responsabilidad del cuidado  
+- El riesgo de cometer errores en la administración de medicación  
+- La dificultad para organizar información de manera eficiente  
+- La falta de un sistema unificado entre cuidadores  
+
+En relación con una solución digital, el entrevistado propuso funcionalidades como:
+- Interfaz intuitiva y de uso rápido  
+- Sistema de checklist sincronizado entre cuidadores  
+- Centralización de información médica del paciente  
+- Gestión de stock de medicamentos  
+
+Finalmente, el entrevistado espera que una solución digital le permita centralizar toda la información del paciente en un solo lugar, mejorar la coordinación entre cuidadores y facilitar la organización del cuidado diario de manera más eficiente.
 #### Segmento: Familiares
 
 ---
