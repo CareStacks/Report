@@ -1965,14 +1965,14 @@ El Class Diagram de la capa de dominio del bounded context Notificaciones muestr
 | DiaryMapper | Mapper | Convierte entre Domain, DTO y Persistence models. |
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
-![ Bounded Context Software Architecture Component Level Diagrams](assets/components_diary.jpg)
+![ Bounded Context Software Architecture Component Level Diagrams](assets/components_diary.jpeg)
 
 #### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 ![ Bounded Context Domain Layer Class Diagrams](assets/daigram.png)
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
-![Bounded Context Database Design Diagram](assets/diagram_diary.png)
+![Bounded Context Database Design Diagram](assets/diagram_dairy.png)
 ### 2.6.4. Bounded Context: Compartir Perfiles <a id="264-bounded-context"></a>
 
 Este bounded context gestiona el ciclo de vida del acceso compartido entre un paciente y sus familiares. Cubre las historias de usuario **US14** (compartir perfil), **US15** (consultar perfil compartido) y **US16** (revocar acceso), correspondientes a la épica **EP04 – Acceso Compartido**. Se integra con el bounded context de Notificaciones mediante eventos de dominio para informar cuando un acceso es creado, aceptado o revocado.
