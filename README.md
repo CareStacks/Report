@@ -2344,6 +2344,71 @@ Capa-Capacidad:
 
 ### 2.5.2. Context Mapping <a id="252-context-mapping"></a>
 
+En esta sección se documenta el proceso seguido por el equipo para producir el Context Map de CareConnect, entendido como la visualización de las relaciones estructurales entre los bounded contexts identificados durante el EventStorming (§2.5.1). El punto de partida fueron los seis candidate contexts derivados de las épicas del producto —Autenticación, Acceso Compartido, Agenda, Notificaciones, Diario de Seguimiento y Documentos—, los dos actores definidos en el Context Level Diagram (paciente geriátrico y cuidador) y los sistemas externos con los que el producto necesita integrarse (Google Sign-In, Firebase Cloud Messaging y SendGrid).
+
+La elaboración no se resolvió en una única iteración: el equipo construyó varias alternativas, las comparó a partir de preguntas de diseño deliberadas y seleccionó la que mejor equilibraba cohesión, acoplamiento y capacidad de evolución. A continuación se describen las alternativas consideradas y, a partir de ellas, el Context Map final adoptado con los patrones de relación entre bounded contexts propios de Domain-Driven Design.
+
+---
+
+#### Alternativas de Context Mapping evaluadas
+
+Cada alternativa responde a una de las preguntas de diseño recomendadas para este tipo de ejercicio. Se conservan aquí las discusiones para que la decisión final sea trazable.
+
+**Alternativa 1 — ¿Qué pasaría si fusionamos Diario de Seguimiento y Documentos en un solo bounded context?**
+Ambos contextos manejan información generada en torno al paciente. Sin embargo, Diario se ocupa de notas cualitativas con alta frecuencia de escritura y consulta conversacional, mientras que Documentos gestiona archivos clínicos (recetas, resultados de laboratorio) con ciclo de vida más lento y control de acceso explícito. Fusionarlos diluiría dos Ubiquitous Languages distintos ("entrada de diario" vs. "documento médico"), mezclaría reglas de invariantes y dificultaría escalar cada módulo en forma independiente. **Se descarta.**
+
+**Alternativa 2 — ¿Qué pasaría si duplicamos la lógica de notificaciones dentro de Agenda, Acceso Compartido y Documentos para romper la dependencia con Notificaciones?**
+Cada bounded context quedaría responsable de generar sus propios recordatorios, eliminando la dependencia transversal. El problema es doble: se duplicarían las integraciones con Firebase Cloud Messaging y SendGrid (con su Anti-Corruption Layer correspondiente) y se perdería la política común de reintentos y preferencias de notificación que cada usuario configura una sola vez. **Se descarta.** Conviene mantener Notificaciones como bounded context dedicado que recibe eventos de dominio desde los demás.
+
+**Alternativa 3 — ¿Qué pasaría si creamos un shared service de control de acceso para reducir la duplicación entre Documentos, Agenda y Diario?**
+Hoy, cada uno de estos contextos necesita saber qué cuidadores están autorizados a leer información del paciente. La alternativa de incorporar la lógica de permisos en cada bounded context produciría inconsistencias cuando el paciente revoque accesos. En su lugar, Acceso Compartido se consolida como fuente de verdad y publica eventos de dominio (`AccessGrantedEvent`, `AccessRevokedEvent`) que los demás contextos consumen para mantener su propia proyección de permisos. **Se adopta.**
+
+**Alternativa 4 — ¿Qué pasaría si Autenticación y Acceso Compartido fueran el mismo bounded context?**
+Ambos participan en la identidad del usuario, pero resuelven preocupaciones distintas: Autenticación responde "¿quién es este usuario?" mientras que Acceso Compartido responde "¿qué puede ver este usuario del paciente?". Unirlos rompe el principio de responsabilidad única y mezcla la gestión de sesiones con las reglas de negocio del acceso compartido. **Se descarta.**
+
+**Alternativa 5 — ¿Qué pasaría si aislamos los core capabilities (Agenda, Diario, Documentos) y movemos el resto a subdomains de soporte y genéricos?**
+Los tres contextos que encapsulan la experiencia clínica del paciente son los que concentran la ventaja competitiva del producto y son tratados como **Core Subdomains**. Notificaciones y Acceso Compartido son **Supporting Subdomains** porque habilitan al core pero no lo constituyen. Autenticación se clasifica como **Generic Subdomain** porque su responsabilidad es comparable a la de cualquier otro sistema y apoya un proveedor externo. **Se adopta.**
+
+**Alternativa 6 — ¿Qué pasaría si tratamos Firebase Cloud Messaging, SendGrid y Google Sign-In como extensiones del sistema en vez de integraciones externas?**
+Esto implicaría que nuestros bounded contexts conformaran su modelo al de esos proveedores (relación Conformist), lo que nos dejaría atados a cambios de contrato ajenos. **Se descarta.** Se opta por interponer una **Anti-Corruption Layer** en Notificaciones y en Autenticación para traducir los modelos externos al lenguaje propio del dominio.
+
+---
+
+#### Context Map seleccionado
+
+A partir de las alternativas evaluadas, el Context Map final consolida los seis bounded contexts del producto más los tres sistemas externos, organizados en tres capas visuales: el eje de identidad arriba (Autenticación y Acceso Compartido), los core subdomains clínicos en el medio (Agenda, Diario de Seguimiento y Documentos) y el subdomain de soporte para notificaciones en la parte inferior, flanqueado por los sistemas externos a los que se conecta.
+
+![Figura 10. Context Map estratégico de CareConnect](assets/context_map.png)
+
+*Figura 10. Context Map estratégico de CareConnect, con los patrones de relación entre bounded contexts y sistemas externos.*
+
+---
+
+#### Patrones DDD aplicados en las relaciones
+
+Las flechas del diagrama se anotan con los patrones de Strategic Design que corresponden a cada relación. A continuación se explican y se justifican en el contexto del producto.
+
+| Relación | Patrón | Justificación |
+|---|---|---|
+| Autenticación → Acceso Compartido | **Customer/Supplier (U/S) + Open Host Service (OHS)** | Autenticación es upstream porque provee la identidad sobre la que Acceso Compartido opera. Expone un contrato público estable (OHS) para que el downstream no dependa de detalles internos. |
+| Autenticación → Agenda / Diario / Documentos | **Customer/Supplier (U/S)** | Cada core context consulta la identidad autenticada para autorizar operaciones sobre el paciente. |
+| Autenticación → Identity Provider (Google) | **Anti-Corruption Layer (ACL)** | La ACL traduce los tokens y atributos de Google Sign-In al modelo de usuario propio del dominio, evitando que un cambio en el proveedor externo contamine el resto del sistema. |
+| Acceso Compartido → Agenda / Diario / Documentos | **Customer/Supplier (U/S) + events** | Acceso Compartido publica `AccessGrantedEvent` y `AccessRevokedEvent` como Published Language; los core contexts se suscriben para mantener sus proyecciones de permisos actualizadas. |
+| Agenda → Notificaciones | **Customer/Supplier (U/S) + Published Language (PL)** | Agenda publica eventos de dominio (`MedicationScheduled`, `AppointmentCreated`) con un contrato estable que Notificaciones consume para programar recordatorios. |
+| Documentos → Notificaciones | **Customer/Supplier (U/S) + Published Language (PL)** | Documentos emite eventos cuando un archivo clínico se sube o se vuelve accesible; Notificaciones transforma esos eventos en alertas dirigidas al cuidador. |
+| Diario → Notificaciones | **Conformist (C)** | Diario se apoya de forma ocasional en Notificaciones para enviar recordatorios de registro; adopta el contrato tal como existe sin negociar cambios, por lo que se clasifica como Conformist. |
+| Acceso Compartido → Notificaciones | **Customer/Supplier (U/S) + events** | Las invitaciones y revocaciones de acceso disparan notificaciones hacia el familiar autorizado. |
+| Notificaciones → Firebase Cloud Messaging | **Anti-Corruption Layer (ACL)** | Aísla el contrato de FCM; si Google cambia su SDK o modelo de payload, el cambio queda contenido en el adaptador. |
+| Notificaciones → SendGrid | **Anti-Corruption Layer (ACL)** | Mismo razonamiento para el envío de correos transaccionales: se traduce el modelo interno de "notificación" al formato esperado por SendGrid. |
+
+**Nota sobre Shared Kernel:** Se evaluó introducir un Shared Kernel para tipos primitivos compartidos (identificadores de usuario, paciente y cuidador). Se descartó su uso formal porque acopla los ciclos de liberación de múltiples bounded contexts; en su lugar, cada contexto mantiene su propio value object equivalente y la conversión se realiza en los bordes mediante Published Language, preservando la independencia entre módulos.
+
+---
+
+#### Conclusión del proceso
+
+El Context Map adoptado mantiene los tres core subdomains aislados entre sí, reservando el acoplamiento necesario hacia Autenticación (identidad) y Acceso Compartido (permisos) a través de eventos de dominio. Notificaciones se comporta como infraestructura de salida común, consumiendo eventos del resto y exponiendo únicamente adaptadores hacia los servicios externos. Esta configuración permite evolucionar cada bounded context de forma independiente, reemplazar proveedores externos sin contaminar el dominio y escalar selectivamente los módulos donde se concentre más tráfico, sin sacrificar la consistencia conceptual del producto.
+
 ### 2.5.3. Software Architecture <a id="253-software-architecture"></a>
 
 En esta sección se presenta la representación de la arquitectura de software para la solución CareConnect, aplicando el C4 Model y utilizando Structurizr como herramienta de elaboración. La arquitectura abarca todos los productos digitales que forman parte del alcance: el Landing Page, los Web Services (RESTful API), y la Mobile Application nativa y multiplataforma. Los diagramas presentados a continuación permiten visualizar la solución desde distintos niveles de abstracción, partiendo del contexto general del sistema, pasando por la descomposición en containers y en sus seis bounded contexts, hasta la distribución física del despliegue.
