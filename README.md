@@ -1652,7 +1652,139 @@ Con estas estrategias pudimos identificar los bounded context que obtuvimos en e
 
 #### 2.5.1.2. Domain Message Flows Modeling <a id="2512-domain-message-flows-modeling"></a>
 
+Para el desarrollo del Message Flow Modeling usaremos el Domain Storytelling, el cual es una tecnica de modelado colaborativo en la que los expertos de dominio narran como realizan su trabajo. El modelador escucha y registra estas historias usando un lenguaje pictografico que combina:
+•	Actores (personas o sistemas de software)
+•	Objetos de trabajo (documentos, datos, mensajes)
+•	Actividades (flechas numeradas que indican el flujo secuencial)
+•	Anotaciones (escenarios alternativos y condiciones de error)
 
+Para cada flujo se identificaron: el actor iniciador, los bounded contexts involucrados, la secuencia de mensajes intercambiados y los escenarios alternativos (caminos de error).
+
+#### DS-01: Paciente registra evento de salud y recibe recordatorio
+
+Historia: El paciente inicia sesion, registra un evento de salud en la Agenda, el sistema lo programa y envia una notificacion al cuidador, quien confirma su asistencia.
+
+![alt text](assets/Domain_Story1.png)
+
+##### Bounded Contexts Involucrados:
+1.  IAM — autentica al paciente
+2.  Agenda — gestiona el registro y programacion del evento
+3. 	Notificaciones — envia alerta al cuidador y recibe confirmacion
+
+##### Flujo Principal:
+
+| #  | Actor   | Mensaje / Accion | Destino | Resultado
+|------:|-------------|-------------|-------------|-------------|
+|1|	Paciente|	Inicia sesion en el sistema|	IAM	|Sesion iniciada
+|2	|IAM|	Retorna token de sesion activa|	Agenda|	Acceso habilitado
+|3	|Paciente|	Registra evento de salud con fecha y hora|	Agenda|	Evento de salud registrado
+|4|	Agenda|	Programa evento y genera recordatorio|	Notificaciones|	Evento programado
+|5|	Notificaciones	|Envia alerta al cuidador	|Cuidador	|Notificacion enviada
+|6|	Cuidador|	Confirma asistencia al evento	|Notificaciones|	Evento confirmado
+
+
+##### Escenarios Alternativos:
+| Escenario Alternativo| Respuesta del Sistema   |
+|------:|-------------|
+|Conflicto de horario detectado|	Agenda notifica conflicto → Paciente reprograma el evento|
+|Paciente no responde confirmacion|	Notificaciones envia alerta al cuidador → Cuidador toma accion|
+Datos incompletos al registrar|	Agenda rechaza el evento → Muestra error con campos requeridos|
+
+
+#### DS-02: Paciente sube documento medico y cuidador lo consulta
+
+Historia: El paciente o familiar sube un documento medico al sistema. El documento queda disponible para que el cuidador autorizado lo consulte a traves del contexto de Compartir-Perfiles.
+
+![alt text](assets/Domain_Story_2.png)
+
+##### Bounded Contexts Involucrados:
+
+1.	IAM — autentica al paciente o familiar
+2.	Documentos — gestiona subida y almacenamiento del archivo
+3.	Compartir-Perfiles — controla el acceso del cuidador al documento
+
+##### Flujo Principal:
+
+| #  | Actor   | Mensaje / Accion | Destino | Resultado
+|------:|-------------|-------------|-------------|-------------|
+|1|	Paciente/Familiar|	Se autentica en el sistema|	IAM	|Sesion activa|
+|2	|IAM|	Concede acceso al modulo de documentos|	Documentos|	Acceso concedido|
+|3	|Paciente/Familiar	|Sube documento medico (PDF, imagen)	|Documentos	|Documento almacenado
+|4|	Documentos|	Notifica disponibilidad al cuidador|	Compartir-Perfiles	|Documento disponible
+|5|	Cuidador	|Solicita consultar el documento medico|	Compartir-Perfiles	|Acceso validado|
+|6|	Compartir-Perfiles|	Retorna documento para visualizacion	|Cuidador	|Documento visualizado|
+
+##### Escenarios Alternativos:
+| Escenario Alternativo| Respuesta del Sistema   |
+|------:|-------------|
+|Error al subir documento (formato invalido)|	Documentos rechaza el archivo → Muestra mensaje de error al usuario|
+|Cuidador sin permisos de acceso	|Compartir-Perfiles deniega la solicitud → Acceso no autorizado|
+|Documento no encontrado	|Documentos retorna error 404 → Informacion del documento no disponible|
+
+
+#### DS-03: Paciente escribe en diario y cuidador monitorea su estado
+
+Historia: El paciente escribe una nota personal en su diario clinico. La nota queda almacenada y, si el diario ha sido compartido, el cuidador puede visualizarlo en tiempo real.
+
+![alt text](assets/Domain_Story_3.png)
+
+
+##### Bounded Contexts Involucrados:
+
+1.	IAM — autentica al paciente o familiar
+2.	Diario  — gestiona el registro y almacenamiento de notas
+3.	Compartir-Perfiles — controla el acceso del cuidador al documento
+
+##### Flujo Principal:
+
+| #  | Actor   | Mensaje / Accion | Destino | Resultado
+|------:|-------------|-------------|-------------|-------------|
+|1|	Paciente|	Inicia sesion en el sistema	|IAM	|Sesion iniciada|
+|2|	IAM	|Habilita acceso al diario clinico	|Diario 	|Acceso habilitado|
+|3|	Paciente	|Escribe nota de estado de salud	|Diario |	Nota registrada y almacenada|
+|4|	Diario |	Marca nota como disponible para compartir	|Compartir-Perfiles|	Nota compartida|
+|5|	Cuidador	|Solicita lectura del diario compartido	|Compartir-Perfiles	|Acceso de lectura concedido|
+|6|	Compartir-Perfiles|	Retorna contenido del diario al cuidador	|Cuidador	|Diario compartido visualizado|
+
+
+##### Escenarios Alternativos:
+| Escenario Alternativo| Respuesta del Sistema   |
+|------:|-------------|
+|Nota vacia al intentar guardar|	Diario Clinico rechaza el guardado → Muestra error: nota vacia|
+|Acceso no autorizado al diario	|Compartir-Perfiles deniega acceso → Acceso no autorizado al diario compartido|
+|Diario no compartido aun con el cuidador|	Sistema solicita al paciente activar el permiso de lectura|
+
+
+#### DS-04: Paciente comparte su perfil con un familiar
+
+Historia: El paciente decide compartir su perfil de salud con un familiar. Genera un enlace de acceso, el familiar lo recibe y puede consultar la información del paciente de forma controlada.
+
+![alt text](assets/Domain_Story_4.png)
+
+##### Bounded Contexts Involucrados:
+
+1.	IAM — autentica al paciente o familiar
+3.	Compartir-Perfiles — controla el acceso del cuidador al documento
+
+##### Flujo Principal:
+
+| #  | Actor   | Mensaje / Accion | Destino | Resultado
+|------:|-------------|-------------|-------------|-------------|
+|1|	Paciente|	Se autentica para gestionar su perfil|	IAM|	Sesión activa|
+|2|	IAM|	Valida identidad y autoriza acción|	Compartir-Perfiles	|Sesión verificada|
+|3|	Paciente|	Solicita compartir perfil con familiar	|Compartir-Perfiles|	Perfil compartido — enlace generado|
+|4|	Compartir-Perfiles	|Envía enlace de acceso al familiar	|Familiar|	Enlace recibido|
+|5|	Familiar|	Accede mediante el enlace recibido	|Compartir-Perfiles	|Acceso al familiar concedido|
+|6|	Compartir-Perfiles|	Muestra información del paciente al familiar	|Familiar	|Información del paciente visualizado|
+
+
+
+##### Escenarios Alternativos:
+| Escenario Alternativo| Respuesta del Sistema   |
+|------:|-------------|
+|Enlace expirado al intentar acceder	|Compartir-Perfiles rechaza el acceso → Enlace expirado|
+|Acceso no autorizado (enlace invalido)	|Sistema deniega la solicitud → Acceso no autorizado|
+|Error al compartir perfil	|Compartir-Perfiles retorna error → Acceso no concedido|
 
 #### 2.5.1.3. Bounded Context Canvases <a id="2513-bounded-context-canvases"></a>
 
@@ -2192,6 +2324,22 @@ El diagrama de base de datos representa las tablas `profile_sharings`, `shared_a
 | DocumentDao | DAO | Proporciona acceso a los datos de documentos médicos. |
 | DocumentEntity | Persistence Entity | Representa un documento médico en la base de datos. |
 | DocumentMapper | Mapper | Convierte entre modelos de Domain, DTO y Persistence. |
+
+#### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams 
+
+![alt text](<assets/Component diagram.jpeg>)
+
+#### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams <a id="2646-code-level-diagrams"></a>
+
+##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams <a id="26461-domain-layer-class-diagrams"></a>
+
+![alt text](assets/Class_Diagram_Documents.png)
+
+
+##### 2.6.4.6.2. Bounded Context Database Design Diagram <a id="26462-database-design-diagram"></a>
+
+![alt text](assets/Diagram_db_documents.png)
+
 # Capítulo III: Solution UI/UX Design
 
 ## 3.1. Product design <a id="31-product-design"></a>
