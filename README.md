@@ -1353,101 +1353,6 @@ Las conexiones de red principales son:
 
 ## 2.6. Tactical-Level Domain-Driven Design <a id="26-tactical-level-domain-driven-design"></a>
 
-### 2.6.4. Bounded Context: Compartir Perfiles <a id="264-bounded-context"></a>
-
-Este bounded context gestiona el ciclo de vida del acceso compartido entre un paciente y sus familiares. Cubre las historias de usuario **US14** (compartir perfil), **US15** (consultar perfil compartido) y **US16** (revocar acceso), correspondientes a la épica **EP04 – Acceso Compartido**. Se integra con el bounded context de Notificaciones mediante eventos de dominio para informar cuando un acceso es creado, aceptado o revocado.
-
----
-
-#### 2.6.4.1. Domain Layer <a id="2641-domain-layer"></a>
-
-| Componente | Tipo | Descripción |
-|---|---|---|
-| `ProfileSharing` | Aggregate Root | Gestiona la consistencia transaccional del ciclo de compartir y revocar acceso al perfil del paciente. |
-| `SharedAccess` | Entity | Representa un vínculo de acceso activo entre un paciente y un familiar autorizado. |
-| `AccessRequest` | Entity | Representa una solicitud de acceso enviada por el paciente hacia un familiar. |
-| `ShareToken` | Value Object | Encapsula el token de invitación generado para compartir el perfil. |
-| `AccessStatus` | Value Object | Representa el estado del acceso (`PENDING`, `ACTIVE`, `REVOKED`, `EXPIRED`). |
-| `AccessPermission` | Value Object | Define el nivel de permisos otorgados al familiar (`READ_ONLY`, `FULL_ACCESS`). |
-| `ExpirationDate` | Value Object | Encapsula la fecha y hora de expiración del acceso compartido. |
-| `ProfileSharingService` | Domain Service | Aplica las reglas de negocio para generar, validar y revocar accesos al perfil. |
-| `AccessValidationService` | Domain Service | Valida que el familiar sea un usuario existente y que el token no haya expirado. |
-| `SharedProfileRepository` | Repository | Define el contrato de persistencia del agregado `ProfileSharing`. |
-| `ProfileSharedEvent` | Domain Event | Se publica cuando el paciente comparte su perfil con un familiar. |
-| `AccessGrantedEvent` | Domain Event | Se publica cuando el familiar acepta el acceso y este queda activo. |
-| `AccessRevokedEvent` | Domain Event | Se publica cuando el paciente revoca el acceso a un familiar. |
-| `AccessExpiredEvent` | Domain Event | Se publica cuando el token de acceso expira sin ser aceptado. |
-
----
-
-#### 2.6.4.2. Interface Layer <a id="2642-interface-layer"></a>
-
-| Componente | Tipo | Descripción |
-|---|---|---|
-| `ShareProfileActivity` | Activity | Punto de entrada principal del módulo de compartir perfiles en la aplicación móvil. |
-| `ShareProfileFragment` | Fragment | Permite al paciente ingresar los datos del familiar y generar el enlace de acceso (US14). |
-| `SharedAccessListFragment` | Fragment | Muestra la lista de familiares con acceso activo al perfil del paciente (US16). |
-| `FamilyPatientProfileFragment` | Fragment | Presenta al familiar la información del paciente cuyo perfil fue compartido (US15). |
-| `ShareProfileViewModel` | ViewModel | Gestiona el estado del formulario de compartir y coordina Commands con la capa de aplicación. |
-| `SharedAccessViewModel` | ViewModel | Gestiona el estado de la lista de accesos activos y las acciones de revocación. |
-
----
-
-#### 2.6.4.3. Application Layer <a id="2643-application-layer"></a>
-
-| Componente | Tipo | Descripción |
-|---|---|---|
-| `ShareProfileCommand` | Command | Solicita la creación de un acceso compartido y la generación del token de invitación. |
-| `RevokeAccessCommand` | Command | Solicita la revocación del acceso de un familiar específico. |
-| `AcceptSharedAccessCommand` | Command | Solicita la activación del acceso cuando el familiar acepta la invitación. |
-| `ShareProfileHandler` | Command Handler | Procesa la generación del token y el registro del acceso pendiente. |
-| `RevokeAccessHandler` | Command Handler | Procesa la revocación del acceso, actualizando el estado a `REVOKED`. |
-| `AcceptSharedAccessHandler` | Command Handler | Procesa la activación del acceso, validando token y fecha de expiración. |
-| `GetSharedAccessListQuery` | Query | Recupera la lista de familiares con acceso al perfil del paciente. |
-| `GetPatientSharedProfileQuery` | Query | Recupera la información del perfil del paciente visible para el familiar autorizado. |
-| `GetSharedAccessListHandler` | Query Handler | Procesa la consulta de accesos activos del paciente. |
-| `GetPatientSharedProfileHandler` | Query Handler | Procesa la consulta del perfil compartido, validando permisos del familiar. |
-| `SharedAccessDTO` | DTO | Transfiere información de accesos compartidos entre capas. |
-| `PatientSharedProfileDTO` | DTO | Transfiere la información del perfil del paciente hacia la vista del familiar. |
-
----
-
-#### 2.6.4.4. Infrastructure Layer <a id="2644-infrastructure-layer"></a>
-
-| Componente | Tipo | Descripción |
-|---|---|---|
-| `SharedProfileRepositoryImpl` | Repository Implementation | Implementa la persistencia del agregado `ProfileSharing`. |
-| `SharedAccessDao` | DAO | Proporciona operaciones de acceso a datos para los registros de acceso compartido. |
-| `SharedAccessEntity` | Persistence Entity | Representa un acceso compartido dentro de la base de datos local. |
-| `AccessRequestEntity` | Persistence Entity | Representa una solicitud de acceso pendiente en la base de datos. |
-| `SharedAccessMapper` | Mapper | Convierte objetos entre Domain, DTO y Persistence. |
-| `TokenGeneratorService` | External Utility | Genera tokens únicos y seguros para las invitaciones de acceso. |
-| `NotificationBoundedContextAdapter` | Adapter | Publica eventos hacia el bounded context de Notificaciones cuando se genera o revoca un acceso. |
-
----
-
-#### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams <a id="2645-component-level-diagrams"></a>
-
-El Component Diagram del bounded context Compartir Perfiles presenta la organización interna del módulo en cuatro capas: Interface (REST Controllers), Application (Command y Query Services), Domain (servicios de dominio y repositorio) e Infrastructure (repositorio implementado, generador de tokens y adaptador hacia Notificaciones). Muestra las entradas desde la Mobile Application y la integración de salida hacia la base de datos y el bounded context de Notificaciones.
-
-![Component Diagram - Bounded Context Compartir Perfiles](assets/diag_sharing_component.png)
-
----
-
-#### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams <a id="2646-code-level-diagrams"></a>
-
-##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams <a id="26461-domain-layer-class-diagrams"></a>
-
-El diagrama de clases de la capa de dominio muestra el agregado `ProfileSharing` como raíz, sus entidades internas (`SharedAccess`, `AccessRequest`), los value objects (`ShareToken`, `ExpirationDate`, `AccessStatus`, `AccessPermission`), los domain services (`ProfileSharingService`, `AccessValidationService`), el contrato de repositorio y los domain events publicados durante el ciclo de compartir, aceptar, revocar y expirar accesos.
-
-![Domain Layer Class Diagram - Bounded Context Compartir Perfiles](assets/diag_sharing_domain_class.png)
-
-##### 2.6.4.6.2. Bounded Context Database Design Diagram <a id="26462-database-design-diagram"></a>
-
-El diagrama de base de datos representa las tablas `profile_sharings`, `shared_accesses` y `access_requests`, junto con sus relaciones (1..N) y restricciones de integridad. El campo `token` en `shared_accesses` es único; `permission` y `status` se almacenan como strings con valores acotados equivalentes a los enums de dominio.
-
-![Database Design Diagram - Bounded Context Compartir Perfiles](assets/diag_sharing_database.png)
-
 ### 2.6.1. Bounded Context: Agenda
 
 #### 2.6.1.1. Domain Layer
@@ -1695,6 +1600,101 @@ El Class Diagram de la capa de dominio del bounded context Notificaciones muestr
 #### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
+
+### 2.6.4. Bounded Context: Compartir Perfiles <a id="264-bounded-context"></a>
+
+Este bounded context gestiona el ciclo de vida del acceso compartido entre un paciente y sus familiares. Cubre las historias de usuario **US14** (compartir perfil), **US15** (consultar perfil compartido) y **US16** (revocar acceso), correspondientes a la épica **EP04 – Acceso Compartido**. Se integra con el bounded context de Notificaciones mediante eventos de dominio para informar cuando un acceso es creado, aceptado o revocado.
+
+---
+
+#### 2.6.4.1. Domain Layer <a id="2641-domain-layer"></a>
+
+| Componente | Tipo | Descripción |
+|---|---|---|
+| `ProfileSharing` | Aggregate Root | Gestiona la consistencia transaccional del ciclo de compartir y revocar acceso al perfil del paciente. |
+| `SharedAccess` | Entity | Representa un vínculo de acceso activo entre un paciente y un familiar autorizado. |
+| `AccessRequest` | Entity | Representa una solicitud de acceso enviada por el paciente hacia un familiar. |
+| `ShareToken` | Value Object | Encapsula el token de invitación generado para compartir el perfil. |
+| `AccessStatus` | Value Object | Representa el estado del acceso (`PENDING`, `ACTIVE`, `REVOKED`, `EXPIRED`). |
+| `AccessPermission` | Value Object | Define el nivel de permisos otorgados al familiar (`READ_ONLY`, `FULL_ACCESS`). |
+| `ExpirationDate` | Value Object | Encapsula la fecha y hora de expiración del acceso compartido. |
+| `ProfileSharingService` | Domain Service | Aplica las reglas de negocio para generar, validar y revocar accesos al perfil. |
+| `AccessValidationService` | Domain Service | Valida que el familiar sea un usuario existente y que el token no haya expirado. |
+| `SharedProfileRepository` | Repository | Define el contrato de persistencia del agregado `ProfileSharing`. |
+| `ProfileSharedEvent` | Domain Event | Se publica cuando el paciente comparte su perfil con un familiar. |
+| `AccessGrantedEvent` | Domain Event | Se publica cuando el familiar acepta el acceso y este queda activo. |
+| `AccessRevokedEvent` | Domain Event | Se publica cuando el paciente revoca el acceso a un familiar. |
+| `AccessExpiredEvent` | Domain Event | Se publica cuando el token de acceso expira sin ser aceptado. |
+
+---
+
+#### 2.6.4.2. Interface Layer <a id="2642-interface-layer"></a>
+
+| Componente | Tipo | Descripción |
+|---|---|---|
+| `ShareProfileActivity` | Activity | Punto de entrada principal del módulo de compartir perfiles en la aplicación móvil. |
+| `ShareProfileFragment` | Fragment | Permite al paciente ingresar los datos del familiar y generar el enlace de acceso (US14). |
+| `SharedAccessListFragment` | Fragment | Muestra la lista de familiares con acceso activo al perfil del paciente (US16). |
+| `FamilyPatientProfileFragment` | Fragment | Presenta al familiar la información del paciente cuyo perfil fue compartido (US15). |
+| `ShareProfileViewModel` | ViewModel | Gestiona el estado del formulario de compartir y coordina Commands con la capa de aplicación. |
+| `SharedAccessViewModel` | ViewModel | Gestiona el estado de la lista de accesos activos y las acciones de revocación. |
+
+---
+
+#### 2.6.4.3. Application Layer <a id="2643-application-layer"></a>
+
+| Componente | Tipo | Descripción |
+|---|---|---|
+| `ShareProfileCommand` | Command | Solicita la creación de un acceso compartido y la generación del token de invitación. |
+| `RevokeAccessCommand` | Command | Solicita la revocación del acceso de un familiar específico. |
+| `AcceptSharedAccessCommand` | Command | Solicita la activación del acceso cuando el familiar acepta la invitación. |
+| `ShareProfileHandler` | Command Handler | Procesa la generación del token y el registro del acceso pendiente. |
+| `RevokeAccessHandler` | Command Handler | Procesa la revocación del acceso, actualizando el estado a `REVOKED`. |
+| `AcceptSharedAccessHandler` | Command Handler | Procesa la activación del acceso, validando token y fecha de expiración. |
+| `GetSharedAccessListQuery` | Query | Recupera la lista de familiares con acceso al perfil del paciente. |
+| `GetPatientSharedProfileQuery` | Query | Recupera la información del perfil del paciente visible para el familiar autorizado. |
+| `GetSharedAccessListHandler` | Query Handler | Procesa la consulta de accesos activos del paciente. |
+| `GetPatientSharedProfileHandler` | Query Handler | Procesa la consulta del perfil compartido, validando permisos del familiar. |
+| `SharedAccessDTO` | DTO | Transfiere información de accesos compartidos entre capas. |
+| `PatientSharedProfileDTO` | DTO | Transfiere la información del perfil del paciente hacia la vista del familiar. |
+
+---
+
+#### 2.6.4.4. Infrastructure Layer <a id="2644-infrastructure-layer"></a>
+
+| Componente | Tipo | Descripción |
+|---|---|---|
+| `SharedProfileRepositoryImpl` | Repository Implementation | Implementa la persistencia del agregado `ProfileSharing`. |
+| `SharedAccessDao` | DAO | Proporciona operaciones de acceso a datos para los registros de acceso compartido. |
+| `SharedAccessEntity` | Persistence Entity | Representa un acceso compartido dentro de la base de datos local. |
+| `AccessRequestEntity` | Persistence Entity | Representa una solicitud de acceso pendiente en la base de datos. |
+| `SharedAccessMapper` | Mapper | Convierte objetos entre Domain, DTO y Persistence. |
+| `TokenGeneratorService` | External Utility | Genera tokens únicos y seguros para las invitaciones de acceso. |
+| `NotificationBoundedContextAdapter` | Adapter | Publica eventos hacia el bounded context de Notificaciones cuando se genera o revoca un acceso. |
+
+---
+
+#### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams <a id="2645-component-level-diagrams"></a>
+
+El Component Diagram del bounded context Compartir Perfiles presenta la organización interna del módulo en cuatro capas: Interface (REST Controllers), Application (Command y Query Services), Domain (servicios de dominio y repositorio) e Infrastructure (repositorio implementado, generador de tokens y adaptador hacia Notificaciones). Muestra las entradas desde la Mobile Application y la integración de salida hacia la base de datos y el bounded context de Notificaciones.
+
+![Component Diagram - Bounded Context Compartir Perfiles](assets/diag_sharing_component.png)
+
+---
+
+#### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams <a id="2646-code-level-diagrams"></a>
+
+##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams <a id="26461-domain-layer-class-diagrams"></a>
+
+El diagrama de clases de la capa de dominio muestra el agregado `ProfileSharing` como raíz, sus entidades internas (`SharedAccess`, `AccessRequest`), los value objects (`ShareToken`, `ExpirationDate`, `AccessStatus`, `AccessPermission`), los domain services (`ProfileSharingService`, `AccessValidationService`), el contrato de repositorio y los domain events publicados durante el ciclo de compartir, aceptar, revocar y expirar accesos.
+
+![Domain Layer Class Diagram - Bounded Context Compartir Perfiles](assets/diag_sharing_domain_class.png)
+
+##### 2.6.4.6.2. Bounded Context Database Design Diagram <a id="26462-database-design-diagram"></a>
+
+El diagrama de base de datos representa las tablas `profile_sharings`, `shared_accesses` y `access_requests`, junto con sus relaciones (1..N) y restricciones de integridad. El campo `token` en `shared_accesses` es único; `permission` y `status` se almacenan como strings con valores acotados equivalentes a los enums de dominio.
+
+![Database Design Diagram - Bounded Context Compartir Perfiles](assets/diag_sharing_database.png)
 
 ---
 
