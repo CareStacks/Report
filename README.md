@@ -1967,6 +1967,8 @@ El Class Diagram de la capa de dominio del bounded context Notificaciones muestr
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 #### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
+![ Bounded Context Domain Layer Class Diagrams](assets/daigram.png)
+
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
 ### 2.6.4. Bounded Context: Compartir Perfiles <a id="264-bounded-context"></a>
