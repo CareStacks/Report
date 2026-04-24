@@ -1076,7 +1076,50 @@ Las tareas vinculadas a la coordinación (cambio de turno, gestión documental, 
 Las tareas con alta frecuencia y alta importancia en ambos segmentos deben resolverse con flujos mínimos (uno o dos tap) y visibilidad inmediata en la pantalla principal. Las tareas asimétricas —coordinación para el cuidador, solicitud de apoyo para el paciente— justifican vistas diferenciadas por rol dentro de una misma aplicación compartida. El resto de tareas (consulta de historial, gestión documental, búsqueda de información) puede vivir detrás de un segundo nivel de navegación sin perjudicar la experiencia.
 
 ### 2.3.3. User Journey Mapping <a id="233-user-journey-mapping"></a>
+
+El User Journey Map representa, por cada User Persona, la secuencia de fases que atraviesa durante el proceso de cuidado geriátrico cotidiano, las acciones concretas que realiza en cada fase, los pensamientos asociados, los principales pain points y la curva emocional. Se construyen dos mapas —uno para Valeria Huamán como cuidadora informal y otro para Rafael Medina como paciente geriátrico— a fin de visualizar cómo las mismas etapas del cuidado generan experiencias distintas según el rol.
+
+---
+
+#### User Journey — Valeria Huamán (Cuidadora informal)
+
+![User Journey Map de Valeria Huamán](assets/journey_valeria.png)
+
+*Figura 6. User Journey Map de Valeria Huamán durante un día típico de cuidado.*
+
+El recorrido de Valeria muestra una caída emocional progresiva a lo largo del día: arranca con incertidumbre ("¿me estoy olvidando de algo?"), se estabiliza brevemente al administrar la medicación y vuelve a caer en los momentos críticos de cambio de turno y consulta médica, donde la falta de una herramienta centralizada hace que la información dependa de memoria y cuadernos. El punto más bajo aparece en la consulta médica: cuando el doctor pide historial y evolución, Valeria debe reconstruirlo a mano. La fase de registro de evolución cierra el día con frustración por no tener un registro fiel de lo ocurrido.
+
+#### User Journey — Rafael Medina (Paciente geriátrico)
+
+![User Journey Map de Rafael Medina](assets/journey_rafael.png)
+
+*Figura 7. User Journey Map de Rafael Medina durante un día típico.*
+
+El recorrido de Rafael es más plano pero tiene un valle claro en la fase "malestar o cambio": por su intención de no molestar a la familia, tarda en avisar cuando algo está fuera de lo normal. Al momento de tomar la medicación también baja la curva porque, ante la duda de haberla tomado, prefiere omitirla. La fase de actividades del día es la más positiva (rutina conocida, sensación de autonomía), y la consulta médica recupera cierta estabilidad porque está acompañado, aunque persiste la frustración de no tener su historial al alcance.
+
+---
+
 ### 2.3.4. Empathy Mapping <a id="234-empathy-mapping"></a>
+
+El Empathy Map complementa al User Journey al detenerse no en el "qué hace" sino en el "qué siente, piensa y dice" el usuario. Cada mapa se organiza en cuatro cuadrantes —DICE, PIENSA, HACE y SIENTE— y consolida las citas, observaciones y reacciones recogidas durante las entrevistas (§2.2.3). Permiten al equipo anclar las decisiones de diseño y de contenido en el estado mental real de cada segmento, evitando suposiciones genéricas.
+
+---
+
+#### Empathy Map — Valeria Huamán (Cuidadora informal)
+
+![Empathy Map de Valeria Huamán](assets/empathy_valeria.png)
+
+*Figura 8. Empathy Map de Valeria Huamán.*
+
+En Valeria destaca una tensión entre el alto nivel de responsabilidad asumido y la falta de herramientas que la acompañen. **DICE** y **PIENSA** convergen en la misma preocupación: olvidar un medicamento o una indicación. **HACE** muestra un patrón claro de uso intensivo del celular combinado con cuaderno físico, lo que refleja la ausencia de una solución centralizada. **SIENTE** combina ansiedad y culpa con momentos puntuales de alivio cuando otro familiar confirma una acción. El mapa evidencia que CareConnect debe reducir la carga mental antes que sumar nuevas funciones.
+
+#### Empathy Map — Rafael Medina (Paciente geriátrico)
+
+![Empathy Map de Rafael Medina](assets/empathy_rafael.png)
+
+*Figura 9. Empathy Map de Rafael Medina.*
+
+En Rafael el eje emocional dominante es la pérdida progresiva de autonomía. **DICE** muestra su deseo de resolver lo cotidiano sin tener que llamar a su hija por cada detalle. **PIENSA** revela una regla de decisión riesgosa: ante la duda, prefiere omitir la dosis. **HACE** confirma un uso muy acotado del celular y un rechazo natural a apps nuevas si no fueron instaladas por alguien de confianza. **SIENTE** mezcla frustración y gratitud, con tranquilidad cuando la información se presenta de forma clara. El mapa refuerza que la interfaz debe priorizar legibilidad, confirmación simple y lenguaje directo.
 ### 2.3.5. Ubiquitous Language <a id="235-ubiquitous-language"></a>
 
 #### Health Event (Evento de salud)
