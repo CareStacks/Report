@@ -1912,6 +1912,22 @@ El Class Diagram de la capa de dominio del bounded context Notificaciones muestr
 
 *Figura 5. Domain Layer Class Diagram del bounded context Notificaciones.*
 
+##### 2.6.2.6.2. Bounded Context Database Design Diagram
+
+El Database Design Diagram del bounded context Notificaciones muestra el esquema relacional que soporta la persistencia del agregado NotificationCenter y sus entidades asociadas. Está compuesto por cuatro tablas propias del contexto (`notifications`, `alerts`, `notification_preferences` y `notification_delivery_attempts`) y una referencia conceptual a la tabla `users`, que pertenece al bounded context de Autenticación y se muestra únicamente a efectos de integridad referencial. Cada notificación se asocia a un destinatario mediante `recipient_id`, puede referenciar al evento de salud que la originó (`health_event_id`, cuya autoridad reside en el bounded context Agenda) y mantiene una trazabilidad temporal de su ciclo de vida (scheduled → sent → delivered → read / failed). La tabla `notification_delivery_attempts` implementa la bitácora de reintentos requerida por la historia técnica TS04 (Envío de notificaciones), mientras que `alerts` captura las alertas de incumplimiento generadas por la historia US05 y, opcionalmente, referencia la notificación que las disparó.
+
+| Tabla | Propósito | Historias de usuario / técnicas |
+|-------|-----------|--------------------------------|
+| `notifications` | Almacena las notificaciones programadas, enviadas y leídas. | US04, US06, TS03, TS04 |
+| `alerts` | Almacena las alertas de incumplimiento generadas para los cuidadores. | US05 |
+| `notification_preferences` | Persiste las preferencias de canal y tipo por usuario. | US06 |
+| `notification_delivery_attempts` | Registra los intentos de envío y sus fallos para reintentos. | TS04 |
+| `users` *(referenciada)* | Tabla propietaria del bounded context Autenticación. | TS05 |
+
+![Figura 6. Database Design Diagram del bounded context Notificaciones](assets/notificaciones-db-diagram.png)
+
+*Figura 6. Database Design Diagram del bounded context Notificaciones.*
+
 ---
 
 # 2.6.3. Bounded Context: Diary
