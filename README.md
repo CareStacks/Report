@@ -575,6 +575,7 @@ El objetivo de este segmento es comprender cómo los pacientes gestionan su prop
 ### Entrevista 1
 
 **Información del entrevistado**
+<img width="643" height="552" alt="image" src="https://github.com/user-attachments/assets/6cdcd7ab-a4a4-4fe5-9f0d-0133fa1e65f9" />
 
 - Nombre: Giancarlo Castañeda  
 - Edad: 20 años  
@@ -606,6 +607,7 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 ### Entrevista 2
 
 **Información del entrevistado**
+<img width="639" height="479" alt="image" src="https://github.com/user-attachments/assets/f3586402-2ed1-4d34-adc6-edbfae88ae95" />
 
 - Nombre: Renzo Uribe  
 - Edad: 20 años  
@@ -643,6 +645,7 @@ Finalmente, el entrevistado espera que una solución digital le permita mejorar 
 ### Entrevista 3
 
 **Información del entrevistado**
+<img width="950" height="660" alt="image" src="https://github.com/user-attachments/assets/908c2a2c-2fd9-4f6f-8ecd-562988dc6631" />
 
 - Nombre: Sebastián Rubio Ortiz  
 - Edad: 20 años  
