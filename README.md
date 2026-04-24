@@ -1243,9 +1243,18 @@ C4Deployment
 | WorkManagerScheduler | Scheduler | Programa recordatorios y tareas en segundo plano. |
 | EventMapper | Mapper | Convierte objetos entre Domain, DTO y Persistence. |
 
-#### 2.6.x.5. Bounded Context Software Architecture Component Level Diagrams
+#### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
 ![Diagrama-componentes-agenda](./assets/Diagrama-componentes-Agenda.png)
+
+#### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
+##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Diagrama-clases-agenda](./assets/Diagrama-clases-Agenda.PNG)
+
+##### 2.6.1.6.2. Bounded Context Database Design Diagram
+
+![Diagrama-db-agenda](./assets/Diagrama-DB-Agenda.PNG)
 
 ---
 
