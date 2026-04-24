@@ -116,15 +116,15 @@
     - [2.5.3.3. Software Architecture Deployment Diagrams](#2533-software-architecture-deployment-diagrams)  
 
 - [2.6. Tactical-Level Domain-Driven Design](#26-tactical-level-domain-driven-design)  
-  - [2.6.x. Bounded Context](#26x-bounded-context)  
-    - [2.6.x.1. Domain Layer](#26x1-domain-layer)  
-    - [2.6.x.2. Interface Layer](#26x2-interface-layer)  
-    - [2.6.x.3. Application Layer](#26x3-application-layer)  
-    - [2.6.x.4. Infrastructure Layer](#26x4-infrastructure-layer)  
-    - [2.6.x.5. Bounded Context Software Architecture Component Level Diagrams](#26x5-component-level-diagrams)  
-    - [2.6.x.6. Bounded Context Software Architecture Code Level Diagrams](#26x6-code-level-diagrams)  
-      - [2.6.x.6.1. Bounded Context Domain Layer Class Diagrams](#26x61-domain-layer-class-diagrams)  
-      - [2.6.x.6.2. Bounded Context Database Design Diagram](#26x62-database-design-diagram)  
+  - [2.6.4. Bounded Context](#264-bounded-context)  
+    - [2.6.4.1. Domain Layer](#2641-domain-layer)  
+    - [2.6.4.2. Interface Layer](#2642-interface-layer)  
+    - [2.6.4.3. Application Layer](#2643-application-layer)  
+    - [2.6.4.4. Infrastructure Layer](#2644-infrastructure-layer)  
+    - [2.6.4.5. Bounded Context Software Architecture Component Level Diagrams](#2645-component-level-diagrams)  
+    - [2.6.4.6. Bounded Context Software Architecture Code Level Diagrams](#2646-code-level-diagrams)  
+      - [2.6.4.6.1. Bounded Context Domain Layer Class Diagrams](#26461-domain-layer-class-diagrams)  
+      - [2.6.4.6.2. Bounded Context Database Design Diagram](#26462-database-design-diagram)  
 
 ## Capítulo III: Solution UI/UX Design
 - [3.1. Product design](#31-product-design)  
@@ -575,6 +575,7 @@ El objetivo de este segmento es comprender cómo los pacientes gestionan su prop
 ### Entrevista 1
 
 **Información del entrevistado**
+<img width="643" height="552" alt="image" src="https://github.com/user-attachments/assets/6cdcd7ab-a4a4-4fe5-9f0d-0133fa1e65f9" />
 
 - Nombre: Giancarlo Castañeda  
 - Edad: 20 años  
@@ -603,23 +604,79 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 
 ---
 
-
 ### Entrevista 2
 
 **Información del entrevistado**
+<img width="639" height="479" alt="image" src="https://github.com/user-attachments/assets/f3586402-2ed1-4d34-adc6-edbfae88ae95" />
 
-- Nombre:  
-- Edad:  
-- Procedencia:  
-- Tiempo como cuidador:  
-- Tipo de cuidado (familiar / profesional):  
+- Nombre: Renzo Uribe  
+- Edad: 20 años  
+- Procedencia: Perú  
+- Tiempo como cuidador: 2 años  
+- Tipo de cuidado: Cuidador de adultos mayores a domicilio  
 
-**Resumen:**  
-(Describir brevemente cómo gestiona el cuidado, herramientas que usa, problemas y necesidades detectadas)
+**Resumen:**
+
+El entrevistado indicó que gestiona el cuidado del paciente mediante una combinación de herramientas manuales y digitales. Para la medicación utiliza un pastillero semanal organizado por horarios (mañana, tarde y noche). En cuanto a terapias y citas médicas, emplea tanto un calendario físico como herramientas digitales como Google Calendar.
+
+Respecto a las herramientas utilizadas en su día a día, mencionó el uso de hojas de papel, aplicaciones de notas y múltiples alarmas en su celular. Además, registra información relevante como alimentación, signos vitales y cambios de ánimo en notas personales.
+
+El entrevistado señaló que uno de los principales problemas es la falta de coordinación e información, especialmente durante cambios de turno o cuando los familiares no comunican cambios en la medicación. Esto puede generar incertidumbre sobre si el paciente ya recibió una dosis o si hubo modificaciones en el tratamiento.
+
+En cuanto a la comunicación, utiliza principalmente WhatsApp; sin embargo, considera que no es eficiente debido a la pérdida de información entre mensajes, lo que dificulta la búsqueda de datos importantes en situaciones críticas.
+
+Entre las principales dificultades del cuidado diario, destacó:
+- La responsabilidad de manejar múltiples pacientes  
+- El control del stock de medicamentos y suministros  
+- La necesidad de recordar citas y tareas  
+- La gestión de cambios de ánimo en los pacientes  
+- La dependencia de la memoria ante la falta de un sistema centralizado  
+
+En relación con una solución digital, el entrevistado propuso funcionalidades como:
+- Registro compartido de medicación con confirmación de dosis  
+- Alertas automáticas en caso de olvido  
+- Bitácora de salud con registro de signos vitales  
+- Visualización gráfica para seguimiento médico  
+- Botón de emergencia con notificación a familiares y envío de ubicación  
+
+Finalmente, el entrevistado espera que una solución digital le permita mejorar la organización, reducir errores en el cuidado y tener mayor tranquilidad al contar con un historial claro del paciente, evitando depender únicamente de la memoria o de la comunicación informal.
 
 ---
+### Entrevista 3
 
-#### Segmento: Familiares
+**Información del entrevistado**
+<img width="950" height="660" alt="image" src="https://github.com/user-attachments/assets/908c2a2c-2fd9-4f6f-8ecd-562988dc6631" />
+
+- Nombre: Sebastián Rubio Ortiz  
+- Edad: 20 años  
+- Procedencia: Perú  
+- Tiempo como cuidador: Aproximadamente 1 año  
+- Tipo de cuidado: Cuidador informal (inicio familiar y experiencia progresiva)  
+
+**Resumen:**
+
+El entrevistado indicó que organiza el cuidado del paciente utilizando principalmente herramientas digitales. Para la programación de citas y terapias emplea aplicaciones como Google Calendar, mientras que para la medicación utiliza una combinación de pastilleros físicos y recordatorios digitales en su celular.
+
+En cuanto a las herramientas utilizadas, mencionó el uso constante del teléfono móvil para alarmas, cronómetros, notas y comunicación mediante WhatsApp. Señaló que estas herramientas son útiles, pero no están integradas entre sí.
+
+El entrevistado destacó que uno de los principales problemas es la falta de coordinación entre cuidadores, especialmente debido al uso de distintos métodos (digitales y manuales). Indicó que el “choque generacional” dificulta la organización, ya que algunos cuidadores prefieren registrar información en papel, lo que puede generar pérdida de datos o falta de actualización en cambios de medicación.
+
+Respecto a la comunicación, indicó que se realiza principalmente a través de grupos de WhatsApp, lo cual puede generar desorden y dificultar el acceso rápido a información relevante.
+
+Entre las principales dificultades del cuidado diario, mencionó:
+- La alta carga mental asociada a la responsabilidad del cuidado  
+- El riesgo de cometer errores en la administración de medicación  
+- La dificultad para organizar información de manera eficiente  
+- La falta de un sistema unificado entre cuidadores  
+
+En relación con una solución digital, el entrevistado propuso funcionalidades como:
+- Interfaz intuitiva y de uso rápido  
+- Sistema de checklist sincronizado entre cuidadores  
+- Centralización de información médica del paciente  
+- Gestión de stock de medicamentos  
+
+Finalmente, el entrevistado espera que una solución digital le permita centralizar toda la información del paciente en un solo lugar, mejorar la coordinación entre cuidadores y facilitar la organización del cuidado diario de manera más eficiente.
+#### Segmento: Pacientes geriátricos
 
 ---
 
@@ -627,13 +684,56 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 
 **Información del entrevistado**
 
-- Nombre:  
-- Edad:  
-- Procedencia:  
-- Relación con el paciente:  
+- Nombre: Rosa María Quispe  
+- Edad: 68 años  
+- Procedencia: Lima, Perú  
+- ¿Cuenta con apoyo de cuidador?: Sí (hija)  
+- Nivel de autonomía: Media  
+- ¿Utiliza celular?: Sí (uso básico)  
 
-**Resumen:**  
-(Describir cómo obtiene información, preocupaciones, problemas y expectativas)
+---
+
+**Resumen:**
+
+La entrevistada indicó que depende parcialmente de su hija para organizar su medicación y citas médicas. Utiliza alarmas en su celular para recordar algunos medicamentos, pero en ocasiones se olvida si ya los tomó o no. Señala que le gustaría tener una forma más clara de saber qué le toca hacer durante el día.
+
+---
+
+**Gestión del cuidado actual:**
+
+Menciona que utiliza alarmas en su celular para recordar la medicación, pero también depende de su hija para confirmar horarios y dosis. Las citas médicas son anotadas en un cuaderno.
+
+---
+
+**Dificultades identificadas:**
+- Olvido de medicación en algunos momentos  
+- Confusión sobre si ya tomó una dosis  
+- Dependencia de otra persona para confirmar información  
+
+---
+
+**Uso de tecnología:**
+
+Utiliza celular principalmente para llamadas, WhatsApp y alarmas. Indica que no está familiarizada con aplicaciones complejas.
+
+---
+
+**Necesidades y expectativas:**
+
+Le gustaría una herramienta simple que le indique claramente qué medicamentos debe tomar y en qué momento, sin generar confusión.
+
+---
+
+**Funcionalidades sugeridas:**
+- Recordatorios claros con sonido  
+- Confirmación visual de medicación tomada  
+- Pantalla simple con actividades del día  
+
+---
+
+**Conclusión del entrevistado:**
+
+Espera que una solución digital le ayude a sentirse más segura y menos dependiente, especialmente para recordar su medicación diaria.
 
 ---
 
@@ -641,23 +741,474 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 
 **Información del entrevistado**
 
-- Nombre:  
-- Edad:  
-- Procedencia:  
-- Relación con el paciente:  
+- Nombre: Luis Alberto Rojas  
+- Edad: 74 años  
+- Procedencia: Arequipa, Perú  
+- ¿Cuenta con apoyo de cuidador?: No (vive con su esposa)  
+- Nivel de autonomía: Alta  
+- ¿Utiliza celular?: Sí  
 
-**Resumen:**  
-(Describir cómo obtiene información, preocupaciones, problemas y expectativas)
+---
 
+**Resumen:**
+
+El entrevistado indicó que gestiona su cuidado de forma independiente, utilizando principalmente su memoria y algunos recordatorios en el celular. Sin embargo, reconoce que en ocasiones olvida detalles de su tratamiento o citas médicas.
+
+---
+
+**Gestión del cuidado actual:**
+
+Se apoya en su memoria y en algunas alarmas para recordar la medicación. Las citas médicas las anota en un calendario físico.
+
+---
+
+**Dificultades identificadas:**
+- Olvido ocasional de medicamentos  
+- Falta de organización centralizada  
+- Dificultad para llevar un historial de su salud  
+
+---
+
+**Uso de tecnología:**
+
+Utiliza celular para llamadas, WhatsApp y ocasionalmente para alarmas. Se siente relativamente cómodo con tecnología básica.
+
+---
+
+**Necesidades y expectativas:**
+
+Busca una herramienta que le permita tener todo organizado en un solo lugar y evitar olvidos.
+
+---
+
+**Funcionalidades sugeridas:**
+- Recordatorios automáticos  
+- Registro de medicamentos tomados  
+- Historial simple de salud  
+
+---
+
+**Conclusión del entrevistado:**
+
+Espera mejorar su organización diaria y reducir los errores en su tratamiento mediante una herramienta fácil de usar.
 ---
 ### 2.2.3. Análisis de entrevistas <a id="223-analisis-de-entrevistas"></a>
 
+A partir de las entrevistas realizadas a los segmentos objetivo (cuidadores y pacientes geriátricos), se identificaron patrones claros en cuanto a la gestión del cuidado, dificultades actuales y necesidades de los usuarios.
+
+Se analizaron un total de 5 entrevistas:
+- 3 cuidadores
+- 2 pacientes geriátricos
+
+---
+
+#### Análisis del segmento: Cuidadores
+
+**Datos demográficos:**
+- Edad promedio: 20 años  
+- Rango: 20 - 20 años  
+- Experiencia: 1 a 2 años  
+
+---
+
+**Herramientas utilizadas:**
+
+- El 100% utiliza celular como herramienta principal  
+- El 100% utiliza alarmas para recordar medicación  
+- El 100% combina herramientas físicas (pastilleros, cuadernos) con digitales  
+- El 100% utiliza WhatsApp para comunicación  
+
+---
+
+**Problemas identificados:**
+
+- El 100% presenta problemas de coordinación entre cuidadores  
+- El 100% ha experimentado pérdida de información  
+- El 100% depende de múltiples herramientas no integradas  
+- El 66.7% menciona dificultades en cambios de turno  
+- El 66.7% señala desorden en la comunicación (WhatsApp)  
+
+---
+
+**Dificultades principales:**
+
+- El 100% menciona alta carga mental  
+- El 100% expresa preocupación por cometer errores en medicación  
+- El 66.7% menciona problemas con organización de información  
+- El 33.3% menciona falta de apoyo profesional inmediato  
+
+---
+
+**Funcionalidades más solicitadas:**
+
+- Registro compartido en tiempo real: 100%  
+- Confirmación de medicación: 100%  
+- Alertas automáticas: 100%  
+- Historial del paciente: 100%  
+- Notas o relevo de turno: 66.7%  
+- Botón de emergencia: 33.3%  
+- Control de stock de medicamentos: 33.3%  
+
+---
+
+**Conclusiones del segmento:**
+
+- Existe una fuerte dependencia de herramientas manuales y no especializadas  
+- La coordinación entre cuidadores es el problema más crítico  
+- La carga mental es alta debido a la responsabilidad del cuidado  
+- Se requiere una solución que centralice la información y automatice procesos  
+- La simplicidad y rapidez son factores clave para la adopción  
+
+---
+
+#### Análisis del segmento: Pacientes geriátricos
+
+**Datos demográficos:**
+- Edad promedio: 71 años  
+- Rango: 68 - 74 años  
+
+---
+
+**Gestión del cuidado:**
+
+- El 100% presenta dificultades para recordar medicación o actividades  
+- El 50% depende de un cuidador para su organización  
+- El 100% utiliza métodos básicos (memoria, cuaderno o alarmas simples)  
+
+---
+
+**Uso de tecnología:**
+
+- El 100% utiliza celular (nivel básico)  
+- El 100% utiliza funciones simples (llamadas, WhatsApp, alarmas)  
+- El 50% presenta dificultad con aplicaciones complejas  
+
+---
+
+**Problemas identificados:**
+
+- El 100% presenta riesgo de olvido de medicación  
+- El 100% no cuenta con un sistema centralizado  
+- El 50% presenta confusión sobre dosis administradas  
+
+---
+
+**Funcionalidades más solicitadas:**
+
+- Recordatorios claros: 100%  
+- Confirmación de medicación: 100%  
+- Visualización simple de actividades: 100%  
+- Interfaz sencilla: 100%  
+- Historial básico: 50%  
+
+---
+
+**Conclusiones del segmento:**
+
+- Los pacientes requieren soluciones extremadamente simples  
+- Existe una alta dependencia de apoyo externo  
+- La claridad visual y facilidad de uso son fundamentales  
+- La solución debe reducir la confusión y aumentar la autonomía  
+
+---
+
+### Conclusión general del análisis
+
+A partir de ambos segmentos, se identifican los siguientes insights clave:
+
+- El 100% de los usuarios presenta problemas de organización del cuidado  
+- El 100% utiliza herramientas no especializadas  
+- El 100% requiere centralización de información  
+- La coordinación entre cuidadores es el mayor problema  
+- La carga mental es alta en cuidadores  
+- Los pacientes necesitan simplicidad extrema  
+
+---
+
+### Implicaciones para el diseño de CareConnect
+
+- Implementar un sistema centralizado de información  
+- Diseñar una interfaz simple y accesible  
+- Incorporar alertas y recordatorios inteligentes  
+- Permitir la colaboración entre múltiples usuarios  
+- Reducir la dependencia de herramientas externas  
+
+CareConnect debe enfocarse en resolver la desorganización actual del cuidado, proporcionando una solución confiable, intuitiva y centrada en las necesidades reales de los usuarios.
 ## 2.3. Needfinding <a id="23-needfinding"></a>
 ### 2.3.1. User Personas <a id="231-user-personas"></a>
+
+En esta sección se presentan los arquetipos construidos a partir de los hallazgos recogidos en el análisis de competencia (§2.1) y en el análisis de entrevistas (§2.2.3). Cada ficha concentra datos demográficos, hábitos, objetivos, frustraciones y nivel de adopción tecnológica observados durante la investigación, y sirve de referencia para las decisiones de diseño de CareConnect. Se elaboró una ficha por cada segmento objetivo definido en el Capítulo I (§1.3): el cuidador de pacientes geriátricos y el paciente geriátrico con autonomía parcial o acompañada.
+
+Los atributos destacados son los que aparecieron de forma transversal en las entrevistas: uso intensivo del celular como herramienta principal, dependencia de soluciones no especializadas (WhatsApp, pastilleros, cuadernos), alta carga mental en cuidadores y necesidad de simplicidad extrema en pacientes. Estos rasgos orientan el tono, la jerarquía de información y las prioridades funcionales del producto.
+
+---
+
+#### User Persona 1 — Valeria Huamán (Cuidadora informal)
+
+![Foto referencial - Valeria Huamán](assets/persona_valeria.png)
+
+| Atributo | Valor |
+|---|---|
+| **Nombre** | Valeria Huamán Soto |
+| **Edad** | 28 años |
+| **Género** | Femenino |
+| **Ocupación** | Asistente administrativa a tiempo parcial; cuidadora informal de su abuela |
+| **Ubicación** | Lima Metropolitana, zona urbana (San Miguel) |
+| **NSE** | C |
+| **Estado civil** | Soltera, vive con su familia extendida |
+| **Educación** | Superior técnica (Administración) |
+| **Persona a cargo** | Abuela de 74 años con hipertensión, artrosis y movilidad reducida |
+| **Tiempo cuidando** | 1 año y 8 meses |
+| **Dispositivo principal** | Smartphone Android gama media |
+
+**Biografía:**
+Valeria divide su día entre el trabajo administrativo y el cuidado de su abuela, a quien asiste junto con su madre y una tía. Asumió el rol porque es la más hábil con el celular y se encarga de coordinar medicamentos, citas y turnos por WhatsApp. Lleva el control en un cuaderno y en alarmas del teléfono, pero varias veces ha tenido que llamar a su madre para confirmar si la abuela ya tomó una dosis. Le preocupa equivocarse y repite los mensajes "por las dudas".
+
+**Objetivos:**
+- Saber siempre en qué punto del tratamiento está su abuela sin tener que preguntar.
+- Que cualquier cuidador de la familia pueda continuar el cuidado sin perder información.
+- Reducir el tiempo que dedica a coordinar turnos y copiar datos entre herramientas.
+- Tener evidencia rápida cuando el médico pide historial o dosis administradas.
+
+**Frustraciones:**
+- WhatsApp se llena de mensajes y termina perdiendo la indicación original.
+- No hay forma fácil de confirmar si otra persona ya administró el medicamento.
+- Copia la receta en el cuaderno y luego la vuelve a escribir en el celular para compartirla.
+- El doctor le pide evolución semanal y tiene que reconstruirla de memoria.
+- Olvidó una dosis por estar en una reunión de trabajo y cargó con la culpa varios días.
+
+**Comportamientos y hábitos:**
+- Revisa el celular cada 30 - 45 minutos durante su jornada.
+- Usa alarmas con etiquetas específicas ("Enalapril 10mg", "Control cardio lunes").
+- Combina WhatsApp, Google Calendar, notas del celular y cuaderno físico.
+- Prefiere apps con flujos cortos; abandona si pide registrarse con más de tres datos.
+
+**Nivel tecnológico:** Medio-alto. Se maneja bien con apps cotidianas (banca móvil, pedidos, mensajería) pero no con herramientas clínicas especializadas.
+
+**Motivaciones:** Cariño familiar, responsabilidad compartida, reducción de errores, tranquilidad de saber que todo queda registrado.
+
+**Frase representativa:**
+> "Lo que más me estresa no es hacer las cosas, es acordarme de todo y avisarle a los demás sin equivocarme."
+
+---
+
+#### User Persona 2 — Don Rafael Medina (Paciente geriátrico)
+
+![Foto referencial - Rafael Medina](assets/persona_rafael.png)
+
+| Atributo | Valor |
+|---|---|
+| **Nombre** | Rafael Medina Paredes |
+| **Edad** | 72 años |
+| **Género** | Masculino |
+| **Ocupación** | Contador jubilado |
+| **Ubicación** | Lima Metropolitana, zona urbana (Surquillo) |
+| **NSE** | C |
+| **Estado civil** | Casado; su hija lo visita a diario |
+| **Educación** | Superior universitaria |
+| **Condición** | Diabetes tipo 2 controlada, hipertensión, leve pérdida de memoria reciente |
+| **Autonomía** | Parcial — cocina simple, camina solo dentro de casa, depende de apoyo para citas y medicación compleja |
+| **Dispositivo principal** | Smartphone Android gama media con letras grandes |
+
+**Biografía:**
+Don Rafael vive con su esposa y recibe visitas frecuentes de su hija, quien coordina la medicación y acompaña las citas médicas. Maneja su celular para llamadas, WhatsApp y alarmas simples, pero se confunde cuando una app tiene demasiados menús o pide muchos pasos. Su mayor preocupación es "no molestar" a la familia, por lo que a veces omite avisar malestares pequeños. Le gusta sentir que participa de su propio cuidado.
+
+**Objetivos:**
+- Recordar sin ayuda qué medicamento toma y a qué hora.
+- Confirmar rápido que ya hizo una actividad del día (tomar pastilla, hacer ejercicio).
+- Consultar sus próximas citas sin llamar a su hija.
+- Comunicar cómo se siente de forma simple cuando algo no anda bien.
+
+**Frustraciones:**
+- A veces duda si ya tomó la medicación o no, y termina no tomándola por miedo a duplicar dosis.
+- Las apps que prueba tienen textos pequeños, botones poco claros y demasiados menús.
+- Siente que depende mucho de su hija para cosas que antes resolvía solo.
+- Se pierde entre recetas físicas, resultados y comprobantes de farmacia.
+
+**Comportamientos y hábitos:**
+- Usa el celular varias veces al día, siempre para tareas sencillas.
+- Pide a su hija que le configure alarmas y le explique instrucciones médicas nuevas.
+- Prefiere la voz y las imágenes grandes a leer textos largos.
+- Evita probar apps nuevas a menos que alguien de confianza se las instale.
+
+**Nivel tecnológico:** Bajo-medio. Funciones básicas dominadas; se incomoda con navegación compleja o formularios.
+
+**Motivaciones:** Mantener autonomía, no sentirse una carga, cuidar su salud para seguir compartiendo tiempo con su familia.
+
+**Frase representativa:**
+> "Yo quiero saber qué toca hacer hoy sin tener que llamar a mi hija por cada cosita."
+
+---
+
 ### 2.3.2. User Task Matrix <a id="232-user-task-matrix"></a>
+
+A partir de los dos User Personas definidos en §2.3.1 —Valeria Huamán (cuidadora informal) y Don Rafael Medina (paciente geriátrico)—, se consolidan las tareas que ambos segmentos realizan en su día a día para llevar adelante el cuidado geriátrico. Es importante precisar que estas tareas se identifican con independencia de la existencia de CareConnect: representan actividades que los usuarios ya ejecutan con las herramientas que tienen a mano (WhatsApp, cuadernos, alarmas, llamadas, memoria), y que cualquier solución de software debería facilitar, no reemplazar.
+
+Para cada tarea se indica la **Frecuencia** con la que el segmento la realiza (Alta / Media / Baja) y la **Importancia** que tiene dentro del proceso de cuidado (Alta / Media / Baja). La escala se apoya en los porcentajes obtenidos en el análisis de entrevistas (§2.2.3).
+
+| **Tarea** | **Valeria (Cuidadora)**<br>Frecuencia | **Valeria (Cuidadora)**<br>Importancia | **Rafael (Paciente)**<br>Frecuencia | **Rafael (Paciente)**<br>Importancia |
+|---|:---:|:---:|:---:|:---:|
+| Administrar y/o tomar la medicación según horario | Alta | Alta | Alta | Alta |
+| Recordar y confirmar si una dosis ya fue administrada | Alta | Alta | Alta | Alta |
+| Registrar observaciones del paciente (síntomas, ánimo, signos) | Alta | Alta | Media | Media |
+| Consultar la rutina y actividades del día (controles, terapias) | Alta | Alta | Alta | Alta |
+| Agendar y asistir a citas médicas | Media | Alta | Media | Alta |
+| Coordinar el cambio de turno entre cuidadores | Alta | Alta | N/A | N/A |
+| Comunicar cambios o malestares del paciente a familiares / médicos | Alta | Alta | Media | Alta |
+| Consultar historial clínico y evolución del paciente | Media | Alta | Baja | Media |
+| Gestionar documentos médicos (recetas, resultados, comprobantes) | Media | Alta | Baja | Media |
+| Buscar información sobre tratamiento o medicamentos | Media | Media | Baja | Media |
+| Solicitar apoyo a cuidador o familiar ante una duda | Media | Media | Alta | Alta |
+| Reportar que una actividad del día fue completada | Alta | Media | Alta | Alta |
+
+---
+
+**Tareas con mayor frecuencia e importancia:**
+La administración y confirmación de medicación, la consulta de la rutina diaria y el reporte de actividades completadas son tareas que ambos segmentos realizan con frecuencia alta y consideran de alta importancia. Esto es consistente con el 100% de entrevistados que mencionó la medicación como eje del cuidado y con las funcionalidades más solicitadas en §2.2.3 (recordatorios, confirmación de medicación, visualización simple de actividades).
+
+**Principales coincidencias entre ambos segmentos:**
+Ambos User Personas coinciden en necesitar certeza sobre el estado del tratamiento: Valeria necesita saber si alguien más ya administró una dosis, y Rafael necesita saber si él mismo ya la tomó. Ambos usan el celular como herramienta principal y valoran la rapidez para acceder a información crítica. También comparten la tarea de consultar la rutina diaria y reportar su cumplimiento, aunque con matices: Valeria la vive como responsabilidad operativa, Rafael como una forma de participar en su propio cuidado.
+
+**Principales diferencias:**
+Las tareas vinculadas a la coordinación (cambio de turno, gestión documental, comunicación con múltiples actores) concentran alta frecuencia e importancia solo para Valeria; en Rafael aparecen con baja frecuencia porque las delega en su hija o esposa. En contraste, "solicitar apoyo" es una tarea de alta frecuencia para Rafael y media para Valeria, lo que refleja la asimetría de autonomía entre ambos: el paciente busca apoyo, el cuidador lo provee.
+
+**Implicaciones para el diseño:**
+Las tareas con alta frecuencia y alta importancia en ambos segmentos deben resolverse con flujos mínimos (uno o dos tap) y visibilidad inmediata en la pantalla principal. Las tareas asimétricas —coordinación para el cuidador, solicitud de apoyo para el paciente— justifican vistas diferenciadas por rol dentro de una misma aplicación compartida. El resto de tareas (consulta de historial, gestión documental, búsqueda de información) puede vivir detrás de un segundo nivel de navegación sin perjudicar la experiencia.
+
 ### 2.3.3. User Journey Mapping <a id="233-user-journey-mapping"></a>
+
+El User Journey Map representa, por cada User Persona, la secuencia de fases que atraviesa durante el proceso de cuidado geriátrico cotidiano, las acciones concretas que realiza en cada fase, los pensamientos asociados, los principales pain points y la curva emocional. Se construyen dos mapas —uno para Valeria Huamán como cuidadora informal y otro para Rafael Medina como paciente geriátrico— a fin de visualizar cómo las mismas etapas del cuidado generan experiencias distintas según el rol.
+
+---
+
+#### User Journey — Valeria Huamán (Cuidadora informal)
+
+![User Journey Map de Valeria Huamán](assets/journey_valeria.png)
+
+*Figura 6. User Journey Map de Valeria Huamán durante un día típico de cuidado.*
+
+El recorrido de Valeria muestra una caída emocional progresiva a lo largo del día: arranca con incertidumbre ("¿me estoy olvidando de algo?"), se estabiliza brevemente al administrar la medicación y vuelve a caer en los momentos críticos de cambio de turno y consulta médica, donde la falta de una herramienta centralizada hace que la información dependa de memoria y cuadernos. El punto más bajo aparece en la consulta médica: cuando el doctor pide historial y evolución, Valeria debe reconstruirlo a mano. La fase de registro de evolución cierra el día con frustración por no tener un registro fiel de lo ocurrido.
+
+#### User Journey — Rafael Medina (Paciente geriátrico)
+
+![User Journey Map de Rafael Medina](assets/journey_rafael.png)
+
+*Figura 7. User Journey Map de Rafael Medina durante un día típico.*
+
+El recorrido de Rafael es más plano pero tiene un valle claro en la fase "malestar o cambio": por su intención de no molestar a la familia, tarda en avisar cuando algo está fuera de lo normal. Al momento de tomar la medicación también baja la curva porque, ante la duda de haberla tomado, prefiere omitirla. La fase de actividades del día es la más positiva (rutina conocida, sensación de autonomía), y la consulta médica recupera cierta estabilidad porque está acompañado, aunque persiste la frustración de no tener su historial al alcance.
+
+---
+
 ### 2.3.4. Empathy Mapping <a id="234-empathy-mapping"></a>
+
+El Empathy Map complementa al User Journey al detenerse no en el "qué hace" sino en el "qué siente, piensa y dice" el usuario. Cada mapa se organiza en cuatro cuadrantes —DICE, PIENSA, HACE y SIENTE— y consolida las citas, observaciones y reacciones recogidas durante las entrevistas (§2.2.3). Permiten al equipo anclar las decisiones de diseño y de contenido en el estado mental real de cada segmento, evitando suposiciones genéricas.
+
+---
+
+#### Empathy Map — Valeria Huamán (Cuidadora informal)
+
+![Empathy Map de Valeria Huamán](assets/empathy_valeria.png)
+
+*Figura 8. Empathy Map de Valeria Huamán.*
+
+En Valeria destaca una tensión entre el alto nivel de responsabilidad asumido y la falta de herramientas que la acompañen. **DICE** y **PIENSA** convergen en la misma preocupación: olvidar un medicamento o una indicación. **HACE** muestra un patrón claro de uso intensivo del celular combinado con cuaderno físico, lo que refleja la ausencia de una solución centralizada. **SIENTE** combina ansiedad y culpa con momentos puntuales de alivio cuando otro familiar confirma una acción. El mapa evidencia que CareConnect debe reducir la carga mental antes que sumar nuevas funciones.
+
+#### Empathy Map — Rafael Medina (Paciente geriátrico)
+
+![Empathy Map de Rafael Medina](assets/empathy_rafael.png)
+
+*Figura 9. Empathy Map de Rafael Medina.*
+
+En Rafael el eje emocional dominante es la pérdida progresiva de autonomía. **DICE** muestra su deseo de resolver lo cotidiano sin tener que llamar a su hija por cada detalle. **PIENSA** revela una regla de decisión riesgosa: ante la duda, prefiere omitir la dosis. **HACE** confirma un uso muy acotado del celular y un rechazo natural a apps nuevas si no fueron instaladas por alguien de confianza. **SIENTE** mezcla frustración y gratitud, con tranquilidad cuando la información se presenta de forma clara. El mapa refuerza que la interfaz debe priorizar legibilidad, confirmación simple y lenguaje directo.
 ### 2.3.5. Ubiquitous Language <a id="235-ubiquitous-language"></a>
+
+#### Health Event (Evento de salud)
+Registro de una actividad relacionada con la salud del paciente, como una cita médica o la administración de medicación.
+
+---
+
+#### Appointment (Cita médica)
+Evento de salud programado entre un paciente y un profesional de salud en una fecha y hora específica.
+
+---
+
+#### Medication Event (Evento de medicación)
+Evento de salud que representa la administración o toma de un medicamento en un horario definido.
+
+---
+
+#### Patient (Paciente)
+Usuario principal del sistema que gestiona su información de salud, eventos, documentos y seguimiento personal.
+
+---
+
+#### Caregiver (Cuidador)
+Usuario autorizado por el paciente para supervisar su información de salud y apoyar su seguimiento.
+
+---
+
+#### Agenda (Agenda de salud)
+Sistema que organiza y gestiona los eventos de salud del paciente en el tiempo, como citas y medicación.
+
+---
+
+#### Event Status (Estado del evento)
+Condición de un evento de salud dentro del sistema, como pendiente, confirmado o no confirmado.
+
+---
+
+#### Event Confirmation (Confirmación de evento)
+Acción mediante la cual el paciente valida la realización de un evento de salud programado.
+
+---
+
+#### Reschedule (Reprogramación)
+Modificación de la fecha u hora de un evento de salud previamente registrado.
+
+---
+
+#### Notification (Notificación)
+Mensaje informativo generado por el sistema para alertar al paciente o cuidador sobre eventos relevantes.
+
+---
+
+#### Alert (Alerta)
+Notificación de alta prioridad enviada al cuidador cuando ocurre un incumplimiento o situación crítica.
+
+---
+
+#### Medical Document (Documento médico)
+Archivo digital que contiene información clínica del paciente, como resultados, recetas o informes médicos.
+
+---
+
+#### Access Sharing (Acceso compartido)
+Mecanismo mediante el cual el paciente otorga acceso a su información a un cuidador autorizado.
+
+---
+
+#### Permission (Permiso de acceso)
+Reglas que determinan qué información puede visualizar o gestionar un cuidador dentro del sistema.
+
+---
+
+#### Diary Entry (Entrada de diario)
+Registro cualitativo del paciente o cuidador sobre el estado, experiencia o seguimiento del paciente.
+
+---
+
+#### Diary (Diario de seguimiento)
+Conjunto de entradas que permiten llevar un registro cualitativo del estado del paciente.
+
+---
+
+#### Authentication (Autenticación)
+Proceso de verificación de identidad del usuario para permitir el acceso al sistema.
+
+---
+
+#### User Role (Rol de usuario)
+Clasificación del usuario dentro del sistema, como paciente o cuidador, que determina sus permisos de acceso.
 
 ## 2.4. Requirements specification <a id="24-requirements-specification"></a>
 ### 2.4.1. User Stories <a id="241-user-stories"></a>
@@ -1088,32 +1639,7 @@ Los sistemas externos identificados son:
 - **Push Notification Service (e.g., Firebase Cloud Messaging):** Servicio externo para el envío de notificaciones push a los dispositivos móviles de pacientes y cuidadores.
 - **Identity Provider:** Servicio de autenticación externo que permite el inicio de sesión mediante proveedores como Google Sign-In.
 
-```mermaid
-%%{init: {'theme': 'dark'}}%%
-C4Context
-    title System Context Diagram - CareConnect
-
-    Person(patient, "Geriatric Patient", "Recibe recordatorios, confirma eventos y registra su diario de salud.")
-    Person(caregiver, "Caregiver", "Supervisa al paciente, gestiona medicación y recibe alertas de incumplimiento.")
-
-    System(careconnect, "CareConnect Platform", "Plataforma de coordinación del cuidado del paciente geriátrico. Incluye Landing Page, Mobile App y RESTful API.")
-
-    System_Ext(email, "Email Service", "SendGrid - Envío de correos de verificación, recuperación de contraseña y notificaciones.")
-    System_Ext(push, "Push Notification Service", "Firebase Cloud Messaging - Envío de notificaciones push a dispositivos móviles.")
-    System_Ext(idp, "Identity Provider", "Google Sign-In - Autenticación externa de usuarios.")
-
-    Rel(patient, careconnect, "Gestiona su salud", "HTTPS")
-    Rel(caregiver, careconnect, "Supervisa al paciente", "HTTPS")
-    Rel(careconnect, email, "Envía emails", "HTTPS/SMTP")
-    Rel(careconnect, push, "Envía notificaciones push", "HTTPS")
-    Rel(careconnect, idp, "Autentica usuarios", "HTTPS/OAuth 2.0")
-
-    UpdateRelStyle(patient, careconnect, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(caregiver, careconnect, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(careconnect, email, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(careconnect, push, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(careconnect, idp, $textColor="#ffffff", $lineColor="#ffffff")
-```
+![Figura 1. Software Architecture Context Level Diagram para CareConnect](assets/context-diagram.png)
 
 *Figura 1. Software Architecture Context Level Diagram para CareConnect.*
 
@@ -1146,85 +1672,7 @@ Las relaciones principales entre containers son:
 | Notificaciones Service | Email Service / Push Notification Service | Envía emails y notificaciones push | HTTPS / SMTP |
 | Autenticación Service | Email Service / Identity Provider | Envía emails transaccionales y verifica autenticación federada | HTTPS / OAuth 2.0 |
 
-```mermaid
-%%{init: {'theme': 'dark', 'flowchart': {'nodeSpacing': 40, 'rankSpacing': 55, 'htmlLabels': true}}}%%
-flowchart TB
-    %% Segmentos objetivo
-    subgraph Users["Segmentos objetivo"]
-        direction LR
-        Patient(["Geriatric Patient"])
-        Caregiver(["Caregiver"])
-    end
-
-    %% Capa de clientes
-    subgraph ClientTier["Client Tier"]
-        direction LR
-        Landing["Landing Page<br/><i>React</i>"]
-        Mobile["Mobile Application<br/><i>Kotlin / Flutter</i>"]
-    end
-
-    %% API Gateway con 6 bounded contexts
-    subgraph API["API Gateway — Spring Boot (RESTful / OpenAPI)"]
-        direction TB
-        subgraph Row1[" "]
-            direction LR
-            Auth["Autenticación Service"]
-            Access["Acceso Compartido Service"]
-            Agenda["Agenda Service"]
-        end
-        subgraph Row2[" "]
-            direction LR
-            Notif["Notificaciones Service"]
-            Docs["Documentos Service"]
-            Diary["Diario Service"]
-        end
-    end
-
-    %% Persistencia
-    subgraph DataTier["Data Tier"]
-        direction LR
-        Local[("Local Storage<br/><i>SQLite / Room</i>")]
-        DB[("Database<br/><i>PostgreSQL</i>")]
-    end
-
-    %% Sistemas externos
-    subgraph ExternalTier["External Systems"]
-        direction LR
-        IdP["Google Sign-In<br/><i>Identity Provider</i>"]
-        Email["SendGrid<br/><i>Email Service</i>"]
-        FCM["Firebase Cloud Messaging<br/><i>Push Service</i>"]
-    end
-
-    %% Flujos principales (sin cruces)
-    Patient --> Mobile
-    Caregiver --> Mobile
-    Patient -. opcional .-> Landing
-    Caregiver -. opcional .-> Landing
-
-    Mobile -- "HTTPS / JSON" --> API
-    Mobile <-- "SQLite" --> Local
-
-    API -- "JDBC / JPA" --> DB
-
-    Auth -- "OAuth 2.0" --> IdP
-    Auth -- "HTTPS / SMTP" --> Email
-    Notif -- "HTTPS / SMTP" --> Email
-    Notif -- "HTTPS" --> FCM
-    FCM -. "Push (FCM)" .-> Mobile
-
-    %% Estilos por tier
-    classDef user fill:#1f4068,stroke:#ffffff,color:#ffffff
-    classDef client fill:#2b6777,stroke:#ffffff,color:#ffffff
-    classDef svc fill:#355c7d,stroke:#ffffff,color:#ffffff
-    classDef data fill:#3d405b,stroke:#ffffff,color:#ffffff
-    classDef ext fill:#6d6875,stroke:#ffffff,color:#ffffff
-
-    class Patient,Caregiver user
-    class Landing,Mobile client
-    class Auth,Access,Agenda,Notif,Docs,Diary svc
-    class Local,DB data
-    class IdP,Email,FCM ext
-```
+![Figura 2. Software Architecture Container Level Diagram para CareConnect](assets/container-diagram.png)
 
 *Figura 2. Software Architecture Container Level Diagram para CareConnect, con el API Gateway descompuesto en sus seis bounded contexts y organizado en capas horizontales para evitar cruces.*
 
@@ -1267,65 +1715,11 @@ Las conexiones de red principales son:
 | Cloud Web Server | SendGrid | HTTPS/SMTP | Envío de emails |
 | Cloud Web Server | Firebase Cloud Messaging | HTTPS | Disparo de notificaciones |
 
-```mermaid
-%%{init: {'theme': 'dark'}}%%
-C4Deployment
-    title Deployment Diagram - CareConnect
-
-    Deployment_Node(userDevice, "User's Mobile Device", "Android") {
-        Container(mobileApp, "Mobile Application", "Kotlin / Flutter", "Interfaz principal del sistema.")
-        ContainerDb(localStorage, "Local Storage", "SQLite / Room", "Persistencia offline.")
-    }
-
-    Deployment_Node(staticHost, "Static Hosting", "Vercel / Netlify / GitHub Pages") {
-        Container(landingPage, "Landing Page", "React", "Sitio web del producto servido al navegador del visitante.")
-    }
-
-    Deployment_Node(cloud, "Cloud Hosting Provider", "Railway / Render / AWS") {
-        Deployment_Node(webServer, "Web Server Node", "Linux / Docker") {
-            Container(apiServer, "API Gateway", "Spring Boot / Java", "RESTful Web Services con 6 bounded contexts: Agenda, Notificaciones, Documentos, Acceso Compartido, Diario y Autenticación.")
-        }
-        Deployment_Node(dbServer, "Database Server Node", "Managed DB") {
-            ContainerDb(database, "Database", "PostgreSQL", "Base de datos relacional compartida por los seis bounded contexts.")
-        }
-    }
-
-    Deployment_Node(firebase, "Firebase", "Google Cloud") {
-        Container(fcm, "Firebase Cloud Messaging", "FCM", "Servicio de notificaciones push.")
-        Container(appDist, "Firebase App Distribution", "Firebase", "Distribución de APK para testing.")
-    }
-
-    Deployment_Node(emailProvider, "Email Provider", "SendGrid") {
-        Container(emailService, "Email Service", "SendGrid API", "Envío de correos transaccionales.")
-    }
-
-    Rel(mobileApp, apiServer, "Consume API", "HTTPS/JSON")
-    Rel(mobileApp, localStorage, "Lee/Escribe", "SQLite")
-    Rel(apiServer, database, "Persiste datos", "TCP/JDBC")
-    Rel(apiServer, fcm, "Dispara notificaciones", "HTTPS")
-    Rel(apiServer, emailService, "Envía emails", "HTTPS/SMTP")
-    Rel(fcm, mobileApp, "Push notifications", "FCM")
-
-    UpdateRelStyle(mobileApp, apiServer, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(mobileApp, localStorage, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(apiServer, database, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(apiServer, fcm, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(apiServer, emailService, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(fcm, mobileApp, $textColor="#ffffff", $lineColor="#ffffff")
-```
+![Figura 3. Software Architecture Deployment Diagram para CareConnect](assets/deployment-diagram.png)
 
 *Figura 3. Software Architecture Deployment Diagram para CareConnect.*
 
 ## 2.6. Tactical-Level Domain-Driven Design <a id="26-tactical-level-domain-driven-design"></a>
-### 2.6.x. Bounded Context <a id="26x-bounded-context"></a>
-#### 2.6.x.1. Domain Layer <a id="26x1-domain-layer"></a>
-#### 2.6.x.2. Interface Layer <a id="26x2-interface-layer"></a>
-#### 2.6.x.3. Application Layer <a id="26x3-application-layer"></a>
-#### 2.6.x.4. Infrastructure Layer <a id="26x4-infrastructure-layer"></a>
-#### 2.6.x.5. Bounded Context Software Architecture Component Level Diagrams <a id="26x5-component-level-diagrams"></a>
-#### 2.6.x.6. Bounded Context Software Architecture Code Level Diagrams <a id="26x6-code-level-diagrams"></a>
-##### 2.6.x.6.1. Bounded Context Domain Layer Class Diagrams <a id="26x61-domain-layer-class-diagrams"></a>
-##### 2.6.x.6.2. Bounded Context Database Design Diagram <a id="26x62-database-design-diagram"></a>
 
 ### 2.6.1. Bounded Context: Agenda
 
@@ -1387,9 +1781,18 @@ C4Deployment
 | WorkManagerScheduler | Scheduler | Programa recordatorios y tareas en segundo plano. |
 | EventMapper | Mapper | Convierte objetos entre Domain, DTO y Persistence. |
 
-#### 2.6.x.5. Bounded Context Software Architecture Component Level Diagrams
+#### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
 ![Diagrama-componentes-agenda](./assets/Diagrama-componentes-Agenda.png)
+
+#### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
+##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Diagrama-clases-agenda](./assets/Diagrama-clases-Agenda.PNG)
+
+##### 2.6.1.6.2. Bounded Context Database Design Diagram
+
+![Diagrama-db-agenda](./assets/Diagrama-DB-Agenda.PNG)
 
 ---
 
@@ -1495,66 +1898,7 @@ Este bounded context es responsable de la planificación, envío, recepción, vi
 
 El Component Diagram del bounded context Notificaciones presenta, en un layout vertical y con un número reducido de componentes, la organización interna del módulo en cuatro capas claramente separadas: Interface (API REST), Application (servicio de aplicación), Domain (servicios de dominio) e Infrastructure (repositorio, scheduler y adaptadores a FCM y SendGrid). También muestra la integración de entrada desde la Mobile Application y desde el bounded context Agenda, y las salidas hacia la base de datos y los servicios externos.
 
-```mermaid
-%%{init: {'theme': 'dark', 'flowchart': {'htmlLabels': true}}}%%
-flowchart TB
-    subgraph Clients["Clients & Upstream"]
-        direction LR
-        Mobile["Mobile Application<br/>(Kotlin / Flutter)"]
-        Agenda["Bounded Context: Agenda<br/>(publica eventos de dominio)"]
-    end
-
-    subgraph Notif["Bounded Context: Notificaciones"]
-        direction TB
-
-        subgraph Interface["Interface Layer"]
-            API["NotificationsRestController<br/>(REST API: notificaciones, alertas, preferencias)"]
-        end
-
-        subgraph Application["Application Layer"]
-            AppSvc["NotificationApplicationService<br/>(orquesta Commands y Queries)"]
-            Listener["AgendaEventListener<br/>(reacciona a eventos de Agenda)"]
-        end
-
-        subgraph Domain["Domain Layer"]
-            Dispatch["NotificationDispatchService"]
-            Eval["AlertEvaluationService"]
-            Policy["NotificationAccessPolicy"]
-        end
-
-        subgraph Infra["Infrastructure Layer"]
-            Repo["NotificationRepositoryImpl"]
-            Scheduler["WorkManagerNotificationScheduler"]
-            Adapters["Notification Adapters<br/>(FCM + SendGrid)"]
-        end
-    end
-
-    subgraph External["Downstream"]
-        direction LR
-        DB[("Database<br/>PostgreSQL")]
-        FCM["Firebase Cloud<br/>Messaging"]
-        Email["SendGrid"]
-    end
-
-    Mobile --> API
-    Agenda --> Listener
-
-    API --> AppSvc
-    Listener --> AppSvc
-
-    AppSvc --> Dispatch
-    AppSvc --> Eval
-    AppSvc --> Policy
-
-    AppSvc --> Repo
-    AppSvc --> Scheduler
-    Dispatch --> Adapters
-
-    Repo --> DB
-    Adapters --> FCM
-    Adapters --> Email
-    FCM --> Mobile
-```
+![Figura 4. Component Level Diagram del bounded context Notificaciones](assets/notificaciones-component-diagram.png)
 
 *Figura 4. Component Level Diagram del bounded context Notificaciones, organizado por capas.*
 
@@ -1564,216 +1908,161 @@ flowchart TB
 
 El Class Diagram de la capa de dominio del bounded context Notificaciones muestra el agregado NotificationCenter, sus entidades internas (Notification, Alert, NotificationPreference), los value objects que describen su comportamiento, los domain services que encapsulan las reglas de negocio y los domain events que comunican cambios relevantes hacia otros contextos.
 
-```mermaid
-%%{init: {'theme': 'dark'}}%%
-classDiagram
-    direction LR
-
-    class NotificationCenter {
-        <<Aggregate Root>>
-        -RecipientId recipientId
-        -List~Notification~ notifications
-        -List~Alert~ alerts
-        -NotificationPreference preferences
-        +scheduleNotification(content, scheduledAt, type, priority) Notification
-        +sendNotification(notificationId) void
-        +cancelScheduled(notificationId) void
-        +markAsRead(notificationId) void
-        +triggerAlert(healthEventId, reason) Alert
-        +updatePreferences(preferences) void
-    }
-
-    class Notification {
-        <<Entity>>
-        -UUID id
-        -RecipientId recipientId
-        -NotificationContent content
-        -NotificationType type
-        -NotificationPriority priority
-        -NotificationStatus status
-        -DeliveryChannel channel
-        -ScheduledAt scheduledAt
-        +schedule() void
-        +markAsSent() void
-        +markAsDelivered() void
-        +markAsRead() void
-        +markAsFailed(reason) void
-    }
-
-    class Alert {
-        <<Entity>>
-        -UUID id
-        -UUID healthEventId
-        -RecipientId recipientId
-        -NotificationPriority priority
-        -String reason
-        -Instant triggeredAt
-        -boolean acknowledged
-        +acknowledge() void
-    }
-
-    class NotificationPreference {
-        <<Entity>>
-        -RecipientId recipientId
-        -Set~DeliveryChannel~ enabledChannels
-        -Set~NotificationType~ enabledTypes
-        -boolean quietHoursEnabled
-        +enableChannel(channel) void
-        +disableChannel(channel) void
-        +allows(type, channel) boolean
-    }
-
-    class NotificationContent {
-        <<Value Object>>
-        -String title
-        -String message
-        -Map payload
-    }
-
-    class NotificationType {
-        <<Value Object>>
-        <<enumeration>>
-        REMINDER
-        ALERT
-        INFO
-    }
-
-    class NotificationPriority {
-        <<Value Object>>
-        <<enumeration>>
-        LOW
-        MEDIUM
-        HIGH
-        CRITICAL
-    }
-
-    class NotificationStatus {
-        <<Value Object>>
-        <<enumeration>>
-        SCHEDULED
-        SENT
-        DELIVERED
-        READ
-        FAILED
-    }
-
-    class DeliveryChannel {
-        <<Value Object>>
-        <<enumeration>>
-        PUSH
-        EMAIL
-        IN_APP
-    }
-
-    class RecipientId {
-        <<Value Object>>
-        -UUID value
-    }
-
-    class ScheduledAt {
-        <<Value Object>>
-        -Instant value
-        +isDue(now) boolean
-    }
-
-    class NotificationDispatchService {
-        <<Domain Service>>
-        +dispatch(notification, preference) void
-    }
-
-    class AlertEvaluationService {
-        <<Domain Service>>
-        +shouldTriggerAlert(healthEvent) boolean
-        +evaluate(center, healthEvent) Alert
-    }
-
-    class NotificationAccessPolicy {
-        <<Domain Service>>
-        +canReceive(recipientId, notification) boolean
-    }
-
-    class NotificationRepository {
-        <<Repository>>
-        +findByRecipient(recipientId) NotificationCenter
-        +save(center) void
-    }
-
-    class NotificationScheduledEvent {
-        <<Domain Event>>
-        +UUID notificationId
-        +RecipientId recipientId
-        +Instant scheduledAt
-    }
-
-    class NotificationSentEvent {
-        <<Domain Event>>
-        +UUID notificationId
-        +Instant sentAt
-    }
-
-    class NotificationDeliveredEvent {
-        <<Domain Event>>
-        +UUID notificationId
-        +Instant deliveredAt
-    }
-
-    class NotificationReadEvent {
-        <<Domain Event>>
-        +UUID notificationId
-        +Instant readAt
-    }
-
-    class AlertTriggeredEvent {
-        <<Domain Event>>
-        +UUID alertId
-        +UUID healthEventId
-        +RecipientId recipientId
-        +Instant triggeredAt
-    }
-
-    class NotificationFailedEvent {
-        <<Domain Event>>
-        +UUID notificationId
-        +String reason
-        +Instant failedAt
-    }
-
-    NotificationCenter "1" *-- "*" Notification : contains
-    NotificationCenter "1" *-- "*" Alert : contains
-    NotificationCenter "1" *-- "1" NotificationPreference : configures
-    NotificationCenter --> RecipientId : identifies
-
-    Notification --> NotificationContent : has
-    Notification --> NotificationType : typed as
-    Notification --> NotificationPriority : prioritized by
-    Notification --> NotificationStatus : currently
-    Notification --> DeliveryChannel : delivered via
-    Notification --> ScheduledAt : scheduled for
-    Notification --> RecipientId : targets
-
-    Alert --> NotificationPriority : prioritized by
-    Alert --> RecipientId : targets
-
-    NotificationPreference --> DeliveryChannel : enables
-    NotificationPreference --> NotificationType : enables
-
-    NotificationDispatchService ..> Notification : dispatches
-    NotificationDispatchService ..> NotificationPreference : honors
-    AlertEvaluationService ..> NotificationCenter : evaluates
-    AlertEvaluationService ..> Alert : produces
-    NotificationAccessPolicy ..> Notification : authorizes
-
-    NotificationRepository ..> NotificationCenter : persists
-
-    NotificationCenter ..> NotificationScheduledEvent : emits
-    NotificationCenter ..> NotificationSentEvent : emits
-    NotificationCenter ..> NotificationDeliveredEvent : emits
-    NotificationCenter ..> NotificationReadEvent : emits
-    NotificationCenter ..> AlertTriggeredEvent : emits
-    NotificationCenter ..> NotificationFailedEvent : emits
-```
+![Figura 5. Domain Layer Class Diagram del bounded context Notificaciones](assets/notificaciones-class-diagram.png)
 
 *Figura 5. Domain Layer Class Diagram del bounded context Notificaciones.*
+
+---
+
+# 2.6.3. Bounded Context: Diary
+
+## 2.6.3.1. Domain Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| Diary | Aggregate Root | Gestiona la consistencia de las entradas del diario del paciente. |
+| DiaryEntry | Entity | Representa una nota registrada por el paciente. |
+| EntryContent | Value Object | Encapsula el contenido textual de la nota del diario. |
+| EntryDate | Value Object | Representa la fecha de creación de la entrada. |
+| DiaryRepository | Repository | Define el contrato de persistencia del diario de seguimiento. |
+| DiaryEntryCreatedEvent | Domain Event | Se publica cuando se crea una nueva entrada en el diario. |
+| DiaryEntryUpdatedEvent | Domain Event | Se publica cuando se actualiza una entrada existente. |
+| DiaryEntryDeletedEvent | Domain Event | Se publica cuando se elimina una entrada del diario. |
+
+## 2.6.3.2. Interface Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| DiaryActivity | Activity | Punto de entrada principal del módulo diario. |
+| DiaryEntryFragment | Fragment | Permite crear y visualizar entradas del diario. |
+| DiaryDetailFragment | Fragment | Muestra el detalle de una entrada seleccionada. |
+| DiaryViewModel | ViewModel | Gestiona el estado de la interfaz y la comunicación con Application Layer. |
+
+## 2.6.3.3. Application Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| CreateDiaryEntryCommand | Command | Solicita la creación de una nueva entrada. |
+| UpdateDiaryEntryCommand | Command | Solicita la actualización de una entrada existente. |
+| DeleteDiaryEntryCommand | Command | Solicita la eliminación de una entrada del diario. |
+| CreateDiaryEntryHandler | Command Handler | Procesa la creación de entradas del diario. |
+| UpdateDiaryEntryHandler | Command Handler | Procesa la actualización de entradas. |
+| DeleteDiaryEntryHandler | Command Handler | Procesa la eliminación de entradas. |
+| GetDiaryEntriesQuery | Query | Recupera todas las entradas del diario. |
+| GetDiaryEntryByIdQuery | Query | Recupera una entrada específica por ID. |
+| GetDiaryEntriesHandler | Query Handler | Procesa la consulta de todas las entradas. |
+| GetDiaryEntryByIdHandler | Query Handler | Procesa la consulta por identificador. |
+| DiaryEntryDTO | DTO | Transfiere información de entradas entre capas. |
+
+## 2.6.3.4. Infrastructure Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| DiaryRepositoryImpl | Repository Implementation | Implementa la persistencia del diario usando base de datos local. |
+| AppDatabase | Database | Configuración de la base de datos del sistema. |
+| DiaryDao | DAO | Acceso a datos de las entradas del diario. |
+| DiaryEntity | Persistence Entity | Representa una entrada del diario en la base de datos. |
+| DiaryMapper | Mapper | Convierte entre Domain, DTO y Persistence models. |
+
+#### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
+#### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
+##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
+##### 2.6.3.6.2. Bounded Context Database Design Diagram
+
+### 2.6.4. Bounded Context: Compartir Perfiles <a id="264-bounded-context"></a>
+
+Este bounded context gestiona el ciclo de vida del acceso compartido entre un paciente y sus familiares. Cubre las historias de usuario **US14** (compartir perfil), **US15** (consultar perfil compartido) y **US16** (revocar acceso), correspondientes a la épica **EP04 – Acceso Compartido**. Se integra con el bounded context de Notificaciones mediante eventos de dominio para informar cuando un acceso es creado, aceptado o revocado.
+
+---
+
+#### 2.6.4.1. Domain Layer <a id="2641-domain-layer"></a>
+
+| Componente | Tipo | Descripción |
+|---|---|---|
+| `ProfileSharing` | Aggregate Root | Gestiona la consistencia transaccional del ciclo de compartir y revocar acceso al perfil del paciente. |
+| `SharedAccess` | Entity | Representa un vínculo de acceso activo entre un paciente y un familiar autorizado. |
+| `AccessRequest` | Entity | Representa una solicitud de acceso enviada por el paciente hacia un familiar. |
+| `ShareToken` | Value Object | Encapsula el token de invitación generado para compartir el perfil. |
+| `AccessStatus` | Value Object | Representa el estado del acceso (`PENDING`, `ACTIVE`, `REVOKED`, `EXPIRED`). |
+| `AccessPermission` | Value Object | Define el nivel de permisos otorgados al familiar (`READ_ONLY`, `FULL_ACCESS`). |
+| `ExpirationDate` | Value Object | Encapsula la fecha y hora de expiración del acceso compartido. |
+| `ProfileSharingService` | Domain Service | Aplica las reglas de negocio para generar, validar y revocar accesos al perfil. |
+| `AccessValidationService` | Domain Service | Valida que el familiar sea un usuario existente y que el token no haya expirado. |
+| `SharedProfileRepository` | Repository | Define el contrato de persistencia del agregado `ProfileSharing`. |
+| `ProfileSharedEvent` | Domain Event | Se publica cuando el paciente comparte su perfil con un familiar. |
+| `AccessGrantedEvent` | Domain Event | Se publica cuando el familiar acepta el acceso y este queda activo. |
+| `AccessRevokedEvent` | Domain Event | Se publica cuando el paciente revoca el acceso a un familiar. |
+| `AccessExpiredEvent` | Domain Event | Se publica cuando el token de acceso expira sin ser aceptado. |
+
+---
+
+#### 2.6.4.2. Interface Layer <a id="2642-interface-layer"></a>
+
+| Componente | Tipo | Descripción |
+|---|---|---|
+| `ShareProfileActivity` | Activity | Punto de entrada principal del módulo de compartir perfiles en la aplicación móvil. |
+| `ShareProfileFragment` | Fragment | Permite al paciente ingresar los datos del familiar y generar el enlace de acceso (US14). |
+| `SharedAccessListFragment` | Fragment | Muestra la lista de familiares con acceso activo al perfil del paciente (US16). |
+| `FamilyPatientProfileFragment` | Fragment | Presenta al familiar la información del paciente cuyo perfil fue compartido (US15). |
+| `ShareProfileViewModel` | ViewModel | Gestiona el estado del formulario de compartir y coordina Commands con la capa de aplicación. |
+| `SharedAccessViewModel` | ViewModel | Gestiona el estado de la lista de accesos activos y las acciones de revocación. |
+
+---
+
+#### 2.6.4.3. Application Layer <a id="2643-application-layer"></a>
+
+| Componente | Tipo | Descripción |
+|---|---|---|
+| `ShareProfileCommand` | Command | Solicita la creación de un acceso compartido y la generación del token de invitación. |
+| `RevokeAccessCommand` | Command | Solicita la revocación del acceso de un familiar específico. |
+| `AcceptSharedAccessCommand` | Command | Solicita la activación del acceso cuando el familiar acepta la invitación. |
+| `ShareProfileHandler` | Command Handler | Procesa la generación del token y el registro del acceso pendiente. |
+| `RevokeAccessHandler` | Command Handler | Procesa la revocación del acceso, actualizando el estado a `REVOKED`. |
+| `AcceptSharedAccessHandler` | Command Handler | Procesa la activación del acceso, validando token y fecha de expiración. |
+| `GetSharedAccessListQuery` | Query | Recupera la lista de familiares con acceso al perfil del paciente. |
+| `GetPatientSharedProfileQuery` | Query | Recupera la información del perfil del paciente visible para el familiar autorizado. |
+| `GetSharedAccessListHandler` | Query Handler | Procesa la consulta de accesos activos del paciente. |
+| `GetPatientSharedProfileHandler` | Query Handler | Procesa la consulta del perfil compartido, validando permisos del familiar. |
+| `SharedAccessDTO` | DTO | Transfiere información de accesos compartidos entre capas. |
+| `PatientSharedProfileDTO` | DTO | Transfiere la información del perfil del paciente hacia la vista del familiar. |
+
+---
+
+#### 2.6.4.4. Infrastructure Layer <a id="2644-infrastructure-layer"></a>
+
+| Componente | Tipo | Descripción |
+|---|---|---|
+| `SharedProfileRepositoryImpl` | Repository Implementation | Implementa la persistencia del agregado `ProfileSharing`. |
+| `SharedAccessDao` | DAO | Proporciona operaciones de acceso a datos para los registros de acceso compartido. |
+| `SharedAccessEntity` | Persistence Entity | Representa un acceso compartido dentro de la base de datos local. |
+| `AccessRequestEntity` | Persistence Entity | Representa una solicitud de acceso pendiente en la base de datos. |
+| `SharedAccessMapper` | Mapper | Convierte objetos entre Domain, DTO y Persistence. |
+| `TokenGeneratorService` | External Utility | Genera tokens únicos y seguros para las invitaciones de acceso. |
+| `NotificationBoundedContextAdapter` | Adapter | Publica eventos hacia el bounded context de Notificaciones cuando se genera o revoca un acceso. |
+
+---
+
+#### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams <a id="2645-component-level-diagrams"></a>
+
+El Component Diagram del bounded context Compartir Perfiles presenta la organización interna del módulo en cuatro capas: Interface (REST Controllers), Application (Command y Query Services), Domain (servicios de dominio y repositorio) e Infrastructure (repositorio implementado, generador de tokens y adaptador hacia Notificaciones). Muestra las entradas desde la Mobile Application y la integración de salida hacia la base de datos y el bounded context de Notificaciones.
+
+![Component Diagram - Bounded Context Compartir Perfiles](assets/diag_sharing_component.png)
+
+---
+
+#### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams <a id="2646-code-level-diagrams"></a>
+
+##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams <a id="26461-domain-layer-class-diagrams"></a>
+
+El diagrama de clases de la capa de dominio muestra el agregado `ProfileSharing` como raíz, sus entidades internas (`SharedAccess`, `AccessRequest`), los value objects (`ShareToken`, `ExpirationDate`, `AccessStatus`, `AccessPermission`), los domain services (`ProfileSharingService`, `AccessValidationService`), el contrato de repositorio y los domain events publicados durante el ciclo de compartir, aceptar, revocar y expirar accesos.
+
+![Domain Layer Class Diagram - Bounded Context Compartir Perfiles](assets/diag_sharing_domain_class.png)
+
+##### 2.6.4.6.2. Bounded Context Database Design Diagram <a id="26462-database-design-diagram"></a>
+
+El diagrama de base de datos representa las tablas `profile_sharings`, `shared_accesses` y `access_requests`, junto con sus relaciones (1..N) y restricciones de integridad. El campo `token` en `shared_accesses` es único; `permission` y `status` se almacenan como strings con valores acotados equivalentes a los enums de dominio.
+
+![Database Design Diagram - Bounded Context Compartir Perfiles](assets/diag_sharing_database.png)
 
 ---
 
