@@ -1876,12 +1876,13 @@ El Class Diagram de la capa de dominio del bounded context Notificaciones muestr
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
-El Database Design Diagram del bounded context Notificaciones muestra un esquema relacional reducido, compuesto por una única tabla propia (`notifications`) y una referencia conceptual a la tabla `users`, cuya autoridad reside en el bounded context de Autenticación. Esta simplificación es posible gracias a tres decisiones tomadas sobre el diseño original: (1) las alertas se modelan como notificaciones con `type = ALERT`, eliminando la tabla `alerts`; (2) la política de reintentos de envío se implementa con dos columnas (`retry_count` y `last_error`) en lugar de una tabla auxiliar de intentos; (3) las preferencias de notificación se gestionan en la tabla `users` del bounded context Autenticación (`push_enabled`, `email_enabled`).
+El Database Design Diagram del bounded context Notificaciones muestra un esquema relacional reducido, compuesto por una única tabla propia: `notifications`. La columna `recipient_id` actúa como clave foránea hacia `users.id`, pero la tabla `users` pertenece al bounded context Autenticación y por eso no se representa en este diagrama; cada bounded context documenta únicamente las tablas de las que es propietario. De la misma manera, `health_event_id` es una referencia conceptual hacia el bounded context Agenda y no lleva constraint de integridad referencial dura, respetando la independencia entre contextos.
+
+Esta simplificación es posible gracias a tres decisiones tomadas sobre el diseño original: (1) las alertas se modelan como notificaciones con `type = ALERT`, eliminando la tabla `alerts`; (2) la política de reintentos de envío se implementa con dos columnas (`retry_count` y `last_error`) en lugar de una tabla auxiliar de intentos; (3) las preferencias de notificación se gestionan en la tabla `users` del bounded context Autenticación (`push_enabled`, `email_enabled`), que no forma parte de este contexto.
 
 | Tabla | Propósito | Historias de usuario / técnicas |
 |-------|-----------|--------------------------------|
 | `notifications` | Almacena todas las notificaciones (recordatorios, alertas e informativas) programadas, enviadas y leídas, junto con su ciclo de vida y los datos de reintento de envío. | US04, US05, US06, TS03, TS04 |
-| `users` *(referenciada)* | Tabla propietaria del bounded context Autenticación. Incluye las preferencias básicas de canal del usuario. | — |
 
 ![Figura 6. Database Design Diagram del bounded context Notificaciones](assets/notificaciones-db-diagram.png)
 
