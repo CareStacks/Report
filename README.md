@@ -675,6 +675,7 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 
 ### US01 – Registrar evento de salud
 
+
 | **Story ID** | US01 |
 |-----------|-------|
 | **User** | Paciente / Cuidador |
@@ -951,8 +952,103 @@ Finalmente, el entrevistado espera que una solución digital le permita reducir 
 | **Description** | Como desarrollador, quiero implementar mecanismos de autorización para controlar el acceso a documentos entre paciente y cuidador. |
 | **Acceptance Criteria** | Escenario 1: Acceso permitido <br> Dado que el cuidador tiene permisos <br> Cuando solicita acceso <br> Entonces el sistema permite visualizar el documento <br><br> Escenario 2: Acceso denegado <br> Dado que no tiene permisos <br> Cuando intenta acceder <br> Entonces el sistema bloquea la operación |
 
+
+### TS09 – Persistencia de usuarios
+
+| **Story ID** | TS09 |
+|--------------|------|
+| **User** | Desarrollador |
+| **Priority** | Alta |
+| **Description** | Como desarrollador, quiero implementar la persistencia de usuarios para garantizar el registro correcto en la base de datos |
+| **Acceptance Criteria** | Escenario 1: Registro exitoso <br> Dado que el usuario envia datos válidos de usuario <br> Cuando el sistema procesa el registro <br> Entonces el usuario se almacena correctamente en la base de datos <br><br> Escenario 2: Usuario duplicado <br> Dado que el usuario proporciona un correo que ya existe <br> Cuando el sistema intenta registrar el usuario<br> Entonces se evita el registro duplicado y se muestra un error |
+
+
+### TS10 – Autorización basada en roles
+
+| **Story ID** | TS10 |
+|--------------|------|
+| **User** | Desarrollador |
+| **Priority** | Alta |
+| **Description** | Como desarrollador, quiero implementar validación de acceso por roles para garantizar seguridad en los recursos. |
+| **Acceptance Criteria** | Escenario 1: Acceso autorizado <br> Dado que el usuario tiene el rol correcto <br> Cuando intenta acceder a un recurso <br> Entonces el sistema permite el acceso <br><br> Escenario 2: Acceso denegado <br> Dado que el usuario no tiene permisos <br> Cuando intenta acceder<br> Entonces el sistema bloquea el acceso |
+
+### TS11 – Persistencia de notas
+
+| **Story ID** | TS11 |
+|--------------|------|
+| **User** | Desarrollador |
+| **Priority** | Alta |
+| **Description** | Como desarrollador, quiero almacenar notas del diario para asegurar su disponibilidad. |
+| **Acceptance Criteria** | Escenario 1: Guardado exitoso<br>Dado que la notatiene contenido válido<br>Cuando el sistema guarda la nota<br>Entonces se almacena correctamente<br><br>Escenario 2: Nota inválida<br>Dado que la nota está vacía<br>Cuando el sistema intenta guardarla<br>Entonces se rechaza la operación |
+
+### TS12 – Consulta de diario compartido
+
+| **Story ID** | TS12 |
+|--------------|------|
+| **User** | Desarrollador |
+| **Priority** | Media |
+| **Description** | Como desarrollador, quiero implementar la consulta de diarios compartidos para permitir acceso a cuidadores. |
+| **Acceptance Criteria** | Escenario 1: Consulta autorizada<br>Dado que el usuario tiene acceso<br>Cuando consulta el diario<br>Entonces se muestran las notas<br><br>Escenario 2: Acceso denegado<br>Dado que no tiene permisos<br>Cuando intenta consultar<br>Entonces el sistema bloquea el acceso |
+
+### TS13 – Consulta de perfil compartido
+
+| **Story ID** | TS13 |
+|--------------|------|
+| **User** | Desarrollador |
+| **Priority** | Media |
+| **Description** | Como desarrollador, quiero permitir la visualización de perfiles compartidos. |
+| **Acceptance Criteria** | Escenario 1: Consulta exitosa<br> Dado que el usuario tiene acceso<br>Cuando consulta el perfil<br>Entonces se muestra la información<br><br>Escenario 2: Acceso inválido<br>Dado que no tiene permisos<br>Cuando intenta acceder<br>Entonces se bloquea el acceso |
+
+### TS14 – Consulta de perfil compartido
+
+| **Story ID** | TS14 |
+|--------------|------|
+| **User** | Desarrollador |
+| **Priority** | Media |
+| **Description** | Como desarrollador, quiero implementar la revocación de accesos para controlar permisos. |
+| **Acceptance Criteria** | Escenario 1: Revocación exitosa<br>Dado que existe acceso activo<br>Cuando el propietario revoca acceso<br>Entonces se elimina el permiso<br><br>Escenario 2: Usuario sin permiso<br>Dado que no es propietario<br>Cuando intenta revocar<br>Entonces se rechaza la acción|
+
 ### 2.4.2. Impact Mapping <a id="242-impact-mapping"></a>
+
+
 ### 2.4.3. Product Backlog <a id="243-product-backlog"></a>
+
+
+
+
+| Orden | User Story ID | Título | Descripción | Story Points |
+|------:|---------------|--------|-------------|-------------|
+| 1 | US1 | Registrar evento de salud | Como paciente o cuidador, deseo registrar un evento de salud (medicación o cita) para organizar las actividades médicas en un calendario. | 3 |
+| 2 | US2 | Consulta de Precios | Como visitante, deseo ver los planes y precios para evaluar mi presupuesto. | 3 |
+| 3 | US3 | Formulario de Contacto | Como visitante, deseo enviar mis datos para solicitar información o una demo comercial. | 3 |
+| 4 | US4 | Sección ¿Cómo funciona? | Como visitante, deseo entender el proceso del servicio antes de contratar. | 2 |
+| 5 | US5 | Testimonios Reales | Como visitante, deseo leer reseñas para confiar en la marca. | 2 |
+| 6 | US6 | Implementación i18n | Como visitante, deseo cambiar idioma ES/EN para navegar cómodamente. | 5 |
+| 7 | US7 | Contratar Plan | Como administrador, deseo elegir un plan para digitalizar y escalar mi operación. | 5 |
+| 8 | US8 | Registro de Conductores | Como administrador, deseo crear cuentas de conductores para asignar responsabilidades. | 3 |
+| 9 | US9 | Alta de Alumnos | Como administrador, deseo registrar alumnos para incluirlos en rutas. | 5 |
+| 10 | US10 | Registro de Padres | Como administrador, deseo registrar padres para habilitar monitoreo. | 3 |
+| 11 | US11 | Creación de Rutas | Como administrador, deseo crear rutas y paradas para optimizar tiempos. | 8 |
+| 12 | US12 | Asignación de Roles | Como administrador, deseo asignar conductores a rutas para organizar operaciones. | 3 |
+| 13 | US13 | Inicio de Trayecto | Como conductor, deseo iniciar la ruta para notificar que estoy en camino. | 3 |
+| 14 | US14 | Marcación de Abordaje | Como conductor, deseo registrar el abordaje para confirmar asistencia. | 5 |
+| 15 | US15| Rastreo en Tiempo Real | Como padre, deseo ver la movilidad en el mapa para calcular hora de llegada. | 8 |
+| 16 | US16 | Alerta de Proximidad | Como padre, deseo recibir aviso cuando el vehículo esté cerca. | 5 |
+| 17 | TS1 | Confirmación de Llegada | Como padre, deseo saber si mi hijo llegó al colegio para estar tranquilo. | 3 |
+| 18 | TS2 | Finalización de Ruta | Como conductor, deseo cerrar la ruta para concluir el servicio. | 2 |
+| 19 | TS3 | Reporte de Incidencias | Como conductor, deseo informar retrasos o problemas durante la ruta. | 5 |
+| 20 | TS4 | Navegación Integrada | Como conductor, deseo abrir mapas externos para usar la mejor ruta disponible. | 3 |
+| 21 | TS5 | Analítica de Flota | Como administrador, deseo revisar métricas de rendimiento operativo. | 8 |
+| 22 | TS6 | Historial de Asistencia | Como padre, deseo revisar asistencia mensual de mi hijo. | 5 |
+| 23 | TS7 | Bitácora de Viajes | Como conductor, deseo consultar historial de viajes realizados. | 3 |
+| 24 | TS8 | Perfil del Estudiante | Como padre, deseo registrar alergias o datos médicos relevantes. | 5 |
+| 25 | TS9 | Chat con Soporte | Como padre, deseo reportar ausencias o dudas desde la app. | 5 |
+| 26 | TS10 | Botón de Pánico | Como conductor, deseo activar SOS en emergencias críticas. | 8 |
+| 26 | TS11 | Botón de Pánico | Como conductor, deseo activar SOS en emergencias críticas. | 8 |
+| 26 | TS12 | Botón de Pánico | Como conductor, deseo activar SOS en emergencias críticas. | 8 |
+| 26 | TS13 | Botón de Pánico | Como conductor, deseo activar SOS en emergencias críticas. | 8 |
+| 26 | TS14 | Botón de Pánico | Como conductor, deseo activar SOS en emergencias críticas. | 8 |
+
 
 ## 2.5. Strategic-Level Domain-Driven Design <a id="25-strategic-level-domain-driven-design"></a>
 ### 2.5.1. EventStorming <a id="251-eventstorming"></a>
