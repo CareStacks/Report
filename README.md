@@ -1561,11 +1561,12 @@ Clasificación del usuario dentro del sistema, como paciente o cuidador, que det
 
 ### 2.4.2. Impact Mapping <a id="242-impact-mapping"></a>
 
+A continuación se presenta el Impact Map, el cual permite visualizar de manera clara cómo las funcionalidades clave de la aplicación se alinean con los objetivos de negocio, considerando a los actores involucrados y los impactos esperados en su comportamiento.
+
+![Impact Mapping](<assets/Impact map 1.png>)
 
 ### 2.4.3. Product Backlog <a id="243-product-backlog"></a>
-
-
-
+En esta sección se presenta el Product Backlog, que contiene las historias de usuario priorizadas y sus respectivas estimaciones de esfuerzo en puntos de historia. Este backlog es una herramienta clave para la planificación y gestión del desarrollo del producto, permitiendo al equipo enfocarse en las funcionalidades más importantes y valiosas para los usuarios.
 
 | Orden | User Story ID | Título | Descripción | Story Points |
 |------:|---------------|--------|-------------|-------------|
@@ -2066,6 +2067,59 @@ El diagrama de base de datos representa las tablas `profile_sharings`, `shared_a
 
 ---
 
+### 2.6.5. Bounded Context: Documents
+
+---
+
+#### 2.6.5.1. Domain Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| MedicalDocument | Aggregate Root | Representa el conjunto de documentos médicos de un paciente y controla su consistencia. Es el punto de entrada para gestionar documentos. |
+| DocumentItem | Entity | Representa un documento médico individual como receta, resultado de laboratorio o informe clínico. |
+| DocumentType | Value Object | Define el tipo de documento médico (receta, laboratorio, informe, etc.). |
+| DocumentMetadata | Value Object | Contiene información adicional del documento como fecha, descripción y origen. |
+| DocumentRepository | Repository | Define el contrato de persistencia del agregado MedicalDocument. |
+| DocumentUploadedEvent | Domain Event | Se publica cuando un documento médico es registrado en el sistema. |
+| DocumentAccessedEvent | Domain Event | Se publica cuando un documento es consultado por un usuario autorizado. |
+
+---
+
+#### 2.6.5.2. Interface Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| DocumentsActivity | Activity | Pantalla principal del módulo de gestión de documentos médicos. |
+| DocumentsFragment | Fragment | Muestra la lista de documentos del paciente. |
+| DocumentDetailFragment | Fragment | Muestra el detalle de un documento médico seleccionado. |
+| DocumentsViewModel | ViewModel | Gestiona el estado de la interfaz y coordina Commands y Queries del módulo. |
+
+---
+
+#### 2.6.5.3. Application Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| UploadDocumentCommand | Command | Solicita la carga de un nuevo documento médico. |
+| DeleteDocumentCommand | Command | Solicita la eliminación de un documento médico. |
+| UploadDocumentHandler | Command Handler | Procesa la carga de documentos médicos. |
+| DeleteDocumentHandler | Command Handler | Procesa la eliminación de documentos médicos. |
+| GetDocumentsQuery | Query | Recupera todos los documentos del paciente. |
+| GetDocumentByIdQuery | Query | Recupera un documento específico por su identificador. |
+| GetDocumentsHandler | Query Handler | Procesa la consulta de documentos médicos. |
+| GetDocumentByIdHandler | Query Handler | Procesa la consulta de un documento específico. |
+| MedicalDocumentDTO | DTO | Transfiere información de documentos entre capas del sistema. |
+
+---
+
+#### 2.6.5.4. Infrastructure Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| DocumentRepositoryImpl | Repository Implementation | Implementa la persistencia del agregado MedicalDocument usando base de datos local. |
+| DocumentDao | DAO | Proporciona acceso a los datos de documentos médicos. |
+| DocumentEntity | Persistence Entity | Representa un documento médico en la base de datos. |
+| DocumentMapper | Mapper | Convierte entre modelos de Domain, DTO y Persistence. |
 # Capítulo III: Solution UI/UX Design
 
 ## 3.1. Product design <a id="31-product-design"></a>
