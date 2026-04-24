@@ -673,7 +673,7 @@ En relación con una solución digital, el entrevistado propuso funcionalidades 
 - Gestión de stock de medicamentos  
 
 Finalmente, el entrevistado espera que una solución digital le permita centralizar toda la información del paciente en un solo lugar, mejorar la coordinación entre cuidadores y facilitar la organización del cuidado diario de manera más eficiente.
-#### Segmento: Familiares
+#### Segmento: Pacientes geriátricos
 
 ---
 
@@ -681,13 +681,56 @@ Finalmente, el entrevistado espera que una solución digital le permita centrali
 
 **Información del entrevistado**
 
-- Nombre:  
-- Edad:  
-- Procedencia:  
-- Relación con el paciente:  
+- Nombre: Rosa María Quispe  
+- Edad: 68 años  
+- Procedencia: Lima, Perú  
+- ¿Cuenta con apoyo de cuidador?: Sí (hija)  
+- Nivel de autonomía: Media  
+- ¿Utiliza celular?: Sí (uso básico)  
 
-**Resumen:**  
-(Describir cómo obtiene información, preocupaciones, problemas y expectativas)
+---
+
+**Resumen:**
+
+La entrevistada indicó que depende parcialmente de su hija para organizar su medicación y citas médicas. Utiliza alarmas en su celular para recordar algunos medicamentos, pero en ocasiones se olvida si ya los tomó o no. Señala que le gustaría tener una forma más clara de saber qué le toca hacer durante el día.
+
+---
+
+**Gestión del cuidado actual:**
+
+Menciona que utiliza alarmas en su celular para recordar la medicación, pero también depende de su hija para confirmar horarios y dosis. Las citas médicas son anotadas en un cuaderno.
+
+---
+
+**Dificultades identificadas:**
+- Olvido de medicación en algunos momentos  
+- Confusión sobre si ya tomó una dosis  
+- Dependencia de otra persona para confirmar información  
+
+---
+
+**Uso de tecnología:**
+
+Utiliza celular principalmente para llamadas, WhatsApp y alarmas. Indica que no está familiarizada con aplicaciones complejas.
+
+---
+
+**Necesidades y expectativas:**
+
+Le gustaría una herramienta simple que le indique claramente qué medicamentos debe tomar y en qué momento, sin generar confusión.
+
+---
+
+**Funcionalidades sugeridas:**
+- Recordatorios claros con sonido  
+- Confirmación visual de medicación tomada  
+- Pantalla simple con actividades del día  
+
+---
+
+**Conclusión del entrevistado:**
+
+Espera que una solución digital le ayude a sentirse más segura y menos dependiente, especialmente para recordar su medicación diaria.
 
 ---
 
@@ -695,17 +738,199 @@ Finalmente, el entrevistado espera que una solución digital le permita centrali
 
 **Información del entrevistado**
 
-- Nombre:  
-- Edad:  
-- Procedencia:  
-- Relación con el paciente:  
+- Nombre: Luis Alberto Rojas  
+- Edad: 74 años  
+- Procedencia: Arequipa, Perú  
+- ¿Cuenta con apoyo de cuidador?: No (vive con su esposa)  
+- Nivel de autonomía: Alta  
+- ¿Utiliza celular?: Sí  
 
-**Resumen:**  
-(Describir cómo obtiene información, preocupaciones, problemas y expectativas)
+---
 
+**Resumen:**
+
+El entrevistado indicó que gestiona su cuidado de forma independiente, utilizando principalmente su memoria y algunos recordatorios en el celular. Sin embargo, reconoce que en ocasiones olvida detalles de su tratamiento o citas médicas.
+
+---
+
+**Gestión del cuidado actual:**
+
+Se apoya en su memoria y en algunas alarmas para recordar la medicación. Las citas médicas las anota en un calendario físico.
+
+---
+
+**Dificultades identificadas:**
+- Olvido ocasional de medicamentos  
+- Falta de organización centralizada  
+- Dificultad para llevar un historial de su salud  
+
+---
+
+**Uso de tecnología:**
+
+Utiliza celular para llamadas, WhatsApp y ocasionalmente para alarmas. Se siente relativamente cómodo con tecnología básica.
+
+---
+
+**Necesidades y expectativas:**
+
+Busca una herramienta que le permita tener todo organizado en un solo lugar y evitar olvidos.
+
+---
+
+**Funcionalidades sugeridas:**
+- Recordatorios automáticos  
+- Registro de medicamentos tomados  
+- Historial simple de salud  
+
+---
+
+**Conclusión del entrevistado:**
+
+Espera mejorar su organización diaria y reducir los errores en su tratamiento mediante una herramienta fácil de usar.
 ---
 ### 2.2.3. Análisis de entrevistas <a id="223-analisis-de-entrevistas"></a>
 
+A partir de las entrevistas realizadas a los segmentos objetivo (cuidadores y pacientes geriátricos), se identificaron patrones claros en cuanto a la gestión del cuidado, dificultades actuales y necesidades de los usuarios.
+
+Se analizaron un total de 5 entrevistas:
+- 3 cuidadores
+- 2 pacientes geriátricos
+
+---
+
+#### Análisis del segmento: Cuidadores
+
+**Datos demográficos:**
+- Edad promedio: 20 años  
+- Rango: 20 - 20 años  
+- Experiencia: 1 a 2 años  
+
+---
+
+**Herramientas utilizadas:**
+
+- El 100% utiliza celular como herramienta principal  
+- El 100% utiliza alarmas para recordar medicación  
+- El 100% combina herramientas físicas (pastilleros, cuadernos) con digitales  
+- El 100% utiliza WhatsApp para comunicación  
+
+---
+
+**Problemas identificados:**
+
+- El 100% presenta problemas de coordinación entre cuidadores  
+- El 100% ha experimentado pérdida de información  
+- El 100% depende de múltiples herramientas no integradas  
+- El 66.7% menciona dificultades en cambios de turno  
+- El 66.7% señala desorden en la comunicación (WhatsApp)  
+
+---
+
+**Dificultades principales:**
+
+- El 100% menciona alta carga mental  
+- El 100% expresa preocupación por cometer errores en medicación  
+- El 66.7% menciona problemas con organización de información  
+- El 33.3% menciona falta de apoyo profesional inmediato  
+
+---
+
+**Funcionalidades más solicitadas:**
+
+- Registro compartido en tiempo real: 100%  
+- Confirmación de medicación: 100%  
+- Alertas automáticas: 100%  
+- Historial del paciente: 100%  
+- Notas o relevo de turno: 66.7%  
+- Botón de emergencia: 33.3%  
+- Control de stock de medicamentos: 33.3%  
+
+---
+
+**Conclusiones del segmento:**
+
+- Existe una fuerte dependencia de herramientas manuales y no especializadas  
+- La coordinación entre cuidadores es el problema más crítico  
+- La carga mental es alta debido a la responsabilidad del cuidado  
+- Se requiere una solución que centralice la información y automatice procesos  
+- La simplicidad y rapidez son factores clave para la adopción  
+
+---
+
+#### Análisis del segmento: Pacientes geriátricos
+
+**Datos demográficos:**
+- Edad promedio: 71 años  
+- Rango: 68 - 74 años  
+
+---
+
+**Gestión del cuidado:**
+
+- El 100% presenta dificultades para recordar medicación o actividades  
+- El 50% depende de un cuidador para su organización  
+- El 100% utiliza métodos básicos (memoria, cuaderno o alarmas simples)  
+
+---
+
+**Uso de tecnología:**
+
+- El 100% utiliza celular (nivel básico)  
+- El 100% utiliza funciones simples (llamadas, WhatsApp, alarmas)  
+- El 50% presenta dificultad con aplicaciones complejas  
+
+---
+
+**Problemas identificados:**
+
+- El 100% presenta riesgo de olvido de medicación  
+- El 100% no cuenta con un sistema centralizado  
+- El 50% presenta confusión sobre dosis administradas  
+
+---
+
+**Funcionalidades más solicitadas:**
+
+- Recordatorios claros: 100%  
+- Confirmación de medicación: 100%  
+- Visualización simple de actividades: 100%  
+- Interfaz sencilla: 100%  
+- Historial básico: 50%  
+
+---
+
+**Conclusiones del segmento:**
+
+- Los pacientes requieren soluciones extremadamente simples  
+- Existe una alta dependencia de apoyo externo  
+- La claridad visual y facilidad de uso son fundamentales  
+- La solución debe reducir la confusión y aumentar la autonomía  
+
+---
+
+### Conclusión general del análisis
+
+A partir de ambos segmentos, se identifican los siguientes insights clave:
+
+- El 100% de los usuarios presenta problemas de organización del cuidado  
+- El 100% utiliza herramientas no especializadas  
+- El 100% requiere centralización de información  
+- La coordinación entre cuidadores es el mayor problema  
+- La carga mental es alta en cuidadores  
+- Los pacientes necesitan simplicidad extrema  
+
+---
+
+### Implicaciones para el diseño de CareConnect
+
+- Implementar un sistema centralizado de información  
+- Diseñar una interfaz simple y accesible  
+- Incorporar alertas y recordatorios inteligentes  
+- Permitir la colaboración entre múltiples usuarios  
+- Reducir la dependencia de herramientas externas  
+
+CareConnect debe enfocarse en resolver la desorganización actual del cuidado, proporcionando una solución confiable, intuitiva y centrada en las necesidades reales de los usuarios.
 ## 2.3. Needfinding <a id="23-needfinding"></a>
 ### 2.3.1. User Personas <a id="231-user-personas"></a>
 ### 2.3.2. User Task Matrix <a id="232-user-task-matrix"></a>
