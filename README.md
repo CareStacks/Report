@@ -1154,12 +1154,14 @@ C4Deployment
 | Componente | Tipo | Descripción |
 |-----------|------|-------------|
 | AgendaRepositoryImpl | Repository Implementation | Implementa la persistencia del agregado Agenda. |
-| AppDatabase | Database | Configura la base de datos local utilizando Room. |
 | EventDao | DAO | Proporciona operaciones de acceso a datos para eventos. |
 | EventEntity | Persistence Entity | Representa un evento dentro de la base de datos local. |
-| NotificationService | Service | Gestiona el envío de notificaciones locales. |
 | WorkManagerScheduler | Scheduler | Programa recordatorios y tareas en segundo plano. |
 | EventMapper | Mapper | Convierte objetos entre Domain, DTO y Persistence. |
+
+#### 2.6.x.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Diagrama-componentes-agenda](./assets/Diagrama-componentes-Agenda.png)
 
 ---
 
