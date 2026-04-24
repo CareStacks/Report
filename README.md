@@ -981,11 +981,10 @@ La solución está organizada alrededor de seis bounded contexts identificados d
 
 El Context Diagram muestra el sistema CareConnect como una caja central, rodeado por los actores que interactúan con él y los sistemas externos de los cuales depende. Este diagrama permite entender el alcance del sistema y sus principales relaciones a alto nivel.
 
-Los actores identificados, alineados con los dos segmentos objetivo de la solución, son:
+Los actores identificados corresponden exactamente a los dos segmentos objetivo de la solución:
 
 - **Geriatric Patient (Paciente geriátrico):** Usuario que utiliza la aplicación para recibir recordatorios de medicación y citas, confirmar sus eventos de salud, registrar notas en su diario y compartir su perfil con cuidadores. Interactúa con el sistema a través de la Mobile Application.
 - **Caregiver (Cuidador):** Usuario que supervisa al paciente, gestiona la medicación, terapias y registros clínicos, recibe alertas de incumplimiento y consulta el perfil compartido del paciente. Interactúa con el sistema a través de la Mobile Application.
-- **Visitor (Visitante):** Persona que accede al Landing Page para conocer el modelo de negocio y las características del producto antes de registrarse. No forma parte de los segmentos objetivo, pero es un actor relevante del sistema.
 
 Los sistemas externos identificados son:
 
@@ -1000,7 +999,6 @@ C4Context
 
     Person(patient, "Geriatric Patient", "Recibe recordatorios, confirma eventos y registra su diario de salud.")
     Person(caregiver, "Caregiver", "Supervisa al paciente, gestiona medicación y recibe alertas de incumplimiento.")
-    Person(visitor, "Visitor", "Accede al Landing Page para conocer el producto.")
 
     System(careconnect, "CareConnect Platform", "Plataforma de coordinación del cuidado del paciente geriátrico. Incluye Landing Page, Mobile App y RESTful API.")
 
@@ -1010,14 +1008,12 @@ C4Context
 
     Rel(patient, careconnect, "Gestiona su salud", "HTTPS")
     Rel(caregiver, careconnect, "Supervisa al paciente", "HTTPS")
-    Rel(visitor, careconnect, "Visita Landing Page", "HTTPS")
     Rel(careconnect, email, "Envía emails", "HTTPS/SMTP")
     Rel(careconnect, push, "Envía notificaciones push", "HTTPS")
     Rel(careconnect, idp, "Autentica usuarios", "HTTPS/OAuth 2.0")
 
     UpdateRelStyle(patient, careconnect, $textColor="#ffffff", $lineColor="#ffffff")
     UpdateRelStyle(caregiver, careconnect, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(visitor, careconnect, $textColor="#ffffff", $lineColor="#ffffff")
     UpdateRelStyle(careconnect, email, $textColor="#ffffff", $lineColor="#ffffff")
     UpdateRelStyle(careconnect, push, $textColor="#ffffff", $lineColor="#ffffff")
     UpdateRelStyle(careconnect, idp, $textColor="#ffffff", $lineColor="#ffffff")
@@ -1027,19 +1023,19 @@ C4Context
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams <a id="2532-software-architecture-container-level-diagrams"></a>
 
-El Container Diagram descompone el sistema CareConnect en sus elementos de alto nivel, mostrando cómo se distribuyen las responsabilidades entre los distintos containers y las principales decisiones de tecnología adoptadas. El API Gateway se representa como una System Boundary interna que contiene los seis bounded contexts de la solución, de modo que el diagrama refleje directamente la descomposición estratégica en Agenda, Notificaciones, Documentos, Acceso Compartido, Diario de Seguimiento y Autenticación.
+El Container Diagram descompone el sistema CareConnect en sus elementos de alto nivel, mostrando cómo se distribuyen las responsabilidades entre los distintos containers y las principales decisiones de tecnología adoptadas. El diagrama se organiza en cinco filas horizontales, de arriba hacia abajo: los dos segmentos objetivo, la capa de clientes (Mobile App y Landing Page), el API Gateway con sus seis bounded contexts dispuestos en una cuadrícula, la capa de persistencia y los sistemas externos. Esta disposición evita el cruce de flechas y deja visible la descomposición estratégica.
 
 Los containers identificados son:
 
-- **Landing Page:** Sitio web desarrollado con React. Presenta el modelo de negocio, las características del producto y los enlaces de descarga. Es accedido por visitantes a través de un navegador web.
+- **Landing Page:** Sitio web desarrollado con React. Presenta el modelo de negocio, las características del producto y los enlaces de descarga.
 - **Mobile Application:** Aplicación nativa desarrollada con Kotlin para Android y estrategia cross-platform con Flutter/Dart o Kotlin Multiplatform (KMP). Constituye la interfaz principal mediante la cual el paciente geriátrico y el cuidador interactúan con el sistema. Se comunica con el API Gateway a través de HTTPS/JSON.
 - **API Gateway (RESTful Web Services):** Backend desarrollado con Spring Boot (Java) siguiendo el estilo arquitectónico RESTful API y documentado con OpenAPI/Swagger. Se organiza internamente en seis módulos, uno por cada bounded context:
+  - **Autenticación Service:** Endpoints para registro, login y validación de acceso por rol.
+  - **Acceso Compartido Service:** Endpoints para compartir, consultar y revocar el perfil del paciente.
   - **Agenda Service:** Endpoints para la gestión de eventos de salud (citas, medicación, terapias).
   - **Notificaciones Service:** Endpoints para la programación, consulta y marcado de notificaciones y alertas.
   - **Documentos Service:** Endpoints para la carga, consulta y control de acceso a documentos médicos.
-  - **Acceso Compartido Service:** Endpoints para compartir, consultar y revocar el perfil del paciente.
   - **Diario Service:** Endpoints para registrar y consultar notas de seguimiento.
-  - **Autenticación Service:** Endpoints para registro, login y validación de acceso por rol.
 - **Database:** Base de datos relacional (PostgreSQL) que persiste la información de los seis bounded contexts.
 - **Local Storage (SQLite / Room):** Almacenamiento local en el dispositivo móvil que permite el acceso offline a información crítica del paciente, medicación pendiente y registros recientes.
 
@@ -1051,90 +1047,90 @@ Las relaciones principales entre containers son:
 | Mobile Application | Local Storage | Almacena y consulta datos para acceso offline | SQLite / Room |
 | Mobile Application | Push Notification Service | Recibe notificaciones push | FCM |
 | API Gateway | Database | Persiste y consulta datos del dominio | JDBC / JPA |
-| API Gateway | Email Service | Envía correos de verificación y notificaciones | HTTPS / SMTP |
-| API Gateway | Push Notification Service | Dispara notificaciones push a dispositivos | HTTPS |
-| API Gateway | Identity Provider | Verifica autenticación federada | OAuth 2.0 |
-| Visitor | Landing Page | Consulta información del producto | HTTPS |
+| Notificaciones Service | Email Service / Push Notification Service | Envía emails y notificaciones push | HTTPS / SMTP |
+| Autenticación Service | Email Service / Identity Provider | Envía emails transaccionales y verifica autenticación federada | HTTPS / OAuth 2.0 |
 
 ```mermaid
-%%{init: {'theme': 'dark'}}%%
-C4Container
-    title Container Diagram - CareConnect
+%%{init: {'theme': 'dark', 'flowchart': {'nodeSpacing': 40, 'rankSpacing': 55, 'htmlLabels': true}}}%%
+flowchart TB
+    %% Segmentos objetivo
+    subgraph Users["Segmentos objetivo"]
+        direction LR
+        Patient(["Geriatric Patient"])
+        Caregiver(["Caregiver"])
+    end
 
-    Person(patient, "Geriatric Patient", "Recibe recordatorios y gestiona su salud.")
-    Person(caregiver, "Caregiver", "Supervisa al paciente y gestiona su cuidado.")
-    Person(visitor, "Visitor", "Conoce el producto.")
+    %% Capa de clientes
+    subgraph ClientTier["Client Tier"]
+        direction LR
+        Landing["Landing Page<br/><i>React</i>"]
+        Mobile["Mobile Application<br/><i>Kotlin / Flutter</i>"]
+    end
 
-    System_Boundary(careconnect, "CareConnect Platform") {
-        Container(landing, "Landing Page", "React", "Presenta el modelo de negocio y enlaces de descarga.")
-        Container(mobile, "Mobile Application", "Kotlin / Flutter", "Interfaz principal para paciente y cuidador.")
+    %% API Gateway con 6 bounded contexts
+    subgraph API["API Gateway — Spring Boot (RESTful / OpenAPI)"]
+        direction TB
+        subgraph Row1[" "]
+            direction LR
+            Auth["Autenticación Service"]
+            Access["Acceso Compartido Service"]
+            Agenda["Agenda Service"]
+        end
+        subgraph Row2[" "]
+            direction LR
+            Notif["Notificaciones Service"]
+            Docs["Documentos Service"]
+            Diary["Diario Service"]
+        end
+    end
 
-        System_Boundary(api, "API Gateway - Spring Boot") {
-            Container(agendaSvc, "Agenda Service", "Spring Boot Module", "Gestión de eventos de salud y calendario.")
-            Container(notifSvc, "Notificaciones Service", "Spring Boot Module", "Programación, envío y visualización de notificaciones y alertas.")
-            Container(docsSvc, "Documentos Service", "Spring Boot Module", "Almacenamiento y control de acceso a documentos médicos.")
-            Container(accessSvc, "Acceso Compartido Service", "Spring Boot Module", "Compartir y revocar el perfil del paciente.")
-            Container(diarySvc, "Diario Service", "Spring Boot Module", "Registro y consulta de notas de seguimiento.")
-            Container(authSvc, "Autenticación Service", "Spring Boot Module", "Cuentas, sesiones y control de acceso por rol.")
-        }
+    %% Persistencia
+    subgraph DataTier["Data Tier"]
+        direction LR
+        Local[("Local Storage<br/><i>SQLite / Room</i>")]
+        DB[("Database<br/><i>PostgreSQL</i>")]
+    end
 
-        ContainerDb(db, "Database", "PostgreSQL", "Persistencia de los seis bounded contexts.")
-        ContainerDb(local, "Local Storage", "SQLite / Room", "Almacenamiento offline en el dispositivo.")
-    }
+    %% Sistemas externos
+    subgraph ExternalTier["External Systems"]
+        direction LR
+        IdP["Google Sign-In<br/><i>Identity Provider</i>"]
+        Email["SendGrid<br/><i>Email Service</i>"]
+        FCM["Firebase Cloud Messaging<br/><i>Push Service</i>"]
+    end
 
-    System_Ext(email, "Email Service", "SendGrid")
-    System_Ext(push, "Push Notification Service", "Firebase Cloud Messaging")
-    System_Ext(idp, "Identity Provider", "Google Sign-In")
+    %% Flujos principales (sin cruces)
+    Patient --> Mobile
+    Caregiver --> Mobile
+    Patient -. opcional .-> Landing
+    Caregiver -. opcional .-> Landing
 
-    Rel(visitor, landing, "Visita", "HTTPS")
-    Rel(patient, mobile, "Usa")
-    Rel(caregiver, mobile, "Usa")
+    Mobile -- "HTTPS / JSON" --> API
+    Mobile <-- "SQLite" --> Local
 
-    Rel(mobile, agendaSvc, "Consume API", "HTTPS/JSON")
-    Rel(mobile, notifSvc, "Consume API", "HTTPS/JSON")
-    Rel(mobile, docsSvc, "Consume API", "HTTPS/JSON")
-    Rel(mobile, accessSvc, "Consume API", "HTTPS/JSON")
-    Rel(mobile, diarySvc, "Consume API", "HTTPS/JSON")
-    Rel(mobile, authSvc, "Consume API", "HTTPS/JSON")
-    Rel(mobile, local, "Lee/Escribe offline", "SQLite")
+    API -- "JDBC / JPA" --> DB
 
-    Rel(agendaSvc, db, "Persiste datos", "JDBC/JPA")
-    Rel(notifSvc, db, "Persiste datos", "JDBC/JPA")
-    Rel(docsSvc, db, "Persiste datos", "JDBC/JPA")
-    Rel(accessSvc, db, "Persiste datos", "JDBC/JPA")
-    Rel(diarySvc, db, "Persiste datos", "JDBC/JPA")
-    Rel(authSvc, db, "Persiste datos", "JDBC/JPA")
+    Auth -- "OAuth 2.0" --> IdP
+    Auth -- "HTTPS / SMTP" --> Email
+    Notif -- "HTTPS / SMTP" --> Email
+    Notif -- "HTTPS" --> FCM
+    FCM -. "Push (FCM)" .-> Mobile
 
-    Rel(notifSvc, push, "Dispara notificaciones", "HTTPS")
-    Rel(notifSvc, email, "Envía emails", "HTTPS/SMTP")
-    Rel(authSvc, email, "Envía emails", "HTTPS/SMTP")
-    Rel(authSvc, idp, "Verifica autenticación", "OAuth 2.0")
-    Rel(push, mobile, "Push", "FCM")
+    %% Estilos por tier
+    classDef user fill:#1f4068,stroke:#ffffff,color:#ffffff
+    classDef client fill:#2b6777,stroke:#ffffff,color:#ffffff
+    classDef svc fill:#355c7d,stroke:#ffffff,color:#ffffff
+    classDef data fill:#3d405b,stroke:#ffffff,color:#ffffff
+    classDef ext fill:#6d6875,stroke:#ffffff,color:#ffffff
 
-    UpdateRelStyle(visitor, landing, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(patient, mobile, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(caregiver, mobile, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(mobile, agendaSvc, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(mobile, notifSvc, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(mobile, docsSvc, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(mobile, accessSvc, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(mobile, diarySvc, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(mobile, authSvc, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(mobile, local, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(agendaSvc, db, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(notifSvc, db, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(docsSvc, db, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(accessSvc, db, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(diarySvc, db, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(authSvc, db, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(notifSvc, push, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(notifSvc, email, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(authSvc, email, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(authSvc, idp, $textColor="#ffffff", $lineColor="#ffffff")
-    UpdateRelStyle(push, mobile, $textColor="#ffffff", $lineColor="#ffffff")
+    class Patient,Caregiver user
+    class Landing,Mobile client
+    class Auth,Access,Agenda,Notif,Docs,Diary svc
+    class Local,DB data
+    class IdP,Email,FCM ext
 ```
 
-*Figura 2. Software Architecture Container Level Diagram para CareConnect, con el API Gateway descompuesto en sus seis bounded contexts.*
+*Figura 2. Software Architecture Container Level Diagram para CareConnect, con el API Gateway descompuesto en sus seis bounded contexts y organizado en capas horizontales para evitar cruces.*
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams <a id="2533-software-architecture-deployment-diagrams"></a>
 
