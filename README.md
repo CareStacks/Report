@@ -1247,6 +1247,410 @@ C4Deployment
 
 ---
 
+### 2.6.2. Bounded Context: Notificaciones
+
+Este bounded context es responsable de la planificación, envío, recepción, visualización y control de acceso de las notificaciones y alertas que reciben pacientes y cuidadores dentro de la plataforma CareConnect. Cubre las historias de usuario US04 (recordatorios de eventos), US05 (alertas de incumplimiento) y US06 (visualización de notificaciones), así como las historias técnicas TS03 (programación), TS04 (envío) y TS05 (control de acceso). Se integra con Firebase Cloud Messaging (FCM) para push, con SendGrid para email y con el bounded context de Agenda a través de eventos de dominio.
+
+#### 2.6.2.1. Domain Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| NotificationCenter | Aggregate Root | Gestiona la consistencia transaccional de las notificaciones y alertas de un destinatario. |
+| Notification | Entity | Representa una notificación individual (recordatorio, alerta o informativa) dirigida a un usuario. |
+| Alert | Entity | Representa una alerta de incumplimiento generada cuando un evento no es confirmado a tiempo. |
+| NotificationPreference | Entity | Representa las preferencias del usuario sobre canales y tipos de notificación. |
+| NotificationContent | Value Object | Encapsula el título, el mensaje y el payload asociado a la notificación. |
+| NotificationType | Value Object | Define la categoría de la notificación (REMINDER, ALERT, INFO). |
+| NotificationPriority | Value Object | Representa el nivel de prioridad de la notificación (LOW, MEDIUM, HIGH, CRITICAL). |
+| NotificationStatus | Value Object | Representa el estado actual de la notificación (SCHEDULED, SENT, DELIVERED, READ, FAILED). |
+| DeliveryChannel | Value Object | Indica el canal de entrega de la notificación (PUSH, EMAIL, IN_APP). |
+| RecipientId | Value Object | Identifica de forma única al destinatario (paciente o cuidador). |
+| ScheduledAt | Value Object | Encapsula la fecha y hora programada de envío. |
+| NotificationDispatchService | Domain Service | Aplica las reglas de negocio para despachar una notificación al canal adecuado. |
+| AlertEvaluationService | Domain Service | Evalúa si se debe generar una alerta de incumplimiento ante un evento no confirmado. |
+| NotificationAccessPolicy | Domain Service | Valida que el destinatario tenga los permisos necesarios para recibir la notificación (TS05). |
+| NotificationRepository | Repository | Define el contrato de persistencia del agregado NotificationCenter. |
+| NotificationScheduledEvent | Domain Event | Se publica cuando se programa una nueva notificación. |
+| NotificationSentEvent | Domain Event | Se publica cuando se envía una notificación al canal de entrega. |
+| NotificationDeliveredEvent | Domain Event | Se publica cuando el canal confirma la entrega al dispositivo. |
+| NotificationReadEvent | Domain Event | Se publica cuando el destinatario marca la notificación como leída. |
+| AlertTriggeredEvent | Domain Event | Se publica cuando se genera una alerta de incumplimiento. |
+| NotificationFailedEvent | Domain Event | Se publica cuando falla el envío o la entrega de la notificación. |
+
+#### 2.6.2.2. Interface Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| NotificationCenterActivity | Activity | Punto de entrada principal del módulo de notificaciones en la aplicación móvil. |
+| NotificationListFragment | Fragment | Presenta la lista de notificaciones recibidas ordenadas por fecha y prioridad (US06). |
+| NotificationDetailFragment | Fragment | Muestra el contenido detallado de una notificación seleccionada. |
+| AlertBannerFragment | Fragment | Presenta alertas críticas de incumplimiento de manera prominente al cuidador (US05). |
+| NotificationSettingsFragment | Fragment | Permite al usuario configurar sus preferencias de notificación. |
+| NotificationViewModel | ViewModel | Gestiona el estado de la lista y el detalle, coordinando Commands y Queries con la capa de aplicación. |
+| AlertsViewModel | ViewModel | Gestiona el estado de las alertas activas visibles para el cuidador. |
+| NotificationPreferencesViewModel | ViewModel | Gestiona el estado de las preferencias de notificación del usuario. |
+
+#### 2.6.2.3. Application Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| ScheduleNotificationCommand | Command | Solicita la programación de una nueva notificación (TS03). |
+| SendNotificationCommand | Command | Solicita el envío inmediato de una notificación (TS04). |
+| CancelScheduledNotificationCommand | Command | Solicita la cancelación de una notificación previamente programada. |
+| MarkNotificationAsReadCommand | Command | Solicita el marcado de una notificación como leída. |
+| TriggerAlertCommand | Command | Solicita la generación de una alerta de incumplimiento (US05). |
+| UpdateNotificationPreferencesCommand | Command | Solicita la actualización de las preferencias del usuario. |
+| ScheduleNotificationHandler | Command Handler | Procesa la programación de notificaciones. |
+| SendNotificationHandler | Command Handler | Procesa el envío de notificaciones a través del canal correspondiente. |
+| CancelScheduledNotificationHandler | Command Handler | Procesa la cancelación de notificaciones programadas. |
+| MarkNotificationAsReadHandler | Command Handler | Procesa el marcado de lectura. |
+| TriggerAlertHandler | Command Handler | Procesa la generación de alertas, aplicando NotificationAccessPolicy. |
+| UpdateNotificationPreferencesHandler | Command Handler | Procesa la actualización de preferencias. |
+| GetNotificationsQuery | Query | Recupera todas las notificaciones del destinatario. |
+| GetNotificationByIdQuery | Query | Recupera una notificación por su identificador. |
+| GetUnreadNotificationsQuery | Query | Recupera las notificaciones no leídas del destinatario. |
+| GetActiveAlertsQuery | Query | Recupera las alertas activas del cuidador. |
+| GetNotificationPreferencesQuery | Query | Recupera las preferencias de notificación del usuario. |
+| GetNotificationsHandler | Query Handler | Procesa la consulta de todas las notificaciones. |
+| GetNotificationByIdHandler | Query Handler | Procesa la consulta por identificador. |
+| GetUnreadNotificationsHandler | Query Handler | Procesa la consulta de notificaciones no leídas. |
+| GetActiveAlertsHandler | Query Handler | Procesa la consulta de alertas activas. |
+| GetNotificationPreferencesHandler | Query Handler | Procesa la consulta de preferencias. |
+| HealthEventCreatedListener | Event Listener | Reacciona al evento EventCreatedEvent del contexto Agenda para programar recordatorios. |
+| HealthEventRescheduledListener | Event Listener | Reacciona al evento EventRescheduledEvent para reprogramar notificaciones. |
+| HealthEventMissedListener | Event Listener | Reacciona al vencimiento sin confirmación para disparar TriggerAlertCommand. |
+| NotificationDTO | DTO | Transfiere información de notificaciones entre capas. |
+| AlertDTO | DTO | Transfiere información de alertas. |
+| NotificationPreferenceDTO | DTO | Transfiere información de preferencias de notificación. |
+
+#### 2.6.2.4. Infrastructure Layer
+
+| Componente | Tipo | Descripción |
+|-----------|------|-------------|
+| NotificationRepositoryImpl | Repository Implementation | Implementa la persistencia del agregado NotificationCenter. |
+| AppDatabase | Database | Configura la base de datos local utilizando Room para persistencia offline de notificaciones. |
+| NotificationDao | DAO | Proporciona operaciones de acceso a datos para las notificaciones. |
+| AlertDao | DAO | Proporciona operaciones de acceso a datos para las alertas. |
+| NotificationPreferenceDao | DAO | Proporciona operaciones de acceso a datos para las preferencias. |
+| NotificationEntity | Persistence Entity | Representa una notificación dentro de la base de datos local. |
+| AlertEntity | Persistence Entity | Representa una alerta dentro de la base de datos local. |
+| NotificationPreferenceEntity | Persistence Entity | Representa las preferencias dentro de la base de datos local. |
+| FCMPushNotificationAdapter | External Service Adapter | Adaptador hacia Firebase Cloud Messaging para el envío de notificaciones push (TS04). |
+| SendGridEmailAdapter | External Service Adapter | Adaptador hacia SendGrid para el envío de notificaciones por correo electrónico. |
+| CareConnectFirebaseMessagingService | Platform Service | Servicio Android que recibe las notificaciones push entregadas por FCM. |
+| WorkManagerNotificationScheduler | Scheduler | Programa el envío diferido de notificaciones y el reintento ante fallos (TS03). |
+| AlertEvaluationWorker | Background Worker | Worker periódico que dispara AlertEvaluationService sobre eventos vencidos sin confirmación. |
+| NotificationMapper | Mapper | Convierte objetos Notification entre Domain, DTO y Persistence. |
+| AlertMapper | Mapper | Convierte objetos Alert entre Domain, DTO y Persistence. |
+| NotificationPreferenceMapper | Mapper | Convierte objetos NotificationPreference entre Domain, DTO y Persistence. |
+| RetryPolicyConfig | Configuration | Define la política de reintentos para fallos de envío (TS04). |
+
+#### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
+
+El Component Diagram del bounded context Notificaciones descompone el API Gateway en los componentes internos responsables de la programación, el envío, el control de acceso y la consulta de notificaciones, así como sus relaciones con los sistemas externos FCM y SendGrid, con la base de datos y con el bounded context Agenda.
+
+```mermaid
+%%{init: {'theme': 'dark'}}%%
+C4Component
+    title Component Diagram - Bounded Context: Notificaciones
+
+    Container(mobile, "Mobile Application", "Kotlin / Flutter", "Interfaz del cuidador y del paciente.")
+    Container_Ext(agenda, "Bounded Context: Agenda", "Spring Boot Module", "Publica eventos de dominio de eventos de salud.")
+    ContainerDb(db, "Database", "PostgreSQL", "Persistencia de notificaciones, alertas y preferencias.")
+    System_Ext(fcm, "Firebase Cloud Messaging", "FCM", "Envío de notificaciones push.")
+    System_Ext(email, "SendGrid", "Email Service", "Envío de notificaciones por email.")
+
+    Container_Boundary(notif, "Bounded Context: Notificaciones") {
+        Component(ctrl, "NotificationController", "Spring REST Controller", "Expone endpoints para consulta y gestión de notificaciones (US06).")
+        Component(alertCtrl, "AlertController", "Spring REST Controller", "Expone endpoints para alertas activas (US05).")
+        Component(prefCtrl, "NotificationPreferencesController", "Spring REST Controller", "Expone endpoints para configurar preferencias.")
+
+        Component(appSvc, "NotificationApplicationService", "Application Service", "Orquesta Commands y Queries del bounded context.")
+        Component(alertSvc, "AlertApplicationService", "Application Service", "Orquesta la generación y consulta de alertas.")
+
+        Component(dispatch, "NotificationDispatchService", "Domain Service", "Aplica reglas de dispatch según canal y prioridad.")
+        Component(evalSvc, "AlertEvaluationService", "Domain Service", "Evalúa incumplimientos para disparar alertas.")
+        Component(policy, "NotificationAccessPolicy", "Domain Service", "Valida permisos del destinatario (TS05).")
+
+        Component(repo, "NotificationRepositoryImpl", "Repository Implementation", "Persiste el agregado NotificationCenter.")
+        Component(fcmAdapter, "FCMPushNotificationAdapter", "Infrastructure Adapter", "Integra con Firebase Cloud Messaging.")
+        Component(emailAdapter, "SendGridEmailAdapter", "Infrastructure Adapter", "Integra con SendGrid.")
+        Component(scheduler, "WorkManagerNotificationScheduler", "Scheduler", "Programa envíos y reintentos (TS03).")
+        Component(listener, "AgendaEventListener", "Event Listener", "Escucha eventos del contexto Agenda.")
+    }
+
+    Rel(mobile, ctrl, "Consume API", "HTTPS/JSON")
+    Rel(mobile, alertCtrl, "Consume API", "HTTPS/JSON")
+    Rel(mobile, prefCtrl, "Consume API", "HTTPS/JSON")
+
+    Rel(ctrl, appSvc, "Delegates")
+    Rel(alertCtrl, alertSvc, "Delegates")
+    Rel(prefCtrl, appSvc, "Delegates")
+
+    Rel(appSvc, dispatch, "Uses")
+    Rel(appSvc, policy, "Uses")
+    Rel(appSvc, repo, "Reads/Writes")
+    Rel(appSvc, scheduler, "Schedules")
+
+    Rel(alertSvc, evalSvc, "Uses")
+    Rel(alertSvc, policy, "Uses")
+    Rel(alertSvc, repo, "Reads/Writes")
+
+    Rel(dispatch, fcmAdapter, "Dispatches push")
+    Rel(dispatch, emailAdapter, "Dispatches email")
+
+    Rel(listener, appSvc, "Triggers scheduling")
+    Rel(agenda, listener, "Publishes domain events")
+
+    Rel(repo, db, "Persists", "JDBC")
+    Rel(fcmAdapter, fcm, "Sends push", "HTTPS")
+    Rel(emailAdapter, email, "Sends email", "HTTPS/SMTP")
+    Rel(fcm, mobile, "Push notification", "FCM")
+
+    UpdateRelStyle(mobile, ctrl, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(mobile, alertCtrl, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(mobile, prefCtrl, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(ctrl, appSvc, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(alertCtrl, alertSvc, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(prefCtrl, appSvc, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(appSvc, dispatch, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(appSvc, policy, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(appSvc, repo, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(appSvc, scheduler, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(alertSvc, evalSvc, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(alertSvc, policy, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(alertSvc, repo, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(dispatch, fcmAdapter, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(dispatch, emailAdapter, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(listener, appSvc, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(agenda, listener, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(repo, db, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(fcmAdapter, fcm, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(emailAdapter, email, $textColor="#ffffff", $lineColor="#ffffff")
+    UpdateRelStyle(fcm, mobile, $textColor="#ffffff", $lineColor="#ffffff")
+```
+
+*Figura 4. Component Level Diagram del bounded context Notificaciones.*
+
+#### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
+
+El Class Diagram de la capa de dominio del bounded context Notificaciones muestra el agregado NotificationCenter, sus entidades internas (Notification, Alert, NotificationPreference), los value objects que describen su comportamiento, los domain services que encapsulan las reglas de negocio y los domain events que comunican cambios relevantes hacia otros contextos.
+
+```mermaid
+%%{init: {'theme': 'dark'}}%%
+classDiagram
+    direction LR
+
+    class NotificationCenter {
+        <<Aggregate Root>>
+        -RecipientId recipientId
+        -List~Notification~ notifications
+        -List~Alert~ alerts
+        -NotificationPreference preferences
+        +scheduleNotification(content, scheduledAt, type, priority) Notification
+        +sendNotification(notificationId) void
+        +cancelScheduled(notificationId) void
+        +markAsRead(notificationId) void
+        +triggerAlert(healthEventId, reason) Alert
+        +updatePreferences(preferences) void
+    }
+
+    class Notification {
+        <<Entity>>
+        -UUID id
+        -RecipientId recipientId
+        -NotificationContent content
+        -NotificationType type
+        -NotificationPriority priority
+        -NotificationStatus status
+        -DeliveryChannel channel
+        -ScheduledAt scheduledAt
+        +schedule() void
+        +markAsSent() void
+        +markAsDelivered() void
+        +markAsRead() void
+        +markAsFailed(reason) void
+    }
+
+    class Alert {
+        <<Entity>>
+        -UUID id
+        -UUID healthEventId
+        -RecipientId recipientId
+        -NotificationPriority priority
+        -String reason
+        -Instant triggeredAt
+        -boolean acknowledged
+        +acknowledge() void
+    }
+
+    class NotificationPreference {
+        <<Entity>>
+        -RecipientId recipientId
+        -Set~DeliveryChannel~ enabledChannels
+        -Set~NotificationType~ enabledTypes
+        -boolean quietHoursEnabled
+        +enableChannel(channel) void
+        +disableChannel(channel) void
+        +allows(type, channel) boolean
+    }
+
+    class NotificationContent {
+        <<Value Object>>
+        -String title
+        -String message
+        -Map payload
+    }
+
+    class NotificationType {
+        <<Value Object>>
+        <<enumeration>>
+        REMINDER
+        ALERT
+        INFO
+    }
+
+    class NotificationPriority {
+        <<Value Object>>
+        <<enumeration>>
+        LOW
+        MEDIUM
+        HIGH
+        CRITICAL
+    }
+
+    class NotificationStatus {
+        <<Value Object>>
+        <<enumeration>>
+        SCHEDULED
+        SENT
+        DELIVERED
+        READ
+        FAILED
+    }
+
+    class DeliveryChannel {
+        <<Value Object>>
+        <<enumeration>>
+        PUSH
+        EMAIL
+        IN_APP
+    }
+
+    class RecipientId {
+        <<Value Object>>
+        -UUID value
+    }
+
+    class ScheduledAt {
+        <<Value Object>>
+        -Instant value
+        +isDue(now) boolean
+    }
+
+    class NotificationDispatchService {
+        <<Domain Service>>
+        +dispatch(notification, preference) void
+    }
+
+    class AlertEvaluationService {
+        <<Domain Service>>
+        +shouldTriggerAlert(healthEvent) boolean
+        +evaluate(center, healthEvent) Alert
+    }
+
+    class NotificationAccessPolicy {
+        <<Domain Service>>
+        +canReceive(recipientId, notification) boolean
+    }
+
+    class NotificationRepository {
+        <<Repository>>
+        +findByRecipient(recipientId) NotificationCenter
+        +save(center) void
+    }
+
+    class NotificationScheduledEvent {
+        <<Domain Event>>
+        +UUID notificationId
+        +RecipientId recipientId
+        +Instant scheduledAt
+    }
+
+    class NotificationSentEvent {
+        <<Domain Event>>
+        +UUID notificationId
+        +Instant sentAt
+    }
+
+    class NotificationDeliveredEvent {
+        <<Domain Event>>
+        +UUID notificationId
+        +Instant deliveredAt
+    }
+
+    class NotificationReadEvent {
+        <<Domain Event>>
+        +UUID notificationId
+        +Instant readAt
+    }
+
+    class AlertTriggeredEvent {
+        <<Domain Event>>
+        +UUID alertId
+        +UUID healthEventId
+        +RecipientId recipientId
+        +Instant triggeredAt
+    }
+
+    class NotificationFailedEvent {
+        <<Domain Event>>
+        +UUID notificationId
+        +String reason
+        +Instant failedAt
+    }
+
+    NotificationCenter "1" *-- "*" Notification : contains
+    NotificationCenter "1" *-- "*" Alert : contains
+    NotificationCenter "1" *-- "1" NotificationPreference : configures
+    NotificationCenter --> RecipientId : identifies
+
+    Notification --> NotificationContent : has
+    Notification --> NotificationType : typed as
+    Notification --> NotificationPriority : prioritized by
+    Notification --> NotificationStatus : currently
+    Notification --> DeliveryChannel : delivered via
+    Notification --> ScheduledAt : scheduled for
+    Notification --> RecipientId : targets
+
+    Alert --> NotificationPriority : prioritized by
+    Alert --> RecipientId : targets
+
+    NotificationPreference --> DeliveryChannel : enables
+    NotificationPreference --> NotificationType : enables
+
+    NotificationDispatchService ..> Notification : dispatches
+    NotificationDispatchService ..> NotificationPreference : honors
+    AlertEvaluationService ..> NotificationCenter : evaluates
+    AlertEvaluationService ..> Alert : produces
+    NotificationAccessPolicy ..> Notification : authorizes
+
+    NotificationRepository ..> NotificationCenter : persists
+
+    NotificationCenter ..> NotificationScheduledEvent : emits
+    NotificationCenter ..> NotificationSentEvent : emits
+    NotificationCenter ..> NotificationDeliveredEvent : emits
+    NotificationCenter ..> NotificationReadEvent : emits
+    NotificationCenter ..> AlertTriggeredEvent : emits
+    NotificationCenter ..> NotificationFailedEvent : emits
+```
+
+*Figura 5. Domain Layer Class Diagram del bounded context Notificaciones.*
+
+---
+
 # Capítulo III: Solution UI/UX Design
 
 ## 3.1. Product design <a id="31-product-design"></a>
