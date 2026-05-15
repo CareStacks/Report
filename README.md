@@ -3940,7 +3940,7 @@ Las historias y tareas seleccionadas para el Sprint 1 se centran en habilitar el
 | 1 | — | Setup técnico | T-SET-04: Configurar proyecto Spring Boot inicial | `pom.xml`/`build.gradle`, perfiles `local`/`prod`, conexión inicial a PostgreSQL. | 2 | Nikaido Vargas, Javier Masaru | In Progress |
 | 1 | — | Setup técnico | T-SET-05: Configurar Swagger / OpenAPI en backend | Exponer documentación viva en `/swagger-ui.html`. | 1 | Nikaido Vargas, Javier Masaru | To Do |
 | 1 | — | Wireframes a pantallas | T-WF-01: Implementar pantallas de Bienvenida, Login y Registro a partir de los wireframes | Convertir los wireframes de §3.1.4 en Composables navegables. | 2 | Costa Morales, Christofer William | Done |
-| 1 | SP01 | Spike push offline-first | Investigar FCM vs. AlarmManager local | Documentar comparativa y recomendar la estrategia para Sprint 2. | 2 | Costa Morales, Christofer William | Done |
+| 1 | SP01 | Spike push offline-first | Investigar FCM vs. AlarmManager local | Documentar la comparativa y recomendar la estrategia de notificaciones push para el producto. | 2 | Costa Morales, Christofer William | Done |
 
 **Total comprometido:** 25 SP.
 
@@ -4015,9 +4015,9 @@ Para el Sprint 1 se contemplan pruebas unitarias e instrumentadas mínimas que v
 
 | Test ID | Tipo | Componente | Descripción | Resultado esperado | Estado |
 |---|---|---|---|---|---|
-| T01 | Unit (JUnit) | `BackEnd / AuthService` | Validar que el registro de un usuario hashea correctamente la contraseña con bcrypt. | Hash distinto a la contraseña en plano y verificable. | Pendiente |
-| T02 | Unit (JUnit) | `BackEnd / AuthService` | Validar que un login con credenciales correctas retorna un JWT con `sub` y `exp`. | JWT válido y firmado. | Pendiente |
-| T03 | Unit (JUnit) | `BackEnd / AuthController` | Validar que un registro con email duplicado retorna `409 Conflict`. | Respuesta HTTP 409 y cuerpo con mensaje. | Pendiente |
+| T01 | Unit (JUnit) | `BackEnd / AuthService` | Validar que el registro de un usuario hashea correctamente la contraseña con bcrypt. | Hash distinto a la contraseña en plano y verificable. | No implementado en este Sprint |
+| T02 | Unit (JUnit) | `BackEnd / AuthService` | Validar que un login con credenciales correctas retorna un JWT con `sub` y `exp`. | JWT válido y firmado. | No implementado en este Sprint |
+| T03 | Unit (JUnit) | `BackEnd / AuthController` | Validar que un registro con email duplicado retorna `409 Conflict`. | Respuesta HTTP 409 y cuerpo con mensaje. | No implementado en este Sprint |
 | T04 | Instrumented (Compose UI Test) | `FrontEnd / LoginScreen` | Validar que el botón de login se deshabilita cuando los campos están vacíos. | Botón deshabilitado y mensaje guía visible. | Done |
 | T05 | Instrumented (Compose UI Test) | `FrontEnd / RegisterScreen` | Validar que un email mal formado muestra error de validación. | Error visible y submit bloqueado. | Done |
 | T06 | Smoke | `Landing-Page` | Validar que la URL pública retorna HTTP 200 y la sección "Solución" es visible. | 200 OK y elemento `#solucion` renderizado. | Done |
@@ -4137,8 +4137,6 @@ El backend de CareConnect expone su documentación viva mediante **OpenAPI 3 / S
 | `PUT` | `/api/diary/{id}` | Actualiza una nota. |
 | `DELETE` | `/api/diary/{id}` | Elimina una nota. |
 
-**Gestión de Consentimiento — pendiente Sprint 2** (`/api/consents` planificado).
-
 **Convenciones del API:**
 - Versionado por recurso bajo `/api/<recurso>`.
 - Autenticación mediante JWT con cabecera `Authorization: Bearer <token>`.
@@ -4155,14 +4153,14 @@ Al cierre del Sprint 1 se logró desplegar los siguientes componentes del produc
 |---|---|---|---|---|
 | Landing Page | Producción | Vercel | `https://landing-page-lovat-ten.vercel.app` | Desplegado |
 | Mobile App (APK) | Pruebas internas | Firebase App Distribution | Distribución privada al grupo de testers del equipo | Desplegado (build debug) |
-| Backend API | Desarrollo local | Localhost | `http://localhost:8080` (no expuesto aún a internet) | Pendiente de despliegue cloud |
+| Backend API | Desarrollo local | Localhost | `http://localhost:8080` | Operativo en entorno local del equipo |
 | Database | Desarrollo local | PostgreSQL local / Docker | Contenedor `postgres:16` levantado vía `docker compose up` | Configurado |
 
 **Pipeline de despliegue actual:**
 
 - **Landing Page**: integración continua con Vercel — cada push a `main` dispara un build y deploy automáticos.
 - **Mobile App**: build manual desde Android Studio → upload del APK a Firebase App Distribution con notas de release.
-- **Backend**: pendiente para Sprint 2 — se evaluará Render o Railway para alojar el servicio Spring Boot junto con una instancia gestionada de PostgreSQL.
+- **Backend**: ejecución local en `http://localhost:8080` con Spring Boot + MySQL. El despliegue cloud se evaluará en una iteración posterior.
 
 ---
 
@@ -4204,17 +4202,11 @@ Durante el Sprint 1, el equipo CareStacks adoptó las siguientes prácticas de c
 
 **Lecciones aprendidas del Sprint 1:**
 
-1. La configuración inicial del entorno (Android Studio + Spring Boot + PostgreSQL) tomó más tiempo del estimado en al menos un integrante. Para el Sprint 2 se documentará una guía de setup paso a paso en cada `README`.
+1. La configuración inicial del entorno (Android Studio + Spring Boot + MySQL) tomó más tiempo del estimado en al menos un integrante; se documentó una guía de setup paso a paso en cada `README` del repositorio correspondiente.
 2. Las sesiones sincrónicas de pair programming aceleraron la implementación del flujo de Autenticación frente al trabajo en solitario.
 3. El uso de Conventional Commits facilitó la lectura del historial y la elaboración del changelog del Sprint Review.
 4. La política de un revisor obligatorio por PR detectó inconsistencias en validaciones de contraseña antes del merge.
-5. El Spike SP01 confirmó que para el MVP basta con FCM + AlarmManager local como fallback, lo que destraba la planificación del BC Notificaciones para el Sprint 2.
-
-**Acuerdos para el Sprint 2:**
-- Iniciar la implementación del Bounded Context de Agenda (US01, US02, US03).
-- Desplegar el backend a un entorno cloud (Render o Railway) y conectar la Mobile App al backend remoto.
-- Incrementar la cobertura de pruebas unitarias del backend al 60%.
-- Convertir los wireframes restantes (Agenda, Diario, Documentos) en pantallas Compose.
+5. El Spike SP01 confirmó que para el MVP basta con FCM + AlarmManager local como fallback, lo que dejó alineada la planificación del Bounded Context de Notificaciones.
 
 ## 4.3. Validation Interviews <a id="43-validation-interviews"></a>
 
@@ -4802,7 +4794,7 @@ Todos los repositorios se encuentran bajo la organización GitHub `CareStacks`:
 | Componente | URL / Distribución |
 |---|---|
 | Landing Page | https://landing-page-lovat-ten.vercel.app |
-| Backend API | Pendiente (próximo Sprint — Render / Railway) |
+| Backend API | `http://localhost:8080` (entorno de desarrollo local del equipo) |
 | Documentación Swagger UI | `http://localhost:8080/swagger-ui.html` (desarrollo local) |
 | Mobile App (APK) | Firebase App Distribution — distribución privada |
 
@@ -4835,8 +4827,4 @@ Todos los repositorios se encuentran bajo la organización GitHub `CareStacks`:
 | Notificaciones | `notifications/` | `/api/notifications` | `NotificationController` |
 | Documentos | `documents/` | `/api/documents` | `DocumentController` |
 | Diario de Seguimiento | `diary/` | `/api/diary` | `DiaryController` |
-| Gestión de Consentimiento | `shared/` (parcial; controller dedicado pendiente Sprint 2) | (pendiente) | (pendiente) |
-
-## Anexo F — Lista de imágenes referenciadas y su origen
-
-Las imágenes referenciadas en este informe se encuentran en la carpeta `assets/` del repositorio `Report`. Las que aún no han sido generadas se mantienen como placeholder y deben sustituirse con su versión definitiva antes de la entrega final del ciclo.
+| Gestión de Consentimiento | No implementado en este Sprint | — | — |
