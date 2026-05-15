@@ -266,9 +266,292 @@
 
 ### 3.1.4. Mobile Applications UX/UI Design <a id="314-mobile-applications-uxui-design"></a>
 #### 3.1.4.1. Mobile Applications Wireframes <a id="3141-mobile-applications-wireframes"></a>
+
+Con los bounded context que establecimos y los user stories, realizamos los siguientes wireframes para las pantallas de nuestra aplicación.
+
+
+IAM: Pantallas para la verificación e ingreso del usuario
+
+![alt text](assets/wireframes/bienvenida.png)
+
+![alt text](assets/wireframes/iniciarSesión.png)
+
+![alt text](assets/wireframes/Crearcuenta.png)
+
+![alt text](assets/wireframes/Inicio_paci.png)
+
+![alt text](assets/wireframes/InicioCuida.png)
+
+Agenda: Pantallas para el calendario de eventos que el paciente debe seguir
+
+![alt text](assets/wireframes/Agenda1.png)
+
+![alt text](assets/wireframes/Agenda2.png)
+
+![alt text](assets/wireframes/Agenda3.png)
+
+Notificaciones: Pantallas para los diferentes mensajes que recibe el cuidador y paciente
+
+![alt text](assets/wireframes/notificaciones_pac.png)
+
+
+![alt text](assets/wireframes/notificaciones_cuid.png)
+
+
+Gestión de Consentimiento: Pantallas para darle permisos para que el paciente le de permiso al cuidado
+
+![alt text](assets/wireframes/Perfil_cuidador.png)
+
+![alt text](assets/wireframes/compartirPerfil.png)
+
+![alt text](assets/wireframes/Perfil_cuidador.png)
+
+Documentos: Pantallas para el ingreso de documentos para el historial medico del paciente
+
+![alt text](assets/wireframes/Documentos_pacie.png)
+
+![alt text](assets/wireframes/DocumentosCuidador.png)
+
+![alt text](assets/wireframes/SubirDocu.png)
+
+Diario: Pantallas para visualizar las notas del progreso y mejora del paciente
+
+![alt text](assets/wireframes/Diario_cuidador.png)
+
+![alt text](assets/wireframes/Diario_nota.png)
+
+![alt text](assets/wireframes/Diario_paci.png)
+
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams <a id="3142-mobile-applications-wireflow-diagrams"></a>
+
+Task Flow 1: Autenticación y acceso por rol
+
+Objetivo: Registrar una cuenta nueva y validar el ingreso a la plataforma según el rol del usuario (Paciente o Cuidador).
+
+Pasos del Task Flow:
+
+1. El usuario abre la app y visualiza la pantalla de bienvenida con las opciones de inicio.
+2. Selecciona "Crear cuenta" e ingresa nombre, correo electrónico y contraseña.
+3. Elige su rol: Paciente o Cuidador, y acepta los términos de servicio.
+4. El sistema valida los datos; si el correo ya existe muestra el error correspondiente.
+5. El usuario inicia sesión; el sistema valida el rol y redirige al home correspondiente.
+6. Intentar acceder a secciones sin permiso bloquea el acceso con mensaje de restricción.
+
+User Goal 1: Como usuario, quiero crear mi cuenta para acceder a la plataforma. 
+
+![alt text](assets/user_goals/UserGoal1.png)
+
+User Goal 2: Como usuario, quiero iniciar sesión y ver la vista según mi rol.
+
+![alt text](assets/user_goals/UserGoal2.png)
+
+Task Flow 2: Gestión de agenda
+
+Objetivo: Registrar y confirmar eventos de salud (medicaciones y citas médicas) en el calendario personal.
+
+Pasos del Task Flow:
+
+1. El paciente o cuidador accede a la sección "Agenda" desde el menú inferior.
+2. Visualiza el calendario mensual con los eventos ya registrados.
+3. Toca "+ Agregar evento" y completa tipo, nombre, fecha, hora y descripción.
+4. Si omite campos obligatorios, el sistema muestra un mensaje de error de validación.
+5. El evento se guarda y aparece en el calendario en la fecha correspondiente.
+6. El paciente accede al detalle y confirma el evento; el estado cambia a "Confirmado".
+7. Si necesita modificar la fecha, reprograma; el sistema verifica conflictos de horario.
+
+User Goal 3: Como paciente o cuidador, quiero registrar un evento de salud en el calendario.
+
+![alt text](assets/user_goals/UserGoal3.png)
+
+User Goal 4: Como paciente, quiero confirmar o reprogramar un evento de salud.
+
+![alt text](assets/user_goals/UserGoal4.png)
+
+
+
+Task Flow 3: Notificaciones y alertas
+
+
+Objetivo: Recibir recordatorios automáticos de eventos programados, alertas de incumplimiento para cuidadores y gestionar el historial de notificaciones.
+
+Pasos del Task Flow:
+
+1. El sistema detecta que un evento está próximo y envía un recordatorio al paciente.
+2. El paciente recibe la notificación con nombre, hora y tipo del evento.
+3. Si el evento no es confirmado en el tiempo límite, el sistema genera una alerta urgente.
+4. El cuidador con permisos recibe la alerta de incumplimiento y puede resolver.
+5. Paciente y cuidador pueden acceder al historial completo, ordenado por fecha o prioridad.
+
+User Goal 5: Como paciente, quiero recibir recordatorios y visualizar mis notificaciones.
+
+![alt text](assets/user_goals/UserGoal5.png)
+
+
+User Goal 6: Como cuidador, quiero recibir y gestionar alertas de incumplimiento del paciente.
+
+![alt text](assets/user_goals/UserGoal6.png)
+
+Task Flow 4: Gestión de documentos médicos
+
+Objetivo: Subir, consultar y compartir documentos médicos de forma segura entre paciente y cuidador autorizado.
+
+Pasos del Task Flow:
+
+1. El paciente o cuidador accede a la sección "Documentos" desde el menú.
+2. Visualiza la lista de documentos almacenados (analíticas, recetas, informes).
+3. Toca "Subir documento", selecciona el archivo (PDF, JPG, PNG hasta 10MB) y completa el tipo y descripción.
+4. Si el formato o tamaño no es válido, el sistema muestra un mensaje de error.
+5. El documento se almacena y aparece en la lista con fecha y tipo.
+6. El cuidador con acceso autorizado consulta los documentos del paciente asignado.
+7. Si no tiene permisos, el acceso es bloqueado con mensaje de restricción.
+
+User Goal 7: Como paciente o cuidador, quiero subir y consultar documentos médicos. 
+
+![alt text](assets/user_goals/UserGoal7.png)
+
+User Goal 8: Como cuidador, quiero acceder a los documentos compartidos del paciente.
+
+![alt text](assets/user_goals/UserGoal8.png)
+
+Task Flow 5: Diario de seguimiento
+
+Objetivo: Registrar notas de bienestar diario y permitir al cuidador autorizado consultar el historial compartido del paciente.
+
+Pasos del Task Flow:
+
+1. El paciente o cuidador accede a la sección "Diario" desde el menú.
+2. Visualiza el historial de notas registradas, ordenadas por fecha y autor.
+3. Toca "+ Nueva nota" e ingresa un título opcional y el contenido de la nota.
+4. Si intenta guardar una nota vacía, el sistema muestra un mensaje de error.
+5. La nota se guarda y aparece en el diario con fecha, autor y etiquetas de estado.
+6. El cuidador con acceso autorizado puede consultar el diario compartido del paciente.
+
+
+User Goal 9: Como paciente o cuidador, quiero escribir y ver notas en el diario. 
+
+![alt text](assets/user_goals/UserGoal9.png)
+
+Task Flow 6: Acceso compartido y gestión de perfil
+
+Objetivo: El paciente comparte su perfil con un cuidador, define los permisos de acceso y puede revocarlos en cualquier momento.
+
+Pasos del Task Flow:
+
+1. El paciente accede a "Perfil" y selecciona la opción "Compartir perfil".
+2. Ingresa el correo del cuidador y selecciona los permisos: Agenda, Documentos, Diario.
+3. Si el correo no pertenece a un usuario registrado, el sistema muestra "usuario no existe".
+4. El cuidador autorizado puede consultar el perfil compartido del paciente.
+5. Si el cuidador no tiene permisos válidos, el acceso es bloqueado con mensaje de restricción.
+6. El paciente puede revocar el acceso desde "Gestionar accesos"; el cuidador pierde los privilegios inmediatamente.
+
+User Goal 10: Como paciente, quiero compartir mi perfil con un cuidador y definir permisos.
+
+![alt text](assets/user_goals/UserGoal10.png)
+
 #### 3.1.4.3. Mobile Applications Mock-ups <a id="3143-mobile-applications-mock-ups"></a>
+Una vez terminado los wireframes, realizamos los mockups que son más cercanos a la visión final de las pantallas que vamos a implementar
+
+IAM: Pantallas para la verificación e ingreso del usuario
+![alt text](assets/mockups/bienvenida.png)
+
+![alt text](assets/mockups/iniciarsesión.png)
+
+![alt text](assets/mockups/crearcuenta.png)
+
+![alt text](assets/mockups/inicio_paciente.png)
+
+![alt text](assets/mockups/inicio_cuidador.png)
+
+Agenda: Pantallas para el calendario de eventos que el paciente debe seguir
+
+![alt text](assets/mockups/Agenda1.png)
+
+![alt text](assets/mockups/Agenda2.png)
+
+![alt text](assets/mockups/Agenda3.png)
+
+Notificaciones: Pantallas para los diferentes mensajes que recibe el cuidador y paciente
+
+![alt text](assets/mockups/Notificaciones_Pacien.png)
+
+![alt text](assets/mockups/Notificaciones_cuida.png)
+
+Gestión de Consentimiento: Pantallas para darle permisos para que el paciente le de permiso al cuidado
+
+![alt text](assets/mockups/perfilPaciente.png)
+
+![alt text](assets/mockups/CompartirPerfil.png)
+
+![alt text](assets/mockups/PerfilCuidador.png)
+
+
+Documentos: Pantallas para el ingreso de documentos para el historial medico del paciente
+
+![alt text](assets/mockups/Documentos_cuidado.png)
+
+![alt text](assets/mockups/Documentos.png)
+
+![alt text](assets/mockups/Documentos_subir.png)
+
+
+Diario: Pantallas para visualizar las notas del progreso y mejora del paciente
+
+![alt text](assets/mockups/DiarioPacien.png)
+
+![alt text](assets/mockups/DiarioNota.png)
+
+![alt text](assets/mockups/DiarioCuidador.png)
+
 #### 3.1.4.4. Mobile Applications User Flow Diagrams <a id="3144-mobile-applications-user-flow-diagrams"></a>
+
+User Flow 1:
+
+Relacionado con el User Goal 1: Como usuario, quiero crear mi cuenta para acceder a la plataforma. 
+
+
+
+User Flow 2:
+
+Relacionado con el User Goal 2: Como usuario, quiero iniciar sesión y ver la vista según mi rol.
+
+
+
+User Flow 3:
+
+Relacionado con el User Goal 3: Como paciente o cuidador, quiero registrar un evento de salud en el calendario.
+
+User Flow 4:
+
+Relacionado con el User Goal 4: Como paciente, quiero confirmar o reprogramar un evento de salud.
+
+
+
+User Flow 5:
+
+Relacionado con el User Goal 5: Como paciente, quiero recibir recordatorios y visualizar mis notificaciones.
+
+User Flow 6:
+
+Relacionado con el User Goal 6: Como cuidador, quiero recibir y gestionar alertas de incumplimiento del paciente.
+
+
+User Flow 7:
+
+Relacionado con el User Goal 7: Como paciente o cuidador, quiero subir y consultar documentos médicos. 
+
+User Flow 8:
+
+Relacionado con el User Goal 8: Como cuidador, quiero acceder a los documentos compartidos del paciente.
+
+User Flow 9:
+
+Relacionado con el User Goal 9: Como paciente o cuidador, quiero escribir y ver notas en el diario. 
+
+User Flow 10:
+
+Relacionado con el User Goal 10: Como paciente, quiero compartir mi perfil con un cuidador y definir permisos.
+
+
 #### 3.1.4.5. Mobile Applications Prototyping <a id="3145-mobile-applications-prototyping"></a>
 
 ---
