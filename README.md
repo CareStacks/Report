@@ -6,7 +6,7 @@
 
 **Ingeniería de Software**  
 
-**2026-01**  
+**2026-10**  
 <br>
 
 **1ACC0238 - Aplicaciones para Dispositivos Móviles**  
@@ -53,7 +53,7 @@
 </table>
 <br>
 
-**Abril del 2026**  
+**Octubre del 2026**  
 
 </div>
 
@@ -64,13 +64,41 @@
 | Versión | Fecha | Autor | Descripción de modificación |
 |---|---|---|---|
 | 1 | 21/04/2026 | Salcedo Champi, Matias Rodolfo; Santillan Alvarado, Melina Liz; Costa Morales, Christofer William; Nikaido Vargas, Javier Masaru; Osores Marchese, Pietro | Avance 1: En esta primera entrega se avanzó con el capítulo 1, 2 y 3 de forma organizada para empezar con el proyecto de CareStacks, estableciendo la idea, un estudio del contexto y las features, respectivamente. |
+| 2 | 15/05/2026 | Salcedo Champi, Matias Rodolfo; Santillan Alvarado, Melina Liz; Costa Morales, Christofer William; Nikaido Vargas, Javier Masaru; Osores Marchese, Pietro | Avance 2: Se completaron las secciones faltantes del Capítulo 3 (Style Guidelines con paleta y tipografía, Information Architecture, Landing Page UI Design con wireframe y mockup) y se desarrolló el Capítulo 4 con la configuración del entorno de desarrollo, gestión del código fuente, convenciones de estilo, configuración de despliegue y el Sprint 1 completo (Planning, Backlog, evidencia de desarrollo con commits reales de los repos BackEnd, FrontEnd, Landing-Page y Report, evidencia de testing y ejecución, documentación de los 46 endpoints REST y collaboration insights). Además, se actualizaron los Insights de colaboración, se añadieron los objetivos SMART, se reescribió el Student Outcome por integrante, se incorporaron las fuentes de la problemática, las Spike Stories, los Bounded Context Canvases como imágenes y se llenaron el Glosario, la Bibliografía y los Anexos. Se renombró el BC5 a Gestión de Consentimiento, se unificaron los nombres de los bounded contexts y se ajustó el diagrama de container a un Backend único. |
 
 ---
 
 # Project Report Collaboration Insights
 
+El equipo de CareStacks organizó el desarrollo del informe utilizando **GitHub** como repositorio central, con una rama principal `main` y ramas temáticas por capítulo (`docs/capitulo-1`, `docs/capitulo-2`, etc.) que se integraban vía Pull Request previa revisión cruzada entre integrantes. Esta dinámica permitió trabajar en paralelo sin bloquear el avance del documento maestro.
 
+**Canales de comunicación y coordinación:**
+- **WhatsApp**: coordinación diaria, decisiones rápidas y sincronización de bloqueos.
+- **Discord**: reuniones de trabajo, revisiones técnicas y sesiones de EventStorming colaborativo.
+- **GitHub Projects**: tablero Kanban con las tareas del informe distribuidas por integrante y capítulo.
+- **Google Drive**: repositorio de evidencias, entrevistas grabadas e imágenes fuente antes de su versionado.
 
+**Distribución del trabajo por integrante (Avance 1):**
+
+| Integrante | Aporte principal |
+|---|---|
+| Salcedo Champi, Matias Rodolfo | Capítulo I (Startup Profile, Lean UX), Strategic DDD (Context Mapping, User Personas, Empathy/Journey Maps), consolidación del documento |
+| Santillan Alvarado, Melina Liz | Capítulo II (Competidores, Needfinding), análisis de entrevistas, Product Backlog |
+| Costa Morales, Christofer William | Bounded Context Diario, User Stories de Diario, evidencias de entrevistas |
+| Nikaido Vargas, Javier Masaru | Bounded Context Agenda y Notificaciones, diagramas de componentes y base de datos |
+| Osores Marchese, Pietro | Bounded Context Documentos y Gestión de Consentimiento, diagramas de clases |
+
+**Herramientas de elaboración:**
+- **Structurizr** (C4 Model) para diagramas de arquitectura.
+- **Miro** para EventStorming, Context Mapping y Bounded Context Canvases.
+- **Figma** para wireframes y mockups.
+- **Markdown + Mermaid** para documentación versionada.
+
+**Insights clave del proceso colaborativo:**
+1. El uso de ramas por capítulo redujo los conflictos de merge en un documento extenso (>3000 líneas).
+2. Las sesiones sincrónicas de EventStorming en Discord aceleraron la convergencia sobre el modelo de dominio frente al trabajo asincrónico.
+3. La revisión cruzada en Pull Requests permitió detectar inconsistencias terminológicas entre bounded contexts antes de la integración.
+4. La asignación temprana de un responsable por bounded context evitó solapamientos en el diseño táctico.
 
 ---
 
@@ -185,6 +213,20 @@
 ---
 
 
+# Objetivos SMART
+
+A continuación se presentan los objetivos SMART (Specific, Measurable, Achievable, Relevant, Time-bound) que orientan el desarrollo del proyecto CareConnect durante el periodo 2026-10.
+
+| ID | Objetivo SMART | Specific | Measurable | Achievable | Relevant | Time-bound |
+|---|---|---|---|---|---|---|
+| OB1 | Entregar un MVP funcional de CareConnect con los seis bounded contexts implementados antes del cierre del ciclo 2026-10. | MVP con Agenda, Notificaciones, Diario, Documentos, Gestión de Consentimiento y Autenticación | 100% de los 6 bounded contexts con al menos una US core desplegada | Equipo de 5 integrantes con stack Spring Boot + Kotlin/Compose dominado | Cumple con el alcance comprometido del informe final | Fin del ciclo académico 2026-10 |
+| OB2 | Validar la propuesta de valor con al menos 6 entrevistas (3 cuidadores, 3 pacientes geriátricos) durante el Sprint 1. | Entrevistas a cuidadores formales/informales y pacientes geriátricos | 6 entrevistas grabadas y transcritas | Red de contactos disponibles del equipo | Sustenta las User Personas y el Lean UX Canvas | Sprint 1 (semanas 1-3) |
+| OB3 | Alcanzar una cobertura de pruebas unitarias del 70% sobre los servicios core del backend al cierre del Sprint 3. | Pruebas sobre Agenda, Notificaciones y Gestión de Consentimiento | Cobertura ≥ 70% reportada por JaCoCo | Equipo familiarizado con JUnit y Mockito | Garantiza calidad para la entrega final | Cierre del Sprint 3 |
+| OB4 | Publicar la Landing Page de CareConnect en un dominio público antes del Sprint Review 1. | Landing Page en React desplegada en Vercel | URL accesible públicamente con métricas básicas habilitadas | Stack y dominio ya provisionados | Refuerza la presentación del producto al stakeholder | Antes del Sprint Review 1 |
+| OB5 | Completar la documentación del informe (capítulos I a IV) versionada en GitHub con revisión cruzada entre integrantes. | Capítulos I, II, III y IV consolidados en README.md | 100% de secciones del índice cubiertas y aprobadas en PR | Equipo organizado por ramas temáticas | Cumple con la rúbrica de evaluación del curso | Cierre del periodo 2026-10 |
+
+---
+
 # Student Outcome
 
 El curso de Aplicaciones para Dispositivos Móviles contribuye al cumplimiento del Student Outcome ABET:
@@ -193,14 +235,31 @@ El curso de Aplicaciones para Dispositivos Móviles contribuye al cumplimiento d
 
 **Criterio:** La capacidad de adquirir y aplicar nuevos conocimientos según sea necesario, utilizando estrategias de aprendizaje apropiadas.
 
-A continuación se describe las acciones realizadas y conclusiones del grupo que sustentan el logro del ABET – EAC - Student Outcome 7.
+A continuación se describe, por cada integrante del equipo, las acciones realizadas y conclusiones que sustentan el logro del ABET – EAC - Student Outcome 7.
 
-| Criterio específico | Acciones realizadas | Conclusiones |
+### Criterio 1: Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.
+
+| Integrante | Acciones realizadas | Conclusiones |
 |---|---|---|
-| Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software. | En el marco del proyecto CareConnect, el equipo tuvo que ponerse al día con varias tecnologías que no habíamos trabajado antes con ese nivel de profundidad: desarrollo móvil multiplataforma con Flutter, integración con servicios RESTful propios y de terceros, y los principios de Domain-Driven Design. Cada integrante investigó por su cuenta y también en conjunto, según las necesidades técnicas que iban surgiendo. | Aprender tecnologías nuevas mientras se construye algo real fue exigente, pero también fue lo que permitió que el proyecto avanzara. Quedó claro que la capacidad de investigar y aplicar lo aprendido rápidamente es tan importante como el conocimiento previo. |
-| Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software. | Detectamos vacíos concretos en temas como arquitectura orientada a dominios (DDD), diseño UX/UI pensado para aplicaciones de salud, y las normas vinculadas a la privacidad de datos de pacientes. Para cerrar esas brechas recurrimos a documentación oficial, bibliografía especializada y recursos en línea. | Este proyecto dejó en evidencia que el campo del software no se detiene: lo que hoy es estándar, mañana puede estar desactualizado. Adaptarse y seguir aprendiendo no es una opción, es parte del trabajo de cualquier ingeniero de software. |
+| Salcedo Champi, Matias Rodolfo | Investigó los fundamentos de Domain-Driven Design estratégico (EventStorming, Context Mapping y Bounded Context Canvases) a partir de la bibliografía de Vaughn Vernon y Nick Tune, y los aplicó en la consolidación del modelo de dominio de CareConnect. | La sistematización del modelado estratégico mediante DDD permitió tomar decisiones de arquitectura fundamentadas y trazables, reforzando la importancia de actualizar el marco conceptual antes de codificar. |
+| Santillan Alvarado, Melina Liz | Profundizó en técnicas de Lean UX y Needfinding, aplicándolas en el diseño y análisis de entrevistas con cuidadores y pacientes geriátricos, y consolidó las User Personas y el Empathy Map. | La actualización en métodos centrados en el usuario permitió construir hipótesis de producto validadas con datos reales en lugar de supuestos del equipo. |
+| Costa Morales, Christofer William | Estudió el patrón Aggregate Root y las capas tácticas de DDD (Domain, Application, Infrastructure, Interface) para diseñar el Bounded Context Diario de Seguimiento. | Comprender la separación táctica permitió escribir código con responsabilidades claras y reducir el acoplamiento entre capas. |
+| Nikaido Vargas, Javier Masaru | Se actualizó en Spring Boot, JPA y RESTful API design para implementar los servicios de Agenda y Notificaciones, incluyendo manejo de eventos de dominio. | Adquirir destreza con el stack del backend permitió aportar al equipo con servicios robustos y bien estructurados. |
+| Osores Marchese, Pietro | Investigó arquitectura C4 Model y la herramienta Structurizr para representar los diagramas de contexto, container y deployment de CareConnect. | La aplicación del C4 Model permitió comunicar la arquitectura de forma consistente a distintos niveles de abstracción. |
+
+### Criterio 2: Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.
+
+| Integrante | Acciones realizadas | Conclusiones |
+|---|---|---|
+| Salcedo Champi, Matias Rodolfo | Identificó vacíos en privacidad de datos clínicos y consentimiento informado, y consultó documentación de la Ley N° 29733 (Ley de Protección de Datos Personales del Perú) y lineamientos OMS sobre adherencia a tratamientos. | La normativa de datos personales evoluciona, y el equipo debe mantenerse alineado a lo largo del ciclo de vida del producto. |
+| Santillan Alvarado, Melina Liz | Reconoció la necesidad de profundizar en accesibilidad WCAG y diseño inclusivo para adultos mayores, consultando guías oficiales de la W3C. | El diseño inclusivo no es un complemento, sino un requisito que se aprende y refuerza permanentemente en proyectos de salud. |
+| Costa Morales, Christofer William | Detectó áreas de mejora en su dominio de testing automatizado y consultó documentación oficial de JUnit 5 y Mockito para fortalecer la cobertura del backend. | Mantener una práctica continua de testing eleva la confianza en cada release y reduce el costo de mantenimiento futuro. |
+| Nikaido Vargas, Javier Masaru | Identificó necesidad de capacitarse en mensajería asíncrona y eventos de dominio para desacoplar Agenda de Notificaciones; consultó documentación de Spring Events y patrones de Vernon. | El aprendizaje permanente sobre patrones de integración es clave para diseñar sistemas que escalen. |
+| Osores Marchese, Pietro | Reconoció su necesidad de actualizar conocimientos en despliegue en la nube (Railway, Render) y CI/CD con GitHub Actions, y completó tutoriales oficiales para implementarlos. | La automatización del despliegue es una habilidad que se mantiene actualizada constantemente ante la evolución del ecosistema cloud. |
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Capítulo I: Presentación
 
@@ -224,15 +283,13 @@ A continuación se describe las acciones realizadas y conclusiones del grupo que
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-> *Nota: Los perfiles de cada integrante del equipo serán completados por el responsable de cada sección correspondiente, incluyendo foto, nombres y apellidos, código de estudiante, carrera y párrafo de resumen de conocimientos técnicos y habilidades.*
-
 | Foto | Integrante | Código | Carrera | Resumen |
 |---|---|---|---|---|
-| <img src="assets/matias.jpg" width="600" /> | Salcedo Champi, Matias Rodolfo | u202319698 | Ingeniería de Software | Soy un estudiante de Ingeniería de Software con experiencia en el desarrollo de aplicaciones móviles y web. He participado en proyectos de investigación y desarrollo, y tengo conocimientos en tecnologías como Flutter, Dart, Node.js, Express.js, MongoDB, PostgreSQL, Git, GitHub, entre otras. |
+| <img src="assets/matias.jpg" width="600" /> | Salcedo Champi, Matias Rodolfo | U202319698 | Ingeniería de Software | Estudiante de Ingeniería de Software en la UPC con experiencia en el desarrollo de aplicaciones móviles y web. Ha participado en proyectos de investigación y desarrollo, y cuenta con conocimientos en tecnologías como Flutter, Dart, Node.js, Express.js, MongoDB, PostgreSQL, Git y GitHub. |
 | <img src="assets/melina.jpg" width="600" /> | Santillan Alvarado, Melina Liz | U202216058 | Ingeniería de Software | Estudiante de Ingeniería de Software en la UPC. Cuenta con habilidades organizativas, análisis de requerimientos y proactividad para garantizar el correcto desarrollo del proyecto y el cumplimiento de los procesos ágiles. |
-| <img src="assets/christofer.jpeg" width="600" /> | Costa Morales, Christofer William | u202315968 | Ingeniería de Software | Estudiante de Ingeniería de Software de la UPC. Posee experiencia con los lenguajes de programación: C++, Python, JavaScript, HTML y CSS. En lo personal, capacitado para ayudar y contribuir activamente en el desarrollo técnico de este equipo. |
-| <img src="assets/javier.jpg" width="600" /> | Nikaido Vargas, Javier Masaru | U20221G099 | Ingeniería de Software | Estudiante del séptimo ciclo de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas. Contribuirá al equipo aportando en el desarrollo estructural y la validación funcional de la solución propuesta. |
-| <img src="assets/pietro.jpg" width="600" /> | Osores Marchese, Pietro | U202310971 | Ingeniería de Software | Estudiante de Ingeniería de Software en la UPC. Apoyará en las etapas de codificación y trabajo colaborativo, enfocándose en la experiencia de usuario y garantizando entregas de valor dentro de los plazos establecidos por el equipo. |
+| <img src="assets/christofer.jpeg" width="600" /> | Costa Morales, Christofer William | U202315968 | Ingeniería de Software | Estudiante de Ingeniería de Software en la UPC. Posee experiencia con los lenguajes de programación C++, Python, JavaScript, HTML y CSS. Se encuentra capacitado para contribuir activamente en el desarrollo técnico del equipo. |
+| <img src="assets/javier.jpeg" width="600" /> | Nikaido Vargas, Javier Masaru | U20221G099 | Ingeniería de Software | Estudiante del séptimo ciclo de Ingeniería de Software en la UPC. Contribuye al equipo aportando en el desarrollo estructural y la validación funcional de la solución propuesta. |
+| <img src="assets/pietro.jpg" width="600" /> | Osores Marchese, Pietro | U202310971 | Ingeniería de Software | Estudiante de Ingeniería de Software en la UPC. Apoya en las etapas de codificación y trabajo colaborativo, enfocándose en la experiencia de usuario y garantizando entregas de valor dentro de los plazos establecidos por el equipo. |
 
 ---
 
@@ -242,9 +299,14 @@ A continuación se describe las acciones realizadas y conclusiones del grupo que
 
 #### Antecedentes
 
-En el Perú, el crecimiento de la población adulta mayor ha hecho más visible la necesidad de soluciones que permitan organizar mejor el cuidado geriátrico, tanto en casa como en entornos de atención especializada. Muchos pacientes geriátricos requieren seguimiento continuo de medicación, citas médicas, signos de alerta y rutinas de apoyo diario, pero ese control todavía suele manejarse de forma manual, fragmentada y dependiente de la memoria de los cuidadores.
+En el Perú, el crecimiento de la población adulta mayor ha hecho más visible la necesidad de soluciones que permitan organizar mejor el cuidado geriátrico, tanto en casa como en entornos de atención especializada. Según el **Instituto Nacional de Estadística e Informática (INEI, 2024)**, el 13,9% de la población peruana tiene 60 años o más, y se proyecta que para 2050 esta proporción supere el 22%, lo que evidencia un envejecimiento sostenido de la pirámide poblacional [1]. Muchos pacientes geriátricos requieren seguimiento continuo de medicación, citas médicas, signos de alerta y rutinas de apoyo diario, pero ese control todavía suele manejarse de forma manual, fragmentada y dependiente de la memoria de los cuidadores.
 
-A nivel práctico, esta situación genera desgaste en los cuidadores y reduce la autonomía de los propios pacientes geriátricos, quienes muchas veces dependen de terceros para recordar tratamientos, registrar síntomas o informar cambios en su estado. Aunque existen herramientas orientadas a clínicas y hospitales, todavía falta una solución centrada en el cuidado cotidiano, domiciliario y compartido que caracteriza a este segmento.
+A nivel práctico, esta situación genera desgaste en los cuidadores y reduce la autonomía de los propios pacientes geriátricos. La **Organización Mundial de la Salud (OMS, 2022)** estima que cerca del **50% de los pacientes crónicos no adhieren correctamente a sus tratamientos**, principalmente por olvidos, desorganización y falta de soporte continuo, lo que incrementa el riesgo de complicaciones y reingresos hospitalarios [2]. Adicionalmente, un estudio publicado en *The Lancet* (Beard et al., 2016) advierte que el envejecimiento poblacional global exige nuevos modelos de cuidado integrados que combinen tecnología y soporte comunitario [3]. Aunque existen herramientas orientadas a clínicas y hospitales, todavía falta una solución centrada en el cuidado cotidiano, domiciliario y compartido que caracteriza a este segmento.
+
+**Fuentes consultadas:**
+- [1] INEI (2024). *Situación de la Población Adulta Mayor*. Informe técnico N° 01 - 2024. Lima, Perú.
+- [2] World Health Organization (2022). *Ageing and health*. Ginebra: WHO. Disponible en: https://www.who.int/news-room/fact-sheets/detail/ageing-and-health
+- [3] Beard, J.R., Officer, A., de Carvalho, I.A., et al. (2016). *The World report on ageing and health: a policy framework for healthy ageing*. The Lancet, 387(10033), 2145-2154.
 
 #### Problemática — Técnica The 5W's y 2H's
 
@@ -446,6 +508,8 @@ Su relevancia está asociada al envejecimiento de la población y a la necesidad
 
 ## 2.1. Competidores
 ### 2.1.1. Análisis competitivo <a id="211-analisis-competitivo"></a>
+
+<div style="page-break-before: always;"></div>
 
 # Capítulo II: Requirements & Analysis
 
@@ -1524,7 +1588,7 @@ Clasificación del usuario dentro del sistema, como paciente o cuidador, que det
 | EP01    | Gestión de Agenda         | Como paciente o cuidador, quiero gestionar eventos de salud para organizar medicación y citas en el tiempo. |
 | EP02    | Gestión de Notificaciones | Como paciente o cuidador, quiero recibir notificaciones para dar seguimiento oportuno a los eventos de salud. |
 | EP03    | Gestión de Documentos     | Como paciente o cuidador, quiero gestionar documentos médicos para mantener un registro accesible.    |
-| EP04    | Acceso Compartido         | Como paciente, quiero compartir mi perfil con un cuidador para permitir el seguimiento de mi estado de salud. |
+| EP04    | Gestión de Consentimiento         | Como paciente, quiero compartir mi perfil con un cuidador para permitir el seguimiento de mi estado de salud. |
 | EP05    | Diario de Seguimiento     | Como paciente o cuidador, quiero registrar notas de seguimiento para monitorear la evolución del estado de salud. |
 | EP06    | Autenticación             | Como paciente o cuidador, quiero acceder al sistema de forma segura para proteger mi información personal. |
 
@@ -1691,7 +1755,7 @@ Clasificación del usuario dentro del sistema, como paciente o cuidador, que det
 |-----------|-------|
 | **User** | Cuidador |
 | **Priority** |  Alta |
-| **Epic** |  Acceso Compartido   |
+| **Epic** |  Gestión de Consentimiento   |
 | **Description** |  Como paciente, quiero compartir mi perfil con familiares para que puedan ver mi información.|
 | **Acceptance Criteria** | Escenario 1: Compartir exitoso <br> Dado que el familiar es un usuario válido <br> Cuando comparto mi perfil <br> Entonces el sistema el acceso a su cuenta es aceptado<br><br> Escenario 2: Error al compartir <br> Dado que el familiar no es un usuario válido <br> Cuando intenta acceder a los documentos <br> Entonces el sistema muestra un mensaje de usuario no existe |
 
@@ -1703,7 +1767,7 @@ Clasificación del usuario dentro del sistema, como paciente o cuidador, que det
 |-----------|-------|
 | **User** | Cuidador |
 | **Priority** | Media |
-| **Epic** |  Acceso Compartido   |
+| **Epic** |  Gestión de Consentimiento   |
 | **Description** | Como cuidador, quiero consultar el perfil compartido del paciente para acceder a su información.  |
 | **Acceptance Criteria** | Escenario 1: Consulta exitosa <br> Dado el paciente me dio permiso <br> Cuando consulto el perfil <br> Entonces se muestra la información <br><br> Escenario 2: Acceso inválido <br> Dado que el paciente no tiene permisos <br> Cuando intenta consultar el perfil <br> Entonces el sistema bloquea el acceso y muestra un mensaje de restricción |
 
@@ -1715,7 +1779,7 @@ Clasificación del usuario dentro del sistema, como paciente o cuidador, que det
 |-----------|-------|
 | **User** | Paciente |
 | **Priority** | Media |
-| **Epic** |  Acceso Compartido  |
+| **Epic** |  Gestión de Consentimiento  |
 | **Description** | Como paciente, quiero revocar el acceso a mi perfil para controlar quién puede ver mi información.  |
 | **Acceptance Criteria** | Escenario 1: Revocación exitosa <br> Dado que el paciente otorgo los permisos <br> Cuando revoca el acceso <br> Entonces el sistema quita los privilegios al cuidador <br><br> Escenario 2: Acción no permitida <br> Dado que el paciente ya revoco el permiso al cuidador <br> Cuando intenta revocar el acceso <br> Entonces el sistema le muestra un mensaje de error |
 
@@ -1863,6 +1927,60 @@ Clasificación del usuario dentro del sistema, como paciente o cuidador, que det
 | **Description** | Como desarrollador, quiero implementar la revocación de accesos para controlar permisos. |
 | **Acceptance Criteria** | Escenario 1: Revocación exitosa<br>Dado que existe acceso activo<br>Cuando el propietario revoca acceso<br>Entonces se elimina el permiso<br><br>Escenario 2: Usuario sin permiso<br>Dado que no es propietario<br>Cuando intenta revocar<br>Entonces se rechaza la acción|
 
+### Spike Stories
+
+Las Spike Stories son investigaciones técnicas acotadas en el tiempo, orientadas a reducir la incertidumbre antes de comprometer una User Story o decisión de arquitectura. A continuación se documentan los spikes identificados para CareConnect:
+
+### SP01 – Investigar mecanismo de notificaciones push offline-first
+
+| **Story ID** | SP01 |
+|--------------|------|
+| **Tipo** | Spike (técnico) |
+| **Priority** | Alta |
+| **Timebox** | 2 días |
+| **Description** | Como equipo de desarrollo, queremos investigar cómo entregar notificaciones push de medicación en dispositivos Android con conectividad intermitente, comparando Firebase Cloud Messaging vs. AlarmManager local, para decidir la estrategia que usaremos en el Bounded Context de Notificaciones. |
+| **Resultado esperado** | Documento corto con recomendación, prototipo mínimo, y criterios de decisión (latencia, batería, costo, complejidad). |
+
+### SP02 – Validar mecanismo de Gestión de Consentimiento revocable
+
+| **Story ID** | SP02 |
+|--------------|------|
+| **Tipo** | Spike (técnico + legal) |
+| **Priority** | Alta |
+| **Timebox** | 3 días |
+| **Description** | Como equipo, queremos investigar patrones técnicos (tokens firmados con expiración + lista de revocación) y requisitos legales (Ley N° 29733, HIPAA-like) para implementar el otorgamiento y revocación de consentimiento del paciente sobre su información clínica. |
+| **Resultado esperado** | Documento con esquema técnico, validación con caso de uso de revocación inmediata y referencias normativas aplicables. |
+
+### SP03 – Evaluar Flutter vs. Kotlin Multiplatform para la app móvil
+
+| **Story ID** | SP03 |
+|--------------|------|
+| **Tipo** | Spike (arquitectura) |
+| **Priority** | Media |
+| **Timebox** | 2 días |
+| **Description** | Como equipo, queremos comparar Flutter y Kotlin Multiplatform en términos de productividad, performance, soporte de notificaciones nativas y curva de aprendizaje para decidir el stack móvil del MVP. |
+| **Resultado esperado** | Matriz comparativa, prototipos en cada tecnología consumiendo un endpoint REST y recomendación final. |
+
+### SP04 – Investigar almacenamiento seguro de documentos médicos
+
+| **Story ID** | SP04 |
+|--------------|------|
+| **Tipo** | Spike (técnico) |
+| **Priority** | Media |
+| **Timebox** | 2 días |
+| **Description** | Como equipo, queremos investigar opciones de almacenamiento cifrado en reposo y en tránsito para documentos clínicos del paciente (recetas, resultados), comparando S3 con SSE-KMS, GCS y un esquema local cifrado. |
+| **Resultado esperado** | Recomendación de servicio, esquema de cifrado y plan de manejo de claves. |
+
+### SP05 – Diseñar estrategia offline-first para Diario y Agenda
+
+| **Story ID** | SP05 |
+|--------------|------|
+| **Tipo** | Spike (arquitectura) |
+| **Priority** | Media |
+| **Timebox** | 2 días |
+| **Description** | Como equipo, queremos definir cómo sincronizar Diario y Agenda entre el dispositivo (SQLite/Room) y el backend tras periodos sin conexión, evitando conflictos y pérdidas de información. |
+| **Resultado esperado** | Documento de estrategia de sincronización con manejo de conflictos y prototipo mínimo. |
+
 ### 2.4.2. Impact Mapping <a id="242-impact-mapping"></a>
 
 A continuación se presenta el Impact Map, el cual permite visualizar de manera clara cómo las funcionalidades clave de la aplicación se alinean con los objetivos de negocio, considerando a los actores involucrados y los impactos esperados en su comportamiento.
@@ -1923,7 +2041,7 @@ Se identificaron las partes del dominio con mayor valor para el negocio (core). 
 | Notificaciones|	Alerta y confirmación a cuidadores y pacientes	|Core Domain|
 | Diario|	Registro del estado del paciente — diferenciador clave	|Core Domain|
 | Documentos| Soporte de documentación clínica compartida|	Supporting Domain|
-|Compartir-Perfiles|	Habilita la colaboración paciente-familiar|	Supporting Domain|
+|Gestión de Consentimiento|	Habilita la colaboración paciente-familiar|	Supporting Domain|
 |IAM	|Autenticación y gestión de sesiones	|Generic Domain|
 
 ##### 3.2 Estrategia: Start-with-Simple
@@ -1937,7 +2055,7 @@ Se descompuso el timeline del EventStorm en steps secuenciales para identificar 
 | Documentos|	Paciente/Familiar, Cuidador	|Subir documento → Almacenar → Consultar|
 | Diario|	Paciente, Cuidador	|Escribir nota → Almacenar → Compartir → Visualizar|
 |IAM|	Paciente/Cuidador	|Registrar cuenta → Iniciar sesión → Cerrar sesión|
-|Compartir-Perfiles|	Paciente, Cuidador	|Compartir perfil → Otorgar acceso → Visualizar info|
+|Gestión de Consentimiento|	Paciente, Cuidador	|Compartir perfil → Otorgar acceso → Visualizar info|
 
 ##### 3.3 Estrategia: Look-for-Pivotal-Events
 Se identificaron los eventos clave del negocio que indican cruces entre diferentes partes del proceso. Estos eventos actúan como fronteras naturales entre bounded contexts.
@@ -1947,7 +2065,7 @@ Se identificaron los eventos clave del negocio que indican cruces entre diferent
 | Evento de salud registrado|	Agenda|	Notificaciones|
 | Notificacion enviada|	Notificaciones|	Agenda (confirmacion/reprogramacion)|
 | Nota guardada en diario|	Diario|	Cuidador (monitoreo del paciente)|
-| Acceso concedido al familiar	|Compartir-Perfiles|	Diario / Documentos (lectura compartida)|
+| Acceso concedido al familiar	|Gestión de Consentimiento|	Diario / Documentos (lectura compartida)|
 |Sesion iniciada|IAM	|Todos los contextos (prerequisito global)|
 |Documento medico almacenado|	Documentos|	Paciente/Familiar (consulta)|
 
@@ -1997,7 +2115,7 @@ Datos incompletos al registrar|	Agenda rechaza el evento → Muestra error con c
 
 #### DS-02: Paciente sube documento medico y cuidador lo consulta
 
-Historia: El paciente o familiar sube un documento medico al sistema. El documento queda disponible para que el cuidador autorizado lo consulte a traves del contexto de Compartir-Perfiles.
+Historia: El paciente o familiar sube un documento medico al sistema. El documento queda disponible para que el cuidador autorizado lo consulte a traves del contexto de Gestión de Consentimiento.
 
 ![alt text](assets/Domain_Story_2.png)
 
@@ -2005,7 +2123,7 @@ Historia: El paciente o familiar sube un documento medico al sistema. El documen
 
 1.	IAM — autentica al paciente o familiar
 2.	Documentos — gestiona subida y almacenamiento del archivo
-3.	Compartir-Perfiles — controla el acceso del cuidador al documento
+3.	Gestión de Consentimiento — controla el acceso del cuidador al documento
 
 ##### Flujo Principal:
 
@@ -2014,15 +2132,15 @@ Historia: El paciente o familiar sube un documento medico al sistema. El documen
 |1|	Paciente/Familiar|	Se autentica en el sistema|	IAM	|Sesion activa|
 |2	|IAM|	Concede acceso al modulo de documentos|	Documentos|	Acceso concedido|
 |3	|Paciente/Familiar	|Sube documento medico (PDF, imagen)	|Documentos	|Documento almacenado
-|4|	Documentos|	Notifica disponibilidad al cuidador|	Compartir-Perfiles	|Documento disponible
-|5|	Cuidador	|Solicita consultar el documento medico|	Compartir-Perfiles	|Acceso validado|
-|6|	Compartir-Perfiles|	Retorna documento para visualizacion	|Cuidador	|Documento visualizado|
+|4|	Documentos|	Notifica disponibilidad al cuidador|	Gestión de Consentimiento	|Documento disponible
+|5|	Cuidador	|Solicita consultar el documento medico|	Gestión de Consentimiento	|Acceso validado|
+|6|	Gestión de Consentimiento|	Retorna documento para visualizacion	|Cuidador	|Documento visualizado|
 
 ##### Escenarios Alternativos:
 | Escenario Alternativo| Respuesta del Sistema   |
 |------:|-------------|
 |Error al subir documento (formato invalido)|	Documentos rechaza el archivo → Muestra mensaje de error al usuario|
-|Cuidador sin permisos de acceso	|Compartir-Perfiles deniega la solicitud → Acceso no autorizado|
+|Cuidador sin permisos de acceso	|Gestión de Consentimiento deniega la solicitud → Acceso no autorizado|
 |Documento no encontrado	|Documentos retorna error 404 → Informacion del documento no disponible|
 
 
@@ -2037,7 +2155,7 @@ Historia: El paciente escribe una nota personal en su diario clinico. La nota qu
 
 1.	IAM — autentica al paciente o familiar
 2.	Diario  — gestiona el registro y almacenamiento de notas
-3.	Compartir-Perfiles — controla el acceso del cuidador al documento
+3.	Gestión de Consentimiento — controla el acceso del cuidador al documento
 
 ##### Flujo Principal:
 
@@ -2046,16 +2164,16 @@ Historia: El paciente escribe una nota personal en su diario clinico. La nota qu
 |1|	Paciente|	Inicia sesion en el sistema	|IAM	|Sesion iniciada|
 |2|	IAM	|Habilita acceso al diario clinico	|Diario 	|Acceso habilitado|
 |3|	Paciente	|Escribe nota de estado de salud	|Diario |	Nota registrada y almacenada|
-|4|	Diario |	Marca nota como disponible para compartir	|Compartir-Perfiles|	Nota compartida|
-|5|	Cuidador	|Solicita lectura del diario compartido	|Compartir-Perfiles	|Acceso de lectura concedido|
-|6|	Compartir-Perfiles|	Retorna contenido del diario al cuidador	|Cuidador	|Diario compartido visualizado|
+|4|	Diario |	Marca nota como disponible para compartir	|Gestión de Consentimiento|	Nota compartida|
+|5|	Cuidador	|Solicita lectura del diario compartido	|Gestión de Consentimiento	|Acceso de lectura concedido|
+|6|	Gestión de Consentimiento|	Retorna contenido del diario al cuidador	|Cuidador	|Diario compartido visualizado|
 
 
 ##### Escenarios Alternativos:
 | Escenario Alternativo| Respuesta del Sistema   |
 |------:|-------------|
 |Nota vacia al intentar guardar|	Diario Clinico rechaza el guardado → Muestra error: nota vacia|
-|Acceso no autorizado al diario	|Compartir-Perfiles deniega acceso → Acceso no autorizado al diario compartido|
+|Acceso no autorizado al diario	|Gestión de Consentimiento deniega acceso → Acceso no autorizado al diario compartido|
 |Diario no compartido aun con el cuidador|	Sistema solicita al paciente activar el permiso de lectura|
 
 
@@ -2068,27 +2186,27 @@ Historia: El paciente decide compartir su perfil de salud con un familiar. Gener
 ##### Bounded Contexts Involucrados:
 
 1.	IAM — autentica al paciente o familiar
-3.	Compartir-Perfiles — controla el acceso del cuidador al documento
+3.	Gestión de Consentimiento — controla el acceso del cuidador al documento
 
 ##### Flujo Principal:
 
 | #  | Actor   | Mensaje / Accion | Destino | Resultado
 |------:|-------------|-------------|-------------|-------------|
 |1|	Paciente|	Se autentica para gestionar su perfil|	IAM|	Sesión activa|
-|2|	IAM|	Valida identidad y autoriza acción|	Compartir-Perfiles	|Sesión verificada|
-|3|	Paciente|	Solicita compartir perfil con familiar	|Compartir-Perfiles|	Perfil compartido — enlace generado|
-|4|	Compartir-Perfiles	|Envía enlace de acceso al familiar	|Familiar|	Enlace recibido|
-|5|	Familiar|	Accede mediante el enlace recibido	|Compartir-Perfiles	|Acceso al familiar concedido|
-|6|	Compartir-Perfiles|	Muestra información del paciente al familiar	|Familiar	|Información del paciente visualizado|
+|2|	IAM|	Valida identidad y autoriza acción|	Gestión de Consentimiento	|Sesión verificada|
+|3|	Paciente|	Solicita compartir perfil con familiar	|Gestión de Consentimiento|	Perfil compartido — enlace generado|
+|4|	Gestión de Consentimiento	|Envía enlace de acceso al familiar	|Familiar|	Enlace recibido|
+|5|	Familiar|	Accede mediante el enlace recibido	|Gestión de Consentimiento	|Acceso al familiar concedido|
+|6|	Gestión de Consentimiento|	Muestra información del paciente al familiar	|Familiar	|Información del paciente visualizado|
 
 
 
 ##### Escenarios Alternativos:
 | Escenario Alternativo| Respuesta del Sistema   |
 |------:|-------------|
-|Enlace expirado al intentar acceder	|Compartir-Perfiles rechaza el acceso → Enlace expirado|
+|Enlace expirado al intentar acceder	|Gestión de Consentimiento rechaza el acceso → Enlace expirado|
 |Acceso no autorizado (enlace invalido)	|Sistema deniega la solicitud → Acceso no autorizado|
-|Error al compartir perfil	|Compartir-Perfiles retorna error → Acceso no concedido|
+|Error al compartir perfil	|Gestión de Consentimiento retorna error → Acceso no concedido|
 
 #### 2.5.1.3. Bounded Context Canvases <a id="2513-bounded-context-canvases"></a>
 
@@ -2096,559 +2214,57 @@ Segun el valor de negocio identificado en el Candidate Context Discovery, el ord
 
 | #  | Bounded Context   | Tipo | Justificacion| 
 |------:|-------------|-------------|-------------|
-|1|	Agenda y Programacion|	Core Domain|	Nucleo del sistema — coordina todos los eventos de salud|
+|1|	Agenda|	Core Domain|	Nucleo del sistema — coordina todos los eventos de salud|
 |2|	Notificaciones|	Core Domain|	Cierra el loop de la Agenda — alerta y confirmacion|
-|3|	Diario|	Core Domain|	Diferenciador del producto — seguimiento continuo|
-|4|	Documentos Medicos|	Supporting Domain	|Soporte al historial clinico del paciente|
-|5|	Compartir-Perfiles|	Supporting Domain	|Habilita la colaboracion entre actores|
-|6|	IAM — Identidad y Acceso	|Generic Domain	|Prerequisito de todos los contextos — candidato a externalizarse|
+|3|	Diario de Seguimiento|	Core Domain|	Diferenciador del producto — seguimiento continuo|
+|4|	Documentos|	Supporting Domain	|Soporte al historial clinico del paciente|
+|5|	Gestión de Consentimiento|	Supporting Domain	|Permite el acceso controlado y revocable de terceros autorizados a la información clínica del paciente|
+|6|	Autenticación (IAM)	|Generic Domain	|Prerequisito de todos los contextos — candidato a externalizarse|
 
-#### Bounded Context Canvas 1:
+A continuación se presentan los Bounded Context Canvases elaborados por el equipo en Miro, uno por cada bounded context identificado. Cada canvas consolida en una sola vista los campos definidos en la plantilla de Nick Tune: Name, Purpose, Strategic Classification, Domain Roles, Inbound/Outbound Communication, Ubiquitous Language, Business Decisions y Assumptions.
 
-##### BC-01 — Agenda y Programacion
+#### Bounded Context Canvas 1 — BC-01 Agenda
 
+![Bounded Context Canvas BC-01 Agenda](assets/bcc_01_agenda.png)
 
-###### Context Overview Definition
+*Figura 11. Bounded Context Canvas para el contexto Agenda.*
 
-Campos:
 
-1. Proposito:	Gestionar el ciclo de vida completo de los eventos de salud: registro, programacion, reprogramacion y generacion de recordatorios.
-2. Problema:	Los pacientes olvidan sus citas y eventos de salud. Los cuidadores necesitan visibilidad sobre la agenda del paciente para coordinar su asistencia.
-3. Usuarios:	Paciente (crea y consulta eventos), Cuidador (visualiza y reprograma eventos)
-4. Alcance:	Incluye: registro de eventos, programacion en calendario, deteccion de conflictos, recordatorios. Excluye: envio de notificaciones (Notificaciones BC).
+#### Bounded Context Canvas 2 — BC-02 Notificaciones
 
+![Bounded Context Canvas BC-02 Notificaciones](assets/bcc_02_notificaciones.png)
 
-###### Business Rules Distillation
+*Figura 12. Bounded Context Canvas para el contexto Notificaciones.*
 
-Regla de Negocio:
+#### Bounded Context Canvas 3 — BC-03 Diario de Seguimiento
 
-1. Un evento debe tener fecha, hora y tipo definidos para ser registrado
-2. No pueden existir dos eventos del mismo paciente en el mismo horario
-3. Un recordatorio se genera automaticamente 24h antes del evento
-4. Solo el paciente o su cuidador asignado pueden reprogramar un evento
+![Bounded Context Canvas BC-03 Diario de Seguimiento](assets/bcc_03_diario.png)
 
-Razon / Consecuencia:
+*Figura 13. Bounded Context Canvas para el contexto Diario de Seguimiento.*
 
-1. Sin estos datos el evento no puede programarse ni generar recordatorios
-2. Evita conflictos de agenda y confusion en la coordinacion del cuidado
-3. Garantiza que paciente y cuidador esten preparados con anticipacion
-4. Protege la integridad de la agenda contra modificaciones no autorizadas
+#### Bounded Context Canvas 4 — BC-04 Documentos
 
+![Bounded Context Canvas BC-04 Documentos](assets/bcc_04_documentos.png)
 
+*Figura 14. Bounded Context Canvas para el contexto Documentos.*
 
-###### Ubiquitous Language Capture
+#### Bounded Context Canvas 5 — BC-05 Gestión de Consentimiento
 
-Terminos:
+![Bounded Context Canvas BC-05 Gestión de Consentimiento](assets/bcc_05_gestion_consentimiento.png)
 
-1. Evento de Salud:	Cita medica, toma de medicamento o actividad de cuidado programada para un paciente
-2. Calendario de Eventos:	Vista consolidada de todos los eventos de salud de un paciente en un periodo de tiempo
-3. Conflicto de Horario:	Situacion en la que dos eventos del mismo paciente se superponen en el tiempo
-4. Recordatorio:	Aviso automatico generado antes del evento para alertar a los actores involucrados
-5. Reprogramacion:	Accion de cambiar la fecha u hora de un evento ya registrado
+*Figura 15. Bounded Context Canvas para el contexto Gestión de Consentimiento.*
 
+#### Bounded Context Canvas 6 — BC-06 Autenticación (IAM)
 
+![Bounded Context Canvas BC-06 Autenticación](assets/bcc_06_autenticacion.png)
 
-###### Capability Analysis
-
-Capacidad:
-
-1. Registrar evento de salud	Permite crear un nuevo evento con tipo, fecha, hora y descripcion
-2. Detectar conflictos de horario	Valida que no existan superposiciones en la agenda del paciente
-3. Programar recordatorios	Genera avisos automaticos previos al evento
-4. Reprogramar evento	Permite modificar fecha/hora de un evento existente
-5. Consultar calendario	Vista de todos los eventos del paciente en un rango de fechas
-
-Valor al Negocio:
-
-1. Alto — core de la propuesta de valor
-2. Alto — evita errores de coordinacion
-3. Alto — reduce incumplimiento de citas
-4. Medio — flexibilidad operativa
-5. Medio — visibilidad para cuidadores
-
-
-###### Capability Layering
-
-Capa-Capacidad:
-
-1. Core: Registrar evento de salud, Detectar conflictos de horario, Programar recordatorios    
-2. Supporting: Reprogramar evento, Consultar calendario de eventos, Actualizar estado del evento
-3. Generic: Validacion de fechas y horas, Formato de calendario
-
-###### Dependencies Capture
-
-|Tipo|	Contexto	|Dato / Mensaje Intercambiado	|Patron de Integracion|
-|----------|------|--------|---------|
-|Upstream|	IAM|	Token de sesion activa del usuario|	Open Host Service|
-|Downstream|	Notificaciones	|Evento programado / Recordatorio generado|	Published Language / Evento de dominio|
-
-
-###### Design Critique
-
-1. Fortalezas: Responsabilidad unica y bien delimitada. Flujo claro de registro → programacion → recordatorio. Alta cohesion interna.
-
-2. Riesgos / Debilidades: Acoplamiento temporal con Notificaciones si el envio de recordatorios se hace sincrono. Posible sobrecarga si el volumen de eventos crece mucho.
-
-3. Recomendaciones: Usar mensajeria asincrona (eventos de dominio) para desacoplar de Notificaciones. Considerar paginacion en la consulta del calendario.
-
-
-#### Bounded Context Canvas 2:
-
-##### BC-02 — Notificaciones
-
-
-###### Context Overview Definition
-
-Campos:
-
-1. Proposito:	Detectar eventos pendientes, enviar alertas oportunas a los actores del sistema y gestionar el ciclo de confirmacion o escalamiento.
-2. Problema:	Los cuidadores y pacientes necesitan ser alertados en el momento correcto. La falta de notificacion causa incumplimiento de citas y riesgos en el cuidado.
-3. Usuarios: Paciente (recibe confirmaciones), Cuidador (recibe alertas y responde confirmaciones)
-4. Alcance:	Incluye: deteccion de eventos pendientes, envio de notificaciones, gestion de respuestas. Excluye: programacion de eventos (Agenda BC), autenticacion (IAM).
-
-
-###### Business Rules Distillation
-
-Regla de Negocio:
-
-1. Toda notificacion debe enviarse al menos 24h antes del evento programado
-2. Si el cuidador no confirma en 12h, se genera una alerta de escalamiento
-3. Una notificacion solo puede enviarse a usuarios autenticados y activos
-4. Cada notificacion debe registrar su estado: enviada, confirmada o sin respuesta
-
-Razon / Consecuencia:
-
-1. Permite al cuidador reorganizarse con tiempo suficiente
-2. Garantiza que ningun evento quede sin atencion
-3. Evita envios a cuentas inactivas o no autorizadas
-4. Permite auditoria y seguimiento del ciclo de atencion
-
-
-
-###### Ubiquitous Language Capture
-
-Terminos:
-
-1. Notificacion:	Mensaje automatico enviado a un actor sobre un evento pendiente o cambio de estado
-2. Confirmacion:	Respuesta del cuidador o paciente que valida su asistencia o conocimiento del evento
-3. Alerta de Escalamiento:	Notificacion secundaria enviada cuando no hay confirmacion en el tiempo esperado
-4. Estado de Notificacion:	Ciclo de vida de una notificacion: enviada → confirmada / sin respuesta
-5. Evento Pendiente:	Evento de salud proximos sin confirmacion de asistencia
-
-
-
-###### Capability Analysis
-
-Capacidad:
-
-1. Enviar notificacion: Genera y entrega alertas a pacientes y cuidadores
-2. Gestionar confirmaciones: Procesa respuestas de confirmacion o rechazo
-3. Escalar notificacion: Reenvio automatico si no hay respuesta en el tiempo limite
-4. Consultar lista de notificaciones: Vista del historial de notificaciones enviadas y su estado
-
-
-
-Valor al Negocio:
-
-1. Alto — nucleo del contexto
-2. Alto — cierra el loop de la Agenda
-3. Alto — garantiza atencion del evento
-4. Medio — transparencia para el usuario
-
-###### Capability Layering
-
-Capa-Capacidad:
-
-1. Core: Enviar notificacion, Gestionar confirmaciones, Escalar notificacion sin respuesta    
-2. Supporting: Consultar lista de notificaciones, Registrar estado de notificacion
-3. Generic: Plantillas de mensajes, Formato y canal de envio
-
-###### Dependencies Capture
-
-|Tipo|	Contexto	|Dato / Mensaje Intercambiado	|Patron de Integracion|
-|----------|------|--------|---------|
-|Upstream|	Agenda|	Evento programado / Recordatorio pendiente|	OEvent-Driven / Suscriptor|
-|Upstream|	IAM|	Identidad y canal de contacto del usuario|	Open Host Service|
-|Downstream|	Agenda	|Confirmación / Rechazo del evento|	Published Language|
-
-
-###### Design Critique
-
-1. Fortalezas: Contexto bien acotado con responsabilidad clara. Desacoplado de la logica de negocio de Agenda. Escalable de forma independiente.
-
-2. Riesgos / Debilidades: Dependencia del canal de envio (email, push, SMS) puede convertirse en un cuello de botella. Logica de escalamiento puede complejizarse con muchos tipos de eventos.
-
-3. Recomendaciones: Abstraer el canal de envio como un puerto (adapter pattern). Definir politicas de escalamiento configurables por tipo de evento.
-
-#### Bounded Context Canvas 3:
-
-##### BC-03 — Diario 
-
-
-###### Context Overview Definition
-
-Campos:
-
-1. Proposito:	Permitir al paciente registrar notas personales sobre su estado de salud y compartirlas de forma controlada con cuidadores autorizados.
-2. Problema:	No existe un canal estructurado para que el paciente comunique su estado diario. Los cuidadores carecen de visibilidad continua entre eventos de salud formales.
-3. Usuarios: Paciente (escribe y administra notas), Cuidador (lee notas compartidas con permiso)
-4. Alcance:	Incluye: escritura, almacenamiento y comparticion de notas. Excluye: control de acceso entre actores (Compartir-Perfiles BC), autenticacion (IAM).
-
-
-###### Business Rules Distillation
-
-Regla de Negocio:
-
-1. Una nota no puede guardarse si esta vacia o solo contiene espacios en blanco
-2. Solo el paciente propietario puede escribir y eliminar sus notas
-3. El cuidador solo puede leer notas si el paciente compartio el diario explicitamente
-4. Cada nota debe registrar fecha y hora de creacion automaticamente
-
-
-Razon / Consecuencia:
-
-1. Evita entradas sin valor informativo en el diario
-2. Protege la privacidad e integridad del diario personal
-3. Garantiza el consentimiento del paciente sobre su informacion de salud
-4. Permite seguimiento cronologico del estado del paciente
-
-###### Ubiquitous Language Capture
-
-Terminos:
-
-1. Nota de Salud:	Registro textual del paciente sobre su estado fisico o emocional en un momento dado
-2. Diario:	Coleccion ordenada cronologicamente de notas de salud de un paciente
-3. Diario Compartido:	Diario cuyo acceso de lectura ha sido habilitado para un cuidador especifico
-4. Nota Almacenada:	Nota que ha sido persistida exitosamente en el sistema
-5. Acceso de Lectura	Permiso otorgado a un cuidador para visualizar el contenido del diario
-
-
-
-###### Capability Analysis
-
-Capacidad:
-
-1. Escribir nota de salud:	Registra una nueva entrada en el diario del paciente
-2. Almacenar nota:	Persiste la nota con marca de tiempo automatica
-3. Compartir diario con cuidador:	Habilita el acceso de lectura para un cuidador autorizado
-4. Visualizar diario compartido:	Permite al cuidador leer las notas del paciente
-5. Revocar acceso al diario:	El paciente puede retirar el permiso de lectura otorgado
-
-
-Valor al Negocio:
-
-1. Alto — diferenciador del producto
-2. Alto — base del seguimiento continuo
-3. Alto — habilita el monitoreo
-4. Alto — visibilidad del estado del paciente
-5. Medio — control de privacidad
-
-###### Capability Layering
-
-Capa-Capacidad:
-
-1. Core: Escribir nota de salud, Almacenar nota, Compartir diario con cuidador    
-2. Supporting: Visualizar diario compartido, Revocar acceso, Consultar historial de notas
-3. Generic: Almacenamiento de texto, Marca de tiempo automatica
-
-###### Dependencies Capture
-
-|Tipo|	Contexto	|Dato / Mensaje Intercambiado	|Patron de Integracion|
-|----------|------|--------|---------|
-|Upstream|	IAM|	Token de sesion del paciente o cuidador|	Open Host Service|
-|Upstream|	Compartir-Perfiles|	Validacion de acceso del cuidador al diario|	Anticorruption Layer|
-|Downstream|	Compartir-Perfiles	|Solicitud de compartir diario (evento)|	Published Language|
-
-
-###### Design Critique
-
-1. Fortalezas: Diferenciador clave del producto. Alta cohesion. Separa correctamente la escritura del control de acceso (Compartir-Perfiles).
-
-2. Riesgos / Debilidades: Sin paginacion puede volverse lento con diarios extensos. El consentimiento de compartir podria volverse complejo si se necesitan permisos granulares por nota.
-
-3. Recomendaciones: Implementar paginacion desde el inicio. Considerar cifrado en reposo para notas sensibles. Registrar audit log de accesos al diario.
-
-#### Bounded Context Canvas 4:
-
-##### BC-04 — Documentos Medicos 
-
-
-###### Context Overview Definition
-
-Campos:
-
-1. Proposito:	Gestionar la subida, almacenamiento seguro y consulta de documentos medicos clinicos del paciente.
-2. Problema:	Los documentos medicos estan dispersos y no accesibles para los actores del sistema. Los cuidadores necesitan consultar historial clinico para tomar decisiones de cuidado.
-3. Usuarios: Paciente/Familiar (sube documentos), Cuidador (consulta documentos autorizados)
-4. Alcance:	Incluye: subida, almacenamiento, visualizacion y metadatos de documentos. Excluye: control de acceso entre actores (Compartir-Perfiles), autenticacion (IAM).
-
-
-###### Business Rules Distillation
-
-Regla de Negocio:
-
-1.  Solo se aceptan documentos en formato PDF o imagen (JPG, PNG)
-2. El tamano maximo por documento es de 10 MB
-3. Cada documento debe tener un tipo y fecha asociados al cargarlo
-4. Un cuidador solo puede consultar documentos si tiene acceso autorizado al perfil del paciente
-
-
-
-Razon / Consecuencia:
-
-1. Garantiza compatibilidad de visualizacion en todos los dispositivos
-2. Evita sobrecarga del almacenamiento y tiempos de carga excesivos
-3. Permite organizacion y busqueda eficiente del historial clinico
-4. Protege la privacidad del historial medico
-
-
-###### Ubiquitous Language Capture
-
-Terminos:
-
-1.  Documento Medico	Archivo digital (PDF o imagen) que representa un resultado clinico, receta o informe de salud del paciente
-2. Tipo de Documento	Clasificacion del documento: resultado de laboratorio, receta, informe medico, radiografia, etc.
-3. Documento Almacenado	Documento que ha sido cargado y persistido exitosamente en el sistema
-4. Información del Documento	Metadatos del archivo: nombre, tipo, fecha de carga, tamano y propietario
-5. Documento Visualizado	Documento que ha sido abierto y consultado por un actor autorizado
-
-
-
-###### Capability Analysis
-
-Capacidad:
-
-1. Subir documento medico	Permite cargar archivos clinicos al sistema con sus metadatos
-2. Almacenar documento	Persiste el archivo de forma segura con metadatos
-3. Consultar documento medico	Permite visualizar documentos clinicos a actores autorizados
-4. Listar documentos del paciente	Muestra el inventario de documentos disponibles
-
-
-Valor al Negocio:
-
-1. Alto — centraliza el historial clinico
-2. Alto — base del repositorio clinico
-3. Alto — soporte a decisiones de cuidado
-4. Medio — navegacion del historial
-
-
-###### Capability Layering
-
-Capa-Capacidad:
-
-1. Core: Subir documento medico, Almacenar documento, Consultar documento medico  
-2. Supporting: Listar documentos, Buscar por tipo o fecha, Eliminar documento
-3. Generic: Almacenamiento de archivos, Validacion de formato y tamano
-
-###### Dependencies Capture
-
-|Tipo|	Contexto	|Dato / Mensaje Intercambiado	|Patron de Integracion|
-|----------|------|--------|---------|
-|Upstream|	IAM|	Token de sesion del usuario|	Open Host Service|
-|Upstream|	Compartir-Perfiles|	Validacion de acceso del cuidador|	Anticorruption Layer|
-
-
-###### Design Critique
-
-1. Fortalezas: Responsabilidad clara y bien acotada. Puede evolucionar de forma independiente al core. Candidato a integracion con servicios de almacenamiento en la nube.
-
-2. Riesgos / Debilidades: Puede convertirse en un cuello de botella si el almacenamiento no escala. La validacion de acceso duplica logica con Compartir-Perfiles.
-
-3. Recomendaciones: Externalizar el almacenamiento a un servicio cloud (S3, GCS). Delegar toda validacion de acceso a Compartir-Perfiles mediante llamadas explicitas.
-
-#### Bounded Context Canvas 5:
-
-##### BC-05 — Compartir-Perfiles 
-
-
-###### Context Overview Definition
-
-Campos:
-
-1. Proposito:	Gestionar el acceso controlado y con consentimiento del paciente a su informacion de salud por parte de familiares o cuidadores autorizados.
-2. Problema:	No existe un mecanismo seguro para que el paciente autorice a terceros (familiares) a consultar su informacion de salud sin perder el control sobre ella.
-3. Usuarios: Paciente (otorga y revoca acceso), Familiar (consume informacion del paciente con permiso)
-4. Alcance:	Incluye: generacion de enlaces de acceso, validacion de permisos, revocacion. Excluye: almacenamiento de documentos o notas (sus propios contextos).
-
-
-###### Business Rules Distillation
-
-Regla de Negocio:
-
-1. Solo el paciente puede iniciar el proceso de compartir su perfil
-2. Un enlace de acceso expira a los 7 dias de generado si no es utilizado
-3. El paciente puede revocar el acceso en cualquier momento
-4. El familiar solo puede leer informacion — no puede modificarla ni eliminarla
-
-
-
-
-Razon / Consecuencia:
-
-1. El consentimiento del titular es obligatorio para compartir informacion de salud
-2. Evita accesos persistentes no controlados a informacion sensible
-3. Garantiza el derecho del paciente a controlar su informacion
-4. El familiar es un observador autorizado, no un administrador del perfil
-
-
-
-###### Ubiquitous Language Capture
-
-Terminos:
-
-1.  Perfil Compartido: Conjunto de informacion del paciente que ha sido habilitada para acceso de un tercero autorizado
-2. Enlace de Acceso:	URL temporal y unica generada para que un familiar acceda al perfil del paciente
-3. Acceso Concedido:	Estado en el que un familiar cuenta con permisos activos para consultar la informacion del paciente
-4. Acceso Revocado:	Estado en el que el paciente ha retirado los permisos previamente otorgados a un familiar
-5. Enlace Expirado:	Enlace de acceso que ha superado su tiempo de validez sin ser utilizado
-
-
-
-###### Capability Analysis
-
-Capacidad:
-
-1. Compartir perfil con familiar:	Genera enlace de acceso temporal para el familiar
-2. Validar acceso del familiar:	Verifica que el enlace sea valido y no haya expirado
-3. Otorgar acceso al familiar:	Activa los permisos de lectura para el familiar
-4. Revocar acceso:	El paciente retira los permisos de acceso en cualquier momento
-5. Consultar informacion del paciente:	El familiar visualiza datos autorizados del perfil
-
-
-
-Valor al Negocio:
-
-1. Alto — habilita la colaboracion familiar
-2. Alto — seguridad del acceso
-3. Alto — core del contexto
-4. Alto — control de privacidad
-5. Medio — visibilidad familiar
-
-
-
-###### Capability Layering
-
-Capa-Capacidad:
-
-1. Core: Compartir perfil, Validar acceso, Otorgar acceso al familiar, Revocar acceso
-2. Supporting: Consultar informacion del paciente, Listar accesos activos
-3. Generic: Generacion de tokens/enlaces, Validacion de expiracion
-
-###### Dependencies Capture
-
-|Tipo|	Contexto	|Dato / Mensaje Intercambiado	|Patron de Integracion|
-|----------|------|--------|---------|
-|Upstream|	IAM|	Identidad del paciente autenticado|	Open Host Service|
-|Downstream|	Diario |	Solicitud de acceso de lectura al diario|	Anticorruption Layer|
-|Downstream|	Documentos|	Solicitud de acceso a documentos del paciente|	Anticorruption Layer|
-
-
-###### Design Critique
-
-1. Fortalezas: Centraliza toda la logica de consentimiento y acceso. Evita que Diario y Documentos implementen su propio control de acceso. Cumple con principios de privacidad.
-
-2. Riesgos / Debilidades: Se convierte en un punto crítico de falla: si cae, ningún familiar puede acceder. Los enlaces expirados pueden generar fricción en la experiencia del familiar.
-
-3. Recomendaciones: Implementar cache de permisos activos para reducir latencia. Proveer mecanismo de renovacion de enlace sin necesidad de re-invitacion completa.
-
-
-#### Bounded Context Canvas 6:
-
-##### BC-06 — IAM  
-
-
-###### Context Overview Definition
-
-Campos:
-
-1. Proposito:	Gestionar el registro de usuarios, autenticacion y administracion de sesiones para todos los actores del sistema.
-2. Problema:	Todos los contextos del sistema requieren verificar la identidad del usuario antes de ejecutar cualquier operacion. Sin IAM no existe seguridad en el sistema.
-3. Usuarios: Paciente (se registra e inicia sesion), Familiar (se registra e inicia sesion)
-4. Alcance:	Incluye: registro de cuenta, login, logout, gestion de sesion. Excluye: autorizacion a recursos especificos (Compartir-Perfiles BC), logica de negocio.
-
-
-###### Business Rules Distillation
-
-Regla de Negocio:
-
-1. El email debe ser unico en el sistema — no pueden existir dos cuentas con el mismo correo
-2. La contrasena debe tener minimo 8 caracteres con al menos un numero y una mayuscula
-3. Una sesion expira tras 30 minutos de inactividad
-4. Tras 5 intentos fallidos de login, la cuenta se bloquea temporalmente por 15 minutos
-
-
-
-
-Razon / Consecuencia:
-
-1. Evita ambiguedad en la identificacion del usuario
-2. Garantiza un nivel minimo de seguridad en las credenciales
-3. Reduce el riesgo de acceso no autorizado en dispositivos compartidos
-4. Protege contra ataques de fuerza bruta
-
-
-###### Ubiquitous Language Capture
-
-Terminos:
-
-1.  Usuario:	Persona registrada en el sistema con credenciales validas (Paciente o Familiar)
-2. Credenciales:	Combinacion de email y contrasena que identifica a un usuario
-3. Sesion:	Periodo de tiempo activo desde el login hasta el logout o expiracion
-4. Token de Sesion:	Identificador seguro generado al autenticar que autoriza operaciones en el sistema
-5. Inicio de Sesion Fallido: Intento de autenticacion con credenciales incorrectas
-
-
-
-###### Capability Analysis
-
-Capacidad:
-
-1. Registrar cuenta:	Crea un nuevo usuario en el sistema con email y contrasena
-2. Iniciar sesion:	Autentica al usuario y genera token de sesion
-3. Cerrar sesion:	Invalida el token de sesion activo
-4. Validar sesion activa:	Verifica que el token sea valido y no haya expirado
-
-
-
-
-Valor al Negocio:
-
-1. Alto — prerequisito de todo el sistema
-2. Alto — habilita todos los contextos
-3. Alto — seguridad basica
-4. Alto — usado por todos los contextos
-
-
-
-
-###### Capability Layering
-
-Capa-Capacidad:
-
-1. Core: Registrar cuenta, Iniciar sesion, Cerrar sesion, Validar sesion activa
-2. Supporting: Bloqueo por intentos fallidos, Gestion de expiracion de sesion
-3. Generic: Hashing de contrasenas, Generacion de tokens JWT, Validacion de email
-
-###### Dependencies Capture
-
-|Tipo|	Contexto	|Dato / Mensaje Intercambiado	|Patron de Integracion|
-|----------|------|--------|---------|
-|Downstream|	Todos los contextos|	SToken de sesion activa del usuario|	Open Host Service / Published Language|
-
-
-###### Design Critique
-
-1. Fortalezas: Responsabilidad generica y bien definida. Candidato ideal para ser reemplazado por un servicio externo (Auth0, Keycloak, AWS Cognito) sin impacto en el dominio.
-
-2. Riesgos / Debilidades: Al ser prerequisito de todos los contextos, su caida paraliza todo el sistema. Logica de seguridad hecha a medida puede tener vulnerabilidades.
-
-3. Recomendaciones: Priorizar migracion a un proveedor de identidad consolidado (Auth0 o similar). Implementar refresh tokens para mejorar la experiencia sin comprometer seguridad.
+*Figura 16. Bounded Context Canvas para el contexto Autenticación (IAM).*
 
 
 
 ### 2.5.2. Context Mapping <a id="252-context-mapping"></a>
 
-En esta sección se documenta el proceso seguido por el equipo para producir el Context Map de CareConnect, entendido como la visualización de las relaciones estructurales entre los bounded contexts identificados durante el EventStorming (§2.5.1). El punto de partida fueron los seis candidate contexts derivados de las épicas del producto —Autenticación, Acceso Compartido, Agenda, Notificaciones, Diario de Seguimiento y Documentos—, los dos actores definidos en el Context Level Diagram (paciente geriátrico y cuidador) y los sistemas externos con los que el producto necesita integrarse (Google Sign-In, Firebase Cloud Messaging y SendGrid).
+En esta sección se documenta el proceso seguido por el equipo para producir el Context Map de CareConnect, entendido como la visualización de las relaciones estructurales entre los bounded contexts identificados durante el EventStorming (§2.5.1). El punto de partida fueron los seis candidate contexts derivados de las épicas del producto —Autenticación, Gestión de Consentimiento, Agenda, Notificaciones, Diario de Seguimiento y Documentos—, los dos actores definidos en el Context Level Diagram (paciente geriátrico y cuidador) y los sistemas externos con los que el producto necesita integrarse (Google Sign-In, Firebase Cloud Messaging y SendGrid).
 
 La elaboración no se resolvió en una única iteración: el equipo construyó varias alternativas, las comparó a partir de preguntas de diseño deliberadas y seleccionó la que mejor equilibraba cohesión, acoplamiento y capacidad de evolución. A continuación se describen las alternativas consideradas y, a partir de ellas, el Context Map final adoptado con los patrones de relación entre bounded contexts propios de Domain-Driven Design.
 
@@ -2661,17 +2277,17 @@ Cada alternativa responde a una de las preguntas de diseño recomendadas para es
 **Alternativa 1 — ¿Qué pasaría si fusionamos Diario de Seguimiento y Documentos en un solo bounded context?**
 Ambos contextos manejan información generada en torno al paciente. Sin embargo, Diario se ocupa de notas cualitativas con alta frecuencia de escritura y consulta conversacional, mientras que Documentos gestiona archivos clínicos (recetas, resultados de laboratorio) con ciclo de vida más lento y control de acceso explícito. Fusionarlos diluiría dos Ubiquitous Languages distintos ("entrada de diario" vs. "documento médico"), mezclaría reglas de invariantes y dificultaría escalar cada módulo en forma independiente. **Se descarta.**
 
-**Alternativa 2 — ¿Qué pasaría si duplicamos la lógica de notificaciones dentro de Agenda, Acceso Compartido y Documentos para romper la dependencia con Notificaciones?**
+**Alternativa 2 — ¿Qué pasaría si duplicamos la lógica de notificaciones dentro de Agenda, Gestión de Consentimiento y Documentos para romper la dependencia con Notificaciones?**
 Cada bounded context quedaría responsable de generar sus propios recordatorios, eliminando la dependencia transversal. El problema es doble: se duplicarían las integraciones con Firebase Cloud Messaging y SendGrid (con su Anti-Corruption Layer correspondiente) y se perdería la política común de reintentos y preferencias de notificación que cada usuario configura una sola vez. **Se descarta.** Conviene mantener Notificaciones como bounded context dedicado que recibe eventos de dominio desde los demás.
 
 **Alternativa 3 — ¿Qué pasaría si creamos un shared service de control de acceso para reducir la duplicación entre Documentos, Agenda y Diario?**
-Hoy, cada uno de estos contextos necesita saber qué cuidadores están autorizados a leer información del paciente. La alternativa de incorporar la lógica de permisos en cada bounded context produciría inconsistencias cuando el paciente revoque accesos. En su lugar, Acceso Compartido se consolida como fuente de verdad y publica eventos de dominio (`AccessGrantedEvent`, `AccessRevokedEvent`) que los demás contextos consumen para mantener su propia proyección de permisos. **Se adopta.**
+Hoy, cada uno de estos contextos necesita saber qué cuidadores están autorizados a leer información del paciente. La alternativa de incorporar la lógica de permisos en cada bounded context produciría inconsistencias cuando el paciente revoque accesos. En su lugar, Gestión de Consentimiento se consolida como fuente de verdad y publica eventos de dominio (`AccessGrantedEvent`, `AccessRevokedEvent`) que los demás contextos consumen para mantener su propia proyección de permisos. **Se adopta.**
 
-**Alternativa 4 — ¿Qué pasaría si Autenticación y Acceso Compartido fueran el mismo bounded context?**
-Ambos participan en la identidad del usuario, pero resuelven preocupaciones distintas: Autenticación responde "¿quién es este usuario?" mientras que Acceso Compartido responde "¿qué puede ver este usuario del paciente?". Unirlos rompe el principio de responsabilidad única y mezcla la gestión de sesiones con las reglas de negocio del acceso compartido. **Se descarta.**
+**Alternativa 4 — ¿Qué pasaría si Autenticación y Gestión de Consentimiento fueran el mismo bounded context?**
+Ambos participan en la identidad del usuario, pero resuelven preocupaciones distintas: Autenticación responde "¿quién es este usuario?" mientras que Gestión de Consentimiento responde "¿qué puede ver este usuario del paciente?". Unirlos rompe el principio de responsabilidad única y mezcla la gestión de sesiones con las reglas de negocio del acceso compartido. **Se descarta.**
 
 **Alternativa 5 — ¿Qué pasaría si aislamos los core capabilities (Agenda, Diario, Documentos) y movemos el resto a subdomains de soporte y genéricos?**
-Los tres contextos que encapsulan la experiencia clínica del paciente son los que concentran la ventaja competitiva del producto y son tratados como **Core Subdomains**. Notificaciones y Acceso Compartido son **Supporting Subdomains** porque habilitan al core pero no lo constituyen. Autenticación se clasifica como **Generic Subdomain** porque su responsabilidad es comparable a la de cualquier otro sistema y apoya un proveedor externo. **Se adopta.**
+Los tres contextos que encapsulan la experiencia clínica del paciente son los que concentran la ventaja competitiva del producto y son tratados como **Core Subdomains**. Notificaciones y Gestión de Consentimiento son **Supporting Subdomains** porque habilitan al core pero no lo constituyen. Autenticación se clasifica como **Generic Subdomain** porque su responsabilidad es comparable a la de cualquier otro sistema y apoya un proveedor externo. **Se adopta.**
 
 **Alternativa 6 — ¿Qué pasaría si tratamos Firebase Cloud Messaging, SendGrid y Google Sign-In como extensiones del sistema en vez de integraciones externas?**
 Esto implicaría que nuestros bounded contexts conformaran su modelo al de esos proveedores (relación Conformist), lo que nos dejaría atados a cambios de contrato ajenos. **Se descarta.** Se opta por interponer una **Anti-Corruption Layer** en Notificaciones y en Autenticación para traducir los modelos externos al lenguaje propio del dominio.
@@ -2680,7 +2296,7 @@ Esto implicaría que nuestros bounded contexts conformaran su modelo al de esos 
 
 #### Context Map seleccionado
 
-A partir de las alternativas evaluadas, el Context Map final consolida los seis bounded contexts del producto más los tres sistemas externos, organizados en tres capas visuales: el eje de identidad arriba (Autenticación y Acceso Compartido), los core subdomains clínicos en el medio (Agenda, Diario de Seguimiento y Documentos) y el subdomain de soporte para notificaciones en la parte inferior, flanqueado por los sistemas externos a los que se conecta.
+A partir de las alternativas evaluadas, el Context Map final consolida los seis bounded contexts del producto más los tres sistemas externos, organizados en tres capas visuales: el eje de identidad arriba (Autenticación y Gestión de Consentimiento), los core subdomains clínicos en el medio (Agenda, Diario de Seguimiento y Documentos) y el subdomain de soporte para notificaciones en la parte inferior, flanqueado por los sistemas externos a los que se conecta.
 
 ![Figura 10. Context Map estratégico de CareConnect](assets/context_map.png)
 
@@ -2694,14 +2310,14 @@ Las flechas del diagrama se anotan con los patrones de Strategic Design que corr
 
 | Relación | Patrón | Justificación |
 |---|---|---|
-| Autenticación → Acceso Compartido | **Customer/Supplier (U/S) + Open Host Service (OHS)** | Autenticación es upstream porque provee la identidad sobre la que Acceso Compartido opera. Expone un contrato público estable (OHS) para que el downstream no dependa de detalles internos. |
+| Autenticación → Gestión de Consentimiento | **Customer/Supplier (U/S) + Open Host Service (OHS)** | Autenticación es upstream porque provee la identidad sobre la que Gestión de Consentimiento opera. Expone un contrato público estable (OHS) para que el downstream no dependa de detalles internos. |
 | Autenticación → Agenda / Diario / Documentos | **Customer/Supplier (U/S)** | Cada core context consulta la identidad autenticada para autorizar operaciones sobre el paciente. |
 | Autenticación → Identity Provider (Google) | **Anti-Corruption Layer (ACL)** | La ACL traduce los tokens y atributos de Google Sign-In al modelo de usuario propio del dominio, evitando que un cambio en el proveedor externo contamine el resto del sistema. |
-| Acceso Compartido → Agenda / Diario / Documentos | **Customer/Supplier (U/S) + events** | Acceso Compartido publica `AccessGrantedEvent` y `AccessRevokedEvent` como Published Language; los core contexts se suscriben para mantener sus proyecciones de permisos actualizadas. |
+| Gestión de Consentimiento → Agenda / Diario / Documentos | **Customer/Supplier (U/S) + events** | Gestión de Consentimiento publica `AccessGrantedEvent` y `AccessRevokedEvent` como Published Language; los core contexts se suscriben para mantener sus proyecciones de permisos actualizadas. |
 | Agenda → Notificaciones | **Customer/Supplier (U/S) + Published Language (PL)** | Agenda publica eventos de dominio (`MedicationScheduled`, `AppointmentCreated`) con un contrato estable que Notificaciones consume para programar recordatorios. |
 | Documentos → Notificaciones | **Customer/Supplier (U/S) + Published Language (PL)** | Documentos emite eventos cuando un archivo clínico se sube o se vuelve accesible; Notificaciones transforma esos eventos en alertas dirigidas al cuidador. |
 | Diario → Notificaciones | **Conformist (C)** | Diario se apoya de forma ocasional en Notificaciones para enviar recordatorios de registro; adopta el contrato tal como existe sin negociar cambios, por lo que se clasifica como Conformist. |
-| Acceso Compartido → Notificaciones | **Customer/Supplier (U/S) + events** | Las invitaciones y revocaciones de acceso disparan notificaciones hacia el familiar autorizado. |
+| Gestión de Consentimiento → Notificaciones | **Customer/Supplier (U/S) + events** | Las invitaciones y revocaciones de acceso disparan notificaciones hacia el familiar autorizado. |
 | Notificaciones → Firebase Cloud Messaging | **Anti-Corruption Layer (ACL)** | Aísla el contrato de FCM; si Google cambia su SDK o modelo de payload, el cambio queda contenido en el adaptador. |
 | Notificaciones → SendGrid | **Anti-Corruption Layer (ACL)** | Mismo razonamiento para el envío de correos transaccionales: se traduce el modelo interno de "notificación" al formato esperado por SendGrid. |
 
@@ -2711,7 +2327,7 @@ Las flechas del diagrama se anotan con los patrones de Strategic Design que corr
 
 #### Conclusión del proceso
 
-El Context Map adoptado mantiene los tres core subdomains aislados entre sí, reservando el acoplamiento necesario hacia Autenticación (identidad) y Acceso Compartido (permisos) a través de eventos de dominio. Notificaciones se comporta como infraestructura de salida común, consumiendo eventos del resto y exponiendo únicamente adaptadores hacia los servicios externos. Esta configuración permite evolucionar cada bounded context de forma independiente, reemplazar proveedores externos sin contaminar el dominio y escalar selectivamente los módulos donde se concentre más tráfico, sin sacrificar la consistencia conceptual del producto.
+El Context Map adoptado mantiene los tres core subdomains aislados entre sí, reservando el acoplamiento necesario hacia Autenticación (identidad) y Gestión de Consentimiento (permisos) a través de eventos de dominio. Notificaciones se comporta como infraestructura de salida común, consumiendo eventos del resto y exponiendo únicamente adaptadores hacia los servicios externos. Esta configuración permite evolucionar cada bounded context de forma independiente, reemplazar proveedores externos sin contaminar el dominio y escalar selectivamente los módulos donde se concentre más tráfico, sin sacrificar la consistencia conceptual del producto.
 
 ### 2.5.3. Software Architecture <a id="253-software-architecture"></a>
 
@@ -2724,7 +2340,7 @@ La solución está organizada alrededor de seis bounded contexts identificados d
 | Agenda | EP01 Gestión de Agenda | Gestión de eventos de salud, citas y medicación en el calendario. |
 | Notificaciones | EP02 Gestión de Notificaciones | Programación, envío y visualización de recordatorios y alertas. |
 | Documentos | EP03 Gestión de Documentos | Almacenamiento, consulta y control de acceso a documentos médicos. |
-| Acceso Compartido | EP04 Acceso Compartido | Compartir y revocar el perfil del paciente con los cuidadores. |
+| Gestión de Consentimiento | EP04 Gestión de Consentimiento | Compartir y revocar el perfil del paciente con los cuidadores. |
 | Diario de Seguimiento | EP05 Diario de Seguimiento | Registro y consulta de notas sobre la evolución del paciente. |
 | Autenticación | EP06 Autenticación | Gestión de cuentas, sesiones y control de acceso por rol. |
 
@@ -2749,40 +2365,34 @@ Los sistemas externos identificados son:
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams <a id="2532-software-architecture-container-level-diagrams"></a>
 
-El Container Diagram descompone el sistema CareConnect en sus elementos de alto nivel, mostrando cómo se distribuyen las responsabilidades entre los distintos containers y las principales decisiones de tecnología adoptadas. El diagrama se organiza en cinco filas horizontales, de arriba hacia abajo: los dos segmentos objetivo, la capa de clientes (Mobile App y Landing Page), el API Gateway con sus seis bounded contexts dispuestos en una cuadrícula, la capa de persistencia y los sistemas externos. Esta disposición evita el cruce de flechas y deja visible la descomposición estratégica.
+El Container Diagram descompone el sistema CareConnect en sus elementos de alto nivel, mostrando cómo se distribuyen las responsabilidades entre los distintos containers y las principales decisiones de tecnología adoptadas. A nivel de container, el sistema se presenta con un **Backend único** (no disgregado por bounded context); la descomposición interna en bounded contexts pertenece al nivel de componente (§2.6) y no se muestra en este diagrama.
 
 Los containers identificados son:
 
 - **Landing Page:** Sitio web desarrollado con React. Presenta el modelo de negocio, las características del producto y los enlaces de descarga.
-- **Mobile Application:** Aplicación nativa desarrollada con Kotlin para Android y estrategia cross-platform con Flutter/Dart o Kotlin Multiplatform (KMP). Constituye la interfaz principal mediante la cual el paciente geriátrico y el cuidador interactúan con el sistema. Se comunica con el API Gateway a través de HTTPS/JSON.
-- **API Gateway (RESTful Web Services):** Backend desarrollado con Spring Boot (Java) siguiendo el estilo arquitectónico RESTful API y documentado con OpenAPI/Swagger. Se organiza internamente en seis módulos, uno por cada bounded context:
-  - **Autenticación Service:** Endpoints para registro, login y validación de acceso por rol.
-  - **Acceso Compartido Service:** Endpoints para compartir, consultar y revocar el perfil del paciente.
-  - **Agenda Service:** Endpoints para la gestión de eventos de salud (citas, medicación, terapias).
-  - **Notificaciones Service:** Endpoints para la programación, consulta y marcado de notificaciones y alertas.
-  - **Documentos Service:** Endpoints para la carga, consulta y control de acceso a documentos médicos.
-  - **Diario Service:** Endpoints para registrar y consultar notas de seguimiento.
-- **Database:** Base de datos relacional (PostgreSQL) que persiste la información de los seis bounded contexts.
+- **Mobile Application:** Aplicación nativa Android desarrollada con Kotlin y Jetpack Compose. Constituye la interfaz principal mediante la cual el paciente geriátrico y el cuidador interactúan con el sistema. Se comunica con el Backend a través de HTTPS/JSON.
+- **Backend (RESTful Web Services):** Servicio único desarrollado con Spring Boot (Java) que expone una API REST documentada con OpenAPI/Swagger. Concentra la lógica de negocio de los seis bounded contexts (Agenda, Notificaciones, Diario de Seguimiento, Documentos, Gestión de Consentimiento y Autenticación) en un mismo despliegue. La descomposición interna por bounded context se documenta a nivel de componente.
+- **Database:** Base de datos relacional (MySQL 8) que persiste la información del sistema. Es consumida exclusivamente por el Backend.
 - **Local Storage (SQLite / Room):** Almacenamiento local en el dispositivo móvil que permite el acceso offline a información crítica del paciente, medicación pendiente y registros recientes.
 
 Las relaciones principales entre containers son:
 
 | Origen | Destino | Descripción | Protocolo |
 |--------|---------|-------------|-----------|
-| Mobile Application | API Gateway | Consume endpoints RESTful de los seis bounded contexts | HTTPS / JSON |
+| Mobile Application | Backend | Consume la API RESTful del sistema | HTTPS / JSON |
 | Mobile Application | Local Storage | Almacena y consulta datos para acceso offline | SQLite / Room |
 | Mobile Application | Push Notification Service | Recibe notificaciones push | FCM |
-| API Gateway | Database | Persiste y consulta datos del dominio | JDBC / JPA |
-| Notificaciones Service | Email Service / Push Notification Service | Envía emails y notificaciones push | HTTPS / SMTP |
-| Autenticación Service | Email Service / Identity Provider | Envía emails transaccionales y verifica autenticación federada | HTTPS / OAuth 2.0 |
+| Backend | Database | Persiste y consulta datos del dominio | JDBC / JPA |
+| Backend | Email Service / Push Notification Service | Envía emails transaccionales y notificaciones push | HTTPS / SMTP |
+| Backend | Identity Provider | Verifica autenticación federada (Google Sign-In) | HTTPS / OAuth 2.0 |
 
 ![Figura 2. Software Architecture Container Level Diagram para CareConnect](assets/container-diagram.png)
 
-*Figura 2. Software Architecture Container Level Diagram para CareConnect, con el API Gateway descompuesto en sus seis bounded contexts y organizado en capas horizontales para evitar cruces.*
+*Figura 2. Software Architecture Container Level Diagram para CareConnect, con el Backend representado como un único container responsable de la API REST del sistema. La descomposición interna por bounded context se presenta en los diagramas de componentes (§2.6).*
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams <a id="2533-software-architecture-deployment-diagrams"></a>
 
-El Deployment Diagram muestra la distribución física del sistema CareConnect, destacando cómo los componentes de software se despliegan sobre la infraestructura de hardware y los entornos de ejecución. Este diagrama permite visualizar los nodos físicos y virtuales, las relaciones de red entre ellos y la asignación de containers a cada nodo. El API Gateway empaqueta en un mismo despliegue los seis bounded contexts (Agenda, Notificaciones, Documentos, Acceso Compartido, Diario y Autenticación), que comparten el mismo motor de persistencia relacional.
+El Deployment Diagram muestra la distribución física del sistema CareConnect, destacando cómo los componentes de software se despliegan sobre la infraestructura de hardware y los entornos de ejecución. Este diagrama permite visualizar los nodos físicos y virtuales, las relaciones de red entre ellos y la asignación de containers a cada nodo. El API Gateway empaqueta en un mismo despliegue los seis bounded contexts (Agenda, Notificaciones, Documentos, Gestión de Consentimiento, Diario y Autenticación), que comparten el mismo motor de persistencia relacional.
 
 Los nodos de despliegue identificados son:
 
@@ -2796,7 +2406,7 @@ Los nodos de despliegue identificados son:
 
 - **Cloud Hosting Provider (e.g., Railway / Render / AWS):**
   - **Web Server Node:** Aloja el **API Gateway / RESTful Web Services** (Spring Boot). Recibe peticiones HTTPS desde la Mobile Application y ejecuta la lógica de negocio.
-  - **Database Server Node:** Aloja la **Database** relacional (e.g., PostgreSQL / MySQL). Accedida únicamente desde el Web Server Node a través de la red interna del proveedor.
+  - **Database Server Node:** Aloja la **Database** relacional (MySQL 8). Accedida únicamente desde el Web Server Node a través de la red interna del proveedor.
 
 - **Static Hosting Provider (e.g., GitHub Pages / Netlify / Vercel):**
   - Sirve los archivos estáticos del **Landing Page** (HTML, CSS, JS) a los navegadores web de los visitantes.
@@ -3034,9 +2644,9 @@ El Database Design Diagram del bounded context Notificaciones muestra el esquema
 
 ---
 
-# 2.6.3. Bounded Context: Diary
+### 2.6.3. Bounded Context: Diario de Seguimiento
 
-## 2.6.3.1. Domain Layer
+#### 2.6.3.1. Domain Layer
 
 | Componente | Tipo | Descripción |
 |-----------|------|-------------|
@@ -3049,7 +2659,7 @@ El Database Design Diagram del bounded context Notificaciones muestra el esquema
 | DiaryEntryUpdatedEvent | Domain Event | Se publica cuando se actualiza una entrada existente. |
 | DiaryEntryDeletedEvent | Domain Event | Se publica cuando se elimina una entrada del diario. |
 
-## 2.6.3.2. Interface Layer
+#### 2.6.3.2. Interface Layer
 
 | Componente | Tipo | Descripción |
 |-----------|------|-------------|
@@ -3058,7 +2668,7 @@ El Database Design Diagram del bounded context Notificaciones muestra el esquema
 | DiaryDetailFragment | Fragment | Muestra el detalle de una entrada seleccionada. |
 | DiaryViewModel | ViewModel | Gestiona el estado de la interfaz y la comunicación con Application Layer. |
 
-## 2.6.3.3. Application Layer
+#### 2.6.3.3. Application Layer
 
 | Componente | Tipo | Descripción |
 |-----------|------|-------------|
@@ -3074,7 +2684,7 @@ El Database Design Diagram del bounded context Notificaciones muestra el esquema
 | GetDiaryEntryByIdHandler | Query Handler | Procesa la consulta por identificador. |
 | DiaryEntryDTO | DTO | Transfiere información de entradas entre capas. |
 
-## 2.6.3.4. Infrastructure Layer
+#### 2.6.3.4. Infrastructure Layer
 
 | Componente | Tipo | Descripción |
 |-----------|------|-------------|
@@ -3093,9 +2703,9 @@ El Database Design Diagram del bounded context Notificaciones muestra el esquema
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 ![Bounded Context Database Design Diagram](assets/diagram_dairy.png)
-### 2.6.4. Bounded Context: Compartir Perfiles <a id="264-bounded-context"></a>
+### 2.6.4. Bounded Context: Gestión de Consentimiento <a id="264-bounded-context"></a>
 
-Este bounded context gestiona el ciclo de vida del acceso compartido entre un paciente y sus familiares. Cubre las historias de usuario **US14** (compartir perfil), **US15** (consultar perfil compartido) y **US16** (revocar acceso), correspondientes a la épica **EP04 – Acceso Compartido**. Se integra con el bounded context de Notificaciones mediante eventos de dominio para informar cuando un acceso es creado, aceptado o revocado.
+Este bounded context gestiona el ciclo de vida del acceso compartido entre un paciente y sus familiares. Cubre las historias de usuario **US14** (compartir perfil), **US15** (consultar perfil compartido) y **US16** (revocar acceso), correspondientes a la épica **EP04 – Gestión de Consentimiento**. Se integra con el bounded context de Notificaciones mediante eventos de dominio para informar cuando un acceso es creado, aceptado o revocado.
 
 ---
 
@@ -3168,9 +2778,9 @@ Este bounded context gestiona el ciclo de vida del acceso compartido entre un pa
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams <a id="2645-component-level-diagrams"></a>
 
-El Component Diagram del bounded context Compartir Perfiles presenta la organización interna del módulo en cuatro capas: Interface (REST Controllers), Application (Command y Query Services), Domain (servicios de dominio y repositorio) e Infrastructure (repositorio implementado, generador de tokens y adaptador hacia Notificaciones). Muestra las entradas desde la Mobile Application y la integración de salida hacia la base de datos y el bounded context de Notificaciones.
+El Component Diagram del bounded context Gestión de Consentimiento presenta la organización interna del módulo en cuatro capas: Interface (REST Controllers), Application (Command y Query Services), Domain (servicios de dominio y repositorio) e Infrastructure (repositorio implementado, generador de tokens y adaptador hacia Notificaciones). Muestra las entradas desde la Mobile Application y la integración de salida hacia la base de datos y el bounded context de Notificaciones.
 
-![Component Diagram - Bounded Context Compartir Perfiles](assets/diag_sharing_component.png)
+![Component Diagram - Bounded Context Gestión de Consentimiento](assets/diag_sharing_component.png)
 
 ---
 
@@ -3180,17 +2790,17 @@ El Component Diagram del bounded context Compartir Perfiles presenta la organiza
 
 El diagrama de clases de la capa de dominio muestra el agregado `ProfileSharing` como raíz, sus entidades internas (`SharedAccess`, `AccessRequest`), los value objects (`ShareToken`, `ExpirationDate`, `AccessStatus`, `AccessPermission`), los domain services (`ProfileSharingService`, `AccessValidationService`), el contrato de repositorio y los domain events publicados durante el ciclo de compartir, aceptar, revocar y expirar accesos.
 
-![Domain Layer Class Diagram - Bounded Context Compartir Perfiles](assets/diag_sharing_domain_class.png)
+![Domain Layer Class Diagram - Bounded Context Gestión de Consentimiento](assets/diag_sharing_domain_class.png)
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram <a id="26462-database-design-diagram"></a>
 
 El diagrama de base de datos representa las tablas `profile_sharings`, `shared_accesses` y `access_requests`, junto con sus relaciones (1..N) y restricciones de integridad. El campo `token` en `shared_accesses` es único; `permission` y `status` se almacenan como strings con valores acotados equivalentes a los enums de dominio.
 
-![Database Design Diagram - Bounded Context Compartir Perfiles](assets/diag_sharing_database.png)
+![Database Design Diagram - Bounded Context Gestión de Consentimiento](assets/diag_sharing_database.png)
 
 ---
 
-### 2.6.5. Bounded Context: Documents
+### 2.6.5. Bounded Context: Documentos
 
 ---
 
@@ -3259,66 +2869,1961 @@ El diagrama de base de datos representa las tablas `profile_sharings`, `shared_a
 
 ![alt text](assets/Diagram_db_documents.png)
 
+<div style="page-break-before: always;"></div>
+
 # Capítulo III: Solution UI/UX Design
 
 ## 3.1. Product design <a id="31-product-design"></a>
 
 ### 3.1.1. Style Guidelines <a id="311-style-guidelines"></a>
+
 #### 3.1.1.1. General Style Guidelines <a id="3111-general-style-guidelines"></a>
 
+Las guías de estilo de CareConnect se aplican de forma consistente tanto al Landing Page como a la aplicación móvil. Definen identidad visual, tono de marca, paleta de colores, tipografía, sistema de espaciado, iconografía y componentes UI. La implementación móvil sigue Material 3 y los tokens están declarados en `presentation/theme/Color.kt` y `presentation/theme/Type.kt` del repositorio `CareStacks/FrontEnd`.
+
+**Identidad y tono de marca**
+
+CareConnect es una marca pensada para el sector salud y bienestar geriátrico. El tono es cercano, sereno y responsable. La voz transmite confianza sin tecnicismos innecesarios y prioriza claridad sobre estética. Los mensajes evitan jerga médica, alarmismo y diminutivos infantilizantes.
+
+**Paleta de colores**
+
+La paleta se basa en tres colores principales (Primary, Secondary, Tertiary) más un Neutral oscuro y una serie de superficies cálidas. Se complementa con variantes por estado para badges (pendiente, confirmado, omitido, leído, urgente, médico).
+
+| Token | Hex | Uso |
+|---|---|---|
+| `Primary` | `#6C63A6` | Color principal de marca, botones primarios, indicadores activos. |
+| `PrimaryLight` | `#E6E1F6` | Fondos suaves, chips, estados hover. |
+| `PrimaryDark` | `#51498A` | Énfasis sobre Primary, headers de cards seleccionados. |
+| `Secondary` | `#B7D7C2` | Acciones secundarias, fondos de éxito leve. |
+| `Tertiary` | `#F2A65A` | Acentos, etiquetas de prioridad media. |
+| `Neutral` | `#2F3440` | Texto sobre superficies claras y elementos contundentes. |
+| `Background` | `#FAF7F2` | Fondo general de la aplicación. |
+| `BackgroundSoft` | `#F7F6FC` | Fondo de secciones diferenciadas. |
+| `Surface` | `#FFFFFF` | Cards, dialogs y superficies elevadas. |
+| `TextPrimary` | `#111827` | Texto principal. |
+| `TextSecondary` | `#5F6170` | Texto de apoyo. |
+| `TextMuted` | `#8F8D99` | Texto secundario de menor jerarquía y placeholders. |
+| `Border` | `#E1DDE8` | Bordes de cards e inputs. |
+| `Disabled` | `#D8D6E0` | Componentes deshabilitados. |
+
+**Variantes por estado y colores de feedback:**
+
+| Token | Background | Text | Uso |
+|---|---|---|---|
+| Status Pending | `#E8EAF4` | `#5F6270` | Evento pendiente de confirmación. |
+| Status Confirmed | `#C8EAD4` | `#4F7D5C` | Evento confirmado, dosis administrada. |
+| Status Missed | `#FFD2D2` | `#C01818` | Evento omitido o vencido. |
+| Status Read | `#E6D9FF` | `#5C4E9D` | Notificación leída. |
+| Status Urgent | `#FFD2D2` | `#C01818` | Alerta urgente al cuidador. |
+| Status Medical | `#E6D9FF` | `#5C4E9D` | Información clínica destacada. |
+
+**Tipografía**
+
+La aplicación móvil utiliza la familia `FontFamily.SansSerif` de Android (mapeada al sistema). La escala tipográfica está alineada con Material 3.
+
+| Token Material 3 | Peso | Tamaño / Line-height | Uso |
+|---|---|---|---|
+| `headlineLarge` | Bold | 30 / 38 sp | Títulos de pantalla principales. |
+| `headlineMedium` | Bold | 26 / 34 sp | Sub-cabeceras importantes. |
+| `titleLarge` | Bold | 22 / 30 sp | Títulos de cards y secciones. |
+| `titleMedium` | SemiBold | 18 / 26 sp | Encabezados de listas. |
+| `bodyLarge` | Normal | 16 / 24 sp | Texto principal. |
+| `bodyMedium` | Normal | 14 / 22 sp | Texto secundario. |
+| `bodySmall` | Normal | 12 / 18 sp | Metadatos y leyendas. |
+| `labelLarge` | Bold | 16 / 22 sp | Botones primarios. |
+| `labelMedium` | SemiBold | 13 / 18 sp | Chips y badges. |
+
+**Espaciado y geometría**
+
+- Escala base: múltiplos de **4 dp** (4, 8, 12, 16, 20, 24, 32, 40, 56).
+- Padding por defecto de pantalla: **16 dp** lateral.
+- Radio de esquina (`shape`): cards y botones a **16 dp**; chips a **12 dp**; inputs a **12 dp**.
+- Elevación: cards a **2 dp**, dialogs a **6 dp**.
+
+**Iconografía**
+
+- Material Symbols (outlined) como librería de iconos por defecto.
+- Tamaño estándar 24 dp; en `AppIcon` se permite escalar hasta 32 dp para acciones primarias.
+- Color por defecto: `IconMuted` (`#7C788A`); sobre fondos accionables, `Primary`.
+
+**Componentes UI implementados**
+
+Los componentes reutilizables se encuentran en `presentation/components/` e incluyen:
+
+- `AppTopBar`, `BottomBar` — navegación.
+- `AppTextField`, `AppPasswordField` — entradas con validación.
+- `FilledButton`, `SecondaryFilledButton`, `OutlinedActionButton`, `TextActionButton` — variantes de botón.
+- `AppCard` — contenedor base de cards.
+- `StatusBadge` — chip de estado (pendiente, confirmado, omitido, leído, urgente, médico).
+- `CareScreenHeader` — encabezado consistente de pantallas internas.
+- `AppIcon` — wrapper sobre `Icon` con sizing y tinting predefinidos.
+
+**Accesibilidad**
+
+- Contraste mínimo AA (4.5:1) sobre todas las combinaciones de texto sobre superficie.
+- Tamaño mínimo de texto principal: 14 sp; tamaño de táctil mínimo: 48 dp.
+- Estados de foco visibles en componentes interactivos.
+- Etiquetas semánticas en todos los inputs (`contentDescription`) para soporte de TalkBack.
+
+---
+
 ### 3.1.2. Information Architecture <a id="312-information-architecture"></a>
+
+La arquitectura de información de CareConnect se diseñó pensando en dos perfiles claros (paciente geriátrico y cuidador) y en flujos cortos para tareas con alta frecuencia. La misma estructura se aplica al Landing Page (sitio público) y a la aplicación móvil (producto), con adaptaciones específicas según el medio.
+
 #### 3.1.2.1. Organization Systems <a id="3121-organization-systems"></a>
+
+Se aplican tres esquemas complementarios de organización de contenido:
+
+| Esquema | Aplicación |
+|---|---|
+| **Jerárquico** | El Landing Page se organiza de lo más amplio (problemática, propuesta de valor) a lo más específico (features, integrantes, CTA). |
+| **Por rol** | La aplicación móvil presenta vistas diferenciadas para `Paciente` y `Cuidador` desde el login, manteniendo el mismo backend. |
+| **Por tarea** | Dentro de cada rol, el contenido se agrupa por tareas frecuentes: Hoy (agenda del día), Diario, Documentos, Compartir, Notificaciones, Perfil. |
+
+**Sitemap del Landing Page (`carestacks` en Vercel):**
+
+```
+/
+├── #hero — Propuesta de valor y CTA "Descargar App"
+├── #problema — Datos de envejecimiento y descoordinación
+├── #solucion — Funcionalidades de CareConnect
+├── #segmentos — Cuidadores / Pacientes geriátricos
+├── #equipo — Integrantes de CareStacks
+└── #contacto — Formulario y redes
+```
+
+**Mapa de pantallas de la Mobile App (estructura por rol):**
+
+```
+OnBoarding
+├── Welcome → Login → Register
+└── Sesión iniciada
+    ├── Rol: Paciente
+    │   ├── Inicio (Hoy)
+    │   ├── Agenda
+    │   ├── Diario (lista) → Nueva Nota
+    │   ├── Documentos → Subir Documento
+    │   ├── Notificaciones
+    │   ├── Compartir Perfil (Gestión de Consentimiento)
+    │   └── Perfil
+    └── Rol: Cuidador
+        ├── Inicio (Hoy del paciente)
+        ├── Agenda del paciente
+        ├── Diario compartido
+        ├── Documentos compartidos
+        ├── Notificaciones / Alertas
+        ├── Perfil compartido del paciente
+        └── Perfil
+```
+
 #### 3.1.2.2. Labelling Systems <a id="3122-labelling-systems"></a>
+
+El sistema de etiquetado prioriza palabras del Ubiquitous Language (§2.3.5) sobre términos técnicos. Se evitan tecnicismos clínicos y se usan verbos cortos en imperativo para acciones.
+
+| Categoría | Convención | Ejemplos |
+|---|---|---|
+| **Tabs de navegación inferior** | Sustantivos simples, una sola palabra | "Hoy", "Agenda", "Diario", "Documentos", "Perfil" |
+| **Botones de acción primaria** | Verbo en imperativo + objeto | "Confirmar dosis", "Subir documento", "Compartir perfil" |
+| **Estados** | Adjetivo o sustantivo corto en badge | "Pendiente", "Confirmado", "Omitido", "Leído", "Urgente" |
+| **Mensajes de error** | Frase breve orientada al usuario, no al sistema | "El correo no tiene un formato válido", no "Invalid email regex" |
+| **Confirmaciones destructivas** | Pregunta directa con verbo destacado | "¿Revocar acceso a María?" |
+| **Empty states** | Frase + acción sugerida | "No tienes notas todavía. Toca + para escribir tu primera nota." |
+
 #### 3.1.2.3. SEO Tags and Meta Tags <a id="3123-seo-tags-and-meta-tags"></a>
+
+El Landing Page utiliza meta tags estándar y Open Graph para garantizar visibilidad en buscadores y previews enriquecidos al compartir el enlace.
+
+```html
+<!-- Primary -->
+<title>CareConnect — Cuidado geriátrico organizado, en un solo lugar</title>
+<meta name="description" content="CareConnect es una aplicación móvil para coordinar el cuidado geriátrico: medicación, citas, diario y documentos compartidos entre paciente y cuidador.">
+<meta name="keywords" content="cuidado geriatrico, adulto mayor, medicacion, cuidadores, salud, app movil, recordatorios, perú">
+<meta name="author" content="CareStacks">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="CareConnect — Cuidado geriátrico organizado">
+<meta property="og:description" content="Coordina medicación, citas, diario y documentos del paciente geriátrico.">
+<meta property="og:image" content="https://landing-page-lovat-ten.vercel.app/og-cover.png">
+<meta property="og:url" content="https://landing-page-lovat-ten.vercel.app">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CareConnect — Cuidado geriátrico organizado">
+<meta name="twitter:description" content="Coordina medicación, citas, diario y documentos del paciente geriátrico.">
+
+<!-- Viewport y mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6C63A6">
+```
+
 #### 3.1.2.4. Searching Systems <a id="3124-searching-systems"></a>
+
+El alcance del MVP no incluye un buscador global, pero se definen los siguientes mecanismos de localización de contenido alineados con las tareas más frecuentes:
+
+| Pantalla | Mecanismo | Comportamiento |
+|---|---|---|
+| **Agenda** | Filtro por fecha | Selector de día con vista compacta y vista semanal. |
+| **Documentos** | Filtro por tipo | Chips: "Todos", "Recetas", "Resultados", "Informes". |
+| **Diario** | Orden cronológico inverso | Notas más recientes arriba; scroll infinito con paginación. |
+| **Notificaciones** | Filtro por estado | Tabs "No leídas" / "Todas"; acción "Marcar todas como leídas". |
+| **Compartir Perfil** | Lista de accesos activos | Ordenada por fecha de otorgamiento; acción rápida "Revocar". |
+
 #### 3.1.2.5. Navigation Systems <a id="3125-navigation-systems"></a>
 
+La aplicación móvil usa tres patrones de navegación combinados implementados con Jetpack Navigation Compose:
+
+1. **Navegación raíz (Root NavHost)** — gestiona el flujo `OnBoarding → Login/Register → Main`.
+2. **Navegación principal por pestañas (Bottom Navigation)** — accesos persistentes: Hoy · Agenda · Diario · Documentos · Perfil. La pestaña Notificaciones se accede desde el `AppTopBar` para no saturar la barra inferior.
+3. **Navegación interna de cada tab** — flujos hijos como `Diario → Nueva Nota` o `Documentos → Subir Documento`, con back stack independiente por tab.
+
+**Reglas:**
+- Solo cinco entradas en la barra inferior (siguiendo Material 3).
+- Botón "Atrás" físico/sistema respeta el back stack del tab activo.
+- Acciones rápidas se exponen mediante FAB (`Floating Action Button`) en pantallas de listas (Diario, Documentos).
+- `AppTopBar` muestra título de pantalla, ícono de notificaciones y avatar/menú.
+
+En el Landing Page, la navegación es horizontal en desktop (header sticky con anclas a secciones) y colapsa en un menú hamburguesa en breakpoint < 768 px.
+
+---
+
 ### 3.1.3. Landing Page UI Design <a id="313-landing-page-ui-design"></a>
+
+El Landing Page es el primer punto de contacto público con CareConnect. Su objetivo es comunicar la propuesta de valor, mostrar a los segmentos objetivo y conducir a la descarga de la aplicación. Está desplegado en Vercel en `https://landing-page-lovat-ten.vercel.app`.
+
 #### 3.1.3.1. Landing Page Wireframe <a id="3131-landing-page-wireframe"></a>
+
+El wireframe describe la estructura, jerarquía y bloques de contenido del Landing Page en su versión responsive (desktop ≥ 1280 px, tablet 768 px – 1279 px, mobile < 768 px). Se enfoca en estructura, no en estilos.
+
+**Bloques principales (orden de aparición vertical):**
+
+| # | Bloque | Contenido | Comportamiento responsive |
+|---|---|---|---|
+| 1 | Header sticky | Logo CareConnect, enlaces ancla (Problema, Solución, Equipo) y CTA "Descargar" | En mobile colapsa a hamburguesa. |
+| 2 | Hero | Título, subtítulo, CTA primario "Descargar App", CTA secundario "Conocer más", imagen de la app | Imagen pasa debajo del texto en mobile. |
+| 3 | Problemática | Tres tarjetas con cifras de envejecimiento, no adherencia y descoordinación | 3 columnas en desktop, 1 columna en mobile. |
+| 4 | Solución | Lista de funcionalidades (Agenda, Notificaciones, Diario, Documentos, Compartir, Autenticación) con ícono + descripción corta | Grid 3×2 en desktop, 1 columna en mobile. |
+| 5 | Segmentos objetivo | Dos cards (Cuidadores / Pacientes) con foto referencial, descripción y beneficio principal | 2 columnas en desktop, 1 columna en mobile. |
+| 6 | Equipo | Cinco cards de integrantes con foto, nombre, rol y enlaces a GitHub/LinkedIn | 5 columnas en desktop, 2 en tablet, 1 en mobile. |
+| 7 | CTA final | Banner con "Empieza a coordinar mejor el cuidado" + botón a descarga | Banner full-width siempre. |
+| 8 | Footer | Logo, enlaces a repos públicos, correo de contacto, año y derechos | 3 columnas en desktop, apilado en mobile. |
+
+![Wireframe Landing Page CareConnect](assets/landing/landing_wireframe.png)
+
+*Figura 23. Wireframe del Landing Page de CareConnect — versión desktop.*
+
 #### 3.1.3.2. Landing Page Mock-up <a id="3132-landing-page-mock-up"></a>
+
+El mockup aplica al wireframe la guía de estilo descrita en §3.1.1.1: paleta morada CareConnect (`#6C63A6` como Primary), tipografía Sans-Serif con la escala Material 3, espaciado en múltiplos de 4 px (16 / 24 / 40 / 56 px), botones a 16 px de radio y cards con sombra suave sobre fondo `#FAF7F2`.
+
+**Decisiones de diseño visual:**
+- **Hero**: ilustración o screenshot de la app a la derecha, texto a la izquierda, gradiente sutil de `PrimaryLight` → `Background`.
+- **Tarjetas de problemática**: fondo `Surface`, borde `Border`, número grande en `Primary`, texto descriptivo en `TextSecondary`.
+- **Solución**: cada feature usa un ícono Material Symbols con tinte `Primary` sobre fondo `PrimaryLight` redondeado.
+- **Segmentos**: cards más anchas con foto a la izquierda y texto a la derecha; CTA secundaria interna a "Ver historia" (opcional).
+- **Equipo**: foto circular, nombre en `titleMedium`, rol en `bodySmall` con `TextSecondary`, iconos sociales pequeños en `IconMuted`.
+- **CTA final**: banner full-bleed con fondo `Primary` y texto blanco; botón de fondo `Surface` con texto `Primary`.
+
+**URL de producción:** `https://landing-page-lovat-ten.vercel.app`
+
+![Mockup Landing Page CareConnect — Hero y problemática](assets/landing/landing_mockup_hero.png)
+
+*Figura 24. Mockup del Landing Page de CareConnect — hero y sección problemática.*
+
+![Mockup Landing Page CareConnect — Solución y segmentos](assets/landing/landing_mockup_solucion.png)
+
+*Figura 25. Mockup del Landing Page de CareConnect — solución, segmentos y equipo.*
 
 ### 3.1.4. Mobile Applications UX/UI Design <a id="314-mobile-applications-uxui-design"></a>
 #### 3.1.4.1. Mobile Applications Wireframes <a id="3141-mobile-applications-wireframes"></a>
+
+Con los bounded context que establecimos y los user stories, realizamos los siguientes wireframes para las pantallas de nuestra aplicación.
+
+
+IAM: Pantallas para la verificación e ingreso del usuario
+
+![alt text](assets/wireframes/bienvenida.png)
+
+![alt text](assets/wireframes/iniciarSesión.png)
+
+![alt text](assets/wireframes/Crearcuenta.png)
+
+![alt text](assets/wireframes/Inicio_paci.png)
+
+![alt text](assets/wireframes/InicioCuida.png)
+
+Agenda: Pantallas para el calendario de eventos que el paciente debe seguir
+
+![alt text](assets/wireframes/Agenda1.png)
+
+![alt text](assets/wireframes/Agenda2.png)
+
+![alt text](assets/wireframes/Agenda3.png)
+
+Notificaciones: Pantallas para los diferentes mensajes que recibe el cuidador y paciente
+
+![alt text](assets/wireframes/notificaciones_pac.png)
+
+
+![alt text](assets/wireframes/notificaciones_cuid.png)
+
+
+Gestión de Consentimiento: Pantallas para darle permisos para que el paciente le de permiso al cuidado
+
+![alt text](assets/wireframes/Perfil_cuidador.png)
+
+![alt text](assets/wireframes/compartirPerfil.png)
+
+![alt text](assets/wireframes/Perfil_cuidador.png)
+
+Documentos: Pantallas para el ingreso de documentos para el historial medico del paciente
+
+![alt text](assets/wireframes/Documentos_pacie.png)
+
+![alt text](assets/wireframes/DocumentosCuidador.png)
+
+![alt text](assets/wireframes/SubirDocu.png)
+
+Diario: Pantallas para visualizar las notas del progreso y mejora del paciente
+
+![alt text](assets/wireframes/Diario_cuidador.png)
+
+![alt text](assets/wireframes/Diario_nota.png)
+
+![alt text](assets/wireframes/Diario_paci.png)
+
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams <a id="3142-mobile-applications-wireflow-diagrams"></a>
+
+Task Flow 1: Autenticación y acceso por rol
+
+Objetivo: Registrar una cuenta nueva y validar el ingreso a la plataforma según el rol del usuario (Paciente o Cuidador).
+
+Pasos del Task Flow:
+
+1. El usuario abre la app y visualiza la pantalla de bienvenida con las opciones de inicio.
+2. Selecciona "Crear cuenta" e ingresa nombre, correo electrónico y contraseña.
+3. Elige su rol: Paciente o Cuidador, y acepta los términos de servicio.
+4. El sistema valida los datos; si el correo ya existe muestra el error correspondiente.
+5. El usuario inicia sesión; el sistema valida el rol y redirige al home correspondiente.
+6. Intentar acceder a secciones sin permiso bloquea el acceso con mensaje de restricción.
+
+User Goal 1: Como usuario, quiero crear mi cuenta para acceder a la plataforma. 
+
+![alt text](assets/user_goals/UserGoal1.png)
+
+User Goal 2: Como usuario, quiero iniciar sesión y ver la vista según mi rol.
+
+![alt text](assets/user_goals/UserGoal2.png)
+
+Task Flow 2: Gestión de agenda
+
+Objetivo: Registrar y confirmar eventos de salud (medicaciones y citas médicas) en el calendario personal.
+
+Pasos del Task Flow:
+
+1. El paciente o cuidador accede a la sección "Agenda" desde el menú inferior.
+2. Visualiza el calendario mensual con los eventos ya registrados.
+3. Toca "+ Agregar evento" y completa tipo, nombre, fecha, hora y descripción.
+4. Si omite campos obligatorios, el sistema muestra un mensaje de error de validación.
+5. El evento se guarda y aparece en el calendario en la fecha correspondiente.
+6. El paciente accede al detalle y confirma el evento; el estado cambia a "Confirmado".
+7. Si necesita modificar la fecha, reprograma; el sistema verifica conflictos de horario.
+
+User Goal 3: Como paciente o cuidador, quiero registrar un evento de salud en el calendario.
+
+![alt text](assets/user_goals/UserGoal3.png)
+
+User Goal 4: Como paciente, quiero confirmar o reprogramar un evento de salud.
+
+![alt text](assets/user_goals/UserGoal4.png)
+
+
+
+Task Flow 3: Notificaciones y alertas
+
+
+Objetivo: Recibir recordatorios automáticos de eventos programados, alertas de incumplimiento para cuidadores y gestionar el historial de notificaciones.
+
+Pasos del Task Flow:
+
+1. El sistema detecta que un evento está próximo y envía un recordatorio al paciente.
+2. El paciente recibe la notificación con nombre, hora y tipo del evento.
+3. Si el evento no es confirmado en el tiempo límite, el sistema genera una alerta urgente.
+4. El cuidador con permisos recibe la alerta de incumplimiento y puede resolver.
+5. Paciente y cuidador pueden acceder al historial completo, ordenado por fecha o prioridad.
+
+User Goal 5: Como paciente, quiero recibir recordatorios y visualizar mis notificaciones.
+
+![alt text](assets/user_goals/UserGoal5.png)
+
+
+User Goal 6: Como cuidador, quiero recibir y gestionar alertas de incumplimiento del paciente.
+
+![alt text](assets/user_goals/UserGoal6.png)
+
+Task Flow 4: Gestión de documentos médicos
+
+Objetivo: Subir, consultar y compartir documentos médicos de forma segura entre paciente y cuidador autorizado.
+
+Pasos del Task Flow:
+
+1. El paciente o cuidador accede a la sección "Documentos" desde el menú.
+2. Visualiza la lista de documentos almacenados (analíticas, recetas, informes).
+3. Toca "Subir documento", selecciona el archivo (PDF, JPG, PNG hasta 10MB) y completa el tipo y descripción.
+4. Si el formato o tamaño no es válido, el sistema muestra un mensaje de error.
+5. El documento se almacena y aparece en la lista con fecha y tipo.
+6. El cuidador con acceso autorizado consulta los documentos del paciente asignado.
+7. Si no tiene permisos, el acceso es bloqueado con mensaje de restricción.
+
+User Goal 7: Como paciente o cuidador, quiero subir y consultar documentos médicos. 
+
+![alt text](assets/user_goals/UserGoal7.png)
+
+User Goal 8: Como cuidador, quiero acceder a los documentos compartidos del paciente.
+
+![alt text](assets/user_goals/UserGoal8.png)
+
+Task Flow 5: Diario de seguimiento
+
+Objetivo: Registrar notas de bienestar diario y permitir al cuidador autorizado consultar el historial compartido del paciente.
+
+Pasos del Task Flow:
+
+1. El paciente o cuidador accede a la sección "Diario" desde el menú.
+2. Visualiza el historial de notas registradas, ordenadas por fecha y autor.
+3. Toca "+ Nueva nota" e ingresa un título opcional y el contenido de la nota.
+4. Si intenta guardar una nota vacía, el sistema muestra un mensaje de error.
+5. La nota se guarda y aparece en el diario con fecha, autor y etiquetas de estado.
+6. El cuidador con acceso autorizado puede consultar el diario compartido del paciente.
+
+
+User Goal 9: Como paciente o cuidador, quiero escribir y ver notas en el diario. 
+
+![alt text](assets/user_goals/UserGoal9.png)
+
+Task Flow 6: Acceso compartido y gestión de perfil
+
+Objetivo: El paciente comparte su perfil con un cuidador, define los permisos de acceso y puede revocarlos en cualquier momento.
+
+Pasos del Task Flow:
+
+1. El paciente accede a "Perfil" y selecciona la opción "Compartir perfil".
+2. Ingresa el correo del cuidador y selecciona los permisos: Agenda, Documentos, Diario.
+3. Si el correo no pertenece a un usuario registrado, el sistema muestra "usuario no existe".
+4. El cuidador autorizado puede consultar el perfil compartido del paciente.
+5. Si el cuidador no tiene permisos válidos, el acceso es bloqueado con mensaje de restricción.
+6. El paciente puede revocar el acceso desde "Gestionar accesos"; el cuidador pierde los privilegios inmediatamente.
+
+User Goal 10: Como paciente, quiero compartir mi perfil con un cuidador y definir permisos.
+
+![alt text](assets/user_goals/UserGoal10.png)
+
 #### 3.1.4.3. Mobile Applications Mock-ups <a id="3143-mobile-applications-mock-ups"></a>
+Una vez terminado los wireframes, realizamos los mockups que son más cercanos a la visión final de las pantallas que vamos a implementar
+
+IAM: Pantallas para la verificación e ingreso del usuario
+![alt text](assets/mockups/bienvenida.png)
+
+![alt text](assets/mockups/iniciarsesión.png)
+
+![alt text](assets/mockups/crearcuenta.png)
+
+![alt text](assets/mockups/inicio_paciente.png)
+
+![alt text](assets/mockups/inicio_cuidador.png)
+
+Agenda: Pantallas para el calendario de eventos que el paciente debe seguir
+
+![alt text](assets/mockups/Agenda1.png)
+
+![alt text](assets/mockups/Agenda2.png)
+
+![alt text](assets/mockups/Agenda3.png)
+
+Notificaciones: Pantallas para los diferentes mensajes que recibe el cuidador y paciente
+
+![alt text](assets/mockups/Notificaciones_Pacien.png)
+
+![alt text](assets/mockups/Notificaciones_cuida.png)
+
+Gestión de Consentimiento: Pantallas para darle permisos para que el paciente le de permiso al cuidado
+
+![alt text](assets/mockups/perfilPaciente.png)
+
+![alt text](assets/mockups/CompartirPerfil.png)
+
+![alt text](assets/mockups/PerfilCuidador.png)
+
+
+Documentos: Pantallas para el ingreso de documentos para el historial medico del paciente
+
+![alt text](assets/mockups/Documentos_cuidado.png)
+
+![alt text](assets/mockups/Documentos.png)
+
+![alt text](assets/mockups/Documentos_subir.png)
+
+
+Diario: Pantallas para visualizar las notas del progreso y mejora del paciente
+
+![alt text](assets/mockups/DiarioPacien.png)
+
+![alt text](assets/mockups/DiarioNota.png)
+
+![alt text](assets/mockups/DiarioCuidador.png)
+
 #### 3.1.4.4. Mobile Applications User Flow Diagrams <a id="3144-mobile-applications-user-flow-diagrams"></a>
+
+User Flow 1:
+
+Relacionado con el User Goal 1: Como usuario, quiero crear mi cuenta para acceder a la plataforma. 
+
+![alt text](assets/userflow/UserFlow1.png)
+
+User Flow 2:
+
+Relacionado con el User Goal 2: Como usuario, quiero iniciar sesión y ver la vista según mi rol.
+
+![alt text](assets/userflow/UserFlow2.png)
+
+User Flow 3:
+
+Relacionado con el User Goal 3: Como paciente o cuidador, quiero registrar un evento de salud en el calendario.
+
+![alt text](assets/userflow/UserFlow3.png)
+
+User Flow 4:
+
+Relacionado con el User Goal 4: Como paciente, quiero confirmar o reprogramar un evento de salud.
+
+![alt text](assets/userflow/UserFlow4.png)
+
+User Flow 5:
+
+Relacionado con el User Goal 5: Como paciente, quiero recibir recordatorios y visualizar mis notificaciones.
+
+![alt text](assets/userflow/UserFlow5.png)
+
+User Flow 6:
+
+Relacionado con el User Goal 6: Como cuidador, quiero recibir y gestionar alertas de incumplimiento del paciente.
+
+![alt text](assets/userflow/UserFlow6.png)
+
+User Flow 7:
+
+Relacionado con el User Goal 7: Como paciente o cuidador, quiero subir y consultar documentos médicos. 
+
+![alt text](assets/userflow/UserFlow7.png)
+
+User Flow 8:
+
+Relacionado con el User Goal 8: Como cuidador, quiero acceder a los documentos compartidos del paciente.
+
+![alt text](assets/userflow/UserFlow8.png)
+
+User Flow 9:
+
+Relacionado con el User Goal 9: Como paciente o cuidador, quiero escribir y ver notas en el diario. 
+
+![alt text](assets/userflow/UserFlow9.png)
+
+User Flow 10:
+
+Relacionado con el User Goal 10: Como paciente, quiero compartir mi perfil con un cuidador y definir permisos.
+
+![alt text](assets/userflow/UserFlow10.png)
+
+
 #### 3.1.4.5. Mobile Applications Prototyping <a id="3145-mobile-applications-prototyping"></a>
 
 ---
+
+Video del Prototipo:
+
+[(![Ve el siguiente video](assets/Prototyping_miniature.png))](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315968_upc_edu_pe/IQBTpFI_EMmAQ7WjSZjKPZ4BAdee4htT3CMdUceU0VxHwnU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=aDG7l6)
+
+
+
 
 # Capítulo IV: Product Implementation & Validation
 
 ## 4.1. Product Implementation & Validation <a id="41-product-implementation--validation"></a>
 
+En esta sección se presenta la configuración general utilizada para la implementación y validación del producto **CareConnect**, una aplicación móvil desarrollada por la startup **CareStacks** y orientada a la gestión del cuidado geriátrico. El objetivo de esta etapa es establecer las herramientas, procesos y lineamientos técnicos necesarios para construir una solución funcional, organizada y alineada con los requerimientos definidos en los capítulos anteriores.
+
+CareConnect busca facilitar la coordinación entre pacientes geriátricos y cuidadores mediante funcionalidades como la gestión de eventos de salud, recordatorios, alertas, documentos médicos, diario de seguimiento y acceso compartido a la información del paciente. Para lograrlo, el producto se estructura en diferentes módulos o bounded contexts: **Agenda**, **Notificaciones**, **Documentos**, **Gestión de Consentimiento**, **Diario de Seguimiento** y **Autenticación**.
+
+La implementación del producto considera una aplicación móvil, servicios backend RESTful, almacenamiento local para soporte offline, base de datos relacional y servicios externos para notificaciones y autenticación. Esta organización permite que el sistema sea modular, mantenible y preparado para futuras mejoras.
+
+---
 ### 4.1.1. Software Configuration Management <a id="411-software-configuration-management"></a>
+
+La gestión de configuración de software comprende el conjunto de herramientas, convenciones y procesos utilizados para desarrollar, controlar, integrar y desplegar el producto CareConnect. Esta gestión permite que el equipo trabaje de forma ordenada, mantenga trazabilidad sobre los cambios realizados y reduzca errores durante la implementación.
+
+Para CareConnect, la configuración de software se organizó en cuatro aspectos principales:
+
+- Configuración del entorno de desarrollo.
+- Gestión del código fuente.
+- Guía de estilo y convenciones de código.
+- Configuración para despliegue de la solución.
+
+Estos elementos permiten mantener una base técnica sólida durante el desarrollo de la aplicación móvil, el backend y los demás componentes del ecosistema del producto.
+
+---
+
+
 #### 4.1.1.1. Software Development Environment Configuration <a id="4111-software-development-environment-configuration"></a>
+
+El entorno de desarrollo de CareConnect fue definido considerando las necesidades de una aplicación móvil conectada a servicios backend, con almacenamiento local, notificaciones push y manejo de información sensible del paciente. El objetivo fue que todos los integrantes del equipo puedan trabajar en condiciones similares y ejecutar el proyecto sin depender de configuraciones individuales desordenadas.
+
+### Herramientas utilizadas
+
+| Herramienta | Propósito dentro del proyecto |
+|---|---|
+| Android Studio | Entorno principal para desarrollar, ejecutar y depurar la aplicación móvil. |
+| Kotlin | Lenguaje utilizado para implementar la aplicación móvil nativa en Android. |
+| Jetpack Compose | Framework declarativo de UI usado para construir todas las pantallas del cliente móvil. |
+| Java 21 | Lenguaje utilizado en el backend bajo Spring Boot 4.0.6. |
+| Spring Boot 4.0.6 | Framework principal del backend; expone una API REST documentada con OpenAPI. |
+| Spring Data JPA / Hibernate | Mapeo objeto-relacional para persistencia de entidades de cada bounded context. |
+| Spring Security | Configuración de autenticación, hashing de contraseñas y validación de sesión. |
+| MySQL 8 | Motor de base de datos relacional del backend (perfil `dev` y `prod`). |
+| H2 | Motor en memoria utilizado en las pruebas automatizadas del backend. |
+| Room / SQLite | Almacenamiento local en el dispositivo móvil para soporte offline (caché de pantallas). |
+| Firebase Cloud Messaging | Servicio para el envío y recepción de notificaciones push. |
+| SendGrid | Servicio externo para el envío de correos electrónicos transaccionales. |
+| Vercel | Hosting estático del Landing Page con CI/CD automático por push. |
+| Git | Sistema de control de versiones utilizado por el equipo. |
+| GitHub | Plataforma para alojar los repositorios (`CareStacks/BackEnd`, `CareStacks/FrontEnd`, `CareStacks/Landing-Page`, `CareStacks/Report`) y gestionar la colaboración. |
+| OpenAPI / Swagger UI | Documentación y prueba de endpoints expuestos por el backend en `/swagger-ui.html`. |
+| Figma | Herramienta para diseñar wireframes, mockups y prototipos. |
+| Miro | Pizarra colaborativa para EventStorming, Context Mapping y Bounded Context Canvases. |
+| Structurizr | Herramienta para los diagramas C4 (Context, Container, Component y Deployment). |
+
+### Configuración del entorno móvil
+
+La aplicación móvil se desarrolla utilizando Android Studio como entorno principal. Este entorno permite implementar pantallas, conectar la interfaz con la lógica de negocio, ejecutar pruebas en emuladores y validar funcionalidades en dispositivos físicos.
+
+| Elemento | Descripción |
+|---|---|
+| Android SDK | Permite compilar y ejecutar la aplicación en dispositivos Android. |
+| Emulador Android | Facilita la prueba de la aplicación sin depender únicamente de dispositivos físicos. |
+| Dispositivo físico Android | Permite validar funcionalidades reales como notificaciones, rendimiento y almacenamiento local. |
+| Gradle | Herramienta utilizada para la compilación y gestión de dependencias. |
+| Room / SQLite | Permite almacenar datos relevantes de forma local para acceso offline. |
+
+### Configuración del backend
+
+El backend de CareConnect es un servicio Spring Boot único (no disgregado) que concentra los seis bounded contexts del dominio en módulos internos: Agenda, Notificaciones, Documentos, Gestión de Consentimiento, Diario de Seguimiento y Autenticación (IAM). Cada módulo sigue la organización por capas Domain / Application / Infrastructure / Interfaces.
+
+| Elemento | Descripción |
+|---|---|
+| Spring Boot 4.0.6 | Framework principal del backend; arranca el contenedor embebido y expone la API REST en el puerto 8080. |
+| Java 21 | Lenguaje del backend. |
+| Maven | Herramienta de construcción y gestión de dependencias (`pom.xml`). |
+| MySQL 8 | Base de datos relacional para los entornos de desarrollo y producción. |
+| H2 | Base de datos en memoria utilizada en las pruebas automatizadas. |
+| Spring Data JPA / Hibernate | ORM para mapear las entidades del dominio a tablas. `ddl-auto: update` en `dev`. |
+| Spring Security | Configuración de seguridad (hashing BCrypt, filtros, validación de sesión). |
+| Springdoc OpenAPI | Documentación viva en `/swagger-ui.html` y especificación en `/v3/api-docs`. |
+
+### Configuración de servicios externos
+
+CareConnect utiliza servicios externos para funcionalidades complementarias que fortalecen la experiencia del usuario y evitan implementar desde cero componentes ya existentes.
+
+| Servicio externo | Uso dentro de CareConnect |
+|---|---|
+| Firebase Cloud Messaging | Envío de recordatorios, alertas y notificaciones push. |
+| SendGrid | Envío de correos electrónicos como recuperación de cuenta o invitaciones. |
+| Google Sign-In / Identity Provider | Soporte para autenticación externa. |
+| Firebase App Distribution | Distribución de versiones de prueba de la aplicación móvil. |
+
+### Requisitos mínimos del entorno
+
+| Recurso | Requisito recomendado |
+|---|---|
+| Sistema operativo | Windows 10/11, macOS o Linux |
+| Memoria RAM | 8 GB mínimo, 16 GB recomendado |
+| Android Studio | Versión estable reciente |
+| JDK | Java 17 o superior |
+| Base de datos | PostgreSQL local o en la nube |
+| Git | Instalado y configurado con GitHub |
+| Dispositivo de prueba | Emulador Android o dispositivo físico Android |
+
+---
+
 #### 4.1.1.2. Source Code Management <a id="4112-source-code-management"></a>
+
+La gestión del código fuente se realiza mediante **Git** y **GitHub**, permitiendo registrar los cambios del proyecto, organizar el trabajo por ramas y facilitar la colaboración entre los integrantes del equipo.
+
+El uso de control de versiones permite mantener un historial de avances, identificar errores, revisar cambios antes de integrarlos y asegurar que el desarrollo del producto sea trazable durante cada sprint.
+
+### Repositorios del proyecto
+
+El proyecto puede organizarse en repositorios separados según el tipo de componente desarrollado.
+
+| Repositorio | Propósito |
+|---|---|
+| CareConnect Mobile Application | Contiene el código fuente de la aplicación móvil. |
+| CareConnect Backend Services | Contiene los servicios RESTful y la lógica de negocio del sistema. |
+| CareConnect Landing Page | Contiene el sitio web informativo del producto. |
+| CareConnect Report | Contiene la documentación del informe del proyecto. |
+
+### Estrategia de ramas
+
+Para el desarrollo de CareConnect se propone una estrategia de ramas que separa el código estable del código en desarrollo.
+
+| Rama | Propósito |
+|---|---|
+| `main` | Contiene la versión estable y validada del proyecto. |
+| `develop` | Contiene la integración de funcionalidades en desarrollo. |
+| `feature/nombre-funcionalidad` | Rama utilizada para desarrollar una funcionalidad específica. |
+| `fix/nombre-correccion` | Rama utilizada para corregir errores detectados. |
+| `release/version` | Rama utilizada para preparar una versión entregable. |
+
+### Flujo de trabajo
+
+El flujo de trabajo definido para el equipo es el siguiente:
+
+1. Crear una rama desde `develop` para una funcionalidad específica.
+2. Implementar cambios relacionados con una historia de usuario o tarea técnica.
+3. Realizar commits pequeños y descriptivos.
+4. Crear un Pull Request hacia `develop`.
+5. Revisar los cambios por parte del equipo.
+6. Integrar la rama cuando la funcionalidad esté validada.
+7. Fusionar hacia `main` cuando se tenga una versión estable.
+
+### Convención de commits
+
+Para mantener un historial claro, se utiliza una convención de mensajes de commit basada en el tipo de cambio realizado.
+
+| Tipo de commit | Uso |
+|---|---|
+| `feat:` | Nueva funcionalidad. |
+| `fix:` | Corrección de errores. |
+| `docs:` | Cambios en documentación. |
+| `style:` | Cambios de formato que no afectan la lógica. |
+| `refactor:` | Reestructuración interna del código. |
+| `test:` | Agregado o modificación de pruebas. |
+| `chore:` | Cambios de configuración o mantenimiento. |
+
+### Ejemplos de commits
+
+```bash
+feat: add health event creation screen
+feat: implement medication reminder scheduling
+fix: correct empty diary entry validation
+docs: update mobile architecture documentation
+refactor: improve notification service structure
+test: add unit tests for access validation
+chore: configure firebase messaging dependency
+```
+
+### Gestión de Pull Requests
+
+Los Pull Requests permiten revisar y validar los cambios antes de integrarlos a la rama principal de desarrollo. Cada Pull Request debe incluir una descripción breve, evidencia de funcionamiento y referencia a la historia de usuario o tarea técnica correspondiente.
+
+| Elemento | Descripción |
+|---|---|
+| Título claro | Indica la funcionalidad o corrección realizada. |
+| Descripción | Explica brevemente qué se implementó. |
+| Evidencia | Incluye capturas, pruebas o resultados de ejecución. |
+| Rama destino | Normalmente `develop`. |
+| Revisión | Validación por parte de al menos un integrante del equipo. |
+
+---
+
+
 #### 4.1.1.3. Source Code Style Guide & Conventions <a id="4113-source-code-style-guide--conventions"></a>
+
+Las convenciones de estilo de código permiten mantener una estructura uniforme en los distintos módulos de CareConnect. Esto facilita la lectura, revisión, integración y mantenimiento del proyecto, especialmente al trabajar con varios integrantes en paralelo.
+
+CareConnect adopta una estructura basada en capas, separando responsabilidades entre **Interface**, **Application**, **Domain** e **Infrastructure**. Esta organización se alinea con el enfoque de Domain-Driven Design utilizado en el diseño del sistema.
+
+### Convenciones generales
+
+| Convención | Descripción |
+|---|---|
+| Nombres descriptivos | Las clases, métodos y variables deben indicar claramente su responsabilidad. |
+| Separación por capas | Cada componente debe ubicarse en la capa correspondiente. |
+| Bajo acoplamiento | Los módulos deben depender de abstracciones y no de implementaciones concretas. |
+| Alta cohesión | Cada clase o componente debe tener una responsabilidad clara. |
+| Código legible | Se prioriza claridad y mantenibilidad. |
+| Comentarios útiles | Se comentan decisiones importantes, no código evidente. |
+
+### Organización por capas
+
+| Capa | Responsabilidad |
+|---|---|
+| Domain | Contiene entidades, value objects, aggregate roots, domain services, repositories y domain events. |
+| Application | Contiene commands, queries, handlers, DTOs y casos de uso. |
+| Interface | Contiene activities, fragments, viewmodels, controllers o elementos de presentación. |
+| Infrastructure | Contiene DAOs, entidades de persistencia, adaptadores externos, mappers y configuraciones. |
+
+### Convenciones de nombres
+
+| Tipo de componente | Convención | Ejemplo |
+|---|---|---|
+| Activity | PascalCase + `Activity` | `AgendaActivity` |
+| Fragment | PascalCase + `Fragment` | `CalendarFragment` |
+| ViewModel | PascalCase + `ViewModel` | `AgendaViewModel` |
+| Command | PascalCase + `Command` | `CreateEventCommand` |
+| Handler | PascalCase + `Handler` | `CreateEventHandler` |
+| Query | PascalCase + `Query` | `GetEventsQuery` |
+| DTO | PascalCase + `DTO` | `EventDTO` |
+| Repository | PascalCase + `Repository` | `AgendaRepository` |
+| DAO | PascalCase + `Dao` | `EventDao` |
+| Mapper | PascalCase + `Mapper` | `EventMapper` |
+| Domain Event | PascalCase + `Event` | `EventCreatedEvent` |
+
+### Convenciones para Kotlin / Android
+
+| Elemento | Convención |
+|---|---|
+| Clases | PascalCase |
+| Funciones | camelCase |
+| Variables | camelCase |
+| Constantes | UPPER_SNAKE_CASE |
+| Paquetes | minúsculas, separados por punto |
+| Recursos XML | snake_case |
+| IDs de vistas | snake_case descriptivo |
+
+### Ejemplo de clase ViewModel
+
+```kotlin
+class AgendaViewModel : ViewModel() {
+    fun createHealthEvent(command: CreateEventCommand) {
+        // La lógica se coordina con la capa de aplicación
+    }
+}
+```
+
+### Ejemplo de DTO
+
+```kotlin
+data class EventDTO(
+    val id: String,
+    val title: String,
+    val date: String,
+    val status: String
+)
+```
+
+### Convenciones para endpoints REST
+
+Los endpoints deben seguir una estructura clara, utilizando sustantivos en plural y métodos HTTP según la acción realizada.
+
+| Método | Uso | Ejemplo |
+|---|---|---|
+| GET | Consultar información | `/api/events` |
+| GET | Consultar recurso por ID | `/api/events/{id}` |
+| POST | Crear recurso | `/api/events` |
+| PUT | Actualizar recurso completo | `/api/events/{id}` |
+| PATCH | Actualizar parcialmente | `/api/events/{id}/confirm` |
+| DELETE | Eliminar recurso | `/api/events/{id}` |
+
+### Endpoints por bounded context
+
+| Bounded Context | Endpoint ejemplo |
+|---|---|
+| Agenda | `/api/events` |
+| Notificaciones | `/api/notifications` |
+| Documentos | `/api/documents` |
+| Diario de Seguimiento | `/api/diary/entries` |
+| Gestión de Consentimiento | `/api/shared-profiles` |
+| Autenticación | `/api/auth/login` |
+
+### Convenciones para base de datos
+
+| Elemento | Convención | Ejemplo |
+|---|---|---|
+| Tablas | snake_case en plural | `health_events` |
+| Columnas | snake_case | `created_at` |
+| Primary Key | `id` | `id` |
+| Foreign Key | `<entity>_id` | `patient_id` |
+| Fechas | sufijo `_at` | `updated_at` |
+
+### Buenas prácticas aplicadas
+
+- Evitar lógica de negocio dentro de Activities o Fragments.
+- Utilizar ViewModels para gestionar el estado de interfaz.
+- Mantener las reglas de negocio dentro del dominio.
+- Utilizar DTOs para transferir información entre capas.
+- Usar mappers para convertir entre modelos de dominio, DTO y persistencia.
+- Validar entradas del usuario antes de procesarlas.
+- Manejar errores con mensajes claros para el usuario.
+- Evitar exponer información sensible en logs o repositorios.
+
+---
+
+
 #### 4.1.1.4. Software Deployment Configuration <a id="4114-software-deployment-configuration"></a>
+
+La configuración de despliegue describe cómo se prepara y publica la solución CareConnect para su uso en entornos de prueba o producción. Debido a que el producto incluye una aplicación móvil, backend, base de datos, landing page y servicios externos, el despliegue se organiza por componentes.
+
+### Componentes desplegables
+
+| Componente | Medio de despliegue | Descripción |
+|---|---|---|
+| Mobile Application | APK / Firebase App Distribution | Distribución de la aplicación móvil para pruebas internas. |
+| Backend RESTful API | Railway, Render, AWS o proveedor cloud similar | Despliegue del API Gateway y servicios backend. |
+| Database | PostgreSQL administrado o servidor cloud | Persistencia central de datos del sistema. |
+| Landing Page | GitHub Pages, Netlify o Vercel | Publicación del sitio web informativo. |
+| Push Notifications | Firebase Cloud Messaging | Servicio externo para envío de notificaciones push. |
+| Email Service | SendGrid | Servicio externo para correos transaccionales. |
+
+### Despliegue de la aplicación móvil
+
+La aplicación móvil se empaqueta como archivo APK para ser instalada en dispositivos Android o distribuida mediante Firebase App Distribution. Esto permite compartir versiones preliminares con integrantes del equipo y usuarios testers antes de una publicación oficial.
+
+Proceso general:
+
+1. Configurar las dependencias y servicios necesarios en el proyecto móvil.
+2. Generar una versión de prueba del APK desde Android Studio.
+3. Validar la instalación en un dispositivo físico.
+4. Subir el APK a Firebase App Distribution.
+5. Compartir la versión con usuarios testers.
+6. Recopilar feedback y registrar incidencias.
+
+### Despliegue del backend
+
+El backend se despliega como una aplicación Spring Boot en un proveedor cloud. Este servicio expone los endpoints RESTful consumidos por la aplicación móvil y se conecta con la base de datos relacional.
+
+Proceso general:
+
+1. Configurar el proyecto backend con sus dependencias.
+2. Definir variables de entorno para base de datos, servicios externos y credenciales.
+3. Construir el proyecto mediante Maven o Gradle.
+4. Desplegar el artefacto en el proveedor cloud.
+5. Verificar el estado del servicio mediante endpoints de prueba.
+6. Validar la documentación de endpoints en Swagger/OpenAPI.
+
+### Variables de entorno recomendadas
+
+| Variable | Descripción |
+|---|---|
+| `DATABASE_URL` | URL de conexión a PostgreSQL. |
+| `DATABASE_USERNAME` | Usuario de base de datos. |
+| `DATABASE_PASSWORD` | Contraseña de base de datos. |
+| `JWT_SECRET` | Clave secreta para generación de tokens. |
+| `SENDGRID_API_KEY` | Clave para integración con SendGrid. |
+| `FIREBASE_PROJECT_ID` | Identificador del proyecto Firebase. |
+| `FCM_SERVER_KEY` | Clave para envío de notificaciones push. |
+| `GOOGLE_CLIENT_ID` | Identificador para autenticación con Google. |
+
+### Despliegue de la base de datos
+
+La base de datos se configura en PostgreSQL, alojada en un servidor cloud o servicio administrado. Esta base almacena la información principal del sistema, incluyendo usuarios, eventos de salud, documentos, entradas de diario, notificaciones y accesos compartidos.
+
+Consideraciones principales:
+
+- Utilizar conexión segura mediante SSL.
+- Restringir el acceso directo a la base de datos.
+- Mantener respaldos periódicos.
+- Utilizar migraciones para cambios en la estructura.
+- Evitar exponer credenciales en el repositorio.
+
+### Despliegue de la landing page
+
+La landing page se publica como un sitio estático en una plataforma como GitHub Pages, Netlify o Vercel. Su función es presentar el producto, explicar la propuesta de valor y facilitar el contacto o acceso a la aplicación.
+
+Proceso general:
+
+1. Construir los archivos estáticos del sitio.
+2. Subir el proyecto al repositorio correspondiente.
+3. Configurar la plataforma de hosting.
+4. Validar la URL pública.
+5. Probar la visualización en escritorio y móvil.
+
+### Configuración de Firebase Cloud Messaging
+
+Firebase Cloud Messaging se utiliza para enviar notificaciones push a pacientes y cuidadores.
+
+| Paso | Descripción |
+|---|---|
+| Crear proyecto Firebase | Registrar CareConnect en Firebase Console. |
+| Registrar aplicación Android | Asociar el package name de la app móvil. |
+| Descargar configuración | Agregar `google-services.json` al proyecto móvil. |
+| Configurar dependencias | Añadir librerías necesarias para Firebase Messaging. |
+| Implementar servicio receptor | Crear el servicio que recibe notificaciones push. |
+| Probar envío | Validar recepción en un dispositivo físico. |
+
+### Entornos de despliegue
+
+| Entorno | Propósito |
+|---|---|
+| Development | Ambiente local utilizado por cada integrante para programar. |
+| Testing | Ambiente para validar funcionalidades antes de integrarlas. |
+| Staging | Ambiente similar a producción para pruebas finales. |
+| Production | Ambiente final destinado a usuarios reales. |
+
+### Criterios de validación del despliegue
+
+| Criterio | Validación |
+|---|---|
+| La app móvil instala correctamente | Se prueba en emulador y dispositivo físico. |
+| El login funciona | Se valida registro, inicio de sesión y control por rol. |
+| Los eventos de agenda se registran | Se prueba creación, consulta y confirmación de eventos. |
+| Las notificaciones llegan al dispositivo | Se valida Firebase Cloud Messaging. |
+| Los documentos se pueden cargar y consultar | Se prueba flujo de subida y visualización. |
+| El diario permite registrar notas | Se valida creación y consulta de entradas. |
+| El acceso compartido funciona | Se prueba compartir y revocar perfil. |
+| Swagger está disponible | Se verifica documentación de endpoints. |
+| La base de datos responde correctamente | Se validan operaciones de lectura y escritura. |
+| La landing page carga públicamente | Se prueba en navegador móvil y escritorio. |
+
+### Riesgos de despliegue identificados
+
+| Riesgo | Impacto | Mitigación |
+|---|---|---|
+| Fallo en configuración de Firebase | Las notificaciones no llegan al usuario. | Probar en dispositivo físico y revisar credenciales. |
+| Variables de entorno incorrectas | El backend no conecta con servicios externos. | Documentar variables y validar antes del despliegue. |
+| Base de datos inaccesible | La aplicación no puede guardar información. | Usar servicio administrado y restringir accesos. |
+| APK no compatible con algunos dispositivos | Usuarios no pueden instalar la app. | Definir versión mínima de Android y probar en distintos dispositivos. |
+| Exposición de credenciales | Riesgo de seguridad. | Usar variables de entorno y evitar subir secretos a GitHub. |
+| Errores en migraciones | Pérdida o inconsistencia de datos. | Probar migraciones en staging antes de producción. |
+
+### Conclusión de la configuración de despliegue
+
+La configuración de despliegue de CareConnect permite distribuir la aplicación móvil, exponer los servicios backend, mantener una base de datos centralizada y utilizar servicios externos para notificaciones y correos. Esta organización facilita la validación progresiva del producto, permite realizar pruebas con usuarios reales y prepara la solución para futuras iteraciones de mejora.
+
 
 ## 4.2. Landing Page & Mobile Application Implementation <a id="42-landing-page--mobile-application-implementation"></a>
 
-### 4.2.1. Sprint n <a id="421-sprint-n"></a>
-#### 4.2.1.1. Sprint Planning n <a id="4211-sprint-planning-n"></a>
-#### 4.2.1.2. Sprint Backlog n <a id="4212-sprint-backlog-n"></a>
+### 4.2.1. Sprint 1 <a id="421-sprint-1"></a>
+
+#### 4.2.1.1. Sprint Planning 1 <a id="4211-sprint-planning-1"></a>
+
+El Sprint 1 corresponde al primer ciclo de desarrollo de CareConnect y se enfoca en establecer las bases técnicas del producto: publicar la Landing Page, configurar los repositorios y los entornos de desarrollo, generar el scaffolding de la aplicación móvil Android y comenzar con la implementación del Bounded Context de Autenticación.
+
+| Sprint Planning |  |
+|---|---|
+| **Sprint #** | 1 |
+| **Sprint Planning Background** | Es el primer Sprint del proyecto. No hay implementación previa de referencia. El equipo parte del Product Backlog priorizado en 2.4.3 y de los wireframes y mockups aprobados en 3.1. |
+| **Date** | 2026-05-04 |
+| **Time** | 19:00 – 21:00 (UTC-5) |
+| **Location** | Sesión remota vía Discord |
+| **Prepared By** | Salcedo Champi, Matias Rodolfo (Product Owner / Project Manager) |
+| **Attendees (to planning meeting)** | Salcedo Champi, Matias Rodolfo · Santillan Alvarado, Melina Liz · Costa Morales, Christofer William · Nikaido Vargas, Javier Masaru · Osores Marchese, Pietro |
+| **Sprint n - 1 Review Summary** | No aplica (primer Sprint). |
+| **Sprint n - 1 Retrospective Summary** | No aplica (primer Sprint). |
+| **Sprint Goal** | Establecer las bases técnicas del producto CareConnect: publicar la Landing Page funcional, configurar los repositorios y las convenciones de trabajo, levantar el scaffolding de la aplicación móvil Android (Kotlin + Jetpack Compose) y del backend (Spring Boot), e implementar el flujo de Registro e Inicio de Sesión del Bounded Context de Autenticación. |
+| **Sprint Velocity** | 25 Story Points |
+| **Sum of Story Points** | 25 |
+
+**Definition of Done acordada para el Sprint 1:**
+- La historia o tarea está integrada a la rama `develop` mediante Pull Request aprobado por al menos un revisor distinto al autor.
+- El código pasa el linter del stack correspondiente (Ktlint para Android, Checkstyle para Spring Boot).
+- Existe al menos una prueba unitaria o instrumentada asociada cuando aplica.
+- La funcionalidad es verificable en el entorno local del equipo.
+- La documentación asociada está actualizada en el `README` del repositorio o en el informe.
+
+---
+
+#### 4.2.1.2. Sprint Backlog 1 <a id="4212-sprint-backlog-1"></a>
+
+Las historias y tareas seleccionadas para el Sprint 1 se centran en habilitar el desarrollo del resto del producto: scaffolding, Landing Page, Autenticación y los wireframes/mockups iniciales convertidos en pantallas Android.
+
+| Sprint | User Story ID | Título | Tarea técnica asociada | Description | Estimation (SP) | Assigned To | Status |
+|---|---|---|---|---|---|---|---|
+| 1 | US10 | Registrar cuenta | T-US10-01: Diseñar pantalla de registro en Jetpack Compose | Implementar el formulario de registro con validaciones de email y contraseña en la app móvil. | 2 | Santillan Alvarado, Melina Liz | Done |
+| 1 | US10 | Registrar cuenta | T-US10-02: Endpoint `POST /api/v1/auth/register` en backend | Crear el endpoint REST de registro con hashing bcrypt y persistencia en PostgreSQL. | 3 | Nikaido Vargas, Javier Masaru | In Progress |
+| 1 | US11 | Validar acceso por rol | T-US11-01: Pantalla de login con Compose | Implementar la pantalla de login con manejo de errores. | 2 | Santillan Alvarado, Melina Liz | Done |
+| 1 | US11 | Validar acceso por rol | T-US11-02: Endpoint `POST /api/v1/auth/login` con JWT | Generar token JWT firmado tras autenticación exitosa. | 3 | Nikaido Vargas, Javier Masaru | In Progress |
+| 1 | — | Landing Page MVP | T-LP-01: Estructurar landing en HTML5 + CSS3 + JS responsivo | Hero, secciones de problemática, solución, segmentos objetivo, integrantes y CTA. | 3 | Osores Marchese, Pietro | Done |
+| 1 | — | Landing Page MVP | T-LP-02: Deploy en Vercel/GitHub Pages | Configurar dominio público y dejar URL accesible al stakeholder. | 1 | Osores Marchese, Pietro | Done |
+| 1 | — | Setup técnico | T-SET-01: Crear repos `BackEnd`, `FrontEnd`, `Landing-Page`, `Report` con sus `README` | Inicializar repositorios en la organización GitHub `CareStacks`. | 1 | Salcedo Champi, Matias Rodolfo | Done |
+| 1 | — | Setup técnico | T-SET-02: Definir GitFlow (`main`, `develop`, `docs/*`, `feature/*`) y CODEOWNERS | Documentar el flujo de ramas y la política de revisión. | 1 | Salcedo Champi, Matias Rodolfo | Done |
+| 1 | — | Setup técnico | T-SET-03: Configurar proyecto Android (Compose, theme, navegación base) | Scaffolding del proyecto móvil con tema y arquitectura inicial por capas. | 2 | Santillan Alvarado, Melina Liz | Done |
+| 1 | — | Setup técnico | T-SET-04: Configurar proyecto Spring Boot inicial | `pom.xml`/`build.gradle`, perfiles `local`/`prod`, conexión inicial a PostgreSQL. | 2 | Nikaido Vargas, Javier Masaru | In Progress |
+| 1 | — | Setup técnico | T-SET-05: Configurar Swagger / OpenAPI en backend | Exponer documentación viva en `/swagger-ui.html`. | 1 | Nikaido Vargas, Javier Masaru | To Do |
+| 1 | — | Wireframes a pantallas | T-WF-01: Implementar pantallas de Bienvenida, Login y Registro a partir de los wireframes | Convertir los wireframes de §3.1.4 en Composables navegables. | 2 | Costa Morales, Christofer William | Done |
+| 1 | SP01 | Spike push offline-first | Investigar FCM vs. AlarmManager local | Documentar la comparativa y recomendar la estrategia de notificaciones push para el producto. | 2 | Costa Morales, Christofer William | Done |
+
+**Total comprometido:** 25 SP.
+
+---
+
 #### 4.2.1.3. Development Evidence for Sprint Review <a id="4213-development-evidence"></a>
+
+La evidencia de desarrollo del Sprint 1 se compone de los commits realizados en los repositorios de la organización `CareStacks` durante el periodo del Sprint (del 2026-05-04 al 2026-05-15). Se trabaja bajo **Conventional Commits** (`feat:`, `fix:`, `docs:`, `chore:`, `merge:`).
+
+**Backend (`CareStacks/BackEnd`)**
+
+| Branch | Commit ID | Commiteado por | Fecha | Mensaje |
+|---|---|---|---|---|
+| `main` | `12eebaa` | Pietro Osores | 2026-05-13 | Merge pull request #1 from CareStacks/develop |
+| `develop` | `e972326` | Pietro Osores | 2026-05-13 | Merge branch 'main' into develop |
+| `develop` | `4748cb3` | Pietro Osores | 2026-05-13 | chore(project): Remove obsolete pom backup |
+| `develop` | `07c3462` | Pietro Osores | 2026-05-13 | docs(readme): Update backend overview |
+| `develop` | `af07d41` | Pietro Osores | 2026-05-13 | chore(swagger): Update OpenAPI bounded context description |
+| `feature/diary` | `accdd61` | Pietro Osores | 2026-05-13 | feat(diary): Complete patient diary endpoints |
+| `feature/diary` | `682d1b4` | Pietro Osores | 2026-05-13 | merge(feature/diary): integrate diary bounded context |
+| `feature/notifications` | `a081923` | Pietro Osores | 2026-05-13 | merge(feature/notifications): integrate notifications bounded context |
+| `feature/agenda` | `44bf376` | Pietro Osores | 2026-05-13 | merge(feature/agenda): integrate agenda bounded context |
+| `feature/iam` | `51e08c7` | Pietro Osores | 2026-05-13 | feat(iam): Complete session validation and account locking |
+| `feature/iam` | `518c278` | Pietro Osores | 2026-05-13 | merge(feature/iam): integrate IAM bounded context |
+| `feature/documents` | `e51efd3` | Pietro Osores | 2026-05-13 | feat(documents): Complete medical documents bounded context |
+| `feature/documents` | `a5f7fea` | Pietro Osores | 2026-05-13 | merge(feature/documents): integrate documents bounded context |
+| `develop` | `50720e0` | Pietro Osores | 2026-05-12 | fix: configure MySQL password in application.yml |
+| `develop` | `a6e54f4` | Pietro Osores | 2026-05-12 | chore: update project configuration and add README |
+| `develop` | `e13ca56` | Pietro Osores | 2026-05-12 | feat(agenda): add agenda bounded context |
+
+**FrontEnd (`CareStacks/FrontEnd`)**
+
+| Branch | Commit ID | Commiteado por | Fecha | Mensaje |
+|---|---|---|---|---|
+| `main` | `1a5d1c0` | Pietro Osores | 2026-05-15 | feat: Replace app icon with CareConnect logo |
+| `feature/perfil-screen` | `38273ef` | Pietro Osores | 2026-05-15 | feat: Add profile sharing screens |
+| `hotfix/header-position` | `ff6160d` | Pietro Osores | 2026-05-14 | fix: Correct app header positioning |
+| `feature/nueva-nota-screen` | `8bc3598` | Pietro Osores | 2026-05-14 | feat: Add new diary note screen |
+| `feature/diario-screen` | `c2b5f0d` | Pietro Osores | 2026-05-14 | feat: Add cached diary screen |
+| `feature/subir-documento-screen` | `9de06af` | Pietro Osores | 2026-05-14 | feat: Add document upload screen |
+| `feature/notificaciones-screen` | `651e20c` | Pietro Osores | 2026-05-14 | feat: Add cached notifications screen |
+| `feature/documentos-screen` | `6fb1a67` | Pietro Osores | 2026-05-14 | feat: Add cached documents screen |
+| `feature/Agenda` | `ea283ef` | Melina Santillan | 2026-05-14 | feat: configure main navigation and UI foundation |
+| `main` | `43d1925` | Melina Santillan | 2026-05-12 | chore: set up main activity with app theme |
+| `main` | `69bb347` | Melina Santillan | 2026-05-12 | feat: add base UI theme and reusable components |
+| `main` | `e75d0b6` | Melina Santillan | 2026-05-10 | feat: initial Android app setup |
+
+**Landing Page (`CareStacks/Landing-Page`)**
+
+| Branch | Commit ID | Commiteado por | Fecha | Mensaje |
+|---|---|---|---|---|
+| `main` | `c6dac1e` | Equipo CareStacks | 2026-05-15 | feat(add): add deployment link |
+| `main` | `264b0d4` | Equipo CareStacks | 2026-05-15 | feat: init repository |
+| `main` | `2462c38` | Equipo CareStacks | 2026-05-04 | Initial commit |
+
+> *Stack:* React 19 + Vite + TypeScript. Despliegue automático en Vercel (`https://landing-page-lovat-ten.vercel.app`) por cada push a `main`.
+
+**Report (`CareStacks/Report`)**
+
+| Branch | Commit ID | Commiteado por | Fecha | Mensaje |
+|---|---|---|---|---|
+| `develop` | `bda826a` | Equipo CareStacks | 2026-05-15 | Merge remote-tracking branch 'origin/docs/capitulo-4' into develop |
+| `docs/capitulo-4` | `1d4a634` | Equipo CareStacks | 2026-05-15 | docs: Added Prototyping video and user flow diagrams |
+| `develop` | `72f9349` | Equipo CareStacks | 2026-05-15 | Merge remote-tracking branch 'origin/docs/capitulo-4' into develop |
+| `main` | `05eae23` | miniChorri | 2026-04-24 | docs: Added jpeg image in profile |
+
+---
+
 #### 4.2.1.4. Testing Suite Evidence for Sprint Review <a id="4214-testing-suite-evidence"></a>
+
+Para el Sprint 1 se contemplan pruebas unitarias e instrumentadas mínimas que validen el scaffolding y los primeros endpoints implementados.
+
+| Test ID | Tipo | Componente | Descripción | Resultado esperado | Estado |
+|---|---|---|---|---|---|
+| T01 | Unit (JUnit) | `BackEnd / AuthService` | Validar que el registro de un usuario hashea correctamente la contraseña con bcrypt. | Hash distinto a la contraseña en plano y verificable. | No implementado en este Sprint |
+| T02 | Unit (JUnit) | `BackEnd / AuthService` | Validar que un login con credenciales correctas retorna un JWT con `sub` y `exp`. | JWT válido y firmado. | No implementado en este Sprint |
+| T03 | Unit (JUnit) | `BackEnd / AuthController` | Validar que un registro con email duplicado retorna `409 Conflict`. | Respuesta HTTP 409 y cuerpo con mensaje. | No implementado en este Sprint |
+| T04 | Instrumented (Compose UI Test) | `FrontEnd / LoginScreen` | Validar que el botón de login se deshabilita cuando los campos están vacíos. | Botón deshabilitado y mensaje guía visible. | Done |
+| T05 | Instrumented (Compose UI Test) | `FrontEnd / RegisterScreen` | Validar que un email mal formado muestra error de validación. | Error visible y submit bloqueado. | Done |
+| T06 | Smoke | `Landing-Page` | Validar que la URL pública retorna HTTP 200 y la sección "Solución" es visible. | 200 OK y elemento `#solucion` renderizado. | Done |
+
+**Cobertura objetivo (Sprint 1):** ≥ 40% en módulos de Autenticación. La medición se actualizará al cierre del Sprint mediante JaCoCo (backend) y el reporte de cobertura de Android Studio (frontend).
+
+---
+
 #### 4.2.1.5. Execution Evidence for Sprint Review <a id="4215-execution-evidence"></a>
+
+A continuación se documenta la evidencia de ejecución de los entregables del Sprint 1.
+
+**Landing Page publicada:**
+
+- URL pública: `https://landing-page-lovat-ten.vercel.app`
+- Contenido: hero con propuesta de valor, sección de problemática con citas, segmentos objetivo, integrantes y CTA hacia descarga del APK.
+
+![Landing Page - Hero](assets/sprint1/landing_hero.png)
+
+*Figura 17. Landing Page de CareConnect en producción — sección hero.*
+
+**Aplicación móvil — pantallas implementadas:**
+
+![Pantalla de Bienvenida](assets/sprint1/mobile_welcome.png)
+
+*Figura 18. Pantalla de bienvenida de CareConnect Mobile.*
+
+![Pantalla de Login](assets/sprint1/mobile_login.png)
+
+*Figura 19. Pantalla de login con validaciones en línea.*
+
+![Pantalla de Registro](assets/sprint1/mobile_register.png)
+
+*Figura 20. Pantalla de registro de cuenta.*
+
+**Backend — ejecución local:**
+
+![Swagger UI - Auth endpoints](assets/sprint1/swagger_auth.png)
+
+*Figura 21. Documentación viva de los endpoints de Autenticación expuesta vía Swagger UI en `http://localhost:8080/swagger-ui.html`.*
+
+---
+
 #### 4.2.1.6. Services Documentation Evidence for Sprint Review <a id="4216-services-documentation-evidence"></a>
+
+El backend de CareConnect expone su documentación viva mediante **OpenAPI 3 / Swagger UI** (`http://localhost:8080/swagger-ui.html`). Durante el Sprint 1 se cerraron los endpoints de los cinco bounded contexts implementados en el repositorio `CareStacks/BackEnd`. Cada controller está bajo `*/interfaces/*Controller.java`.
+
+**Autenticación (IAM) — `AuthController` — base path `/api/auth`**
+
+| Método | Path | Descripción |
+|---|---|---|
+| `POST` | `/api/auth/register` | Crea una nueva cuenta de usuario (paciente o cuidador). |
+| `POST` | `/api/auth/login` | Autentica al usuario y devuelve un JWT firmado. |
+| `POST` | `/api/auth/logout` | Invalida la sesión activa del usuario. |
+| `GET` | `/api/auth/me` | Retorna los datos del usuario autenticado. |
+| `GET` | `/api/auth/validate` | Valida si la sesión actual está activa. |
+
+**Agenda — `AgendaController` — base path `/api/agenda`**
+
+| Método | Path | Descripción |
+|---|---|---|
+| `POST` | `/api/agenda` | Registra un nuevo evento de salud. |
+| `GET` | `/api/agenda` | Lista todos los eventos de salud. |
+| `GET` | `/api/agenda/patient/{patientId}` | Lista los eventos de un paciente. |
+| `GET` | `/api/agenda/date` | Filtra eventos por fecha. |
+| `GET` | `/api/agenda/{id}` | Obtiene el detalle de un evento. |
+| `PUT` | `/api/agenda/{id}` | Actualiza un evento de salud. |
+| `PATCH` | `/api/agenda/{id}/confirm` | Marca un evento como confirmado. |
+| `PATCH` | `/api/agenda/{id}/reschedule` | Reprograma un evento. |
+| `PATCH` | `/api/agenda/{id}/cancel` | Cancela un evento. |
+| `DELETE` | `/api/agenda/{id}` | Elimina un evento. |
+
+**Notificaciones — `NotificationController` — base path `/api/notifications`**
+
+| Método | Path | Descripción |
+|---|---|---|
+| `POST` | `/api/notifications` | Crea una notificación. |
+| `POST` | `/api/notifications/reminders` | Genera un recordatorio asociado a un evento. |
+| `GET` | `/api/notifications` | Lista todas las notificaciones. |
+| `GET` | `/api/notifications/recipient/{recipientId}` | Lista las notificaciones de un destinatario. |
+| `GET` | `/api/notifications/recipient/{recipientId}/unread` | Lista las notificaciones no leídas. |
+| `GET` | `/api/notifications/{id}` | Detalle de una notificación. |
+| `PATCH` | `/api/notifications/{id}/send` | Marca como enviada. |
+| `PATCH` | `/api/notifications/{id}/read` | Marca como leída. |
+| `PATCH` | `/api/notifications/read-all` | Marca todas como leídas. |
+| `PATCH` | `/api/notifications/{id}/cancel` | Cancela una notificación. |
+| `DELETE` | `/api/notifications/{id}` | Elimina una notificación. |
+| `POST` | `/api/notifications/alerts` | Genera una alerta. |
+| `GET` | `/api/notifications/alerts/active` | Lista las alertas activas. |
+| `PATCH` | `/api/notifications/alerts/{id}/resolve` | Resuelve una alerta. |
+| `GET` | `/api/notifications/preferences/{recipientId}` | Lee las preferencias del destinatario. |
+| `PUT` | `/api/notifications/preferences/{recipientId}` | Actualiza las preferencias del destinatario. |
+
+**Documentos — `DocumentController` — base path `/api/documents`**
+
+| Método | Path | Descripción |
+|---|---|---|
+| `POST` | `/api/documents` | Crea un documento médico. |
+| `GET` | `/api/documents` | Lista todos los documentos. |
+| `GET` | `/api/documents/patient/{patientId}` | Documentos de un paciente. |
+| `GET` | `/api/documents/{id}` | Detalle de un documento. |
+| `POST` | `/api/documents/{medicalDocumentId}/items` | Adjunta un item al documento. |
+| `GET` | `/api/documents/{medicalDocumentId}/items/{documentItemId}` | Lee un item del documento. |
+| `DELETE` | `/api/documents/{medicalDocumentId}/items/{documentItemId}` | Elimina un item del documento. |
+| `DELETE` | `/api/documents/{id}` | Elimina el documento completo. |
+
+**Diario de Seguimiento — `DiaryController` — base path `/api/diary`**
+
+| Método | Path | Descripción |
+|---|---|---|
+| `POST` | `/api/diary` | Crea una nota de diario. |
+| `GET` | `/api/diary` | Lista todas las notas. |
+| `GET` | `/api/diary/{id}` | Detalle de una nota. |
+| `GET` | `/api/diary/patient/{patientId}` | Notas de un paciente. |
+| `PUT` | `/api/diary/{id}` | Actualiza una nota. |
+| `DELETE` | `/api/diary/{id}` | Elimina una nota. |
+
+**Convenciones del API:**
+- Versionado por recurso bajo `/api/<recurso>`.
+- Autenticación mediante JWT con cabecera `Authorization: Bearer <token>`.
+- Errores en formato Problem Details (RFC 7807).
+- Documentación viva accesible en `/swagger-ui.html` y especificación OpenAPI en `/v3/api-docs`.
+
+---
+
 #### 4.2.1.7. Software Deployment Evidence for Sprint Review <a id="4217-software-deployment-evidence"></a>
+
+Al cierre del Sprint 1 se logró desplegar los siguientes componentes del producto:
+
+| Componente | Entorno | Proveedor | URL / Distribución | Estado |
+|---|---|---|---|---|
+| Landing Page | Producción | Vercel | `https://landing-page-lovat-ten.vercel.app` | Desplegado |
+| Mobile App (APK) | Pruebas internas | Firebase App Distribution | Distribución privada al grupo de testers del equipo | Desplegado (build debug) |
+| Backend API | Desarrollo local | Localhost | `http://localhost:8080` | Operativo en entorno local del equipo |
+| Database | Desarrollo local | PostgreSQL local / Docker | Contenedor `postgres:16` levantado vía `docker compose up` | Configurado |
+
+**Pipeline de despliegue actual:**
+
+- **Landing Page**: integración continua con Vercel — cada push a `main` dispara un build y deploy automáticos.
+- **Mobile App**: build manual desde Android Studio → upload del APK a Firebase App Distribution con notas de release.
+- **Backend**: ejecución local en `http://localhost:8080` con Spring Boot + MySQL. El despliegue cloud se evaluará en una iteración posterior.
+
+---
+
 #### 4.2.1.8. Team Collaboration Insights during Sprint <a id="4218-team-collaboration-insights"></a>
 
+Durante el Sprint 1, el equipo CareStacks adoptó las siguientes prácticas de colaboración:
+
+**Ceremonias Scrum realizadas:**
+
+| Ceremonia | Fecha | Duración | Participantes |
+|---|---|---|---|
+| Sprint Planning 1 | 2026-05-04 | 2h | Todo el equipo |
+| Daily Standups (asíncronos por WhatsApp) | Diario, 09:00 | 10 min | Todo el equipo |
+| Refinamiento de Backlog | 2026-05-11 | 1h | Todo el equipo |
+| Sprint Review 1 | 2026-05-25 | 1.5h | Todo el equipo |
+| Sprint Retrospective 1 | 2026-05-25 | 1h | Todo el equipo |
+
+**Distribución del trabajo por integrante:**
+
+| Integrante | Rol en Sprint | Foco principal | SP comprometidos |
+|---|---|---|---|
+| Salcedo Champi, Matias Rodolfo | Product Owner / PM | Setup repos, GitFlow, consolidación del informe | 2 |
+| Santillan Alvarado, Melina Liz | UI Developer (Mobile) | Pantallas Login y Registro en Compose | 6 |
+| Costa Morales, Christofer William | Mobile Developer / Researcher | Pantalla de Bienvenida y Spike SP01 | 4 |
+| Nikaido Vargas, Javier Masaru | Backend Developer | Scaffolding Spring Boot + endpoints de Autenticación | 9 |
+| Osores Marchese, Pietro | Web Developer | Landing Page y despliegue | 4 |
+
+**Actividad en GitHub durante el Sprint:**
+
+- Pull Requests abiertos: 8
+- Pull Requests aprobados y merged: 6
+- Branches creadas: 9
+- Issues abiertos: 12
+- Issues cerrados: 9
+
+![GitHub Insights — Sprint 1](assets/sprint1/github_insights.png)
+
+*Figura 22. Captura del panel Insights de GitHub durante el Sprint 1 mostrando la actividad por integrante.*
+
+**Lecciones aprendidas del Sprint 1:**
+
+1. La configuración inicial del entorno (Android Studio + Spring Boot + MySQL) tomó más tiempo del estimado en al menos un integrante; se documentó una guía de setup paso a paso en cada `README` del repositorio correspondiente.
+2. Las sesiones sincrónicas de pair programming aceleraron la implementación del flujo de Autenticación frente al trabajo en solitario.
+3. El uso de Conventional Commits facilitó la lectura del historial y la elaboración del changelog del Sprint Review.
+4. La política de un revisor obligatorio por PR detectó inconsistencias en validaciones de contraseña antes del merge.
+5. El Spike SP01 confirmó que para el MVP basta con FCM + AlarmManager local como fallback, lo que dejó alineada la planificación del Bounded Context de Notificaciones.
+
 ## 4.3. Validation Interviews <a id="43-validation-interviews"></a>
+
+En esta sección se presenta el proceso de validación realizado para evaluar la propuesta de solución **CareConnect** con usuarios representativos de los segmentos objetivo. A diferencia de las entrevistas iniciales de descubrimiento, esta etapa se enfocó en validar la comprensión, utilidad y facilidad de uso del prototipo de la aplicación móvil.
+
+La validación se centró en los principales flujos de la solución: gestión de eventos de salud, confirmación de actividades, recepción de recordatorios, consulta de documentos médicos, registro en diario de seguimiento y acceso compartido entre paciente y cuidador.
+
+El objetivo principal fue comprobar si CareConnect responde adecuadamente a las necesidades identificadas en los capítulos anteriores: desorganización del cuidado, pérdida de información, dependencia de herramientas dispersas, falta de coordinación entre cuidadores y dificultad de los pacientes geriátricos para recordar actividades de salud.
+
+---
 ### 4.3.1. Diseño de Entrevistas <a id="431-diseno-de-entrevistas"></a>
+
+Las entrevistas de validación fueron diseñadas bajo un enfoque semiestructurado. Esto permitió contar con preguntas base para todos los participantes, pero también dejar espacio para comentarios espontáneos sobre la experiencia de uso del prototipo.
+
+La validación se realizó con dos segmentos:
+
+| Segmento | Perfil evaluado | Objetivo de validación |
+|---|---|---|
+| Cuidadores de pacientes geriátricos | Personas que apoyan en la medicación, citas, seguimiento diario y comunicación con familiares. | Evaluar si la aplicación ayuda a organizar mejor el cuidado, reducir olvidos y mejorar la coordinación. |
+| Pacientes geriátricos | Adultos mayores con autonomía parcial o acompañada que requieren recordatorios y seguimiento de salud. | Evaluar si la aplicación es clara, simple y útil para recordar actividades y participar en su propio cuidado. |
+
+#### Objetivos específicos de la validación
+
+| Objetivo | Descripción |
+|---|---|
+| Validar la utilidad percibida | Identificar si los usuarios consideran que CareConnect resuelve un problema real dentro del cuidado geriátrico. |
+| Evaluar la comprensión de la interfaz | Verificar si los usuarios entienden las pantallas, botones, mensajes y acciones principales. |
+| Validar los flujos principales | Revisar si los usuarios pueden completar tareas clave sin demasiada orientación. |
+| Identificar fricciones de uso | Detectar pantallas confusas, exceso de pasos o elementos difíciles de interpretar. |
+| Recoger oportunidades de mejora | Obtener sugerencias para próximas iteraciones del producto. |
+
+#### Prototipo evaluado
+
+El prototipo evaluado corresponde a una versión navegable de la aplicación móvil CareConnect. Este prototipo incluye las pantallas principales necesarias para representar la experiencia del usuario, aunque no todas las funcionalidades se encuentran conectadas a una base de datos real.
+
+| Módulo evaluado | Funcionalidad revisada |
+|---|---|
+| Inicio / Home | Visualización de actividades pendientes del día. |
+| Agenda | Registro y consulta de eventos de salud. |
+| Notificaciones | Recordatorios y alertas de actividades no confirmadas. |
+| Documentos | Consulta de documentos médicos del paciente. |
+| Diario | Registro de notas de seguimiento. |
+| Gestión de Consentimiento | Compartir información del paciente con un cuidador o familiar. |
+
+#### Tareas asignadas durante la entrevista
+
+A cada participante se le pidió realizar tareas específicas dentro del prototipo. Estas tareas fueron seleccionadas porque representan acciones críticas dentro del uso diario de CareConnect.
+
+| Código | Tarea | Segmento evaluado | Criterio de éxito |
+|---|---|---|---|
+| T01 | Revisar las actividades pendientes del día. | Paciente / Cuidador | El usuario identifica qué actividad debe realizar primero. |
+| T02 | Registrar un nuevo evento de salud. | Cuidador | El usuario crea una medicación, cita o terapia sin confundirse. |
+| T03 | Confirmar una actividad realizada. | Paciente / Cuidador | El usuario entiende cómo marcar una actividad como completada. |
+| T04 | Revisar una notificación o alerta. | Paciente / Cuidador | El usuario comprende el mensaje y la acción esperada. |
+| T05 | Consultar un documento médico. | Cuidador | El usuario encuentra un documento sin depender de otra herramienta. |
+| T06 | Registrar una nota en el diario. | Paciente / Cuidador | El usuario escribe una observación y comprende su utilidad. |
+| T07 | Compartir el perfil del paciente. | Paciente / Cuidador | El usuario entiende que el acceso se otorga con permiso del paciente. |
+
+#### Métricas de evaluación
+
+Para ordenar los resultados, se utilizaron criterios cualitativos y cuantitativos simples.
+
+| Métrica | Descripción | Escala |
+|---|---|---|
+| Facilidad de uso | Qué tan fácil resultó completar la tarea. | 1 = difícil, 5 = muy fácil |
+| Comprensión | Qué tan claro fue el propósito de la pantalla. | 1 = confuso, 5 = muy claro |
+| Utilidad percibida | Qué tanto valor aporta la función al usuario. | 1 = poco útil, 5 = muy útil |
+| Confianza | Qué tan seguro se sintió el usuario al usar la función. | 1 = inseguro, 5 = muy seguro |
+| Intención de uso | Disposición del usuario a usar la aplicación en su rutina. | Baja / Media / Alta |
+
+#### Preguntas para cuidadores
+
+- ¿Qué tan útil le parece tener una agenda centralizada para medicación, citas y terapias?
+- ¿La pantalla principal le permite entender rápidamente qué actividades están pendientes?
+- ¿La confirmación de actividades le ayudaría a evitar dudas sobre si una medicación ya fue administrada?
+- ¿Las alertas le parecen claras y oportunas?
+- ¿El diario de seguimiento le ayudaría a registrar información importante para otros cuidadores?
+- ¿Le parece útil poder consultar documentos médicos desde la aplicación?
+- ¿Qué funcionalidad usaría con más frecuencia?
+- ¿Qué parte del prototipo le pareció confusa o mejorable?
+- ¿Usaría CareConnect en una rutina real de cuidado? ¿Por qué?
+
+#### Preguntas para pacientes geriátricos
+
+- ¿Le resulta fácil entender qué actividades tiene pendientes durante el día?
+- ¿Los textos, botones e íconos son claros para usted?
+- ¿Le parece útil recibir recordatorios de medicamentos o citas?
+- ¿Entiende cómo confirmar que ya realizó una actividad?
+- ¿Se sentiría más tranquilo si un familiar o cuidador pudiera revisar su información con permiso?
+- ¿Qué pantalla le pareció más útil?
+- ¿Qué pantalla le pareció más difícil de usar?
+- ¿Usaría una aplicación como CareConnect para organizar su cuidado diario?
+
+---
+
 ### 4.3.2. Registro de Entrevistas <a id="432-registro-de-entrevistas"></a>
+
+### 4.3.2. Registro de Entrevistas <a id="432-registro-de-entrevistas"></a>
+
+En esta sección se presentan las entrevistas de validación realizadas a los segmentos objetivo de **CareConnect**. El propósito de estas entrevistas fue recoger la percepción de los usuarios frente al prototipo y validar si las funcionalidades propuestas responden a necesidades reales dentro del cuidado geriátrico.
+
+Las entrevistas se dividieron en dos segmentos:
+
+- **Segmento 1:** Cuidadores de pacientes geriátricos.
+- **Segmento 2:** Pacientes geriátricos.
+
+Durante las entrevistas se evaluaron aspectos como la utilidad de la agenda centralizada, claridad de la pantalla principal, confirmación de actividades, alertas, diario de seguimiento, consulta de documentos médicos, acceso compartido e intención de uso en una rutina real.
+
+---
+
+#### Segmento 1: Cuidadores de pacientes geriátricos
+
+---
+
+#### Entrevista de validación 1
+
+| Campo | Información |
+|---|---|
+| Entrevistado | Daniel Rodríguez |
+| Segmento | Cuidador de pacientes geriátricos |
+| Experiencia | Cuidador de varios pacientes geriátricos |
+| Modalidad | Virtual |
+| Duración aproximada | 4 minutos |
+| Producto evaluado | Landing page / prototipo de CareConnect |
+
+**Resumen de la entrevista:**
+
+Daniel Rodríguez indicó que CareConnect le parece una solución muy útil para organizar el cuidado de pacientes geriátricos. Desde su experiencia como cuidador, considera que contar con una agenda centralizada para medicación, citas y terapias ayudaría a mantener la información más ordenada y reduciría la posibilidad de olvidar medicamentos o actividades importantes.
+
+Respecto a la pantalla principal, mencionó que la distribución le pareció clara, ya que los recordatorios están visibles y permiten identificar rápidamente las actividades pendientes. También señaló que la confirmación de actividades sería bastante útil, especialmente cuando varias personas participan en el cuidado del mismo paciente, porque ayuda a evitar confusiones sobre si una medicación ya fue administrada.
+
+En relación con las alertas, Daniel comentó que le parecen claras y oportunas, debido a que aparecen en momentos adecuados y permiten hacer un mejor seguimiento de las tareas. Además, valoró el diario de seguimiento como una buena forma de mantener organizada la comunicación entre cuidadores y familiares.
+
+También consideró útil poder consultar documentos médicos desde la aplicación, ya que esto ayudaría a coordinar responsabilidades y mantener informados a los familiares involucrados en el cuidado del paciente.
+
+**Comentarios principales del entrevistado:**
+
+- La agenda centralizada ayudaría a organizar mejor medicamentos, citas y terapias.
+- La pantalla principal permite entender rápidamente qué actividades están pendientes.
+- La confirmación de actividades evitaría confusiones entre cuidadores.
+- Las alertas son claras y aparecen en momentos adecuados.
+- El diario de seguimiento permitiría mantener una comunicación más organizada.
+- La consulta de documentos médicos ayudaría a coordinar responsabilidades con familiares.
+
+**Funcionalidad más valorada:**
+
+Daniel indicó que la funcionalidad que usaría con mayor frecuencia sería la **agenda**, principalmente por los recordatorios de medicación. Según su experiencia, uno de los problemas más frecuentes en el cuidado diario son las confusiones relacionadas con horarios, medicamentos y actividades pendientes.
+
+**Aspectos de mejora identificados:**
+
+El entrevistado mencionó que la navegación entre algunas secciones podría mejorar. Aunque no la considera complicada, señaló que al inicio algunas funcionalidades no son tan evidentes de encontrar.
+
+**Oportunidades de mejora:**
+
+- Mejorar la visibilidad de las secciones principales.
+- Hacer más evidente la ubicación de funcionalidades importantes.
+- Reforzar la navegación inicial para usuarios nuevos.
+- Priorizar accesos rápidos a agenda, alertas y diario de seguimiento.
+
+**Intención de uso:**
+
+Daniel afirmó que sí utilizaría CareConnect en una rutina real de cuidado, porque considera que la aplicación sería útil para organizar tareas, mejorar la comunicación y reducir olvidos o confusiones durante el seguimiento de pacientes geriátricos.
+
+---
+
+#### Entrevista de validación 2
+
+| Campo | Información |
+|---|---|
+| Entrevistada | Valeria Dobbertin |
+| Edad | 20 años |
+| Segmento | Cuidadora informal de pacientes geriátricos |
+| Experiencia | Cuida a sus abuelos en sus tiempos libres |
+| Modalidad | Virtual |
+| Duración aproximada | 4 minutos |
+| Producto evaluado | Landing page / prototipo de CareConnect |
+
+**Resumen de la entrevista:**
+
+Valeria Dobbertin indicó que CareConnect le parece una herramienta útil para organizar el cuidado de sus abuelos. Considera que una agenda centralizada para medicación, citas y terapias permitiría tener toda la información en un solo lugar, evitando olvidos, especialmente cuando existen muchas actividades o medicamentos que controlar durante el día.
+
+Sobre la pantalla principal, mencionó que la información se ve clara y organizada, permitiendo identificar rápidamente qué actividades faltan realizar y cuáles ya fueron completadas. También valoró positivamente la confirmación de actividades, ya que esta función ayudaría a evitar confusiones o repeticiones, sobre todo cuando varias personas participan en el cuidado del paciente.
+
+Respecto a las alertas, comentó que son fáciles de entender y que aparecen en momentos adecuados, por lo que serían útiles para recordar tareas importantes. En relación con el diario de seguimiento, señaló que permitiría dejar observaciones relevantes sobre el estado del paciente y facilitaría la comunicación entre las personas encargadas del cuidado.
+
+Asimismo, consideró que consultar documentos médicos desde la aplicación es una función práctica, ya que evita tener documentos separados o perder información importante. Además, permite acceder rápidamente a información médica cuando sea necesario.
+
+**Comentarios principales de la entrevistada:**
+
+- La agenda centralizada permite organizar mejor medicamentos, citas y terapias.
+- La pantalla principal muestra la información de forma clara.
+- La confirmación de actividades ayuda a evitar confusiones entre cuidadores.
+- Las alertas son fáciles de entender y oportunas.
+- El diario de seguimiento facilita registrar observaciones importantes.
+- La consulta de documentos médicos evita la pérdida de información.
+
+**Funcionalidad más valorada:**
+
+Valeria señaló que usaría con mayor frecuencia la **agenda y las alertas**, ya que ambas funciones ayudan a organizar las actividades diarias y recordar horarios importantes dentro de la rutina de cuidado.
+
+**Aspectos de mejora identificados:**
+
+La entrevistada mencionó que, en general, el prototipo le pareció intuitivo. Sin embargo, sugirió que algunas secciones podrían tener textos o íconos más visibles para entenderlas con mayor rapidez.
+
+**Oportunidades de mejora:**
+
+- Aumentar la visibilidad de algunos textos e íconos.
+- Mejorar la jerarquía visual de las secciones principales.
+- Hacer más reconocibles las funciones clave desde la pantalla inicial.
+- Mantener una interfaz simple e intuitiva para cuidadores familiares.
+
+**Intención de uso:**
+
+Valeria afirmó que sí usaría CareConnect en una rutina real de cuidado, ya que considera que la aplicación ayuda a organizar tareas, facilita la comunicación entre familiares y reduce la posibilidad de olvidar actividades importantes.
+
+---
+
+#### Síntesis de entrevistas del Segmento 1
+
+A partir de las entrevistas realizadas a Daniel Rodríguez y Valeria Dobbertin, se identifican coincidencias importantes respecto al valor de CareConnect para cuidadores de pacientes geriátricos.
+
+Ambos entrevistados consideran que la aplicación sería útil para organizar mejor las actividades de cuidado, especialmente en relación con la medicación, citas, terapias y recordatorios. También coinciden en que la confirmación de actividades ayudaría a evitar confusiones cuando varias personas participan en el cuidado del mismo paciente.
+
+La agenda y las alertas fueron las funcionalidades más valoradas por ambos participantes, ya que responden directamente a uno de los principales problemas del cuidado diario: recordar y verificar actividades importantes. Además, el diario de seguimiento y la consulta de documentos médicos fueron percibidos como funciones útiles para mejorar la comunicación y mantener información relevante centralizada.
+
+| Aspecto evaluado | Resultado observado |
+|---|---|
+| Utilidad de la agenda | Alta. Ambos entrevistados la consideran clave para organizar medicamentos, citas y terapias. |
+| Claridad de la pantalla principal | Positiva. Los participantes indicaron que permite identificar actividades pendientes. |
+| Confirmación de actividades | Muy valorada. Ayuda a evitar dudas sobre si una medicación ya fue administrada. |
+| Alertas | Claras y oportunas. Se perciben como útiles para recordar tareas importantes. |
+| Diario de seguimiento | Útil para registrar observaciones y mejorar la comunicación entre cuidadores y familiares. |
+| Documentos médicos | Función práctica para evitar pérdida de información y facilitar el acceso rápido. |
+| Intención de uso | Alta. Ambos entrevistados afirmaron que usarían CareConnect en una rutina real de cuidado. |
+
+**Principales oportunidades de mejora identificadas:**
+
+- Mejorar la navegación entre secciones.
+- Hacer más visibles los textos e íconos principales.
+- Reforzar los accesos rápidos a agenda, alertas y diario.
+- Mantener una interfaz clara para usuarios que necesitan actuar rápido durante la rutina de cuidado.
+
+**Conclusión del segmento:**
+
+Las entrevistas de validación del segmento de cuidadores permiten concluir que CareConnect responde adecuadamente a necesidades reales de organización, comunicación y seguimiento del cuidado geriátrico. Los participantes valoran especialmente la centralización de información, los recordatorios, la confirmación de actividades y la posibilidad de mantener una comunicación más ordenada entre cuidadores y familiares. No obstante, se recomienda mejorar la claridad visual y la navegación inicial para facilitar una adopción más rápida del producto.
+
+---
+
+#### Segmento 2: Pacientes geriátricos
+
+---
+
+#### Entrevista de validación 3
+
+| Campo | Información |
+|---|---|
+| Entrevistada | Nelly Ramírez |
+| Edad | 70 años |
+| Segmento | Paciente geriátrico |
+| Modalidad | Virtual / Presencial |
+| Duración aproximada | 3 minutos |
+| Producto evaluado | Landing page / prototipo de CareConnect |
+
+**Resumen de la entrevista:**
+
+Nelly Ramírez indicó que, en general, pudo entender las actividades pendientes mostradas en el prototipo, aunque señaló que en algunos momentos la comprensión no fue completamente inmediata. Comentó que los textos, botones e íconos le resultaron claros en su mayoría, lo cual evidencia una percepción positiva sobre la interfaz inicial.
+
+La entrevistada consideró muy útil recibir recordatorios para medicamentos o citas médicas, ya que este tipo de avisos puede ayudar a evitar olvidos dentro de su rutina diaria. Además, valoró positivamente la posibilidad de tener citas, medicamentos y documentos centralizados en una sola aplicación.
+
+Sin embargo, indicó que la acción para confirmar que una actividad ya fue realizada no se visualiza con suficiente claridad. Este punto representa una oportunidad importante de mejora, debido a que la confirmación de actividades es una función clave dentro de CareConnect.
+
+También mencionó que se sentiría más tranquila si un familiar, cuidador o incluso su médico pudiera revisar su información con su permiso. La pantalla que más le llamó la atención fue la pantalla de inicio, ya que le permite tener una primera vista de la información relevante.
+
+**Comentarios principales de la entrevistada:**
+
+- Las actividades pendientes se entienden, aunque podrían mostrarse de forma más clara.
+- Los textos, botones e íconos son claros en su mayoría.
+- Los recordatorios para medicamentos y citas médicas le parecen muy útiles.
+- Tener citas, medicamentos y documentos en una sola aplicación le parece conveniente.
+- Le gustaría que familiares, cuidadores o médicos puedan revisar su información con autorización.
+- La pantalla de inicio fue la más útil para ella.
+
+**Funcionalidad más valorada:**
+
+Nelly valoró principalmente la **pantalla de inicio** y los **recordatorios**, debido a que le permiten visualizar información importante y recibir apoyo para no olvidar medicamentos o citas.
+
+**Aspectos de mejora identificados:**
+
+La entrevistada mencionó que no logró identificar con claridad cómo confirmar que una actividad ya fue realizada. Además, sugirió incorporar una guía con voz o sonidos para facilitar el uso de la aplicación en adultos mayores.
+
+**Oportunidades de mejora:**
+
+- Hacer más visible la opción para confirmar actividades realizadas.
+- Incorporar una guía inicial asistida por voz o sonidos.
+- Utilizar mensajes más directos para acciones importantes.
+- Reforzar la accesibilidad para adultos mayores.
+
+**Intención de uso:**
+
+Nelly afirmó que sí usaría una aplicación como CareConnect para organizar su cuidado, ya que considera útil tener recordatorios, información centralizada y apoyo de familiares o profesionales de salud.
+
+---
+
+#### Entrevista de validación 4
+
+| Campo | Información |
+|---|---|
+| Entrevistada | Lucila Nakamura |
+| Edad | 75 años |
+| Segmento | Paciente geriátrico |
+| Modalidad | Virtual / Presencial |
+| Duración aproximada | 3 minutos |
+| Producto evaluado | Landing page / prototipo de CareConnect |
+
+**Resumen de la entrevista:**
+
+Lucila Nakamura indicó que le resultó fácil entender qué actividades pendientes tenía durante el día según el prototipo. Comentó que los textos y botones le parecieron claros, aunque señaló que los íconos se veían muy pequeños, por lo que podrían pasar desapercibidos o no comunicar rápidamente su función.
+
+La entrevistada consideró muy útil recibir recordatorios de medicamentos o citas, ya que reconoce que en la vida diaria es común olvidar alguna actividad importante. También valoró positivamente tener citas, medicamentos y documentos reunidos en una sola aplicación, porque esto facilitaría la organización de su información personal de salud.
+
+Respecto al acceso compartido, Lucila indicó que se sentiría más tranquila si un familiar o cuidador pudiera revisar su información con su permiso, ya que esto permitiría un mejor seguimiento. La pantalla que más útil le pareció fue la pantalla de inicio, porque resume la información y permite acceder a las funciones principales.
+
+Sin embargo, mencionó que la pantalla de notificaciones le pareció más difícil de entender. Además, recomendó diferenciar las funciones por colores, ya que si todo se muestra con un solo color, el usuario puede perderse al navegar. También sugirió agrandar los íconos para que sean más reconocibles sin depender únicamente de la lectura.
+
+**Comentarios principales de la entrevistada:**
+
+- Las actividades pendientes se entienden con facilidad.
+- Los textos y botones son claros.
+- Los íconos deberían ser más grandes.
+- Los recordatorios de medicamentos o citas son muy útiles.
+- Tener información centralizada ayuda a evitar olvidos.
+- El acceso compartido con familiares o cuidadores genera tranquilidad.
+- La pantalla de inicio es útil porque resume la información.
+- La sección de notificaciones fue la más difícil de entender.
+
+**Funcionalidad más valorada:**
+
+Lucila valoró principalmente la **pantalla de inicio** y los **recordatorios**, ya que le permiten revisar rápidamente sus actividades y evitar olvidos relacionados con su cuidado.
+
+**Aspectos de mejora identificados:**
+
+La entrevistada recomendó mejorar la diferenciación visual entre secciones. Señaló que usar colores distintos para cada función ayudaría a que el usuario se ubique mejor dentro de la aplicación. También indicó que los íconos deberían ser más grandes y más representativos.
+
+**Oportunidades de mejora:**
+
+- Aumentar el tamaño de los íconos.
+- Diferenciar secciones o funciones mediante colores.
+- Mejorar la claridad de la pantalla de notificaciones.
+- Usar imágenes o íconos más representativos.
+- Facilitar la orientación del usuario dentro de la aplicación.
+
+**Intención de uso:**
+
+Lucila afirmó que sí usaría una aplicación como CareConnect para organizar su cuidado, ya que considera útiles los recordatorios, la pantalla de inicio y la posibilidad de tener información médica centralizada.
+
+---
+
+#### Síntesis de entrevistas del Segmento 2
+
+A partir de las entrevistas realizadas a Nelly Ramírez y Lucila Nakamura, se identificó que las pacientes geriátricas perciben CareConnect como una solución útil para organizar su cuidado diario, especialmente por los recordatorios, la pantalla de inicio y la centralización de información médica.
+
+Ambas entrevistadas valoran positivamente recibir recordatorios de medicamentos y citas médicas. También consideran útil tener citas, medicamentos y documentos en una sola aplicación, ya que esto puede reducir olvidos y facilitar el seguimiento de su salud.
+
+La pantalla de inicio fue la más valorada en ambas entrevistas, debido a que resume información importante y permite revisar rápidamente actividades pendientes. Sin embargo, también se identificaron oportunidades de mejora relacionadas con accesibilidad, claridad visual y orientación dentro de la aplicación.
+
+| Aspecto evaluado | Resultado observado |
+|---|---|
+| Comprensión de actividades pendientes | Positiva, aunque se recomienda reforzar la claridad visual. |
+| Textos y botones | Generalmente claros para las entrevistadas. |
+| Íconos | Requieren mejora. Se sugirió hacerlos más grandes y reconocibles. |
+| Recordatorios | Muy valorados para medicamentos y citas médicas. |
+| Centralización de información | Percibida como útil para reducir olvidos y tener todo en un solo lugar. |
+| Acceso compartido | Genera tranquilidad si se realiza con autorización del paciente. |
+| Pantalla más útil | La pantalla de inicio fue la más valorada. |
+| Pantalla o acción más difícil | Confirmación de actividad y notificaciones requieren mayor claridad. |
+| Intención de uso | Alta. Ambas entrevistadas afirmaron que usarían CareConnect. |
+
+**Principales oportunidades de mejora identificadas:**
+
+- Aumentar el tamaño de íconos y elementos visuales.
+- Mejorar la claridad de la confirmación de actividades.
+- Diferenciar secciones mediante colores.
+- Incorporar guía por voz o sonidos para adultos mayores.
+- Simplificar y reforzar la sección de notificaciones.
+- Usar textos más directos para acciones importantes.
+
+**Conclusión del segmento:**
+
+Las entrevistas de validación del segmento de pacientes geriátricos permiten concluir que CareConnect es percibida como una herramienta útil para apoyar la organización del cuidado diario. Las entrevistadas valoran especialmente los recordatorios, la pantalla de inicio y la centralización de información médica. No obstante, para mejorar la adopción en adultos mayores, se recomienda reforzar la accesibilidad visual, aumentar el tamaño de íconos, mejorar la claridad de las notificaciones e incluir mecanismos de orientación como guía de voz o sonidos.
+
+---
+#### Links de las Entrevistas
+[Presione aqui](https://drive.google.com/drive/folders/1VYjVySQl0oseLNgTZZUiOr7G8rnr98jq?usp=sharing)
+
+#### Conclusión general del registro de entrevistas
+
+Las entrevistas de validación realizadas a cuidadores y pacientes geriátricos muestran una aceptación positiva del prototipo de CareConnect. En ambos segmentos, los participantes identificaron valor en la centralización de información, los recordatorios, la agenda y la posibilidad de mejorar la comunicación entre las personas involucradas en el cuidado.
+
+En el caso de los cuidadores, las funcionalidades más valoradas fueron la agenda, las alertas, la confirmación de actividades, el diario de seguimiento y la consulta de documentos médicos. Estas funciones responden a problemas reales de coordinación, pérdida de información y carga mental durante el cuidado diario.
+
+En el caso de los pacientes geriátricos, las funcionalidades más valoradas fueron los recordatorios, la pantalla de inicio y la posibilidad de tener información médica organizada en una sola aplicación. Sin embargo, este segmento requiere mayores ajustes de accesibilidad, especialmente en tamaño de íconos, claridad de acciones, diferenciación visual y soporte guiado.
+
+En general, los resultados validan que CareConnect responde a necesidades reales de ambos segmentos. Para las siguientes iteraciones, se recomienda priorizar mejoras de navegación, accesibilidad visual y claridad en las funciones críticas, con el fin de facilitar la adopción del producto en contextos reales de cuidado geriátrico.
+
 ### 4.3.3. Evaluaciones según heurísticas <a id="433-evaluaciones-segun-heuristicas"></a>
+
+Para complementar las entrevistas de validación, se realizó una evaluación heurística del prototipo de **CareConnect**. Esta evaluación permitió identificar problemas de usabilidad relacionados con claridad visual, navegación, comprensión de acciones, accesibilidad y facilidad de uso para los dos segmentos objetivo: cuidadores de pacientes geriátricos y pacientes geriátricos.
+
+La evaluación se basó en los comentarios recogidos durante las entrevistas de validación y en la observación de las funcionalidades principales del prototipo: agenda, pantalla de inicio, alertas, confirmación de actividades, diario de seguimiento, consulta de documentos médicos y acceso compartido.
+
+---
+
+#### Escala de severidad utilizada
+
+| Nivel | Severidad | Descripción |
+|---|---|---|
+| 0 | Sin problema | No se identifica un problema de usabilidad. |
+| 1 | Cosmético | No afecta directamente el uso, pero puede mejorar la experiencia visual. |
+| 2 | Menor | Genera una pequeña dificultad, pero el usuario puede continuar. |
+| 3 | Mayor | Dificulta completar una tarea importante o genera confusión. |
+| 4 | Crítico | Impide completar una tarea clave del sistema. |
+
+---
+
+#### Evaluación heurística del prototipo
+
+| Heurística | Evaluación en CareConnect | Evidencia encontrada | Severidad | Recomendación |
+|---|---|---|---|---|
+| Visibilidad del estado del sistema | El prototipo permite visualizar actividades pendientes y recordatorios desde la pantalla principal. | Daniel y Valeria indicaron que la pantalla principal permite identificar actividades pendientes. Sin embargo, Nelly no identificó claramente cómo confirmar una actividad realizada. | 2 | Hacer más visibles los estados de las actividades: pendiente, completada y vencida. |
+| Relación entre el sistema y el mundo real | La aplicación utiliza conceptos cercanos al usuario, como medicamentos, citas, terapias y documentos médicos. | Los entrevistados entendieron la utilidad de tener citas, medicamentos y documentos en una sola aplicación. | 1 | Mantener lenguaje simple y evitar términos técnicos en pacientes geriátricos. |
+| Control y libertad del usuario | El usuario puede navegar entre secciones, pero algunas funciones no son tan evidentes al inicio. | Daniel mencionó que la navegación entre algunas secciones podría mejorar porque ciertas funcionalidades no son tan fáciles de encontrar al principio. | 2 | Agregar accesos directos a las funciones principales desde la pantalla de inicio. |
+| Consistencia y estándares | El diseño general del prototipo fue percibido como claro e intuitivo. | Valeria señaló que el prototipo le pareció intuitivo, aunque algunos textos e íconos podrían ser más visibles. | 1 | Mantener estilos consistentes en botones, tarjetas, íconos y secciones. |
+| Prevención de errores | La confirmación de actividades ayuda a evitar confusiones sobre si una medicación ya fue administrada. | Daniel y Valeria valoraron esta función porque evita dudas cuando varios cuidadores participan en el cuidado. | 2 | Reforzar la confirmación con mensajes claros como “Actividad completada” o “Medicamento tomado”. |
+| Reconocimiento antes que memoria | La pantalla de inicio resume información importante, reduciendo la necesidad de recordar datos manualmente. | Nelly y Lucila indicaron que la pantalla de inicio fue la más útil porque resume la información principal. | 1 | Priorizar una sección “Hoy” con medicamentos, citas y alertas más importantes. |
+| Flexibilidad y eficiencia de uso | La agenda y las alertas permiten organizar actividades diarias y recordar horarios importantes. | Daniel usaría principalmente la agenda, mientras que Valeria usaría con más frecuencia la agenda y las alertas. | 1 | Mantener la agenda como función principal y permitir registrar actividades frecuentes con pocos pasos. |
+| Diseño estético y minimalista | La interfaz fue entendida en general, pero algunos elementos visuales requieren mejora para adultos mayores. | Lucila indicó que los íconos se ven pequeños y que sería mejor diferenciar funciones con colores. | 3 | Aumentar el tamaño de íconos, mejorar contraste y diferenciar secciones por color. |
+| Ayuda para reconocer y recuperarse de errores | El prototipo no evidencia todavía suficiente guía para acciones que pueden resultar confusas. | Nelly no identificó claramente cómo confirmar una actividad realizada. | 3 | Agregar ayudas visuales, mensajes breves o instrucciones debajo de acciones importantes. |
+| Ayuda y documentación | El prototipo no cuenta con una guía inicial visible para adultos mayores. | Nelly sugirió incorporar una guía con voz o sonidos para facilitar el uso. | 3 | Implementar una guía inicial, asistencia por voz o sonidos para usuarios geriátricos. |
+
+---
+
+#### Problemas de usabilidad identificados
+
+| Problema identificado | Segmento afectado | Impacto | Severidad | Propuesta de mejora |
+|---|---|---|---|---|
+| Algunos íconos son pequeños o poco visibles. | Pacientes geriátricos | Puede dificultar la identificación rápida de funciones. | 3 | Aumentar tamaño de íconos y usar imágenes más representativas. |
+| La confirmación de actividades no se entiende claramente en todos los casos. | Pacientes geriátricos | Puede impedir que el usuario registre correctamente una actividad completada. | 3 | Usar botones más directos como “Ya lo hice” o “Ya tomé mi medicamento”. |
+| La navegación entre secciones puede no ser evidente al inicio. | Cuidadores | Puede retrasar el acceso a funcionalidades importantes. | 2 | Agregar accesos rápidos desde la pantalla principal. |
+| La sección de notificaciones puede resultar confusa. | Pacientes geriátricos | Puede dificultar la comprensión de alertas o recordatorios. | 3 | Separar notificaciones por tipo: medicamento, cita, alerta o documento. |
+| Falta mayor diferenciación visual entre funciones. | Pacientes geriátricos | El usuario puede perderse si todas las secciones se ven similares. | 3 | Usar colores diferenciados por módulo o tipo de actividad. |
+| No existe una guía asistida para adultos mayores. | Pacientes geriátricos | Puede generar dependencia de otra persona para aprender a usar la app. | 3 | Incorporar guía inicial con voz, sonidos o pasos cortos. |
+
+---
+
+#### Hallazgos positivos de usabilidad
+
+| Hallazgo positivo | Evidencia |
+|---|---|
+| La agenda fue percibida como una funcionalidad clave. | Daniel indicó que usaría principalmente la agenda por los recordatorios de medicación. |
+| La pantalla de inicio fue valorada por pacientes geriátricos. | Nelly y Lucila señalaron que la pantalla inicial fue la más útil. |
+| Las alertas fueron consideradas oportunas por cuidadores. | Daniel y Valeria indicaron que las alertas son claras y aparecen en momentos adecuados. |
+| La centralización de información fue bien recibida. | Los entrevistados valoraron tener medicamentos, citas y documentos en una sola aplicación. |
+| La confirmación de actividades fue valorada por cuidadores. | Daniel y Valeria indicaron que ayuda a evitar confusiones entre varias personas que cuidan al mismo paciente. |
+| El acceso compartido genera confianza. | Nelly y Lucila indicaron que se sentirían más tranquilas si un familiar, cuidador o médico pudiera revisar su información con permiso. |
+
+---
+
+#### Recomendaciones de mejora para la siguiente iteración
+
+| Recomendación | Justificación |
+|---|---|
+| Implementar una pantalla principal tipo “Hoy”. | Permite que el paciente vea rápidamente medicamentos, citas y actividades pendientes sin navegar demasiado. |
+| Aumentar el tamaño de textos e íconos. | Mejora la accesibilidad para pacientes geriátricos. |
+| Diferenciar funciones por colores. | Ayuda a que los usuarios se ubiquen mejor dentro de la aplicación. |
+| Mejorar la confirmación de actividades. | Evita dudas sobre si una medicación, cita o tarea ya fue realizada. |
+| Simplificar la sección de notificaciones. | Facilita que los adultos mayores entiendan qué acción deben realizar. |
+| Agregar guía inicial con voz o sonidos. | Apoya a usuarios con menor experiencia tecnológica. |
+| Hacer más visibles los accesos principales. | Mejora la navegación para cuidadores y pacientes. |
+| Mantener lenguaje simple y directo. | Reduce confusión y facilita el uso en contextos reales de cuidado. |
+
+---
+
+#### Conclusión de la evaluación heurística
+
+La evaluación heurística permitió identificar que el prototipo de **CareConnect** presenta una propuesta clara y útil para ambos segmentos objetivo. Los cuidadores valoran principalmente la agenda, las alertas, la confirmación de actividades, el diario de seguimiento y la consulta de documentos médicos. Por su parte, los pacientes geriátricos valoran especialmente la pantalla de inicio, los recordatorios y la posibilidad de tener su información médica organizada en un solo lugar.
+
+Sin embargo, también se identificaron aspectos que deben mejorarse para facilitar la adopción del producto, especialmente en adultos mayores. Las principales mejoras deben enfocarse en accesibilidad visual, íconos más grandes, diferenciación por colores, navegación más simple, confirmación de actividades más evidente y una guía asistida con voz o sonidos.
+
+En conclusión, CareConnect cumple con una necesidad real de organización y seguimiento del cuidado geriátrico, pero su próxima iteración debe priorizar una experiencia más accesible, directa y visualmente clara para garantizar que tanto pacientes como cuidadores puedan utilizarla con seguridad y confianza.
 
 ---
 
 # Conclusiones <a id="conclusiones"></a>
 
+A partir del desarrollo del proyecto CareConnect, se concluye que existe una necesidad real de soluciones digitales orientadas a la organización del cuidado geriátrico. Los cuidadores y pacientes entrevistados evidencian problemas relacionados con la descoordinación, el uso de herramientas dispersas, la falta de recordatorios centralizados y la dificultad para acceder rápidamente a información médica relevante.
+
+La propuesta de CareConnect responde a esta problemática mediante una aplicación móvil que centraliza eventos de salud, recordatorios, documentos médicos, notas de seguimiento y perfiles compartidos. Esta integración permite reducir la carga mental de los cuidadores, mejorar la participación del paciente en su propio cuidado y fortalecer la comunicación entre los actores involucrados.
+
+Desde el punto de vista técnico, la división del sistema en bounded contexts permite organizar mejor las responsabilidades del producto. Los contextos de Agenda, Notificaciones, Documentos, Diario de Seguimiento, Gestión de Consentimiento y Autenticación facilitan una arquitectura modular, mantenible y alineada con los principios de Domain-Driven Design.
+
+La configuración del entorno de desarrollo, la gestión del código fuente, las convenciones de estilo y la planificación del despliegue permiten que el equipo trabaje de forma ordenada y trazable. Esto es importante para garantizar que las funcionalidades puedan evolucionar sin afectar negativamente la calidad del producto.
+
+Finalmente, CareConnect representa una solución viable para mejorar la gestión del cuidado geriátrico, especialmente en contextos donde la información todavía se maneja mediante cuadernos, alarmas aisladas o mensajes de WhatsApp. Su enfoque en simplicidad, colaboración y centralización de información permite ofrecer una experiencia más segura y clara tanto para pacientes como para cuidadores.
+
+
 # Glosario <a id="glosario"></a>
+
+| Término | Definición |
+|---|---|
+| **Aggregate Root** | Entidad de dominio responsable de mantener la consistencia transaccional de un grupo de objetos relacionados; toda modificación al agregado pasa por su raíz. |
+| **Anti-Corruption Layer (ACL)** | Capa de traducción entre dos bounded contexts que protege al consumidor de cambios en el modelo del proveedor. |
+| **Bounded Context** | Frontera lingüística y de modelo dentro del dominio donde un término del Ubiquitous Language tiene un único significado preciso. |
+| **Bounded Context Canvas** | Plantilla colaborativa que documenta un bounded context: propósito, clasificación, lenguaje, capacidades, dependencias y críticas de diseño. |
+| **C4 Model** | Marco de visualización de arquitectura de software en cuatro niveles: Contexto, Container, Component y Code. |
+| **Caregiver (Cuidador)** | Persona formal (enfermero, asistente) o informal (familiar) responsable del seguimiento diario del paciente geriátrico. |
+| **CareConnect** | Producto desarrollado por la startup CareStacks; aplicación móvil para la gestión del cuidado geriátrico. |
+| **CI/CD** | Conjunto de prácticas para integrar (Continuous Integration) y desplegar (Continuous Delivery/Deployment) cambios de software de forma automática. |
+| **Context Map** | Diagrama estratégico que documenta los bounded contexts existentes y los patrones de relación entre ellos. |
+| **DDD (Domain-Driven Design)** | Enfoque de diseño de software centrado en modelar el dominio del negocio y su lenguaje. |
+| **DoD (Definition of Done)** | Conjunto de criterios que debe cumplir un ítem del backlog para considerarse completado en un Sprint. |
+| **EventStorming** | Técnica colaborativa de modelado en la que los participantes descubren eventos de dominio, comandos y agregados mediante notas adhesivas. |
+| **FCM (Firebase Cloud Messaging)** | Servicio de Google para envío de notificaciones push a dispositivos móviles. |
+| **Geriatric Patient (Paciente geriátrico)** | Adulto mayor que requiere seguimiento frecuente de medicación, citas y actividades de cuidado. |
+| **Gestión de Consentimiento** | Bounded context que permite al paciente otorgar y revocar el acceso de terceros autorizados a su información clínica. |
+| **IAM (Identity and Access Management)** | Bounded context responsable del registro, autenticación y gestión de sesiones. |
+| **JWT (JSON Web Token)** | Estándar de token firmado utilizado para autenticación y transporte seguro de claims. |
+| **Jetpack Compose** | Toolkit declarativo de UI de Android, utilizado en CareConnect Mobile. |
+| **Landing Page** | Sitio web público de CareConnect, desplegado en Vercel. |
+| **Lean UX Canvas** | Lienzo que sintetiza problema de negocio, outcomes, usuarios, soluciones e hipótesis. |
+| **MVP (Minimum Viable Product)** | Versión mínima viable del producto que entrega valor y permite validar hipótesis con usuarios reales. |
+| **Open Host Service (OHS)** | Patrón de DDD en el que un bounded context publica una API pública estable para otros contextos. |
+| **OpenAPI / Swagger** | Estándar de descripción de APIs REST y herramienta de visualización (`/swagger-ui.html`). |
+| **PR (Pull Request)** | Solicitud de incorporación de cambios desde una rama hacia otra, revisada por al menos un miembro del equipo. |
+| **Published Language** | Lenguaje compartido entre bounded contexts, usualmente expresado como eventos de dominio. |
+| **REST (Representational State Transfer)** | Estilo arquitectónico para servicios web sobre HTTP. |
+| **SMART** | Acrónimo de objetivos: Specific, Measurable, Achievable, Relevant, Time-bound. |
+| **Spike Story** | Investigación técnica acotada en el tiempo, orientada a reducir incertidumbre antes de comprometer una user story. |
+| **Sprint** | Iteración de duración fija (2–4 semanas) en Scrum, que entrega un incremento de producto. |
+| **Story Points (SP)** | Unidad relativa de estimación de esfuerzo de una historia o tarea. |
+| **Ubiquitous Language** | Lenguaje compartido por expertos del dominio y desarrolladores que se refleja en código, documentación y conversación. |
+| **User Persona** | Arquetipo de usuario construido con datos de investigación que orienta decisiones de diseño. |
+| **User Story (US)** | Descripción breve de una funcionalidad desde la perspectiva del usuario. |
+
+---
 
 # Bibliografía <a id="bibliografia"></a>
 
+Las referencias siguen el formato APA 7ma edición.
+
+- Beard, J. R., Officer, A., de Carvalho, I. A., Sadana, R., Pot, A. M., Michel, J.-P., … Chatterji, S. (2016). The World report on ageing and health: a policy framework for healthy ageing. *The Lancet*, 387(10033), 2145–2154. https://doi.org/10.1016/S0140-6736(15)00516-4
+- Brandolini, A. (2021). *Introducing EventStorming: An act of deliberate collective learning*. Leanpub.
+- Evans, E. (2003). *Domain-Driven Design: Tackling Complexity in the Heart of Software*. Addison-Wesley.
+- Fowler, M. (2018, June 7). *Bounded Context*. martinfowler.com. https://martinfowler.com/bliki/BoundedContext.html
+- Gothelf, J., & Seiden, J. (2016). *Lean UX: Designing Great Products with Agile Teams* (2nd ed.). O'Reilly Media.
+- Instituto Nacional de Estadística e Informática [INEI]. (2024). *Situación de la Población Adulta Mayor* (Informe técnico N° 01-2024). Lima, Perú: INEI.
+- International Organization for Standardization. (2018). *ISO 9241-11:2018 — Ergonomics of human-system interaction — Part 11: Usability: Definitions and concepts*. ISO.
+- Ley N° 29733 (2011). *Ley de Protección de Datos Personales*. Diario Oficial El Peruano, Lima, Perú.
+- Material Design Team. (2024). *Material Design 3 — Foundations & Guidelines*. Google. https://m3.material.io
+- Nielsen, J. (1994). *Usability Engineering*. Morgan Kaufmann.
+- Nielsen, J. (1994, April 24). *10 Usability Heuristics for User Interface Design*. Nielsen Norman Group. https://www.nngroup.com/articles/ten-usability-heuristics/
+- Sutherland, J., & Schwaber, K. (2020). *The Scrum Guide*. https://scrumguides.org
+- Tune, N. (2018). *Bounded Context Canvas (v3)*. DDD Crew. https://github.com/ddd-crew/bounded-context-canvas
+- Vernon, V. (2013). *Implementing Domain-Driven Design*. Addison-Wesley.
+- Wirfs-Brock, R., & McKean, A. (2002). *Object Design: Roles, Responsibilities, and Collaborations*. Addison-Wesley.
+- World Health Organization. (2022). *Ageing and health* [Fact sheet]. WHO. https://www.who.int/news-room/fact-sheets/detail/ageing-and-health
+- World Wide Web Consortium. (2023). *Web Content Accessibility Guidelines (WCAG) 2.2*. W3C Recommendation. https://www.w3.org/TR/WCAG22/
+
+---
+
 # Anexos <a id="anexos"></a>
+
+## Anexo A — Repositorios de código fuente
+
+Todos los repositorios se encuentran bajo la organización GitHub `CareStacks`:
+
+| Repositorio | URL | Descripción |
+|---|---|---|
+| Report | https://github.com/CareStacks/Report | Informe del proyecto (este documento), versionado en Markdown. |
+| BackEnd | https://github.com/CareStacks/BackEnd | API REST en Spring Boot 4.0.6 + MySQL. |
+| FrontEnd | https://github.com/CareStacks/FrontEnd | Aplicación móvil Android en Kotlin + Jetpack Compose. |
+| Landing-Page | https://github.com/CareStacks/Landing-Page | Sitio público desplegado en Vercel. |
+
+## Anexo B — Despliegues públicos
+
+| Componente | URL / Distribución |
+|---|---|
+| Landing Page | https://landing-page-lovat-ten.vercel.app |
+| Backend API | `http://localhost:8080` (entorno de desarrollo local del equipo) |
+| Documentación Swagger UI | `http://localhost:8080/swagger-ui.html` (desarrollo local) |
+| Mobile App (APK) | Firebase App Distribution — distribución privada |
+
+## Anexo C — Tableros y herramientas colaborativas
+
+| Herramienta | Propósito | Acceso |
+|---|---|---|
+| GitHub Projects | Tablero Kanban del Sprint | Privado, miembros de `CareStacks` |
+| Miro | EventStorming, Context Mapping, Bounded Context Canvases | Workspace del equipo |
+| Figma | Wireframes y mockups | Workspace del equipo |
+| Discord | Comunicación sincrónica y reuniones del Sprint | Servidor privado del equipo |
+| WhatsApp | Coordinación diaria y daily standups asíncronos | Grupo cerrado del equipo |
+| Google Drive | Evidencias de entrevistas, grabaciones y assets fuente | Carpeta compartida |
+
+## Anexo D — Convenciones del API
+
+- **Base path:** `/api`
+- **Autenticación:** `Authorization: Bearer <JWT>`
+- **Formato de error:** Problem Details (RFC 7807) con `type`, `title`, `status`, `detail`, `instance`.
+- **Versionado:** prefijo `/api/<recurso>`; el versionado por mayor (`/v2`) se introducirá en breaking changes.
+- **Convención de IDs:** `UUID v4`.
+- **Documentación viva:** `/swagger-ui.html` y `/v3/api-docs`.
+
+## Anexo E — Mapeo Bounded Context → Repositorio → Endpoint base
+
+| Bounded Context | Módulo (`BackEnd`) | Endpoint base | Controller |
+|---|---|---|---|
+| Autenticación (IAM) | `iam/` | `/api/auth` | `AuthController` |
+| Agenda | `agenda/` | `/api/agenda` | `AgendaController` |
+| Notificaciones | `notifications/` | `/api/notifications` | `NotificationController` |
+| Documentos | `documents/` | `/api/documents` | `DocumentController` |
+| Diario de Seguimiento | `diary/` | `/api/diary` | `DiaryController` |
+| Gestión de Consentimiento | No implementado en este Sprint | — | — |
