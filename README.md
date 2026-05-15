@@ -4060,8 +4060,6 @@ A continuación se documenta la evidencia de ejecución de los entregables del S
 
 *Figura 21. Documentación viva de los endpoints de Autenticación expuesta vía Swagger UI en `http://localhost:8080/swagger-ui.html`.*
 
-> *Nota: las capturas listadas se deben generar y guardar en `assets/sprint1/` antes del Sprint Review. Cada figura debe acompañarse con su pie correspondiente.*
-
 ---
 
 #### 4.2.1.6. Services Documentation Evidence for Sprint Review <a id="4216-services-documentation-evidence"></a>
