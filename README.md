@@ -6,7 +6,7 @@
 
 **Ingeniería de Software**  
 
-**2026-01**  
+**2026-10**  
 <br>
 
 **1ACC0238 - Aplicaciones para Dispositivos Móviles**  
@@ -53,7 +53,7 @@
 </table>
 <br>
 
-**Abril del 2026**  
+**Octubre del 2026**  
 
 </div>
 
@@ -69,8 +69,37 @@
 
 # Project Report Collaboration Insights
 
+El equipo de CareStacks organizó el desarrollo del informe utilizando **GitHub** como repositorio central, con una rama principal `main` y ramas temáticas por capítulo (`docs/capitulo-1`, `docs/capitulo-2`, etc.) que se integraban vía Pull Request previa revisión cruzada entre integrantes. Esta dinámica permitió trabajar en paralelo sin bloquear el avance del documento maestro.
 
+**Canales de comunicación y coordinación:**
+- **WhatsApp**: coordinación diaria, decisiones rápidas y sincronización de bloqueos.
+- **Discord**: reuniones de trabajo, revisiones técnicas y sesiones de EventStorming colaborativo.
+- **GitHub Projects**: tablero Kanban con las tareas del informe distribuidas por integrante y capítulo.
+- **Google Drive**: repositorio de evidencias, entrevistas grabadas e imágenes fuente antes de su versionado.
 
+**Distribución del trabajo por integrante (Avance 1):**
+
+| Integrante | Aporte principal |
+|---|---|
+| Salcedo Champi, Matias Rodolfo | Capítulo I (Startup Profile, Lean UX), Strategic DDD (Context Mapping, User Personas, Empathy/Journey Maps), consolidación del documento |
+| Santillan Alvarado, Melina Liz | Capítulo II (Competidores, Needfinding), análisis de entrevistas, Product Backlog |
+| Costa Morales, Christofer William | Bounded Context Diario, User Stories de Diario, evidencias de entrevistas |
+| Nikaido Vargas, Javier Masaru | Bounded Context Agenda y Notificaciones, diagramas de componentes y base de datos |
+| Osores Marchese, Pietro | Bounded Context Documentos y Gestión de Consentimiento, diagramas de clases |
+
+**Herramientas de elaboración:**
+- **Structurizr** (C4 Model) para diagramas de arquitectura.
+- **Miro** para EventStorming, Context Mapping y Bounded Context Canvases.
+- **Figma** para wireframes y mockups.
+- **Markdown + Mermaid** para documentación versionada.
+
+**Insights clave del proceso colaborativo:**
+1. El uso de ramas por capítulo redujo los conflictos de merge en un documento extenso (>3000 líneas).
+2. Las sesiones sincrónicas de EventStorming en Discord aceleraron la convergencia sobre el modelo de dominio frente al trabajo asincrónico.
+3. La revisión cruzada en Pull Requests permitió detectar inconsistencias terminológicas entre bounded contexts antes de la integración.
+4. La asignación temprana de un responsable por bounded context evitó solapamientos en el diseño táctico.
+
+**Declaración sobre uso de IA generativa:** El equipo utilizó herramientas de IA generativa como apoyo para la redacción y revisión ortográfica. Todo contenido generado fue revisado, validado y editado por los integrantes responsables de cada sección antes de su incorporación al informe.
 
 ---
 
@@ -185,6 +214,20 @@
 ---
 
 
+# Objetivos SMART
+
+A continuación se presentan los objetivos SMART (Specific, Measurable, Achievable, Relevant, Time-bound) que orientan el desarrollo del proyecto CareConnect durante el periodo 2026-10.
+
+| ID | Objetivo SMART | Specific | Measurable | Achievable | Relevant | Time-bound |
+|---|---|---|---|---|---|---|
+| OB1 | Entregar un MVP funcional de CareConnect con los seis bounded contexts implementados antes del cierre del ciclo 2026-10. | MVP con Agenda, Notificaciones, Diario, Documentos, Gestión de Consentimiento y Autenticación | 100% de los 6 bounded contexts con al menos una US core desplegada | Equipo de 5 integrantes con stack Spring Boot + Flutter dominado | Cumple con el alcance comprometido del informe final | Fin del ciclo académico 2026-10 |
+| OB2 | Validar la propuesta de valor con al menos 6 entrevistas (3 cuidadores, 3 pacientes geriátricos) durante el Sprint 1. | Entrevistas a cuidadores formales/informales y pacientes geriátricos | 6 entrevistas grabadas y transcritas | Red de contactos disponibles del equipo | Sustenta las User Personas y el Lean UX Canvas | Sprint 1 (semanas 1-3) |
+| OB3 | Alcanzar una cobertura de pruebas unitarias del 70% sobre los servicios core del backend al cierre del Sprint 3. | Pruebas sobre Agenda, Notificaciones y Gestión de Consentimiento | Cobertura ≥ 70% reportada por JaCoCo | Equipo familiarizado con JUnit y Mockito | Garantiza calidad para la entrega final | Cierre del Sprint 3 |
+| OB4 | Publicar la Landing Page de CareConnect en un dominio público antes del Sprint Review 1. | Landing Page en React desplegada en Vercel | URL accesible públicamente con métricas básicas habilitadas | Stack y dominio ya provisionados | Refuerza la presentación del producto al stakeholder | Antes del Sprint Review 1 |
+| OB5 | Completar la documentación del informe (capítulos I a IV) versionada en GitHub con revisión cruzada entre integrantes. | Capítulos I, II, III y IV consolidados en README.md | 100% de secciones del índice cubiertas y aprobadas en PR | Equipo organizado por ramas temáticas | Cumple con la rúbrica de evaluación del curso | Cierre del periodo 2026-10 |
+
+---
+
 # Student Outcome
 
 El curso de Aplicaciones para Dispositivos Móviles contribuye al cumplimiento del Student Outcome ABET:
@@ -193,14 +236,31 @@ El curso de Aplicaciones para Dispositivos Móviles contribuye al cumplimiento d
 
 **Criterio:** La capacidad de adquirir y aplicar nuevos conocimientos según sea necesario, utilizando estrategias de aprendizaje apropiadas.
 
-A continuación se describe las acciones realizadas y conclusiones del grupo que sustentan el logro del ABET – EAC - Student Outcome 7.
+A continuación se describe, por cada integrante del equipo, las acciones realizadas y conclusiones que sustentan el logro del ABET – EAC - Student Outcome 7.
 
-| Criterio específico | Acciones realizadas | Conclusiones |
+### Criterio 1: Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.
+
+| Integrante | Acciones realizadas | Conclusiones |
 |---|---|---|
-| Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software. | En el marco del proyecto CareConnect, el equipo tuvo que ponerse al día con varias tecnologías que no habíamos trabajado antes con ese nivel de profundidad: desarrollo móvil multiplataforma con Flutter, integración con servicios RESTful propios y de terceros, y los principios de Domain-Driven Design. Cada integrante investigó por su cuenta y también en conjunto, según las necesidades técnicas que iban surgiendo. | Aprender tecnologías nuevas mientras se construye algo real fue exigente, pero también fue lo que permitió que el proyecto avanzara. Quedó claro que la capacidad de investigar y aplicar lo aprendido rápidamente es tan importante como el conocimiento previo. |
-| Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software. | Detectamos vacíos concretos en temas como arquitectura orientada a dominios (DDD), diseño UX/UI pensado para aplicaciones de salud, y las normas vinculadas a la privacidad de datos de pacientes. Para cerrar esas brechas recurrimos a documentación oficial, bibliografía especializada y recursos en línea. | Este proyecto dejó en evidencia que el campo del software no se detiene: lo que hoy es estándar, mañana puede estar desactualizado. Adaptarse y seguir aprendiendo no es una opción, es parte del trabajo de cualquier ingeniero de software. |
+| Salcedo Champi, Matias Rodolfo | Investigó los fundamentos de Domain-Driven Design estratégico (EventStorming, Context Mapping y Bounded Context Canvases) a partir de la bibliografía de Vaughn Vernon y Nick Tune, y los aplicó en la consolidación del modelo de dominio de CareConnect. | La sistematización del modelado estratégico mediante DDD permitió tomar decisiones de arquitectura fundamentadas y trazables, reforzando la importancia de actualizar el marco conceptual antes de codificar. |
+| Santillan Alvarado, Melina Liz | Profundizó en técnicas de Lean UX y Needfinding, aplicándolas en el diseño y análisis de entrevistas con cuidadores y pacientes geriátricos, y consolidó las User Personas y el Empathy Map. | La actualización en métodos centrados en el usuario permitió construir hipótesis de producto validadas con datos reales en lugar de supuestos del equipo. |
+| Costa Morales, Christofer William | Estudió el patrón Aggregate Root y las capas tácticas de DDD (Domain, Application, Infrastructure, Interface) para diseñar el Bounded Context Diario de Seguimiento. | Comprender la separación táctica permitió escribir código con responsabilidades claras y reducir el acoplamiento entre capas. |
+| Nikaido Vargas, Javier Masaru | Se actualizó en Spring Boot, JPA y RESTful API design para implementar los servicios de Agenda y Notificaciones, incluyendo manejo de eventos de dominio. | Adquirir destreza con el stack del backend permitió aportar al equipo con servicios robustos y bien estructurados. |
+| Osores Marchese, Pietro | Investigó arquitectura C4 Model y la herramienta Structurizr para representar los diagramas de contexto, container y deployment de CareConnect. | La aplicación del C4 Model permitió comunicar la arquitectura de forma consistente a distintos niveles de abstracción. |
+
+### Criterio 2: Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.
+
+| Integrante | Acciones realizadas | Conclusiones |
+|---|---|---|
+| Salcedo Champi, Matias Rodolfo | Identificó vacíos en privacidad de datos clínicos y consentimiento informado, y consultó documentación de la Ley N° 29733 (Ley de Protección de Datos Personales del Perú) y lineamientos OMS sobre adherencia a tratamientos. | La normativa de datos personales evoluciona, y el equipo debe mantenerse alineado a lo largo del ciclo de vida del producto. |
+| Santillan Alvarado, Melina Liz | Reconoció la necesidad de profundizar en accesibilidad WCAG y diseño inclusivo para adultos mayores, consultando guías oficiales de la W3C. | El diseño inclusivo no es un complemento, sino un requisito que se aprende y refuerza permanentemente en proyectos de salud. |
+| Costa Morales, Christofer William | Detectó áreas de mejora en su dominio de testing automatizado y consultó documentación oficial de JUnit 5 y Mockito para fortalecer la cobertura del backend. | Mantener una práctica continua de testing eleva la confianza en cada release y reduce el costo de mantenimiento futuro. |
+| Nikaido Vargas, Javier Masaru | Identificó necesidad de capacitarse en mensajería asíncrona y eventos de dominio para desacoplar Agenda de Notificaciones; consultó documentación de Spring Events y patrones de Vernon. | El aprendizaje permanente sobre patrones de integración es clave para diseñar sistemas que escalen. |
+| Osores Marchese, Pietro | Reconoció su necesidad de actualizar conocimientos en despliegue en la nube (Railway, Render) y CI/CD con GitHub Actions, y completó tutoriales oficiales para implementarlos. | La automatización del despliegue es una habilidad que se mantiene actualizada constantemente ante la evolución del ecosistema cloud. |
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Capítulo I: Presentación
 
@@ -224,15 +284,13 @@ A continuación se describe las acciones realizadas y conclusiones del grupo que
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-> *Nota: Los perfiles de cada integrante del equipo serán completados por el responsable de cada sección correspondiente, incluyendo foto, nombres y apellidos, código de estudiante, carrera y párrafo de resumen de conocimientos técnicos y habilidades.*
-
 | Foto | Integrante | Código | Carrera | Resumen |
 |---|---|---|---|---|
-| <img src="assets/matias.jpg" width="600" /> | Salcedo Champi, Matias Rodolfo | u202319698 | Ingeniería de Software | Soy un estudiante de Ingeniería de Software con experiencia en el desarrollo de aplicaciones móviles y web. He participado en proyectos de investigación y desarrollo, y tengo conocimientos en tecnologías como Flutter, Dart, Node.js, Express.js, MongoDB, PostgreSQL, Git, GitHub, entre otras. |
+| <img src="assets/matias.jpg" width="600" /> | Salcedo Champi, Matias Rodolfo | U202319698 | Ingeniería de Software | Estudiante de Ingeniería de Software en la UPC con experiencia en el desarrollo de aplicaciones móviles y web. Ha participado en proyectos de investigación y desarrollo, y cuenta con conocimientos en tecnologías como Flutter, Dart, Node.js, Express.js, MongoDB, PostgreSQL, Git y GitHub. |
 | <img src="assets/melina.jpg" width="600" /> | Santillan Alvarado, Melina Liz | U202216058 | Ingeniería de Software | Estudiante de Ingeniería de Software en la UPC. Cuenta con habilidades organizativas, análisis de requerimientos y proactividad para garantizar el correcto desarrollo del proyecto y el cumplimiento de los procesos ágiles. |
-| <img src="assets/christofer.jpeg" width="600" /> | Costa Morales, Christofer William | u202315968 | Ingeniería de Software | Estudiante de Ingeniería de Software de la UPC. Posee experiencia con los lenguajes de programación: C++, Python, JavaScript, HTML y CSS. En lo personal, capacitado para ayudar y contribuir activamente en el desarrollo técnico de este equipo. |
-| <img src="assets/javier.jpg" width="600" /> | Nikaido Vargas, Javier Masaru | U20221G099 | Ingeniería de Software | Estudiante del séptimo ciclo de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas. Contribuirá al equipo aportando en el desarrollo estructural y la validación funcional de la solución propuesta. |
-| <img src="assets/pietro.jpg" width="600" /> | Osores Marchese, Pietro | U202310971 | Ingeniería de Software | Estudiante de Ingeniería de Software en la UPC. Apoyará en las etapas de codificación y trabajo colaborativo, enfocándose en la experiencia de usuario y garantizando entregas de valor dentro de los plazos establecidos por el equipo. |
+| <img src="assets/christofer.jpeg" width="600" /> | Costa Morales, Christofer William | U202315968 | Ingeniería de Software | Estudiante de Ingeniería de Software en la UPC. Posee experiencia con los lenguajes de programación C++, Python, JavaScript, HTML y CSS. Se encuentra capacitado para contribuir activamente en el desarrollo técnico del equipo. |
+| <img src="assets/javier.jpg" width="600" /> | Nikaido Vargas, Javier Masaru | U20221G099 | Ingeniería de Software | Estudiante del séptimo ciclo de Ingeniería de Software en la UPC. Contribuye al equipo aportando en el desarrollo estructural y la validación funcional de la solución propuesta. |
+| <img src="assets/pietro.jpg" width="600" /> | Osores Marchese, Pietro | U202310971 | Ingeniería de Software | Estudiante de Ingeniería de Software en la UPC. Apoya en las etapas de codificación y trabajo colaborativo, enfocándose en la experiencia de usuario y garantizando entregas de valor dentro de los plazos establecidos por el equipo. |
 
 ---
 
@@ -242,9 +300,14 @@ A continuación se describe las acciones realizadas y conclusiones del grupo que
 
 #### Antecedentes
 
-En el Perú, el crecimiento de la población adulta mayor ha hecho más visible la necesidad de soluciones que permitan organizar mejor el cuidado geriátrico, tanto en casa como en entornos de atención especializada. Muchos pacientes geriátricos requieren seguimiento continuo de medicación, citas médicas, signos de alerta y rutinas de apoyo diario, pero ese control todavía suele manejarse de forma manual, fragmentada y dependiente de la memoria de los cuidadores.
+En el Perú, el crecimiento de la población adulta mayor ha hecho más visible la necesidad de soluciones que permitan organizar mejor el cuidado geriátrico, tanto en casa como en entornos de atención especializada. Según el **Instituto Nacional de Estadística e Informática (INEI, 2024)**, el 13,9% de la población peruana tiene 60 años o más, y se proyecta que para 2050 esta proporción supere el 22%, lo que evidencia un envejecimiento sostenido de la pirámide poblacional [1]. Muchos pacientes geriátricos requieren seguimiento continuo de medicación, citas médicas, signos de alerta y rutinas de apoyo diario, pero ese control todavía suele manejarse de forma manual, fragmentada y dependiente de la memoria de los cuidadores.
 
-A nivel práctico, esta situación genera desgaste en los cuidadores y reduce la autonomía de los propios pacientes geriátricos, quienes muchas veces dependen de terceros para recordar tratamientos, registrar síntomas o informar cambios en su estado. Aunque existen herramientas orientadas a clínicas y hospitales, todavía falta una solución centrada en el cuidado cotidiano, domiciliario y compartido que caracteriza a este segmento.
+A nivel práctico, esta situación genera desgaste en los cuidadores y reduce la autonomía de los propios pacientes geriátricos. La **Organización Mundial de la Salud (OMS, 2022)** estima que cerca del **50% de los pacientes crónicos no adhieren correctamente a sus tratamientos**, principalmente por olvidos, desorganización y falta de soporte continuo, lo que incrementa el riesgo de complicaciones y reingresos hospitalarios [2]. Adicionalmente, un estudio publicado en *The Lancet* (Beard et al., 2016) advierte que el envejecimiento poblacional global exige nuevos modelos de cuidado integrados que combinen tecnología y soporte comunitario [3]. Aunque existen herramientas orientadas a clínicas y hospitales, todavía falta una solución centrada en el cuidado cotidiano, domiciliario y compartido que caracteriza a este segmento.
+
+**Fuentes consultadas:**
+- [1] INEI (2024). *Situación de la Población Adulta Mayor*. Informe técnico N° 01 - 2024. Lima, Perú.
+- [2] World Health Organization (2022). *Ageing and health*. Ginebra: WHO. Disponible en: https://www.who.int/news-room/fact-sheets/detail/ageing-and-health
+- [3] Beard, J.R., Officer, A., de Carvalho, I.A., et al. (2016). *The World report on ageing and health: a policy framework for healthy ageing*. The Lancet, 387(10033), 2145-2154.
 
 #### Problemática — Técnica The 5W's y 2H's
 
@@ -446,6 +509,8 @@ Su relevancia está asociada al envejecimiento de la población y a la necesidad
 
 ## 2.1. Competidores
 ### 2.1.1. Análisis competitivo <a id="211-analisis-competitivo"></a>
+
+<div style="page-break-before: always;"></div>
 
 # Capítulo II: Requirements & Analysis
 
@@ -1524,7 +1589,7 @@ Clasificación del usuario dentro del sistema, como paciente o cuidador, que det
 | EP01    | Gestión de Agenda         | Como paciente o cuidador, quiero gestionar eventos de salud para organizar medicación y citas en el tiempo. |
 | EP02    | Gestión de Notificaciones | Como paciente o cuidador, quiero recibir notificaciones para dar seguimiento oportuno a los eventos de salud. |
 | EP03    | Gestión de Documentos     | Como paciente o cuidador, quiero gestionar documentos médicos para mantener un registro accesible.    |
-| EP04    | Acceso Compartido         | Como paciente, quiero compartir mi perfil con un cuidador para permitir el seguimiento de mi estado de salud. |
+| EP04    | Gestión de Consentimiento         | Como paciente, quiero compartir mi perfil con un cuidador para permitir el seguimiento de mi estado de salud. |
 | EP05    | Diario de Seguimiento     | Como paciente o cuidador, quiero registrar notas de seguimiento para monitorear la evolución del estado de salud. |
 | EP06    | Autenticación             | Como paciente o cuidador, quiero acceder al sistema de forma segura para proteger mi información personal. |
 
@@ -1691,7 +1756,7 @@ Clasificación del usuario dentro del sistema, como paciente o cuidador, que det
 |-----------|-------|
 | **User** | Cuidador |
 | **Priority** |  Alta |
-| **Epic** |  Acceso Compartido   |
+| **Epic** |  Gestión de Consentimiento   |
 | **Description** |  Como paciente, quiero compartir mi perfil con familiares para que puedan ver mi información.|
 | **Acceptance Criteria** | Escenario 1: Compartir exitoso <br> Dado que el familiar es un usuario válido <br> Cuando comparto mi perfil <br> Entonces el sistema el acceso a su cuenta es aceptado<br><br> Escenario 2: Error al compartir <br> Dado que el familiar no es un usuario válido <br> Cuando intenta acceder a los documentos <br> Entonces el sistema muestra un mensaje de usuario no existe |
 
@@ -1703,7 +1768,7 @@ Clasificación del usuario dentro del sistema, como paciente o cuidador, que det
 |-----------|-------|
 | **User** | Cuidador |
 | **Priority** | Media |
-| **Epic** |  Acceso Compartido   |
+| **Epic** |  Gestión de Consentimiento   |
 | **Description** | Como cuidador, quiero consultar el perfil compartido del paciente para acceder a su información.  |
 | **Acceptance Criteria** | Escenario 1: Consulta exitosa <br> Dado el paciente me dio permiso <br> Cuando consulto el perfil <br> Entonces se muestra la información <br><br> Escenario 2: Acceso inválido <br> Dado que el paciente no tiene permisos <br> Cuando intenta consultar el perfil <br> Entonces el sistema bloquea el acceso y muestra un mensaje de restricción |
 
@@ -1715,7 +1780,7 @@ Clasificación del usuario dentro del sistema, como paciente o cuidador, que det
 |-----------|-------|
 | **User** | Paciente |
 | **Priority** | Media |
-| **Epic** |  Acceso Compartido  |
+| **Epic** |  Gestión de Consentimiento  |
 | **Description** | Como paciente, quiero revocar el acceso a mi perfil para controlar quién puede ver mi información.  |
 | **Acceptance Criteria** | Escenario 1: Revocación exitosa <br> Dado que el paciente otorgo los permisos <br> Cuando revoca el acceso <br> Entonces el sistema quita los privilegios al cuidador <br><br> Escenario 2: Acción no permitida <br> Dado que el paciente ya revoco el permiso al cuidador <br> Cuando intenta revocar el acceso <br> Entonces el sistema le muestra un mensaje de error |
 
@@ -1863,6 +1928,60 @@ Clasificación del usuario dentro del sistema, como paciente o cuidador, que det
 | **Description** | Como desarrollador, quiero implementar la revocación de accesos para controlar permisos. |
 | **Acceptance Criteria** | Escenario 1: Revocación exitosa<br>Dado que existe acceso activo<br>Cuando el propietario revoca acceso<br>Entonces se elimina el permiso<br><br>Escenario 2: Usuario sin permiso<br>Dado que no es propietario<br>Cuando intenta revocar<br>Entonces se rechaza la acción|
 
+### Spike Stories
+
+Las Spike Stories son investigaciones técnicas acotadas en el tiempo, orientadas a reducir la incertidumbre antes de comprometer una User Story o decisión de arquitectura. A continuación se documentan los spikes identificados para CareConnect:
+
+### SP01 – Investigar mecanismo de notificaciones push offline-first
+
+| **Story ID** | SP01 |
+|--------------|------|
+| **Tipo** | Spike (técnico) |
+| **Priority** | Alta |
+| **Timebox** | 2 días |
+| **Description** | Como equipo de desarrollo, queremos investigar cómo entregar notificaciones push de medicación en dispositivos Android con conectividad intermitente, comparando Firebase Cloud Messaging vs. AlarmManager local, para decidir la estrategia que usaremos en el Bounded Context de Notificaciones. |
+| **Resultado esperado** | Documento corto con recomendación, prototipo mínimo, y criterios de decisión (latencia, batería, costo, complejidad). |
+
+### SP02 – Validar mecanismo de Gestión de Consentimiento revocable
+
+| **Story ID** | SP02 |
+|--------------|------|
+| **Tipo** | Spike (técnico + legal) |
+| **Priority** | Alta |
+| **Timebox** | 3 días |
+| **Description** | Como equipo, queremos investigar patrones técnicos (tokens firmados con expiración + lista de revocación) y requisitos legales (Ley N° 29733, HIPAA-like) para implementar el otorgamiento y revocación de consentimiento del paciente sobre su información clínica. |
+| **Resultado esperado** | Documento con esquema técnico, validación con caso de uso de revocación inmediata y referencias normativas aplicables. |
+
+### SP03 – Evaluar Flutter vs. Kotlin Multiplatform para la app móvil
+
+| **Story ID** | SP03 |
+|--------------|------|
+| **Tipo** | Spike (arquitectura) |
+| **Priority** | Media |
+| **Timebox** | 2 días |
+| **Description** | Como equipo, queremos comparar Flutter y Kotlin Multiplatform en términos de productividad, performance, soporte de notificaciones nativas y curva de aprendizaje para decidir el stack móvil del MVP. |
+| **Resultado esperado** | Matriz comparativa, prototipos en cada tecnología consumiendo un endpoint REST y recomendación final. |
+
+### SP04 – Investigar almacenamiento seguro de documentos médicos
+
+| **Story ID** | SP04 |
+|--------------|------|
+| **Tipo** | Spike (técnico) |
+| **Priority** | Media |
+| **Timebox** | 2 días |
+| **Description** | Como equipo, queremos investigar opciones de almacenamiento cifrado en reposo y en tránsito para documentos clínicos del paciente (recetas, resultados), comparando S3 con SSE-KMS, GCS y un esquema local cifrado. |
+| **Resultado esperado** | Recomendación de servicio, esquema de cifrado y plan de manejo de claves. |
+
+### SP05 – Diseñar estrategia offline-first para Diario y Agenda
+
+| **Story ID** | SP05 |
+|--------------|------|
+| **Tipo** | Spike (arquitectura) |
+| **Priority** | Media |
+| **Timebox** | 2 días |
+| **Description** | Como equipo, queremos definir cómo sincronizar Diario y Agenda entre el dispositivo (SQLite/Room) y el backend tras periodos sin conexión, evitando conflictos y pérdidas de información. |
+| **Resultado esperado** | Documento de estrategia de sincronización con manejo de conflictos y prototipo mínimo. |
+
 ### 2.4.2. Impact Mapping <a id="242-impact-mapping"></a>
 
 A continuación se presenta el Impact Map, el cual permite visualizar de manera clara cómo las funcionalidades clave de la aplicación se alinean con los objetivos de negocio, considerando a los actores involucrados y los impactos esperados en su comportamiento.
@@ -1923,7 +2042,7 @@ Se identificaron las partes del dominio con mayor valor para el negocio (core). 
 | Notificaciones|	Alerta y confirmación a cuidadores y pacientes	|Core Domain|
 | Diario|	Registro del estado del paciente — diferenciador clave	|Core Domain|
 | Documentos| Soporte de documentación clínica compartida|	Supporting Domain|
-|Compartir-Perfiles|	Habilita la colaboración paciente-familiar|	Supporting Domain|
+|Gestión de Consentimiento|	Habilita la colaboración paciente-familiar|	Supporting Domain|
 |IAM	|Autenticación y gestión de sesiones	|Generic Domain|
 
 ##### 3.2 Estrategia: Start-with-Simple
@@ -1937,7 +2056,7 @@ Se descompuso el timeline del EventStorm en steps secuenciales para identificar 
 | Documentos|	Paciente/Familiar, Cuidador	|Subir documento → Almacenar → Consultar|
 | Diario|	Paciente, Cuidador	|Escribir nota → Almacenar → Compartir → Visualizar|
 |IAM|	Paciente/Cuidador	|Registrar cuenta → Iniciar sesión → Cerrar sesión|
-|Compartir-Perfiles|	Paciente, Cuidador	|Compartir perfil → Otorgar acceso → Visualizar info|
+|Gestión de Consentimiento|	Paciente, Cuidador	|Compartir perfil → Otorgar acceso → Visualizar info|
 
 ##### 3.3 Estrategia: Look-for-Pivotal-Events
 Se identificaron los eventos clave del negocio que indican cruces entre diferentes partes del proceso. Estos eventos actúan como fronteras naturales entre bounded contexts.
@@ -1947,7 +2066,7 @@ Se identificaron los eventos clave del negocio que indican cruces entre diferent
 | Evento de salud registrado|	Agenda|	Notificaciones|
 | Notificacion enviada|	Notificaciones|	Agenda (confirmacion/reprogramacion)|
 | Nota guardada en diario|	Diario|	Cuidador (monitoreo del paciente)|
-| Acceso concedido al familiar	|Compartir-Perfiles|	Diario / Documentos (lectura compartida)|
+| Acceso concedido al familiar	|Gestión de Consentimiento|	Diario / Documentos (lectura compartida)|
 |Sesion iniciada|IAM	|Todos los contextos (prerequisito global)|
 |Documento medico almacenado|	Documentos|	Paciente/Familiar (consulta)|
 
@@ -1997,7 +2116,7 @@ Datos incompletos al registrar|	Agenda rechaza el evento → Muestra error con c
 
 #### DS-02: Paciente sube documento medico y cuidador lo consulta
 
-Historia: El paciente o familiar sube un documento medico al sistema. El documento queda disponible para que el cuidador autorizado lo consulte a traves del contexto de Compartir-Perfiles.
+Historia: El paciente o familiar sube un documento medico al sistema. El documento queda disponible para que el cuidador autorizado lo consulte a traves del contexto de Gestión de Consentimiento.
 
 ![alt text](assets/Domain_Story_2.png)
 
@@ -2005,7 +2124,7 @@ Historia: El paciente o familiar sube un documento medico al sistema. El documen
 
 1.	IAM — autentica al paciente o familiar
 2.	Documentos — gestiona subida y almacenamiento del archivo
-3.	Compartir-Perfiles — controla el acceso del cuidador al documento
+3.	Gestión de Consentimiento — controla el acceso del cuidador al documento
 
 ##### Flujo Principal:
 
@@ -2014,15 +2133,15 @@ Historia: El paciente o familiar sube un documento medico al sistema. El documen
 |1|	Paciente/Familiar|	Se autentica en el sistema|	IAM	|Sesion activa|
 |2	|IAM|	Concede acceso al modulo de documentos|	Documentos|	Acceso concedido|
 |3	|Paciente/Familiar	|Sube documento medico (PDF, imagen)	|Documentos	|Documento almacenado
-|4|	Documentos|	Notifica disponibilidad al cuidador|	Compartir-Perfiles	|Documento disponible
-|5|	Cuidador	|Solicita consultar el documento medico|	Compartir-Perfiles	|Acceso validado|
-|6|	Compartir-Perfiles|	Retorna documento para visualizacion	|Cuidador	|Documento visualizado|
+|4|	Documentos|	Notifica disponibilidad al cuidador|	Gestión de Consentimiento	|Documento disponible
+|5|	Cuidador	|Solicita consultar el documento medico|	Gestión de Consentimiento	|Acceso validado|
+|6|	Gestión de Consentimiento|	Retorna documento para visualizacion	|Cuidador	|Documento visualizado|
 
 ##### Escenarios Alternativos:
 | Escenario Alternativo| Respuesta del Sistema   |
 |------:|-------------|
 |Error al subir documento (formato invalido)|	Documentos rechaza el archivo → Muestra mensaje de error al usuario|
-|Cuidador sin permisos de acceso	|Compartir-Perfiles deniega la solicitud → Acceso no autorizado|
+|Cuidador sin permisos de acceso	|Gestión de Consentimiento deniega la solicitud → Acceso no autorizado|
 |Documento no encontrado	|Documentos retorna error 404 → Informacion del documento no disponible|
 
 
@@ -2037,7 +2156,7 @@ Historia: El paciente escribe una nota personal en su diario clinico. La nota qu
 
 1.	IAM — autentica al paciente o familiar
 2.	Diario  — gestiona el registro y almacenamiento de notas
-3.	Compartir-Perfiles — controla el acceso del cuidador al documento
+3.	Gestión de Consentimiento — controla el acceso del cuidador al documento
 
 ##### Flujo Principal:
 
@@ -2046,16 +2165,16 @@ Historia: El paciente escribe una nota personal en su diario clinico. La nota qu
 |1|	Paciente|	Inicia sesion en el sistema	|IAM	|Sesion iniciada|
 |2|	IAM	|Habilita acceso al diario clinico	|Diario 	|Acceso habilitado|
 |3|	Paciente	|Escribe nota de estado de salud	|Diario |	Nota registrada y almacenada|
-|4|	Diario |	Marca nota como disponible para compartir	|Compartir-Perfiles|	Nota compartida|
-|5|	Cuidador	|Solicita lectura del diario compartido	|Compartir-Perfiles	|Acceso de lectura concedido|
-|6|	Compartir-Perfiles|	Retorna contenido del diario al cuidador	|Cuidador	|Diario compartido visualizado|
+|4|	Diario |	Marca nota como disponible para compartir	|Gestión de Consentimiento|	Nota compartida|
+|5|	Cuidador	|Solicita lectura del diario compartido	|Gestión de Consentimiento	|Acceso de lectura concedido|
+|6|	Gestión de Consentimiento|	Retorna contenido del diario al cuidador	|Cuidador	|Diario compartido visualizado|
 
 
 ##### Escenarios Alternativos:
 | Escenario Alternativo| Respuesta del Sistema   |
 |------:|-------------|
 |Nota vacia al intentar guardar|	Diario Clinico rechaza el guardado → Muestra error: nota vacia|
-|Acceso no autorizado al diario	|Compartir-Perfiles deniega acceso → Acceso no autorizado al diario compartido|
+|Acceso no autorizado al diario	|Gestión de Consentimiento deniega acceso → Acceso no autorizado al diario compartido|
 |Diario no compartido aun con el cuidador|	Sistema solicita al paciente activar el permiso de lectura|
 
 
@@ -2068,27 +2187,27 @@ Historia: El paciente decide compartir su perfil de salud con un familiar. Gener
 ##### Bounded Contexts Involucrados:
 
 1.	IAM — autentica al paciente o familiar
-3.	Compartir-Perfiles — controla el acceso del cuidador al documento
+3.	Gestión de Consentimiento — controla el acceso del cuidador al documento
 
 ##### Flujo Principal:
 
 | #  | Actor   | Mensaje / Accion | Destino | Resultado
 |------:|-------------|-------------|-------------|-------------|
 |1|	Paciente|	Se autentica para gestionar su perfil|	IAM|	Sesión activa|
-|2|	IAM|	Valida identidad y autoriza acción|	Compartir-Perfiles	|Sesión verificada|
-|3|	Paciente|	Solicita compartir perfil con familiar	|Compartir-Perfiles|	Perfil compartido — enlace generado|
-|4|	Compartir-Perfiles	|Envía enlace de acceso al familiar	|Familiar|	Enlace recibido|
-|5|	Familiar|	Accede mediante el enlace recibido	|Compartir-Perfiles	|Acceso al familiar concedido|
-|6|	Compartir-Perfiles|	Muestra información del paciente al familiar	|Familiar	|Información del paciente visualizado|
+|2|	IAM|	Valida identidad y autoriza acción|	Gestión de Consentimiento	|Sesión verificada|
+|3|	Paciente|	Solicita compartir perfil con familiar	|Gestión de Consentimiento|	Perfil compartido — enlace generado|
+|4|	Gestión de Consentimiento	|Envía enlace de acceso al familiar	|Familiar|	Enlace recibido|
+|5|	Familiar|	Accede mediante el enlace recibido	|Gestión de Consentimiento	|Acceso al familiar concedido|
+|6|	Gestión de Consentimiento|	Muestra información del paciente al familiar	|Familiar	|Información del paciente visualizado|
 
 
 
 ##### Escenarios Alternativos:
 | Escenario Alternativo| Respuesta del Sistema   |
 |------:|-------------|
-|Enlace expirado al intentar acceder	|Compartir-Perfiles rechaza el acceso → Enlace expirado|
+|Enlace expirado al intentar acceder	|Gestión de Consentimiento rechaza el acceso → Enlace expirado|
 |Acceso no autorizado (enlace invalido)	|Sistema deniega la solicitud → Acceso no autorizado|
-|Error al compartir perfil	|Compartir-Perfiles retorna error → Acceso no concedido|
+|Error al compartir perfil	|Gestión de Consentimiento retorna error → Acceso no concedido|
 
 #### 2.5.1.3. Bounded Context Canvases <a id="2513-bounded-context-canvases"></a>
 
@@ -2096,559 +2215,57 @@ Segun el valor de negocio identificado en el Candidate Context Discovery, el ord
 
 | #  | Bounded Context   | Tipo | Justificacion| 
 |------:|-------------|-------------|-------------|
-|1|	Agenda y Programacion|	Core Domain|	Nucleo del sistema — coordina todos los eventos de salud|
+|1|	Agenda|	Core Domain|	Nucleo del sistema — coordina todos los eventos de salud|
 |2|	Notificaciones|	Core Domain|	Cierra el loop de la Agenda — alerta y confirmacion|
-|3|	Diario|	Core Domain|	Diferenciador del producto — seguimiento continuo|
-|4|	Documentos Medicos|	Supporting Domain	|Soporte al historial clinico del paciente|
-|5|	Compartir-Perfiles|	Supporting Domain	|Habilita la colaboracion entre actores|
-|6|	IAM — Identidad y Acceso	|Generic Domain	|Prerequisito de todos los contextos — candidato a externalizarse|
+|3|	Diario de Seguimiento|	Core Domain|	Diferenciador del producto — seguimiento continuo|
+|4|	Documentos|	Supporting Domain	|Soporte al historial clinico del paciente|
+|5|	Gestión de Consentimiento|	Supporting Domain	|Permite el acceso controlado y revocable de terceros autorizados a la información clínica del paciente|
+|6|	Autenticación (IAM)	|Generic Domain	|Prerequisito de todos los contextos — candidato a externalizarse|
 
-#### Bounded Context Canvas 1:
+A continuación se presentan los Bounded Context Canvases elaborados por el equipo en Miro, uno por cada bounded context identificado. Cada canvas consolida en una sola vista los campos definidos en la plantilla de Nick Tune: Name, Purpose, Strategic Classification, Domain Roles, Inbound/Outbound Communication, Ubiquitous Language, Business Decisions y Assumptions.
 
-##### BC-01 — Agenda y Programacion
+#### Bounded Context Canvas 1 — BC-01 Agenda
 
+![Bounded Context Canvas BC-01 Agenda](assets/bcc_01_agenda.png)
 
-###### Context Overview Definition
+*Figura 11. Bounded Context Canvas para el contexto Agenda.*
 
-Campos:
 
-1. Proposito:	Gestionar el ciclo de vida completo de los eventos de salud: registro, programacion, reprogramacion y generacion de recordatorios.
-2. Problema:	Los pacientes olvidan sus citas y eventos de salud. Los cuidadores necesitan visibilidad sobre la agenda del paciente para coordinar su asistencia.
-3. Usuarios:	Paciente (crea y consulta eventos), Cuidador (visualiza y reprograma eventos)
-4. Alcance:	Incluye: registro de eventos, programacion en calendario, deteccion de conflictos, recordatorios. Excluye: envio de notificaciones (Notificaciones BC).
+#### Bounded Context Canvas 2 — BC-02 Notificaciones
 
+![Bounded Context Canvas BC-02 Notificaciones](assets/bcc_02_notificaciones.png)
 
-###### Business Rules Distillation
+*Figura 12. Bounded Context Canvas para el contexto Notificaciones.*
 
-Regla de Negocio:
+#### Bounded Context Canvas 3 — BC-03 Diario de Seguimiento
 
-1. Un evento debe tener fecha, hora y tipo definidos para ser registrado
-2. No pueden existir dos eventos del mismo paciente en el mismo horario
-3. Un recordatorio se genera automaticamente 24h antes del evento
-4. Solo el paciente o su cuidador asignado pueden reprogramar un evento
+![Bounded Context Canvas BC-03 Diario de Seguimiento](assets/bcc_03_diario.png)
 
-Razon / Consecuencia:
+*Figura 13. Bounded Context Canvas para el contexto Diario de Seguimiento.*
 
-1. Sin estos datos el evento no puede programarse ni generar recordatorios
-2. Evita conflictos de agenda y confusion en la coordinacion del cuidado
-3. Garantiza que paciente y cuidador esten preparados con anticipacion
-4. Protege la integridad de la agenda contra modificaciones no autorizadas
+#### Bounded Context Canvas 4 — BC-04 Documentos
 
+![Bounded Context Canvas BC-04 Documentos](assets/bcc_04_documentos.png)
 
+*Figura 14. Bounded Context Canvas para el contexto Documentos.*
 
-###### Ubiquitous Language Capture
+#### Bounded Context Canvas 5 — BC-05 Gestión de Consentimiento
 
-Terminos:
+![Bounded Context Canvas BC-05 Gestión de Consentimiento](assets/bcc_05_gestion_consentimiento.png)
 
-1. Evento de Salud:	Cita medica, toma de medicamento o actividad de cuidado programada para un paciente
-2. Calendario de Eventos:	Vista consolidada de todos los eventos de salud de un paciente en un periodo de tiempo
-3. Conflicto de Horario:	Situacion en la que dos eventos del mismo paciente se superponen en el tiempo
-4. Recordatorio:	Aviso automatico generado antes del evento para alertar a los actores involucrados
-5. Reprogramacion:	Accion de cambiar la fecha u hora de un evento ya registrado
+*Figura 15. Bounded Context Canvas para el contexto Gestión de Consentimiento.*
 
+#### Bounded Context Canvas 6 — BC-06 Autenticación (IAM)
 
+![Bounded Context Canvas BC-06 Autenticación](assets/bcc_06_autenticacion.png)
 
-###### Capability Analysis
-
-Capacidad:
-
-1. Registrar evento de salud	Permite crear un nuevo evento con tipo, fecha, hora y descripcion
-2. Detectar conflictos de horario	Valida que no existan superposiciones en la agenda del paciente
-3. Programar recordatorios	Genera avisos automaticos previos al evento
-4. Reprogramar evento	Permite modificar fecha/hora de un evento existente
-5. Consultar calendario	Vista de todos los eventos del paciente en un rango de fechas
-
-Valor al Negocio:
-
-1. Alto — core de la propuesta de valor
-2. Alto — evita errores de coordinacion
-3. Alto — reduce incumplimiento de citas
-4. Medio — flexibilidad operativa
-5. Medio — visibilidad para cuidadores
-
-
-###### Capability Layering
-
-Capa-Capacidad:
-
-1. Core: Registrar evento de salud, Detectar conflictos de horario, Programar recordatorios    
-2. Supporting: Reprogramar evento, Consultar calendario de eventos, Actualizar estado del evento
-3. Generic: Validacion de fechas y horas, Formato de calendario
-
-###### Dependencies Capture
-
-|Tipo|	Contexto	|Dato / Mensaje Intercambiado	|Patron de Integracion|
-|----------|------|--------|---------|
-|Upstream|	IAM|	Token de sesion activa del usuario|	Open Host Service|
-|Downstream|	Notificaciones	|Evento programado / Recordatorio generado|	Published Language / Evento de dominio|
-
-
-###### Design Critique
-
-1. Fortalezas: Responsabilidad unica y bien delimitada. Flujo claro de registro → programacion → recordatorio. Alta cohesion interna.
-
-2. Riesgos / Debilidades: Acoplamiento temporal con Notificaciones si el envio de recordatorios se hace sincrono. Posible sobrecarga si el volumen de eventos crece mucho.
-
-3. Recomendaciones: Usar mensajeria asincrona (eventos de dominio) para desacoplar de Notificaciones. Considerar paginacion en la consulta del calendario.
-
-
-#### Bounded Context Canvas 2:
-
-##### BC-02 — Notificaciones
-
-
-###### Context Overview Definition
-
-Campos:
-
-1. Proposito:	Detectar eventos pendientes, enviar alertas oportunas a los actores del sistema y gestionar el ciclo de confirmacion o escalamiento.
-2. Problema:	Los cuidadores y pacientes necesitan ser alertados en el momento correcto. La falta de notificacion causa incumplimiento de citas y riesgos en el cuidado.
-3. Usuarios: Paciente (recibe confirmaciones), Cuidador (recibe alertas y responde confirmaciones)
-4. Alcance:	Incluye: deteccion de eventos pendientes, envio de notificaciones, gestion de respuestas. Excluye: programacion de eventos (Agenda BC), autenticacion (IAM).
-
-
-###### Business Rules Distillation
-
-Regla de Negocio:
-
-1. Toda notificacion debe enviarse al menos 24h antes del evento programado
-2. Si el cuidador no confirma en 12h, se genera una alerta de escalamiento
-3. Una notificacion solo puede enviarse a usuarios autenticados y activos
-4. Cada notificacion debe registrar su estado: enviada, confirmada o sin respuesta
-
-Razon / Consecuencia:
-
-1. Permite al cuidador reorganizarse con tiempo suficiente
-2. Garantiza que ningun evento quede sin atencion
-3. Evita envios a cuentas inactivas o no autorizadas
-4. Permite auditoria y seguimiento del ciclo de atencion
-
-
-
-###### Ubiquitous Language Capture
-
-Terminos:
-
-1. Notificacion:	Mensaje automatico enviado a un actor sobre un evento pendiente o cambio de estado
-2. Confirmacion:	Respuesta del cuidador o paciente que valida su asistencia o conocimiento del evento
-3. Alerta de Escalamiento:	Notificacion secundaria enviada cuando no hay confirmacion en el tiempo esperado
-4. Estado de Notificacion:	Ciclo de vida de una notificacion: enviada → confirmada / sin respuesta
-5. Evento Pendiente:	Evento de salud proximos sin confirmacion de asistencia
-
-
-
-###### Capability Analysis
-
-Capacidad:
-
-1. Enviar notificacion: Genera y entrega alertas a pacientes y cuidadores
-2. Gestionar confirmaciones: Procesa respuestas de confirmacion o rechazo
-3. Escalar notificacion: Reenvio automatico si no hay respuesta en el tiempo limite
-4. Consultar lista de notificaciones: Vista del historial de notificaciones enviadas y su estado
-
-
-
-Valor al Negocio:
-
-1. Alto — nucleo del contexto
-2. Alto — cierra el loop de la Agenda
-3. Alto — garantiza atencion del evento
-4. Medio — transparencia para el usuario
-
-###### Capability Layering
-
-Capa-Capacidad:
-
-1. Core: Enviar notificacion, Gestionar confirmaciones, Escalar notificacion sin respuesta    
-2. Supporting: Consultar lista de notificaciones, Registrar estado de notificacion
-3. Generic: Plantillas de mensajes, Formato y canal de envio
-
-###### Dependencies Capture
-
-|Tipo|	Contexto	|Dato / Mensaje Intercambiado	|Patron de Integracion|
-|----------|------|--------|---------|
-|Upstream|	Agenda|	Evento programado / Recordatorio pendiente|	OEvent-Driven / Suscriptor|
-|Upstream|	IAM|	Identidad y canal de contacto del usuario|	Open Host Service|
-|Downstream|	Agenda	|Confirmación / Rechazo del evento|	Published Language|
-
-
-###### Design Critique
-
-1. Fortalezas: Contexto bien acotado con responsabilidad clara. Desacoplado de la logica de negocio de Agenda. Escalable de forma independiente.
-
-2. Riesgos / Debilidades: Dependencia del canal de envio (email, push, SMS) puede convertirse en un cuello de botella. Logica de escalamiento puede complejizarse con muchos tipos de eventos.
-
-3. Recomendaciones: Abstraer el canal de envio como un puerto (adapter pattern). Definir politicas de escalamiento configurables por tipo de evento.
-
-#### Bounded Context Canvas 3:
-
-##### BC-03 — Diario 
-
-
-###### Context Overview Definition
-
-Campos:
-
-1. Proposito:	Permitir al paciente registrar notas personales sobre su estado de salud y compartirlas de forma controlada con cuidadores autorizados.
-2. Problema:	No existe un canal estructurado para que el paciente comunique su estado diario. Los cuidadores carecen de visibilidad continua entre eventos de salud formales.
-3. Usuarios: Paciente (escribe y administra notas), Cuidador (lee notas compartidas con permiso)
-4. Alcance:	Incluye: escritura, almacenamiento y comparticion de notas. Excluye: control de acceso entre actores (Compartir-Perfiles BC), autenticacion (IAM).
-
-
-###### Business Rules Distillation
-
-Regla de Negocio:
-
-1. Una nota no puede guardarse si esta vacia o solo contiene espacios en blanco
-2. Solo el paciente propietario puede escribir y eliminar sus notas
-3. El cuidador solo puede leer notas si el paciente compartio el diario explicitamente
-4. Cada nota debe registrar fecha y hora de creacion automaticamente
-
-
-Razon / Consecuencia:
-
-1. Evita entradas sin valor informativo en el diario
-2. Protege la privacidad e integridad del diario personal
-3. Garantiza el consentimiento del paciente sobre su informacion de salud
-4. Permite seguimiento cronologico del estado del paciente
-
-###### Ubiquitous Language Capture
-
-Terminos:
-
-1. Nota de Salud:	Registro textual del paciente sobre su estado fisico o emocional en un momento dado
-2. Diario:	Coleccion ordenada cronologicamente de notas de salud de un paciente
-3. Diario Compartido:	Diario cuyo acceso de lectura ha sido habilitado para un cuidador especifico
-4. Nota Almacenada:	Nota que ha sido persistida exitosamente en el sistema
-5. Acceso de Lectura	Permiso otorgado a un cuidador para visualizar el contenido del diario
-
-
-
-###### Capability Analysis
-
-Capacidad:
-
-1. Escribir nota de salud:	Registra una nueva entrada en el diario del paciente
-2. Almacenar nota:	Persiste la nota con marca de tiempo automatica
-3. Compartir diario con cuidador:	Habilita el acceso de lectura para un cuidador autorizado
-4. Visualizar diario compartido:	Permite al cuidador leer las notas del paciente
-5. Revocar acceso al diario:	El paciente puede retirar el permiso de lectura otorgado
-
-
-Valor al Negocio:
-
-1. Alto — diferenciador del producto
-2. Alto — base del seguimiento continuo
-3. Alto — habilita el monitoreo
-4. Alto — visibilidad del estado del paciente
-5. Medio — control de privacidad
-
-###### Capability Layering
-
-Capa-Capacidad:
-
-1. Core: Escribir nota de salud, Almacenar nota, Compartir diario con cuidador    
-2. Supporting: Visualizar diario compartido, Revocar acceso, Consultar historial de notas
-3. Generic: Almacenamiento de texto, Marca de tiempo automatica
-
-###### Dependencies Capture
-
-|Tipo|	Contexto	|Dato / Mensaje Intercambiado	|Patron de Integracion|
-|----------|------|--------|---------|
-|Upstream|	IAM|	Token de sesion del paciente o cuidador|	Open Host Service|
-|Upstream|	Compartir-Perfiles|	Validacion de acceso del cuidador al diario|	Anticorruption Layer|
-|Downstream|	Compartir-Perfiles	|Solicitud de compartir diario (evento)|	Published Language|
-
-
-###### Design Critique
-
-1. Fortalezas: Diferenciador clave del producto. Alta cohesion. Separa correctamente la escritura del control de acceso (Compartir-Perfiles).
-
-2. Riesgos / Debilidades: Sin paginacion puede volverse lento con diarios extensos. El consentimiento de compartir podria volverse complejo si se necesitan permisos granulares por nota.
-
-3. Recomendaciones: Implementar paginacion desde el inicio. Considerar cifrado en reposo para notas sensibles. Registrar audit log de accesos al diario.
-
-#### Bounded Context Canvas 4:
-
-##### BC-04 — Documentos Medicos 
-
-
-###### Context Overview Definition
-
-Campos:
-
-1. Proposito:	Gestionar la subida, almacenamiento seguro y consulta de documentos medicos clinicos del paciente.
-2. Problema:	Los documentos medicos estan dispersos y no accesibles para los actores del sistema. Los cuidadores necesitan consultar historial clinico para tomar decisiones de cuidado.
-3. Usuarios: Paciente/Familiar (sube documentos), Cuidador (consulta documentos autorizados)
-4. Alcance:	Incluye: subida, almacenamiento, visualizacion y metadatos de documentos. Excluye: control de acceso entre actores (Compartir-Perfiles), autenticacion (IAM).
-
-
-###### Business Rules Distillation
-
-Regla de Negocio:
-
-1.  Solo se aceptan documentos en formato PDF o imagen (JPG, PNG)
-2. El tamano maximo por documento es de 10 MB
-3. Cada documento debe tener un tipo y fecha asociados al cargarlo
-4. Un cuidador solo puede consultar documentos si tiene acceso autorizado al perfil del paciente
-
-
-
-Razon / Consecuencia:
-
-1. Garantiza compatibilidad de visualizacion en todos los dispositivos
-2. Evita sobrecarga del almacenamiento y tiempos de carga excesivos
-3. Permite organizacion y busqueda eficiente del historial clinico
-4. Protege la privacidad del historial medico
-
-
-###### Ubiquitous Language Capture
-
-Terminos:
-
-1.  Documento Medico	Archivo digital (PDF o imagen) que representa un resultado clinico, receta o informe de salud del paciente
-2. Tipo de Documento	Clasificacion del documento: resultado de laboratorio, receta, informe medico, radiografia, etc.
-3. Documento Almacenado	Documento que ha sido cargado y persistido exitosamente en el sistema
-4. Información del Documento	Metadatos del archivo: nombre, tipo, fecha de carga, tamano y propietario
-5. Documento Visualizado	Documento que ha sido abierto y consultado por un actor autorizado
-
-
-
-###### Capability Analysis
-
-Capacidad:
-
-1. Subir documento medico	Permite cargar archivos clinicos al sistema con sus metadatos
-2. Almacenar documento	Persiste el archivo de forma segura con metadatos
-3. Consultar documento medico	Permite visualizar documentos clinicos a actores autorizados
-4. Listar documentos del paciente	Muestra el inventario de documentos disponibles
-
-
-Valor al Negocio:
-
-1. Alto — centraliza el historial clinico
-2. Alto — base del repositorio clinico
-3. Alto — soporte a decisiones de cuidado
-4. Medio — navegacion del historial
-
-
-###### Capability Layering
-
-Capa-Capacidad:
-
-1. Core: Subir documento medico, Almacenar documento, Consultar documento medico  
-2. Supporting: Listar documentos, Buscar por tipo o fecha, Eliminar documento
-3. Generic: Almacenamiento de archivos, Validacion de formato y tamano
-
-###### Dependencies Capture
-
-|Tipo|	Contexto	|Dato / Mensaje Intercambiado	|Patron de Integracion|
-|----------|------|--------|---------|
-|Upstream|	IAM|	Token de sesion del usuario|	Open Host Service|
-|Upstream|	Compartir-Perfiles|	Validacion de acceso del cuidador|	Anticorruption Layer|
-
-
-###### Design Critique
-
-1. Fortalezas: Responsabilidad clara y bien acotada. Puede evolucionar de forma independiente al core. Candidato a integracion con servicios de almacenamiento en la nube.
-
-2. Riesgos / Debilidades: Puede convertirse en un cuello de botella si el almacenamiento no escala. La validacion de acceso duplica logica con Compartir-Perfiles.
-
-3. Recomendaciones: Externalizar el almacenamiento a un servicio cloud (S3, GCS). Delegar toda validacion de acceso a Compartir-Perfiles mediante llamadas explicitas.
-
-#### Bounded Context Canvas 5:
-
-##### BC-05 — Compartir-Perfiles 
-
-
-###### Context Overview Definition
-
-Campos:
-
-1. Proposito:	Gestionar el acceso controlado y con consentimiento del paciente a su informacion de salud por parte de familiares o cuidadores autorizados.
-2. Problema:	No existe un mecanismo seguro para que el paciente autorice a terceros (familiares) a consultar su informacion de salud sin perder el control sobre ella.
-3. Usuarios: Paciente (otorga y revoca acceso), Familiar (consume informacion del paciente con permiso)
-4. Alcance:	Incluye: generacion de enlaces de acceso, validacion de permisos, revocacion. Excluye: almacenamiento de documentos o notas (sus propios contextos).
-
-
-###### Business Rules Distillation
-
-Regla de Negocio:
-
-1. Solo el paciente puede iniciar el proceso de compartir su perfil
-2. Un enlace de acceso expira a los 7 dias de generado si no es utilizado
-3. El paciente puede revocar el acceso en cualquier momento
-4. El familiar solo puede leer informacion — no puede modificarla ni eliminarla
-
-
-
-
-Razon / Consecuencia:
-
-1. El consentimiento del titular es obligatorio para compartir informacion de salud
-2. Evita accesos persistentes no controlados a informacion sensible
-3. Garantiza el derecho del paciente a controlar su informacion
-4. El familiar es un observador autorizado, no un administrador del perfil
-
-
-
-###### Ubiquitous Language Capture
-
-Terminos:
-
-1.  Perfil Compartido: Conjunto de informacion del paciente que ha sido habilitada para acceso de un tercero autorizado
-2. Enlace de Acceso:	URL temporal y unica generada para que un familiar acceda al perfil del paciente
-3. Acceso Concedido:	Estado en el que un familiar cuenta con permisos activos para consultar la informacion del paciente
-4. Acceso Revocado:	Estado en el que el paciente ha retirado los permisos previamente otorgados a un familiar
-5. Enlace Expirado:	Enlace de acceso que ha superado su tiempo de validez sin ser utilizado
-
-
-
-###### Capability Analysis
-
-Capacidad:
-
-1. Compartir perfil con familiar:	Genera enlace de acceso temporal para el familiar
-2. Validar acceso del familiar:	Verifica que el enlace sea valido y no haya expirado
-3. Otorgar acceso al familiar:	Activa los permisos de lectura para el familiar
-4. Revocar acceso:	El paciente retira los permisos de acceso en cualquier momento
-5. Consultar informacion del paciente:	El familiar visualiza datos autorizados del perfil
-
-
-
-Valor al Negocio:
-
-1. Alto — habilita la colaboracion familiar
-2. Alto — seguridad del acceso
-3. Alto — core del contexto
-4. Alto — control de privacidad
-5. Medio — visibilidad familiar
-
-
-
-###### Capability Layering
-
-Capa-Capacidad:
-
-1. Core: Compartir perfil, Validar acceso, Otorgar acceso al familiar, Revocar acceso
-2. Supporting: Consultar informacion del paciente, Listar accesos activos
-3. Generic: Generacion de tokens/enlaces, Validacion de expiracion
-
-###### Dependencies Capture
-
-|Tipo|	Contexto	|Dato / Mensaje Intercambiado	|Patron de Integracion|
-|----------|------|--------|---------|
-|Upstream|	IAM|	Identidad del paciente autenticado|	Open Host Service|
-|Downstream|	Diario |	Solicitud de acceso de lectura al diario|	Anticorruption Layer|
-|Downstream|	Documentos|	Solicitud de acceso a documentos del paciente|	Anticorruption Layer|
-
-
-###### Design Critique
-
-1. Fortalezas: Centraliza toda la logica de consentimiento y acceso. Evita que Diario y Documentos implementen su propio control de acceso. Cumple con principios de privacidad.
-
-2. Riesgos / Debilidades: Se convierte en un punto crítico de falla: si cae, ningún familiar puede acceder. Los enlaces expirados pueden generar fricción en la experiencia del familiar.
-
-3. Recomendaciones: Implementar cache de permisos activos para reducir latencia. Proveer mecanismo de renovacion de enlace sin necesidad de re-invitacion completa.
-
-
-#### Bounded Context Canvas 6:
-
-##### BC-06 — IAM  
-
-
-###### Context Overview Definition
-
-Campos:
-
-1. Proposito:	Gestionar el registro de usuarios, autenticacion y administracion de sesiones para todos los actores del sistema.
-2. Problema:	Todos los contextos del sistema requieren verificar la identidad del usuario antes de ejecutar cualquier operacion. Sin IAM no existe seguridad en el sistema.
-3. Usuarios: Paciente (se registra e inicia sesion), Familiar (se registra e inicia sesion)
-4. Alcance:	Incluye: registro de cuenta, login, logout, gestion de sesion. Excluye: autorizacion a recursos especificos (Compartir-Perfiles BC), logica de negocio.
-
-
-###### Business Rules Distillation
-
-Regla de Negocio:
-
-1. El email debe ser unico en el sistema — no pueden existir dos cuentas con el mismo correo
-2. La contrasena debe tener minimo 8 caracteres con al menos un numero y una mayuscula
-3. Una sesion expira tras 30 minutos de inactividad
-4. Tras 5 intentos fallidos de login, la cuenta se bloquea temporalmente por 15 minutos
-
-
-
-
-Razon / Consecuencia:
-
-1. Evita ambiguedad en la identificacion del usuario
-2. Garantiza un nivel minimo de seguridad en las credenciales
-3. Reduce el riesgo de acceso no autorizado en dispositivos compartidos
-4. Protege contra ataques de fuerza bruta
-
-
-###### Ubiquitous Language Capture
-
-Terminos:
-
-1.  Usuario:	Persona registrada en el sistema con credenciales validas (Paciente o Familiar)
-2. Credenciales:	Combinacion de email y contrasena que identifica a un usuario
-3. Sesion:	Periodo de tiempo activo desde el login hasta el logout o expiracion
-4. Token de Sesion:	Identificador seguro generado al autenticar que autoriza operaciones en el sistema
-5. Inicio de Sesion Fallido: Intento de autenticacion con credenciales incorrectas
-
-
-
-###### Capability Analysis
-
-Capacidad:
-
-1. Registrar cuenta:	Crea un nuevo usuario en el sistema con email y contrasena
-2. Iniciar sesion:	Autentica al usuario y genera token de sesion
-3. Cerrar sesion:	Invalida el token de sesion activo
-4. Validar sesion activa:	Verifica que el token sea valido y no haya expirado
-
-
-
-
-Valor al Negocio:
-
-1. Alto — prerequisito de todo el sistema
-2. Alto — habilita todos los contextos
-3. Alto — seguridad basica
-4. Alto — usado por todos los contextos
-
-
-
-
-###### Capability Layering
-
-Capa-Capacidad:
-
-1. Core: Registrar cuenta, Iniciar sesion, Cerrar sesion, Validar sesion activa
-2. Supporting: Bloqueo por intentos fallidos, Gestion de expiracion de sesion
-3. Generic: Hashing de contrasenas, Generacion de tokens JWT, Validacion de email
-
-###### Dependencies Capture
-
-|Tipo|	Contexto	|Dato / Mensaje Intercambiado	|Patron de Integracion|
-|----------|------|--------|---------|
-|Downstream|	Todos los contextos|	SToken de sesion activa del usuario|	Open Host Service / Published Language|
-
-
-###### Design Critique
-
-1. Fortalezas: Responsabilidad generica y bien definida. Candidato ideal para ser reemplazado por un servicio externo (Auth0, Keycloak, AWS Cognito) sin impacto en el dominio.
-
-2. Riesgos / Debilidades: Al ser prerequisito de todos los contextos, su caida paraliza todo el sistema. Logica de seguridad hecha a medida puede tener vulnerabilidades.
-
-3. Recomendaciones: Priorizar migracion a un proveedor de identidad consolidado (Auth0 o similar). Implementar refresh tokens para mejorar la experiencia sin comprometer seguridad.
+*Figura 16. Bounded Context Canvas para el contexto Autenticación (IAM).*
 
 
 
 ### 2.5.2. Context Mapping <a id="252-context-mapping"></a>
 
-En esta sección se documenta el proceso seguido por el equipo para producir el Context Map de CareConnect, entendido como la visualización de las relaciones estructurales entre los bounded contexts identificados durante el EventStorming (§2.5.1). El punto de partida fueron los seis candidate contexts derivados de las épicas del producto —Autenticación, Acceso Compartido, Agenda, Notificaciones, Diario de Seguimiento y Documentos—, los dos actores definidos en el Context Level Diagram (paciente geriátrico y cuidador) y los sistemas externos con los que el producto necesita integrarse (Google Sign-In, Firebase Cloud Messaging y SendGrid).
+En esta sección se documenta el proceso seguido por el equipo para producir el Context Map de CareConnect, entendido como la visualización de las relaciones estructurales entre los bounded contexts identificados durante el EventStorming (§2.5.1). El punto de partida fueron los seis candidate contexts derivados de las épicas del producto —Autenticación, Gestión de Consentimiento, Agenda, Notificaciones, Diario de Seguimiento y Documentos—, los dos actores definidos en el Context Level Diagram (paciente geriátrico y cuidador) y los sistemas externos con los que el producto necesita integrarse (Google Sign-In, Firebase Cloud Messaging y SendGrid).
 
 La elaboración no se resolvió en una única iteración: el equipo construyó varias alternativas, las comparó a partir de preguntas de diseño deliberadas y seleccionó la que mejor equilibraba cohesión, acoplamiento y capacidad de evolución. A continuación se describen las alternativas consideradas y, a partir de ellas, el Context Map final adoptado con los patrones de relación entre bounded contexts propios de Domain-Driven Design.
 
@@ -2661,17 +2278,17 @@ Cada alternativa responde a una de las preguntas de diseño recomendadas para es
 **Alternativa 1 — ¿Qué pasaría si fusionamos Diario de Seguimiento y Documentos en un solo bounded context?**
 Ambos contextos manejan información generada en torno al paciente. Sin embargo, Diario se ocupa de notas cualitativas con alta frecuencia de escritura y consulta conversacional, mientras que Documentos gestiona archivos clínicos (recetas, resultados de laboratorio) con ciclo de vida más lento y control de acceso explícito. Fusionarlos diluiría dos Ubiquitous Languages distintos ("entrada de diario" vs. "documento médico"), mezclaría reglas de invariantes y dificultaría escalar cada módulo en forma independiente. **Se descarta.**
 
-**Alternativa 2 — ¿Qué pasaría si duplicamos la lógica de notificaciones dentro de Agenda, Acceso Compartido y Documentos para romper la dependencia con Notificaciones?**
+**Alternativa 2 — ¿Qué pasaría si duplicamos la lógica de notificaciones dentro de Agenda, Gestión de Consentimiento y Documentos para romper la dependencia con Notificaciones?**
 Cada bounded context quedaría responsable de generar sus propios recordatorios, eliminando la dependencia transversal. El problema es doble: se duplicarían las integraciones con Firebase Cloud Messaging y SendGrid (con su Anti-Corruption Layer correspondiente) y se perdería la política común de reintentos y preferencias de notificación que cada usuario configura una sola vez. **Se descarta.** Conviene mantener Notificaciones como bounded context dedicado que recibe eventos de dominio desde los demás.
 
 **Alternativa 3 — ¿Qué pasaría si creamos un shared service de control de acceso para reducir la duplicación entre Documentos, Agenda y Diario?**
-Hoy, cada uno de estos contextos necesita saber qué cuidadores están autorizados a leer información del paciente. La alternativa de incorporar la lógica de permisos en cada bounded context produciría inconsistencias cuando el paciente revoque accesos. En su lugar, Acceso Compartido se consolida como fuente de verdad y publica eventos de dominio (`AccessGrantedEvent`, `AccessRevokedEvent`) que los demás contextos consumen para mantener su propia proyección de permisos. **Se adopta.**
+Hoy, cada uno de estos contextos necesita saber qué cuidadores están autorizados a leer información del paciente. La alternativa de incorporar la lógica de permisos en cada bounded context produciría inconsistencias cuando el paciente revoque accesos. En su lugar, Gestión de Consentimiento se consolida como fuente de verdad y publica eventos de dominio (`AccessGrantedEvent`, `AccessRevokedEvent`) que los demás contextos consumen para mantener su propia proyección de permisos. **Se adopta.**
 
-**Alternativa 4 — ¿Qué pasaría si Autenticación y Acceso Compartido fueran el mismo bounded context?**
-Ambos participan en la identidad del usuario, pero resuelven preocupaciones distintas: Autenticación responde "¿quién es este usuario?" mientras que Acceso Compartido responde "¿qué puede ver este usuario del paciente?". Unirlos rompe el principio de responsabilidad única y mezcla la gestión de sesiones con las reglas de negocio del acceso compartido. **Se descarta.**
+**Alternativa 4 — ¿Qué pasaría si Autenticación y Gestión de Consentimiento fueran el mismo bounded context?**
+Ambos participan en la identidad del usuario, pero resuelven preocupaciones distintas: Autenticación responde "¿quién es este usuario?" mientras que Gestión de Consentimiento responde "¿qué puede ver este usuario del paciente?". Unirlos rompe el principio de responsabilidad única y mezcla la gestión de sesiones con las reglas de negocio del acceso compartido. **Se descarta.**
 
 **Alternativa 5 — ¿Qué pasaría si aislamos los core capabilities (Agenda, Diario, Documentos) y movemos el resto a subdomains de soporte y genéricos?**
-Los tres contextos que encapsulan la experiencia clínica del paciente son los que concentran la ventaja competitiva del producto y son tratados como **Core Subdomains**. Notificaciones y Acceso Compartido son **Supporting Subdomains** porque habilitan al core pero no lo constituyen. Autenticación se clasifica como **Generic Subdomain** porque su responsabilidad es comparable a la de cualquier otro sistema y apoya un proveedor externo. **Se adopta.**
+Los tres contextos que encapsulan la experiencia clínica del paciente son los que concentran la ventaja competitiva del producto y son tratados como **Core Subdomains**. Notificaciones y Gestión de Consentimiento son **Supporting Subdomains** porque habilitan al core pero no lo constituyen. Autenticación se clasifica como **Generic Subdomain** porque su responsabilidad es comparable a la de cualquier otro sistema y apoya un proveedor externo. **Se adopta.**
 
 **Alternativa 6 — ¿Qué pasaría si tratamos Firebase Cloud Messaging, SendGrid y Google Sign-In como extensiones del sistema en vez de integraciones externas?**
 Esto implicaría que nuestros bounded contexts conformaran su modelo al de esos proveedores (relación Conformist), lo que nos dejaría atados a cambios de contrato ajenos. **Se descarta.** Se opta por interponer una **Anti-Corruption Layer** en Notificaciones y en Autenticación para traducir los modelos externos al lenguaje propio del dominio.
@@ -2680,7 +2297,7 @@ Esto implicaría que nuestros bounded contexts conformaran su modelo al de esos 
 
 #### Context Map seleccionado
 
-A partir de las alternativas evaluadas, el Context Map final consolida los seis bounded contexts del producto más los tres sistemas externos, organizados en tres capas visuales: el eje de identidad arriba (Autenticación y Acceso Compartido), los core subdomains clínicos en el medio (Agenda, Diario de Seguimiento y Documentos) y el subdomain de soporte para notificaciones en la parte inferior, flanqueado por los sistemas externos a los que se conecta.
+A partir de las alternativas evaluadas, el Context Map final consolida los seis bounded contexts del producto más los tres sistemas externos, organizados en tres capas visuales: el eje de identidad arriba (Autenticación y Gestión de Consentimiento), los core subdomains clínicos en el medio (Agenda, Diario de Seguimiento y Documentos) y el subdomain de soporte para notificaciones en la parte inferior, flanqueado por los sistemas externos a los que se conecta.
 
 ![Figura 10. Context Map estratégico de CareConnect](assets/context_map.png)
 
@@ -2694,14 +2311,14 @@ Las flechas del diagrama se anotan con los patrones de Strategic Design que corr
 
 | Relación | Patrón | Justificación |
 |---|---|---|
-| Autenticación → Acceso Compartido | **Customer/Supplier (U/S) + Open Host Service (OHS)** | Autenticación es upstream porque provee la identidad sobre la que Acceso Compartido opera. Expone un contrato público estable (OHS) para que el downstream no dependa de detalles internos. |
+| Autenticación → Gestión de Consentimiento | **Customer/Supplier (U/S) + Open Host Service (OHS)** | Autenticación es upstream porque provee la identidad sobre la que Gestión de Consentimiento opera. Expone un contrato público estable (OHS) para que el downstream no dependa de detalles internos. |
 | Autenticación → Agenda / Diario / Documentos | **Customer/Supplier (U/S)** | Cada core context consulta la identidad autenticada para autorizar operaciones sobre el paciente. |
 | Autenticación → Identity Provider (Google) | **Anti-Corruption Layer (ACL)** | La ACL traduce los tokens y atributos de Google Sign-In al modelo de usuario propio del dominio, evitando que un cambio en el proveedor externo contamine el resto del sistema. |
-| Acceso Compartido → Agenda / Diario / Documentos | **Customer/Supplier (U/S) + events** | Acceso Compartido publica `AccessGrantedEvent` y `AccessRevokedEvent` como Published Language; los core contexts se suscriben para mantener sus proyecciones de permisos actualizadas. |
+| Gestión de Consentimiento → Agenda / Diario / Documentos | **Customer/Supplier (U/S) + events** | Gestión de Consentimiento publica `AccessGrantedEvent` y `AccessRevokedEvent` como Published Language; los core contexts se suscriben para mantener sus proyecciones de permisos actualizadas. |
 | Agenda → Notificaciones | **Customer/Supplier (U/S) + Published Language (PL)** | Agenda publica eventos de dominio (`MedicationScheduled`, `AppointmentCreated`) con un contrato estable que Notificaciones consume para programar recordatorios. |
 | Documentos → Notificaciones | **Customer/Supplier (U/S) + Published Language (PL)** | Documentos emite eventos cuando un archivo clínico se sube o se vuelve accesible; Notificaciones transforma esos eventos en alertas dirigidas al cuidador. |
 | Diario → Notificaciones | **Conformist (C)** | Diario se apoya de forma ocasional en Notificaciones para enviar recordatorios de registro; adopta el contrato tal como existe sin negociar cambios, por lo que se clasifica como Conformist. |
-| Acceso Compartido → Notificaciones | **Customer/Supplier (U/S) + events** | Las invitaciones y revocaciones de acceso disparan notificaciones hacia el familiar autorizado. |
+| Gestión de Consentimiento → Notificaciones | **Customer/Supplier (U/S) + events** | Las invitaciones y revocaciones de acceso disparan notificaciones hacia el familiar autorizado. |
 | Notificaciones → Firebase Cloud Messaging | **Anti-Corruption Layer (ACL)** | Aísla el contrato de FCM; si Google cambia su SDK o modelo de payload, el cambio queda contenido en el adaptador. |
 | Notificaciones → SendGrid | **Anti-Corruption Layer (ACL)** | Mismo razonamiento para el envío de correos transaccionales: se traduce el modelo interno de "notificación" al formato esperado por SendGrid. |
 
@@ -2711,7 +2328,7 @@ Las flechas del diagrama se anotan con los patrones de Strategic Design que corr
 
 #### Conclusión del proceso
 
-El Context Map adoptado mantiene los tres core subdomains aislados entre sí, reservando el acoplamiento necesario hacia Autenticación (identidad) y Acceso Compartido (permisos) a través de eventos de dominio. Notificaciones se comporta como infraestructura de salida común, consumiendo eventos del resto y exponiendo únicamente adaptadores hacia los servicios externos. Esta configuración permite evolucionar cada bounded context de forma independiente, reemplazar proveedores externos sin contaminar el dominio y escalar selectivamente los módulos donde se concentre más tráfico, sin sacrificar la consistencia conceptual del producto.
+El Context Map adoptado mantiene los tres core subdomains aislados entre sí, reservando el acoplamiento necesario hacia Autenticación (identidad) y Gestión de Consentimiento (permisos) a través de eventos de dominio. Notificaciones se comporta como infraestructura de salida común, consumiendo eventos del resto y exponiendo únicamente adaptadores hacia los servicios externos. Esta configuración permite evolucionar cada bounded context de forma independiente, reemplazar proveedores externos sin contaminar el dominio y escalar selectivamente los módulos donde se concentre más tráfico, sin sacrificar la consistencia conceptual del producto.
 
 ### 2.5.3. Software Architecture <a id="253-software-architecture"></a>
 
@@ -2724,7 +2341,7 @@ La solución está organizada alrededor de seis bounded contexts identificados d
 | Agenda | EP01 Gestión de Agenda | Gestión de eventos de salud, citas y medicación en el calendario. |
 | Notificaciones | EP02 Gestión de Notificaciones | Programación, envío y visualización de recordatorios y alertas. |
 | Documentos | EP03 Gestión de Documentos | Almacenamiento, consulta y control de acceso a documentos médicos. |
-| Acceso Compartido | EP04 Acceso Compartido | Compartir y revocar el perfil del paciente con los cuidadores. |
+| Gestión de Consentimiento | EP04 Gestión de Consentimiento | Compartir y revocar el perfil del paciente con los cuidadores. |
 | Diario de Seguimiento | EP05 Diario de Seguimiento | Registro y consulta de notas sobre la evolución del paciente. |
 | Autenticación | EP06 Autenticación | Gestión de cuentas, sesiones y control de acceso por rol. |
 
@@ -2749,40 +2366,34 @@ Los sistemas externos identificados son:
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams <a id="2532-software-architecture-container-level-diagrams"></a>
 
-El Container Diagram descompone el sistema CareConnect en sus elementos de alto nivel, mostrando cómo se distribuyen las responsabilidades entre los distintos containers y las principales decisiones de tecnología adoptadas. El diagrama se organiza en cinco filas horizontales, de arriba hacia abajo: los dos segmentos objetivo, la capa de clientes (Mobile App y Landing Page), el API Gateway con sus seis bounded contexts dispuestos en una cuadrícula, la capa de persistencia y los sistemas externos. Esta disposición evita el cruce de flechas y deja visible la descomposición estratégica.
+El Container Diagram descompone el sistema CareConnect en sus elementos de alto nivel, mostrando cómo se distribuyen las responsabilidades entre los distintos containers y las principales decisiones de tecnología adoptadas. A nivel de container, el sistema se presenta con un **Backend único** (no disgregado por bounded context); la descomposición interna en bounded contexts pertenece al nivel de componente (§2.6) y no se muestra en este diagrama.
 
 Los containers identificados son:
 
 - **Landing Page:** Sitio web desarrollado con React. Presenta el modelo de negocio, las características del producto y los enlaces de descarga.
-- **Mobile Application:** Aplicación nativa desarrollada con Kotlin para Android y estrategia cross-platform con Flutter/Dart o Kotlin Multiplatform (KMP). Constituye la interfaz principal mediante la cual el paciente geriátrico y el cuidador interactúan con el sistema. Se comunica con el API Gateway a través de HTTPS/JSON.
-- **API Gateway (RESTful Web Services):** Backend desarrollado con Spring Boot (Java) siguiendo el estilo arquitectónico RESTful API y documentado con OpenAPI/Swagger. Se organiza internamente en seis módulos, uno por cada bounded context:
-  - **Autenticación Service:** Endpoints para registro, login y validación de acceso por rol.
-  - **Acceso Compartido Service:** Endpoints para compartir, consultar y revocar el perfil del paciente.
-  - **Agenda Service:** Endpoints para la gestión de eventos de salud (citas, medicación, terapias).
-  - **Notificaciones Service:** Endpoints para la programación, consulta y marcado de notificaciones y alertas.
-  - **Documentos Service:** Endpoints para la carga, consulta y control de acceso a documentos médicos.
-  - **Diario Service:** Endpoints para registrar y consultar notas de seguimiento.
-- **Database:** Base de datos relacional (PostgreSQL) que persiste la información de los seis bounded contexts.
+- **Mobile Application:** Aplicación nativa multiplataforma desarrollada con Flutter/Dart. Constituye la interfaz principal mediante la cual el paciente geriátrico y el cuidador interactúan con el sistema. Se comunica con el Backend a través de HTTPS/JSON.
+- **Backend (RESTful Web Services):** Servicio único desarrollado con Spring Boot (Java) que expone una API REST documentada con OpenAPI/Swagger. Concentra la lógica de negocio de los seis bounded contexts (Agenda, Notificaciones, Diario de Seguimiento, Documentos, Gestión de Consentimiento y Autenticación) en un mismo despliegue. La descomposición interna por bounded context se documenta a nivel de componente.
+- **Database:** Base de datos relacional (PostgreSQL) que persiste la información del sistema. Es consumida exclusivamente por el Backend.
 - **Local Storage (SQLite / Room):** Almacenamiento local en el dispositivo móvil que permite el acceso offline a información crítica del paciente, medicación pendiente y registros recientes.
 
 Las relaciones principales entre containers son:
 
 | Origen | Destino | Descripción | Protocolo |
 |--------|---------|-------------|-----------|
-| Mobile Application | API Gateway | Consume endpoints RESTful de los seis bounded contexts | HTTPS / JSON |
+| Mobile Application | Backend | Consume la API RESTful del sistema | HTTPS / JSON |
 | Mobile Application | Local Storage | Almacena y consulta datos para acceso offline | SQLite / Room |
 | Mobile Application | Push Notification Service | Recibe notificaciones push | FCM |
-| API Gateway | Database | Persiste y consulta datos del dominio | JDBC / JPA |
-| Notificaciones Service | Email Service / Push Notification Service | Envía emails y notificaciones push | HTTPS / SMTP |
-| Autenticación Service | Email Service / Identity Provider | Envía emails transaccionales y verifica autenticación federada | HTTPS / OAuth 2.0 |
+| Backend | Database | Persiste y consulta datos del dominio | JDBC / JPA |
+| Backend | Email Service / Push Notification Service | Envía emails transaccionales y notificaciones push | HTTPS / SMTP |
+| Backend | Identity Provider | Verifica autenticación federada (Google Sign-In) | HTTPS / OAuth 2.0 |
 
 ![Figura 2. Software Architecture Container Level Diagram para CareConnect](assets/container-diagram.png)
 
-*Figura 2. Software Architecture Container Level Diagram para CareConnect, con el API Gateway descompuesto en sus seis bounded contexts y organizado en capas horizontales para evitar cruces.*
+*Figura 2. Software Architecture Container Level Diagram para CareConnect, con el Backend representado como un único container responsable de la API REST del sistema. La descomposición interna por bounded context se presenta en los diagramas de componentes (§2.6).*
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams <a id="2533-software-architecture-deployment-diagrams"></a>
 
-El Deployment Diagram muestra la distribución física del sistema CareConnect, destacando cómo los componentes de software se despliegan sobre la infraestructura de hardware y los entornos de ejecución. Este diagrama permite visualizar los nodos físicos y virtuales, las relaciones de red entre ellos y la asignación de containers a cada nodo. El API Gateway empaqueta en un mismo despliegue los seis bounded contexts (Agenda, Notificaciones, Documentos, Acceso Compartido, Diario y Autenticación), que comparten el mismo motor de persistencia relacional.
+El Deployment Diagram muestra la distribución física del sistema CareConnect, destacando cómo los componentes de software se despliegan sobre la infraestructura de hardware y los entornos de ejecución. Este diagrama permite visualizar los nodos físicos y virtuales, las relaciones de red entre ellos y la asignación de containers a cada nodo. El API Gateway empaqueta en un mismo despliegue los seis bounded contexts (Agenda, Notificaciones, Documentos, Gestión de Consentimiento, Diario y Autenticación), que comparten el mismo motor de persistencia relacional.
 
 Los nodos de despliegue identificados son:
 
@@ -3093,9 +2704,9 @@ El Database Design Diagram del bounded context Notificaciones muestra el esquema
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 ![Bounded Context Database Design Diagram](assets/diagram_dairy.png)
-### 2.6.4. Bounded Context: Compartir Perfiles <a id="264-bounded-context"></a>
+### 2.6.4. Bounded Context: Gestión de Consentimiento <a id="264-bounded-context"></a>
 
-Este bounded context gestiona el ciclo de vida del acceso compartido entre un paciente y sus familiares. Cubre las historias de usuario **US14** (compartir perfil), **US15** (consultar perfil compartido) y **US16** (revocar acceso), correspondientes a la épica **EP04 – Acceso Compartido**. Se integra con el bounded context de Notificaciones mediante eventos de dominio para informar cuando un acceso es creado, aceptado o revocado.
+Este bounded context gestiona el ciclo de vida del acceso compartido entre un paciente y sus familiares. Cubre las historias de usuario **US14** (compartir perfil), **US15** (consultar perfil compartido) y **US16** (revocar acceso), correspondientes a la épica **EP04 – Gestión de Consentimiento**. Se integra con el bounded context de Notificaciones mediante eventos de dominio para informar cuando un acceso es creado, aceptado o revocado.
 
 ---
 
@@ -3168,9 +2779,9 @@ Este bounded context gestiona el ciclo de vida del acceso compartido entre un pa
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams <a id="2645-component-level-diagrams"></a>
 
-El Component Diagram del bounded context Compartir Perfiles presenta la organización interna del módulo en cuatro capas: Interface (REST Controllers), Application (Command y Query Services), Domain (servicios de dominio y repositorio) e Infrastructure (repositorio implementado, generador de tokens y adaptador hacia Notificaciones). Muestra las entradas desde la Mobile Application y la integración de salida hacia la base de datos y el bounded context de Notificaciones.
+El Component Diagram del bounded context Gestión de Consentimiento presenta la organización interna del módulo en cuatro capas: Interface (REST Controllers), Application (Command y Query Services), Domain (servicios de dominio y repositorio) e Infrastructure (repositorio implementado, generador de tokens y adaptador hacia Notificaciones). Muestra las entradas desde la Mobile Application y la integración de salida hacia la base de datos y el bounded context de Notificaciones.
 
-![Component Diagram - Bounded Context Compartir Perfiles](assets/diag_sharing_component.png)
+![Component Diagram - Bounded Context Gestión de Consentimiento](assets/diag_sharing_component.png)
 
 ---
 
@@ -3180,13 +2791,13 @@ El Component Diagram del bounded context Compartir Perfiles presenta la organiza
 
 El diagrama de clases de la capa de dominio muestra el agregado `ProfileSharing` como raíz, sus entidades internas (`SharedAccess`, `AccessRequest`), los value objects (`ShareToken`, `ExpirationDate`, `AccessStatus`, `AccessPermission`), los domain services (`ProfileSharingService`, `AccessValidationService`), el contrato de repositorio y los domain events publicados durante el ciclo de compartir, aceptar, revocar y expirar accesos.
 
-![Domain Layer Class Diagram - Bounded Context Compartir Perfiles](assets/diag_sharing_domain_class.png)
+![Domain Layer Class Diagram - Bounded Context Gestión de Consentimiento](assets/diag_sharing_domain_class.png)
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram <a id="26462-database-design-diagram"></a>
 
 El diagrama de base de datos representa las tablas `profile_sharings`, `shared_accesses` y `access_requests`, junto con sus relaciones (1..N) y restricciones de integridad. El campo `token` en `shared_accesses` es único; `permission` y `status` se almacenan como strings con valores acotados equivalentes a los enums de dominio.
 
-![Database Design Diagram - Bounded Context Compartir Perfiles](assets/diag_sharing_database.png)
+![Database Design Diagram - Bounded Context Gestión de Consentimiento](assets/diag_sharing_database.png)
 
 ---
 
@@ -3258,6 +2869,8 @@ El diagrama de base de datos representa las tablas `profile_sharings`, `shared_a
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram <a id="26462-database-design-diagram"></a>
 
 ![alt text](assets/Diagram_db_documents.png)
+
+<div style="page-break-before: always;"></div>
 
 # Capítulo III: Solution UI/UX Design
 
@@ -3568,6 +3181,8 @@ Relacionado con el User Goal 10: Como paciente, quiero compartir mi perfil con u
 #### 3.1.4.5. Mobile Applications Prototyping <a id="3145-mobile-applications-prototyping"></a>
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Capítulo IV: Product Implementation & Validation
 
