@@ -289,7 +289,7 @@ A continuación se describe, por cada integrante del equipo, las acciones realiz
 | <img src="assets/matias.jpg" width="600" /> | Salcedo Champi, Matias Rodolfo | U202319698 | Ingeniería de Software | Estudiante de Ingeniería de Software en la UPC con experiencia en el desarrollo de aplicaciones móviles y web. Ha participado en proyectos de investigación y desarrollo, y cuenta con conocimientos en tecnologías como Flutter, Dart, Node.js, Express.js, MongoDB, PostgreSQL, Git y GitHub. |
 | <img src="assets/melina.jpg" width="600" /> | Santillan Alvarado, Melina Liz | U202216058 | Ingeniería de Software | Estudiante de Ingeniería de Software en la UPC. Cuenta con habilidades organizativas, análisis de requerimientos y proactividad para garantizar el correcto desarrollo del proyecto y el cumplimiento de los procesos ágiles. |
 | <img src="assets/christofer.jpeg" width="600" /> | Costa Morales, Christofer William | U202315968 | Ingeniería de Software | Estudiante de Ingeniería de Software en la UPC. Posee experiencia con los lenguajes de programación C++, Python, JavaScript, HTML y CSS. Se encuentra capacitado para contribuir activamente en el desarrollo técnico del equipo. |
-| <img src="assets/javier.jpg" width="600" /> | Nikaido Vargas, Javier Masaru | U20221G099 | Ingeniería de Software | Estudiante del séptimo ciclo de Ingeniería de Software en la UPC. Contribuye al equipo aportando en el desarrollo estructural y la validación funcional de la solución propuesta. |
+| <img src="assets/javier.jpeg" width="600" /> | Nikaido Vargas, Javier Masaru | U20221G099 | Ingeniería de Software | Estudiante del séptimo ciclo de Ingeniería de Software en la UPC. Contribuye al equipo aportando en el desarrollo estructural y la validación funcional de la solución propuesta. |
 | <img src="assets/pietro.jpg" width="600" /> | Osores Marchese, Pietro | U202310971 | Ingeniería de Software | Estudiante de Ingeniería de Software en la UPC. Apoya en las etapas de codificación y trabajo colaborativo, enfocándose en la experiencia de usuario y garantizando entregas de valor dentro de los plazos establecidos por el equipo. |
 
 ---
@@ -3195,9 +3195,11 @@ Relacionado con el User Goal 10: Como paciente, quiero compartir mi perfil con u
 
 ---
 
-Video del Prototipo: 
+Video del Prototipo:
 
-<video controls src="assets/Prototyping.mp4" title="Title"></video>
+[(![Ve el siguiente video](assets/Prototyping_miniature.png))](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315968_upc_edu_pe/IQBTpFI_EMmAQ7WjSZjKPZ4BAdee4htT3CMdUceU0VxHwnU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=aDG7l6)
+
+
 
 
 # Capítulo IV: Product Implementation & Validation
