@@ -64,6 +64,7 @@
 | Versión | Fecha | Autor | Descripción de modificación |
 |---|---|---|---|
 | 1 | 21/04/2026 | Salcedo Champi, Matias Rodolfo; Santillan Alvarado, Melina Liz; Costa Morales, Christofer William; Nikaido Vargas, Javier Masaru; Osores Marchese, Pietro | Avance 1: En esta primera entrega se avanzó con el capítulo 1, 2 y 3 de forma organizada para empezar con el proyecto de CareStacks, estableciendo la idea, un estudio del contexto y las features, respectivamente. |
+| 2 | 15/05/2026 | Salcedo Champi, Matias Rodolfo; Santillan Alvarado, Melina Liz; Costa Morales, Christofer William; Nikaido Vargas, Javier Masaru; Osores Marchese, Pietro | Avance 2: Se atendió la retroalimentación del docente (periodo 2026-10, insights, SMART goals, Student Outcome por integrante, page-breaks por capítulo, fuentes de la problemática, Spike Stories, renombrado del BC5 a Gestión de Consentimiento, sincronización de nombres de bounded contexts, container con Backend único, Bounded Context Canvases como imágenes). Se completó el Capítulo 4 con la configuración del entorno, gestión del código fuente, convenciones y configuración de despliegue. Se documentó el Sprint 1 con Planning, Backlog, evidencias de desarrollo (commits reales de los repos BackEnd, FrontEnd, Landing-Page y Report), evidencias de testing y ejecución, documentación de servicios (46 endpoints REST reales) y collaboration insights. Se llenaron las secciones de Style Guidelines, Information Architecture, Landing Page UI Design, Glosario, Bibliografía y Anexos. |
 
 ---
 
