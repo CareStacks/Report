@@ -3134,55 +3134,71 @@ User Flow 1:
 
 Relacionado con el User Goal 1: Como usuario, quiero crear mi cuenta para acceder a la plataforma. 
 
-
+![alt text](assets/userflow/UserFlow1.png)
 
 User Flow 2:
 
 Relacionado con el User Goal 2: Como usuario, quiero iniciar sesión y ver la vista según mi rol.
 
-
+![alt text](assets/userflow/UserFlow2.png)
 
 User Flow 3:
 
 Relacionado con el User Goal 3: Como paciente o cuidador, quiero registrar un evento de salud en el calendario.
 
+![alt text](assets/userflow/UserFlow3.png)
+
 User Flow 4:
 
 Relacionado con el User Goal 4: Como paciente, quiero confirmar o reprogramar un evento de salud.
 
-
+![alt text](assets/userflow/UserFlow4.png)
 
 User Flow 5:
 
 Relacionado con el User Goal 5: Como paciente, quiero recibir recordatorios y visualizar mis notificaciones.
 
+![alt text](assets/userflow/UserFlow5.png)
+
 User Flow 6:
 
 Relacionado con el User Goal 6: Como cuidador, quiero recibir y gestionar alertas de incumplimiento del paciente.
 
+![alt text](assets/userflow/UserFlow6.png)
 
 User Flow 7:
 
 Relacionado con el User Goal 7: Como paciente o cuidador, quiero subir y consultar documentos médicos. 
 
+![alt text](assets/userflow/UserFlow7.png)
+
 User Flow 8:
 
 Relacionado con el User Goal 8: Como cuidador, quiero acceder a los documentos compartidos del paciente.
+
+![alt text](assets/userflow/UserFlow8.png)
 
 User Flow 9:
 
 Relacionado con el User Goal 9: Como paciente o cuidador, quiero escribir y ver notas en el diario. 
 
+![alt text](assets/userflow/UserFlow9.png)
+
 User Flow 10:
 
 Relacionado con el User Goal 10: Como paciente, quiero compartir mi perfil con un cuidador y definir permisos.
+
+![alt text](assets/userflow/UserFlow10.png)
 
 
 #### 3.1.4.5. Mobile Applications Prototyping <a id="3145-mobile-applications-prototyping"></a>
 
 ---
 
-<div style="page-break-before: always;"></div>
+Video del Prototipo: 
+
+<video controls src="assets/Prototyping.mp4" title="Title"></video>
+
 
 # Capítulo IV: Product Implementation & Validation
 
