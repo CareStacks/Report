@@ -3992,9 +3992,11 @@ La evidencia de desarrollo del Sprint 1 se compone de los commits realizados en 
 
 | Branch | Commit ID | Commiteado por | Fecha | Mensaje |
 |---|---|---|---|---|
+| `main` | `c6dac1e` | Equipo CareStacks | 2026-05-15 | feat(add): add deployment link |
+| `main` | `264b0d4` | Equipo CareStacks | 2026-05-15 | feat: init repository |
 | `main` | `2462c38` | Equipo CareStacks | 2026-05-04 | Initial commit |
 
-> *Nota: el repositorio `Landing-Page` quedará en repositorio pero el despliegue del Landing fue resuelto en un proyecto Vercel separado durante el Sprint 1. La unificación al monorepo se planifica para el Sprint 2.*
+> *Stack:* React 19 + Vite + TypeScript. Despliegue automático en Vercel (`https://landing-page-lovat-ten.vercel.app`) por cada push a `main`.
 
 **Report (`CareStacks/Report`)**
 
