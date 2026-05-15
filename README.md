@@ -99,8 +99,6 @@ El equipo de CareStacks organizó el desarrollo del informe utilizando **GitHub*
 3. La revisión cruzada en Pull Requests permitió detectar inconsistencias terminológicas entre bounded contexts antes de la integración.
 4. La asignación temprana de un responsable por bounded context evitó solapamientos en el diseño táctico.
 
-**Declaración sobre uso de IA generativa:** El equipo utilizó herramientas de IA generativa como apoyo para la redacción y revisión ortográfica. Todo contenido generado fue revisado, validado y editado por los integrantes responsables de cada sección antes de su incorporación al informe.
-
 ---
 
 # Contenido
@@ -220,7 +218,7 @@ A continuación se presentan los objetivos SMART (Specific, Measurable, Achievab
 
 | ID | Objetivo SMART | Specific | Measurable | Achievable | Relevant | Time-bound |
 |---|---|---|---|---|---|---|
-| OB1 | Entregar un MVP funcional de CareConnect con los seis bounded contexts implementados antes del cierre del ciclo 2026-10. | MVP con Agenda, Notificaciones, Diario, Documentos, Gestión de Consentimiento y Autenticación | 100% de los 6 bounded contexts con al menos una US core desplegada | Equipo de 5 integrantes con stack Spring Boot + Flutter dominado | Cumple con el alcance comprometido del informe final | Fin del ciclo académico 2026-10 |
+| OB1 | Entregar un MVP funcional de CareConnect con los seis bounded contexts implementados antes del cierre del ciclo 2026-10. | MVP con Agenda, Notificaciones, Diario, Documentos, Gestión de Consentimiento y Autenticación | 100% de los 6 bounded contexts con al menos una US core desplegada | Equipo de 5 integrantes con stack Spring Boot + Kotlin/Compose dominado | Cumple con el alcance comprometido del informe final | Fin del ciclo académico 2026-10 |
 | OB2 | Validar la propuesta de valor con al menos 6 entrevistas (3 cuidadores, 3 pacientes geriátricos) durante el Sprint 1. | Entrevistas a cuidadores formales/informales y pacientes geriátricos | 6 entrevistas grabadas y transcritas | Red de contactos disponibles del equipo | Sustenta las User Personas y el Lean UX Canvas | Sprint 1 (semanas 1-3) |
 | OB3 | Alcanzar una cobertura de pruebas unitarias del 70% sobre los servicios core del backend al cierre del Sprint 3. | Pruebas sobre Agenda, Notificaciones y Gestión de Consentimiento | Cobertura ≥ 70% reportada por JaCoCo | Equipo familiarizado con JUnit y Mockito | Garantiza calidad para la entrega final | Cierre del Sprint 3 |
 | OB4 | Publicar la Landing Page de CareConnect en un dominio público antes del Sprint Review 1. | Landing Page en React desplegada en Vercel | URL accesible públicamente con métricas básicas habilitadas | Stack y dominio ya provisionados | Refuerza la presentación del producto al stakeholder | Antes del Sprint Review 1 |
@@ -2371,9 +2369,9 @@ El Container Diagram descompone el sistema CareConnect en sus elementos de alto 
 Los containers identificados son:
 
 - **Landing Page:** Sitio web desarrollado con React. Presenta el modelo de negocio, las características del producto y los enlaces de descarga.
-- **Mobile Application:** Aplicación nativa multiplataforma desarrollada con Flutter/Dart. Constituye la interfaz principal mediante la cual el paciente geriátrico y el cuidador interactúan con el sistema. Se comunica con el Backend a través de HTTPS/JSON.
+- **Mobile Application:** Aplicación nativa Android desarrollada con Kotlin y Jetpack Compose. Constituye la interfaz principal mediante la cual el paciente geriátrico y el cuidador interactúan con el sistema. Se comunica con el Backend a través de HTTPS/JSON.
 - **Backend (RESTful Web Services):** Servicio único desarrollado con Spring Boot (Java) que expone una API REST documentada con OpenAPI/Swagger. Concentra la lógica de negocio de los seis bounded contexts (Agenda, Notificaciones, Diario de Seguimiento, Documentos, Gestión de Consentimiento y Autenticación) en un mismo despliegue. La descomposición interna por bounded context se documenta a nivel de componente.
-- **Database:** Base de datos relacional (PostgreSQL) que persiste la información del sistema. Es consumida exclusivamente por el Backend.
+- **Database:** Base de datos relacional (MySQL 8) que persiste la información del sistema. Es consumida exclusivamente por el Backend.
 - **Local Storage (SQLite / Room):** Almacenamiento local en el dispositivo móvil que permite el acceso offline a información crítica del paciente, medicación pendiente y registros recientes.
 
 Las relaciones principales entre containers son:
@@ -2407,7 +2405,7 @@ Los nodos de despliegue identificados son:
 
 - **Cloud Hosting Provider (e.g., Railway / Render / AWS):**
   - **Web Server Node:** Aloja el **API Gateway / RESTful Web Services** (Spring Boot). Recibe peticiones HTTPS desde la Mobile Application y ejecuta la lógica de negocio.
-  - **Database Server Node:** Aloja la **Database** relacional (e.g., PostgreSQL / MySQL). Accedida únicamente desde el Web Server Node a través de la red interna del proveedor.
+  - **Database Server Node:** Aloja la **Database** relacional (MySQL 8). Accedida únicamente desde el Web Server Node a través de la red interna del proveedor.
 
 - **Static Hosting Provider (e.g., GitHub Pages / Netlify / Vercel):**
   - Sirve los archivos estáticos del **Landing Page** (HTML, CSS, JS) a los navegadores web de los visitantes.
@@ -2645,9 +2643,9 @@ El Database Design Diagram del bounded context Notificaciones muestra el esquema
 
 ---
 
-# 2.6.3. Bounded Context: Diary
+### 2.6.3. Bounded Context: Diario de Seguimiento
 
-## 2.6.3.1. Domain Layer
+#### 2.6.3.1. Domain Layer
 
 | Componente | Tipo | Descripción |
 |-----------|------|-------------|
@@ -2660,7 +2658,7 @@ El Database Design Diagram del bounded context Notificaciones muestra el esquema
 | DiaryEntryUpdatedEvent | Domain Event | Se publica cuando se actualiza una entrada existente. |
 | DiaryEntryDeletedEvent | Domain Event | Se publica cuando se elimina una entrada del diario. |
 
-## 2.6.3.2. Interface Layer
+#### 2.6.3.2. Interface Layer
 
 | Componente | Tipo | Descripción |
 |-----------|------|-------------|
@@ -2669,7 +2667,7 @@ El Database Design Diagram del bounded context Notificaciones muestra el esquema
 | DiaryDetailFragment | Fragment | Muestra el detalle de una entrada seleccionada. |
 | DiaryViewModel | ViewModel | Gestiona el estado de la interfaz y la comunicación con Application Layer. |
 
-## 2.6.3.3. Application Layer
+#### 2.6.3.3. Application Layer
 
 | Componente | Tipo | Descripción |
 |-----------|------|-------------|
@@ -2685,7 +2683,7 @@ El Database Design Diagram del bounded context Notificaciones muestra el esquema
 | GetDiaryEntryByIdHandler | Query Handler | Procesa la consulta por identificador. |
 | DiaryEntryDTO | DTO | Transfiere información de entradas entre capas. |
 
-## 2.6.3.4. Infrastructure Layer
+#### 2.6.3.4. Infrastructure Layer
 
 | Componente | Tipo | Descripción |
 |-----------|------|-------------|
@@ -2801,7 +2799,7 @@ El diagrama de base de datos representa las tablas `profile_sharings`, `shared_a
 
 ---
 
-### 2.6.5. Bounded Context: Documents
+### 2.6.5. Bounded Context: Documentos
 
 ---
 
@@ -2877,18 +2875,265 @@ El diagrama de base de datos representa las tablas `profile_sharings`, `shared_a
 ## 3.1. Product design <a id="31-product-design"></a>
 
 ### 3.1.1. Style Guidelines <a id="311-style-guidelines"></a>
+
 #### 3.1.1.1. General Style Guidelines <a id="3111-general-style-guidelines"></a>
 
+Las guías de estilo de CareConnect se aplican de forma consistente tanto al Landing Page como a la aplicación móvil. Definen identidad visual, tono de marca, paleta de colores, tipografía, sistema de espaciado, iconografía y componentes UI. La implementación móvil sigue Material 3 y los tokens están declarados en `presentation/theme/Color.kt` y `presentation/theme/Type.kt` del repositorio `CareStacks/FrontEnd`.
+
+**Identidad y tono de marca**
+
+CareConnect es una marca pensada para el sector salud y bienestar geriátrico. El tono es cercano, sereno y responsable. La voz transmite confianza sin tecnicismos innecesarios y prioriza claridad sobre estética. Los mensajes evitan jerga médica, alarmismo y diminutivos infantilizantes.
+
+**Paleta de colores**
+
+La paleta se basa en tres colores principales (Primary, Secondary, Tertiary) más un Neutral oscuro y una serie de superficies cálidas. Se complementa con variantes por estado para badges (pendiente, confirmado, omitido, leído, urgente, médico).
+
+| Token | Hex | Uso |
+|---|---|---|
+| `Primary` | `#6C63A6` | Color principal de marca, botones primarios, indicadores activos. |
+| `PrimaryLight` | `#E6E1F6` | Fondos suaves, chips, estados hover. |
+| `PrimaryDark` | `#51498A` | Énfasis sobre Primary, headers de cards seleccionados. |
+| `Secondary` | `#B7D7C2` | Acciones secundarias, fondos de éxito leve. |
+| `Tertiary` | `#F2A65A` | Acentos, etiquetas de prioridad media. |
+| `Neutral` | `#2F3440` | Texto sobre superficies claras y elementos contundentes. |
+| `Background` | `#FAF7F2` | Fondo general de la aplicación. |
+| `BackgroundSoft` | `#F7F6FC` | Fondo de secciones diferenciadas. |
+| `Surface` | `#FFFFFF` | Cards, dialogs y superficies elevadas. |
+| `TextPrimary` | `#111827` | Texto principal. |
+| `TextSecondary` | `#5F6170` | Texto de apoyo. |
+| `TextMuted` | `#8F8D99` | Texto secundario de menor jerarquía y placeholders. |
+| `Border` | `#E1DDE8` | Bordes de cards e inputs. |
+| `Disabled` | `#D8D6E0` | Componentes deshabilitados. |
+
+**Variantes por estado y colores de feedback:**
+
+| Token | Background | Text | Uso |
+|---|---|---|---|
+| Status Pending | `#E8EAF4` | `#5F6270` | Evento pendiente de confirmación. |
+| Status Confirmed | `#C8EAD4` | `#4F7D5C` | Evento confirmado, dosis administrada. |
+| Status Missed | `#FFD2D2` | `#C01818` | Evento omitido o vencido. |
+| Status Read | `#E6D9FF` | `#5C4E9D` | Notificación leída. |
+| Status Urgent | `#FFD2D2` | `#C01818` | Alerta urgente al cuidador. |
+| Status Medical | `#E6D9FF` | `#5C4E9D` | Información clínica destacada. |
+
+**Tipografía**
+
+La aplicación móvil utiliza la familia `FontFamily.SansSerif` de Android (mapeada al sistema). La escala tipográfica está alineada con Material 3.
+
+| Token Material 3 | Peso | Tamaño / Line-height | Uso |
+|---|---|---|---|
+| `headlineLarge` | Bold | 30 / 38 sp | Títulos de pantalla principales. |
+| `headlineMedium` | Bold | 26 / 34 sp | Sub-cabeceras importantes. |
+| `titleLarge` | Bold | 22 / 30 sp | Títulos de cards y secciones. |
+| `titleMedium` | SemiBold | 18 / 26 sp | Encabezados de listas. |
+| `bodyLarge` | Normal | 16 / 24 sp | Texto principal. |
+| `bodyMedium` | Normal | 14 / 22 sp | Texto secundario. |
+| `bodySmall` | Normal | 12 / 18 sp | Metadatos y leyendas. |
+| `labelLarge` | Bold | 16 / 22 sp | Botones primarios. |
+| `labelMedium` | SemiBold | 13 / 18 sp | Chips y badges. |
+
+**Espaciado y geometría**
+
+- Escala base: múltiplos de **4 dp** (4, 8, 12, 16, 20, 24, 32, 40, 56).
+- Padding por defecto de pantalla: **16 dp** lateral.
+- Radio de esquina (`shape`): cards y botones a **16 dp**; chips a **12 dp**; inputs a **12 dp**.
+- Elevación: cards a **2 dp**, dialogs a **6 dp**.
+
+**Iconografía**
+
+- Material Symbols (outlined) como librería de iconos por defecto.
+- Tamaño estándar 24 dp; en `AppIcon` se permite escalar hasta 32 dp para acciones primarias.
+- Color por defecto: `IconMuted` (`#7C788A`); sobre fondos accionables, `Primary`.
+
+**Componentes UI implementados**
+
+Los componentes reutilizables se encuentran en `presentation/components/` e incluyen:
+
+- `AppTopBar`, `BottomBar` — navegación.
+- `AppTextField`, `AppPasswordField` — entradas con validación.
+- `FilledButton`, `SecondaryFilledButton`, `OutlinedActionButton`, `TextActionButton` — variantes de botón.
+- `AppCard` — contenedor base de cards.
+- `StatusBadge` — chip de estado (pendiente, confirmado, omitido, leído, urgente, médico).
+- `CareScreenHeader` — encabezado consistente de pantallas internas.
+- `AppIcon` — wrapper sobre `Icon` con sizing y tinting predefinidos.
+
+**Accesibilidad**
+
+- Contraste mínimo AA (4.5:1) sobre todas las combinaciones de texto sobre superficie.
+- Tamaño mínimo de texto principal: 14 sp; tamaño de táctil mínimo: 48 dp.
+- Estados de foco visibles en componentes interactivos.
+- Etiquetas semánticas en todos los inputs (`contentDescription`) para soporte de TalkBack.
+
+---
+
 ### 3.1.2. Information Architecture <a id="312-information-architecture"></a>
+
+La arquitectura de información de CareConnect se diseñó pensando en dos perfiles claros (paciente geriátrico y cuidador) y en flujos cortos para tareas con alta frecuencia. La misma estructura se aplica al Landing Page (sitio público) y a la aplicación móvil (producto), con adaptaciones específicas según el medio.
+
 #### 3.1.2.1. Organization Systems <a id="3121-organization-systems"></a>
+
+Se aplican tres esquemas complementarios de organización de contenido:
+
+| Esquema | Aplicación |
+|---|---|
+| **Jerárquico** | El Landing Page se organiza de lo más amplio (problemática, propuesta de valor) a lo más específico (features, integrantes, CTA). |
+| **Por rol** | La aplicación móvil presenta vistas diferenciadas para `Paciente` y `Cuidador` desde el login, manteniendo el mismo backend. |
+| **Por tarea** | Dentro de cada rol, el contenido se agrupa por tareas frecuentes: Hoy (agenda del día), Diario, Documentos, Compartir, Notificaciones, Perfil. |
+
+**Sitemap del Landing Page (`carestacks` en Vercel):**
+
+```
+/
+├── #hero — Propuesta de valor y CTA "Descargar App"
+├── #problema — Datos de envejecimiento y descoordinación
+├── #solucion — Funcionalidades de CareConnect
+├── #segmentos — Cuidadores / Pacientes geriátricos
+├── #equipo — Integrantes de CareStacks
+└── #contacto — Formulario y redes
+```
+
+**Mapa de pantallas de la Mobile App (estructura por rol):**
+
+```
+OnBoarding
+├── Welcome → Login → Register
+└── Sesión iniciada
+    ├── Rol: Paciente
+    │   ├── Inicio (Hoy)
+    │   ├── Agenda
+    │   ├── Diario (lista) → Nueva Nota
+    │   ├── Documentos → Subir Documento
+    │   ├── Notificaciones
+    │   ├── Compartir Perfil (Gestión de Consentimiento)
+    │   └── Perfil
+    └── Rol: Cuidador
+        ├── Inicio (Hoy del paciente)
+        ├── Agenda del paciente
+        ├── Diario compartido
+        ├── Documentos compartidos
+        ├── Notificaciones / Alertas
+        ├── Perfil compartido del paciente
+        └── Perfil
+```
+
 #### 3.1.2.2. Labelling Systems <a id="3122-labelling-systems"></a>
+
+El sistema de etiquetado prioriza palabras del Ubiquitous Language (§2.3.5) sobre términos técnicos. Se evitan tecnicismos clínicos y se usan verbos cortos en imperativo para acciones.
+
+| Categoría | Convención | Ejemplos |
+|---|---|---|
+| **Tabs de navegación inferior** | Sustantivos simples, una sola palabra | "Hoy", "Agenda", "Diario", "Documentos", "Perfil" |
+| **Botones de acción primaria** | Verbo en imperativo + objeto | "Confirmar dosis", "Subir documento", "Compartir perfil" |
+| **Estados** | Adjetivo o sustantivo corto en badge | "Pendiente", "Confirmado", "Omitido", "Leído", "Urgente" |
+| **Mensajes de error** | Frase breve orientada al usuario, no al sistema | "El correo no tiene un formato válido", no "Invalid email regex" |
+| **Confirmaciones destructivas** | Pregunta directa con verbo destacado | "¿Revocar acceso a María?" |
+| **Empty states** | Frase + acción sugerida | "No tienes notas todavía. Toca + para escribir tu primera nota." |
+
 #### 3.1.2.3. SEO Tags and Meta Tags <a id="3123-seo-tags-and-meta-tags"></a>
+
+El Landing Page utiliza meta tags estándar y Open Graph para garantizar visibilidad en buscadores y previews enriquecidos al compartir el enlace.
+
+```html
+<!-- Primary -->
+<title>CareConnect — Cuidado geriátrico organizado, en un solo lugar</title>
+<meta name="description" content="CareConnect es una aplicación móvil para coordinar el cuidado geriátrico: medicación, citas, diario y documentos compartidos entre paciente y cuidador.">
+<meta name="keywords" content="cuidado geriatrico, adulto mayor, medicacion, cuidadores, salud, app movil, recordatorios, perú">
+<meta name="author" content="CareStacks">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="CareConnect — Cuidado geriátrico organizado">
+<meta property="og:description" content="Coordina medicación, citas, diario y documentos del paciente geriátrico.">
+<meta property="og:image" content="https://landing-page-lovat-ten.vercel.app/og-cover.png">
+<meta property="og:url" content="https://landing-page-lovat-ten.vercel.app">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CareConnect — Cuidado geriátrico organizado">
+<meta name="twitter:description" content="Coordina medicación, citas, diario y documentos del paciente geriátrico.">
+
+<!-- Viewport y mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6C63A6">
+```
+
 #### 3.1.2.4. Searching Systems <a id="3124-searching-systems"></a>
+
+El alcance del MVP no incluye un buscador global, pero se definen los siguientes mecanismos de localización de contenido alineados con las tareas más frecuentes:
+
+| Pantalla | Mecanismo | Comportamiento |
+|---|---|---|
+| **Agenda** | Filtro por fecha | Selector de día con vista compacta y vista semanal. |
+| **Documentos** | Filtro por tipo | Chips: "Todos", "Recetas", "Resultados", "Informes". |
+| **Diario** | Orden cronológico inverso | Notas más recientes arriba; scroll infinito con paginación. |
+| **Notificaciones** | Filtro por estado | Tabs "No leídas" / "Todas"; acción "Marcar todas como leídas". |
+| **Compartir Perfil** | Lista de accesos activos | Ordenada por fecha de otorgamiento; acción rápida "Revocar". |
+
 #### 3.1.2.5. Navigation Systems <a id="3125-navigation-systems"></a>
 
+La aplicación móvil usa tres patrones de navegación combinados implementados con Jetpack Navigation Compose:
+
+1. **Navegación raíz (Root NavHost)** — gestiona el flujo `OnBoarding → Login/Register → Main`.
+2. **Navegación principal por pestañas (Bottom Navigation)** — accesos persistentes: Hoy · Agenda · Diario · Documentos · Perfil. La pestaña Notificaciones se accede desde el `AppTopBar` para no saturar la barra inferior.
+3. **Navegación interna de cada tab** — flujos hijos como `Diario → Nueva Nota` o `Documentos → Subir Documento`, con back stack independiente por tab.
+
+**Reglas:**
+- Solo cinco entradas en la barra inferior (siguiendo Material 3).
+- Botón "Atrás" físico/sistema respeta el back stack del tab activo.
+- Acciones rápidas se exponen mediante FAB (`Floating Action Button`) en pantallas de listas (Diario, Documentos).
+- `AppTopBar` muestra título de pantalla, ícono de notificaciones y avatar/menú.
+
+En el Landing Page, la navegación es horizontal en desktop (header sticky con anclas a secciones) y colapsa en un menú hamburguesa en breakpoint < 768 px.
+
+---
+
 ### 3.1.3. Landing Page UI Design <a id="313-landing-page-ui-design"></a>
+
+El Landing Page es el primer punto de contacto público con CareConnect. Su objetivo es comunicar la propuesta de valor, mostrar a los segmentos objetivo y conducir a la descarga de la aplicación. Está desplegado en Vercel en `https://landing-page-lovat-ten.vercel.app`.
+
 #### 3.1.3.1. Landing Page Wireframe <a id="3131-landing-page-wireframe"></a>
+
+El wireframe describe la estructura, jerarquía y bloques de contenido del Landing Page en su versión responsive (desktop ≥ 1280 px, tablet 768 px – 1279 px, mobile < 768 px). Se enfoca en estructura, no en estilos.
+
+**Bloques principales (orden de aparición vertical):**
+
+| # | Bloque | Contenido | Comportamiento responsive |
+|---|---|---|---|
+| 1 | Header sticky | Logo CareConnect, enlaces ancla (Problema, Solución, Equipo) y CTA "Descargar" | En mobile colapsa a hamburguesa. |
+| 2 | Hero | Título, subtítulo, CTA primario "Descargar App", CTA secundario "Conocer más", imagen de la app | Imagen pasa debajo del texto en mobile. |
+| 3 | Problemática | Tres tarjetas con cifras de envejecimiento, no adherencia y descoordinación | 3 columnas en desktop, 1 columna en mobile. |
+| 4 | Solución | Lista de funcionalidades (Agenda, Notificaciones, Diario, Documentos, Compartir, Autenticación) con ícono + descripción corta | Grid 3×2 en desktop, 1 columna en mobile. |
+| 5 | Segmentos objetivo | Dos cards (Cuidadores / Pacientes) con foto referencial, descripción y beneficio principal | 2 columnas en desktop, 1 columna en mobile. |
+| 6 | Equipo | Cinco cards de integrantes con foto, nombre, rol y enlaces a GitHub/LinkedIn | 5 columnas en desktop, 2 en tablet, 1 en mobile. |
+| 7 | CTA final | Banner con "Empieza a coordinar mejor el cuidado" + botón a descarga | Banner full-width siempre. |
+| 8 | Footer | Logo, enlaces a repos públicos, correo de contacto, año y derechos | 3 columnas en desktop, apilado en mobile. |
+
+![Wireframe Landing Page CareConnect](assets/landing/landing_wireframe.png)
+
+*Figura 23. Wireframe del Landing Page de CareConnect — versión desktop.*
+
 #### 3.1.3.2. Landing Page Mock-up <a id="3132-landing-page-mock-up"></a>
+
+El mockup aplica al wireframe la guía de estilo descrita en §3.1.1.1: paleta morada CareConnect (`#6C63A6` como Primary), tipografía Sans-Serif con la escala Material 3, espaciado en múltiplos de 4 px (16 / 24 / 40 / 56 px), botones a 16 px de radio y cards con sombra suave sobre fondo `#FAF7F2`.
+
+**Decisiones de diseño visual:**
+- **Hero**: ilustración o screenshot de la app a la derecha, texto a la izquierda, gradiente sutil de `PrimaryLight` → `Background`.
+- **Tarjetas de problemática**: fondo `Surface`, borde `Border`, número grande en `Primary`, texto descriptivo en `TextSecondary`.
+- **Solución**: cada feature usa un ícono Material Symbols con tinte `Primary` sobre fondo `PrimaryLight` redondeado.
+- **Segmentos**: cards más anchas con foto a la izquierda y texto a la derecha; CTA secundaria interna a "Ver historia" (opcional).
+- **Equipo**: foto circular, nombre en `titleMedium`, rol en `bodySmall` con `TextSecondary`, iconos sociales pequeños en `IconMuted`.
+- **CTA final**: banner full-bleed con fondo `Primary` y texto blanco; botón de fondo `Surface` con texto `Primary`.
+
+**URL de producción:** `https://landing-page-lovat-ten.vercel.app`
+
+![Mockup Landing Page CareConnect — Hero y problemática](assets/landing/landing_mockup_hero.png)
+
+*Figura 24. Mockup del Landing Page de CareConnect — hero y sección problemática.*
+
+![Mockup Landing Page CareConnect — Solución y segmentos](assets/landing/landing_mockup_solucion.png)
+
+*Figura 25. Mockup del Landing Page de CareConnect — solución, segmentos y equipo.*
 
 ### 3.1.4. Mobile Applications UX/UI Design <a id="314-mobile-applications-uxui-design"></a>
 #### 3.1.4.1. Mobile Applications Wireframes <a id="3141-mobile-applications-wireframes"></a>
@@ -3208,7 +3453,7 @@ Video del Prototipo:
 
 En esta sección se presenta la configuración general utilizada para la implementación y validación del producto **CareConnect**, una aplicación móvil desarrollada por la startup **CareStacks** y orientada a la gestión del cuidado geriátrico. El objetivo de esta etapa es establecer las herramientas, procesos y lineamientos técnicos necesarios para construir una solución funcional, organizada y alineada con los requerimientos definidos en los capítulos anteriores.
 
-CareConnect busca facilitar la coordinación entre pacientes geriátricos y cuidadores mediante funcionalidades como la gestión de eventos de salud, recordatorios, alertas, documentos médicos, diario de seguimiento y acceso compartido a la información del paciente. Para lograrlo, el producto se estructura en diferentes módulos o bounded contexts: **Agenda**, **Notificaciones**, **Documentos**, **Acceso Compartido**, **Diario de Seguimiento** y **Autenticación**.
+CareConnect busca facilitar la coordinación entre pacientes geriátricos y cuidadores mediante funcionalidades como la gestión de eventos de salud, recordatorios, alertas, documentos médicos, diario de seguimiento y acceso compartido a la información del paciente. Para lograrlo, el producto se estructura en diferentes módulos o bounded contexts: **Agenda**, **Notificaciones**, **Documentos**, **Gestión de Consentimiento**, **Diario de Seguimiento** y **Autenticación**.
 
 La implementación del producto considera una aplicación móvil, servicios backend RESTful, almacenamiento local para soporte offline, base de datos relacional y servicios externos para notificaciones y autenticación. Esta organización permite que el sistema sea modular, mantenible y preparado para futuras mejoras.
 
@@ -3238,17 +3483,24 @@ El entorno de desarrollo de CareConnect fue definido considerando las necesidade
 | Herramienta | Propósito dentro del proyecto |
 |---|---|
 | Android Studio | Entorno principal para desarrollar, ejecutar y depurar la aplicación móvil. |
-| Kotlin | Lenguaje utilizado para la implementación de funcionalidades móviles nativas en Android. |
-| Flutter / Dart | Tecnología considerada para la estrategia multiplataforma de la aplicación móvil. |
-| Spring Boot | Framework propuesto para el desarrollo de servicios backend RESTful. |
-| PostgreSQL | Base de datos relacional para almacenar la información principal del sistema. |
-| SQLite / Room | Almacenamiento local en el dispositivo móvil para soporte offline. |
+| Kotlin | Lenguaje utilizado para implementar la aplicación móvil nativa en Android. |
+| Jetpack Compose | Framework declarativo de UI usado para construir todas las pantallas del cliente móvil. |
+| Java 21 | Lenguaje utilizado en el backend bajo Spring Boot 4.0.6. |
+| Spring Boot 4.0.6 | Framework principal del backend; expone una API REST documentada con OpenAPI. |
+| Spring Data JPA / Hibernate | Mapeo objeto-relacional para persistencia de entidades de cada bounded context. |
+| Spring Security | Configuración de autenticación, hashing de contraseñas y validación de sesión. |
+| MySQL 8 | Motor de base de datos relacional del backend (perfil `dev` y `prod`). |
+| H2 | Motor en memoria utilizado en las pruebas automatizadas del backend. |
+| Room / SQLite | Almacenamiento local en el dispositivo móvil para soporte offline (caché de pantallas). |
 | Firebase Cloud Messaging | Servicio para el envío y recepción de notificaciones push. |
 | SendGrid | Servicio externo para el envío de correos electrónicos transaccionales. |
+| Vercel | Hosting estático del Landing Page con CI/CD automático por push. |
 | Git | Sistema de control de versiones utilizado por el equipo. |
-| GitHub | Plataforma para alojar repositorios y gestionar colaboración. |
-| OpenAPI / Swagger | Documentación y prueba de endpoints del backend. |
+| GitHub | Plataforma para alojar los repositorios (`CareStacks/BackEnd`, `CareStacks/FrontEnd`, `CareStacks/Landing-Page`, `CareStacks/Report`) y gestionar la colaboración. |
+| OpenAPI / Swagger UI | Documentación y prueba de endpoints expuestos por el backend en `/swagger-ui.html`. |
 | Figma | Herramienta para diseñar wireframes, mockups y prototipos. |
+| Miro | Pizarra colaborativa para EventStorming, Context Mapping y Bounded Context Canvases. |
+| Structurizr | Herramienta para los diagramas C4 (Context, Container, Component y Deployment). |
 
 ### Configuración del entorno móvil
 
@@ -3264,16 +3516,18 @@ La aplicación móvil se desarrolla utilizando Android Studio como entorno princ
 
 ### Configuración del backend
 
-El backend de CareConnect se plantea como un conjunto de servicios RESTful agrupados mediante un API Gateway. Este backend expone endpoints para los bounded contexts definidos en el dominio: Agenda, Notificaciones, Documentos, Acceso Compartido, Diario de Seguimiento y Autenticación.
+El backend de CareConnect es un servicio Spring Boot único (no disgregado) que concentra los seis bounded contexts del dominio en módulos internos: Agenda, Notificaciones, Documentos, Gestión de Consentimiento, Diario de Seguimiento y Autenticación (IAM). Cada módulo sigue la organización por capas Domain / Application / Infrastructure / Interfaces.
 
 | Elemento | Descripción |
 |---|---|
-| Spring Boot | Framework utilizado para construir los servicios RESTful. |
-| Java | Lenguaje de programación utilizado en el backend. |
-| PostgreSQL | Base de datos relacional principal del sistema. |
-| JPA / Hibernate | Herramientas para mapear entidades del sistema a tablas de base de datos. |
-| OpenAPI / Swagger | Permite documentar y probar los endpoints del backend. |
-| Maven / Gradle | Herramientas de construcción y gestión de dependencias. |
+| Spring Boot 4.0.6 | Framework principal del backend; arranca el contenedor embebido y expone la API REST en el puerto 8080. |
+| Java 21 | Lenguaje del backend. |
+| Maven | Herramienta de construcción y gestión de dependencias (`pom.xml`). |
+| MySQL 8 | Base de datos relacional para los entornos de desarrollo y producción. |
+| H2 | Base de datos en memoria utilizada en las pruebas automatizadas. |
+| Spring Data JPA / Hibernate | ORM para mapear las entidades del dominio a tablas. `ddl-auto: update` en `dev`. |
+| Spring Security | Configuración de seguridad (hashing BCrypt, filtros, validación de sesión). |
+| Springdoc OpenAPI | Documentación viva en `/swagger-ui.html` y especificación en `/v3/api-docs`. |
 
 ### Configuración de servicios externos
 
@@ -3478,7 +3732,7 @@ Los endpoints deben seguir una estructura clara, utilizando sustantivos en plura
 | Notificaciones | `/api/notifications` |
 | Documentos | `/api/documents` |
 | Diario de Seguimiento | `/api/diary/entries` |
-| Acceso Compartido | `/api/shared-profiles` |
+| Gestión de Consentimiento | `/api/shared-profiles` |
 | Autenticación | `/api/auth/login` |
 
 ### Convenciones para base de datos
@@ -3638,15 +3892,327 @@ La configuración de despliegue de CareConnect permite distribuir la aplicación
 
 ## 4.2. Landing Page & Mobile Application Implementation <a id="42-landing-page--mobile-application-implementation"></a>
 
-### 4.2.1. Sprint n <a id="421-sprint-n"></a>
-#### 4.2.1.1. Sprint Planning n <a id="4211-sprint-planning-n"></a>
-#### 4.2.1.2. Sprint Backlog n <a id="4212-sprint-backlog-n"></a>
+### 4.2.1. Sprint 1 <a id="421-sprint-1"></a>
+
+#### 4.2.1.1. Sprint Planning 1 <a id="4211-sprint-planning-1"></a>
+
+El Sprint 1 corresponde al primer ciclo de desarrollo de CareConnect y se enfoca en establecer las bases técnicas del producto: publicar la Landing Page, configurar los repositorios y los entornos de desarrollo, generar el scaffolding de la aplicación móvil Android y comenzar con la implementación del Bounded Context de Autenticación.
+
+| Sprint Planning |  |
+|---|---|
+| **Sprint #** | 1 |
+| **Sprint Planning Background** | Es el primer Sprint del proyecto. No hay implementación previa de referencia. El equipo parte del Product Backlog priorizado en 2.4.3 y de los wireframes y mockups aprobados en 3.1. |
+| **Date** | 2026-05-04 |
+| **Time** | 19:00 – 21:00 (UTC-5) |
+| **Location** | Sesión remota vía Discord |
+| **Prepared By** | Salcedo Champi, Matias Rodolfo (Product Owner / Project Manager) |
+| **Attendees (to planning meeting)** | Salcedo Champi, Matias Rodolfo · Santillan Alvarado, Melina Liz · Costa Morales, Christofer William · Nikaido Vargas, Javier Masaru · Osores Marchese, Pietro |
+| **Sprint n - 1 Review Summary** | No aplica (primer Sprint). |
+| **Sprint n - 1 Retrospective Summary** | No aplica (primer Sprint). |
+| **Sprint Goal** | Establecer las bases técnicas del producto CareConnect: publicar la Landing Page funcional, configurar los repositorios y las convenciones de trabajo, levantar el scaffolding de la aplicación móvil Android (Kotlin + Jetpack Compose) y del backend (Spring Boot), e implementar el flujo de Registro e Inicio de Sesión del Bounded Context de Autenticación. |
+| **Sprint Velocity** | 25 Story Points |
+| **Sum of Story Points** | 25 |
+
+**Definition of Done acordada para el Sprint 1:**
+- La historia o tarea está integrada a la rama `develop` mediante Pull Request aprobado por al menos un revisor distinto al autor.
+- El código pasa el linter del stack correspondiente (Ktlint para Android, Checkstyle para Spring Boot).
+- Existe al menos una prueba unitaria o instrumentada asociada cuando aplica.
+- La funcionalidad es verificable en el entorno local del equipo.
+- La documentación asociada está actualizada en el `README` del repositorio o en el informe.
+
+---
+
+#### 4.2.1.2. Sprint Backlog 1 <a id="4212-sprint-backlog-1"></a>
+
+Las historias y tareas seleccionadas para el Sprint 1 se centran en habilitar el desarrollo del resto del producto: scaffolding, Landing Page, Autenticación y los wireframes/mockups iniciales convertidos en pantallas Android.
+
+| Sprint | User Story ID | Título | Tarea técnica asociada | Description | Estimation (SP) | Assigned To | Status |
+|---|---|---|---|---|---|---|---|
+| 1 | US10 | Registrar cuenta | T-US10-01: Diseñar pantalla de registro en Jetpack Compose | Implementar el formulario de registro con validaciones de email y contraseña en la app móvil. | 2 | Santillan Alvarado, Melina Liz | Done |
+| 1 | US10 | Registrar cuenta | T-US10-02: Endpoint `POST /api/v1/auth/register` en backend | Crear el endpoint REST de registro con hashing bcrypt y persistencia en PostgreSQL. | 3 | Nikaido Vargas, Javier Masaru | In Progress |
+| 1 | US11 | Validar acceso por rol | T-US11-01: Pantalla de login con Compose | Implementar la pantalla de login con manejo de errores. | 2 | Santillan Alvarado, Melina Liz | Done |
+| 1 | US11 | Validar acceso por rol | T-US11-02: Endpoint `POST /api/v1/auth/login` con JWT | Generar token JWT firmado tras autenticación exitosa. | 3 | Nikaido Vargas, Javier Masaru | In Progress |
+| 1 | — | Landing Page MVP | T-LP-01: Estructurar landing en HTML5 + CSS3 + JS responsivo | Hero, secciones de problemática, solución, segmentos objetivo, integrantes y CTA. | 3 | Osores Marchese, Pietro | Done |
+| 1 | — | Landing Page MVP | T-LP-02: Deploy en Vercel/GitHub Pages | Configurar dominio público y dejar URL accesible al stakeholder. | 1 | Osores Marchese, Pietro | Done |
+| 1 | — | Setup técnico | T-SET-01: Crear repos `BackEnd`, `FrontEnd`, `Landing-Page`, `Report` con sus `README` | Inicializar repositorios en la organización GitHub `CareStacks`. | 1 | Salcedo Champi, Matias Rodolfo | Done |
+| 1 | — | Setup técnico | T-SET-02: Definir GitFlow (`main`, `develop`, `docs/*`, `feature/*`) y CODEOWNERS | Documentar el flujo de ramas y la política de revisión. | 1 | Salcedo Champi, Matias Rodolfo | Done |
+| 1 | — | Setup técnico | T-SET-03: Configurar proyecto Android (Compose, theme, navegación base) | Scaffolding del proyecto móvil con tema y arquitectura inicial por capas. | 2 | Santillan Alvarado, Melina Liz | Done |
+| 1 | — | Setup técnico | T-SET-04: Configurar proyecto Spring Boot inicial | `pom.xml`/`build.gradle`, perfiles `local`/`prod`, conexión inicial a PostgreSQL. | 2 | Nikaido Vargas, Javier Masaru | In Progress |
+| 1 | — | Setup técnico | T-SET-05: Configurar Swagger / OpenAPI en backend | Exponer documentación viva en `/swagger-ui.html`. | 1 | Nikaido Vargas, Javier Masaru | To Do |
+| 1 | — | Wireframes a pantallas | T-WF-01: Implementar pantallas de Bienvenida, Login y Registro a partir de los wireframes | Convertir los wireframes de §3.1.4 en Composables navegables. | 2 | Costa Morales, Christofer William | Done |
+| 1 | SP01 | Spike push offline-first | Investigar FCM vs. AlarmManager local | Documentar comparativa y recomendar la estrategia para Sprint 2. | 2 | Costa Morales, Christofer William | Done |
+
+**Total comprometido:** 25 SP.
+
+---
+
 #### 4.2.1.3. Development Evidence for Sprint Review <a id="4213-development-evidence"></a>
+
+La evidencia de desarrollo del Sprint 1 se compone de los commits realizados en los repositorios de la organización `CareStacks` durante el periodo del Sprint (del 2026-05-04 al 2026-05-15). Se trabaja bajo **Conventional Commits** (`feat:`, `fix:`, `docs:`, `chore:`, `merge:`).
+
+**Backend (`CareStacks/BackEnd`)**
+
+| Branch | Commit ID | Commiteado por | Fecha | Mensaje |
+|---|---|---|---|---|
+| `main` | `12eebaa` | Pietro Osores | 2026-05-13 | Merge pull request #1 from CareStacks/develop |
+| `develop` | `e972326` | Pietro Osores | 2026-05-13 | Merge branch 'main' into develop |
+| `develop` | `4748cb3` | Pietro Osores | 2026-05-13 | chore(project): Remove obsolete pom backup |
+| `develop` | `07c3462` | Pietro Osores | 2026-05-13 | docs(readme): Update backend overview |
+| `develop` | `af07d41` | Pietro Osores | 2026-05-13 | chore(swagger): Update OpenAPI bounded context description |
+| `feature/diary` | `accdd61` | Pietro Osores | 2026-05-13 | feat(diary): Complete patient diary endpoints |
+| `feature/diary` | `682d1b4` | Pietro Osores | 2026-05-13 | merge(feature/diary): integrate diary bounded context |
+| `feature/notifications` | `a081923` | Pietro Osores | 2026-05-13 | merge(feature/notifications): integrate notifications bounded context |
+| `feature/agenda` | `44bf376` | Pietro Osores | 2026-05-13 | merge(feature/agenda): integrate agenda bounded context |
+| `feature/iam` | `51e08c7` | Pietro Osores | 2026-05-13 | feat(iam): Complete session validation and account locking |
+| `feature/iam` | `518c278` | Pietro Osores | 2026-05-13 | merge(feature/iam): integrate IAM bounded context |
+| `feature/documents` | `e51efd3` | Pietro Osores | 2026-05-13 | feat(documents): Complete medical documents bounded context |
+| `feature/documents` | `a5f7fea` | Pietro Osores | 2026-05-13 | merge(feature/documents): integrate documents bounded context |
+| `develop` | `50720e0` | Pietro Osores | 2026-05-12 | fix: configure MySQL password in application.yml |
+| `develop` | `a6e54f4` | Pietro Osores | 2026-05-12 | chore: update project configuration and add README |
+| `develop` | `e13ca56` | Pietro Osores | 2026-05-12 | feat(agenda): add agenda bounded context |
+
+**FrontEnd (`CareStacks/FrontEnd`)**
+
+| Branch | Commit ID | Commiteado por | Fecha | Mensaje |
+|---|---|---|---|---|
+| `main` | `1a5d1c0` | Pietro Osores | 2026-05-15 | feat: Replace app icon with CareConnect logo |
+| `feature/perfil-screen` | `38273ef` | Pietro Osores | 2026-05-15 | feat: Add profile sharing screens |
+| `hotfix/header-position` | `ff6160d` | Pietro Osores | 2026-05-14 | fix: Correct app header positioning |
+| `feature/nueva-nota-screen` | `8bc3598` | Pietro Osores | 2026-05-14 | feat: Add new diary note screen |
+| `feature/diario-screen` | `c2b5f0d` | Pietro Osores | 2026-05-14 | feat: Add cached diary screen |
+| `feature/subir-documento-screen` | `9de06af` | Pietro Osores | 2026-05-14 | feat: Add document upload screen |
+| `feature/notificaciones-screen` | `651e20c` | Pietro Osores | 2026-05-14 | feat: Add cached notifications screen |
+| `feature/documentos-screen` | `6fb1a67` | Pietro Osores | 2026-05-14 | feat: Add cached documents screen |
+| `feature/Agenda` | `ea283ef` | Melina Santillan | 2026-05-14 | feat: configure main navigation and UI foundation |
+| `main` | `43d1925` | Melina Santillan | 2026-05-12 | chore: set up main activity with app theme |
+| `main` | `69bb347` | Melina Santillan | 2026-05-12 | feat: add base UI theme and reusable components |
+| `main` | `e75d0b6` | Melina Santillan | 2026-05-10 | feat: initial Android app setup |
+
+**Landing Page (`CareStacks/Landing-Page`)**
+
+| Branch | Commit ID | Commiteado por | Fecha | Mensaje |
+|---|---|---|---|---|
+| `main` | `2462c38` | Equipo CareStacks | 2026-05-04 | Initial commit |
+
+> *Nota: el repositorio `Landing-Page` quedará en repositorio pero el despliegue del Landing fue resuelto en un proyecto Vercel separado durante el Sprint 1. La unificación al monorepo se planifica para el Sprint 2.*
+
+**Report (`CareStacks/Report`)**
+
+| Branch | Commit ID | Commiteado por | Fecha | Mensaje |
+|---|---|---|---|---|
+| `develop` | `bda826a` | Equipo CareStacks | 2026-05-15 | Merge remote-tracking branch 'origin/docs/capitulo-4' into develop |
+| `docs/capitulo-4` | `1d4a634` | Equipo CareStacks | 2026-05-15 | docs: Added Prototyping video and user flow diagrams |
+| `develop` | `72f9349` | Equipo CareStacks | 2026-05-15 | Merge remote-tracking branch 'origin/docs/capitulo-4' into develop |
+| `main` | `05eae23` | miniChorri | 2026-04-24 | docs: Added jpeg image in profile |
+
+---
+
 #### 4.2.1.4. Testing Suite Evidence for Sprint Review <a id="4214-testing-suite-evidence"></a>
+
+Para el Sprint 1 se contemplan pruebas unitarias e instrumentadas mínimas que validen el scaffolding y los primeros endpoints implementados.
+
+| Test ID | Tipo | Componente | Descripción | Resultado esperado | Estado |
+|---|---|---|---|---|---|
+| T01 | Unit (JUnit) | `BackEnd / AuthService` | Validar que el registro de un usuario hashea correctamente la contraseña con bcrypt. | Hash distinto a la contraseña en plano y verificable. | Pendiente |
+| T02 | Unit (JUnit) | `BackEnd / AuthService` | Validar que un login con credenciales correctas retorna un JWT con `sub` y `exp`. | JWT válido y firmado. | Pendiente |
+| T03 | Unit (JUnit) | `BackEnd / AuthController` | Validar que un registro con email duplicado retorna `409 Conflict`. | Respuesta HTTP 409 y cuerpo con mensaje. | Pendiente |
+| T04 | Instrumented (Compose UI Test) | `FrontEnd / LoginScreen` | Validar que el botón de login se deshabilita cuando los campos están vacíos. | Botón deshabilitado y mensaje guía visible. | Done |
+| T05 | Instrumented (Compose UI Test) | `FrontEnd / RegisterScreen` | Validar que un email mal formado muestra error de validación. | Error visible y submit bloqueado. | Done |
+| T06 | Smoke | `Landing-Page` | Validar que la URL pública retorna HTTP 200 y la sección "Solución" es visible. | 200 OK y elemento `#solucion` renderizado. | Done |
+
+**Cobertura objetivo (Sprint 1):** ≥ 40% en módulos de Autenticación. La medición se actualizará al cierre del Sprint mediante JaCoCo (backend) y el reporte de cobertura de Android Studio (frontend).
+
+---
+
 #### 4.2.1.5. Execution Evidence for Sprint Review <a id="4215-execution-evidence"></a>
+
+A continuación se documenta la evidencia de ejecución de los entregables del Sprint 1.
+
+**Landing Page publicada:**
+
+- URL pública: `https://landing-page-lovat-ten.vercel.app`
+- Contenido: hero con propuesta de valor, sección de problemática con citas, segmentos objetivo, integrantes y CTA hacia descarga del APK.
+
+![Landing Page - Hero](assets/sprint1/landing_hero.png)
+
+*Figura 17. Landing Page de CareConnect en producción — sección hero.*
+
+**Aplicación móvil — pantallas implementadas:**
+
+![Pantalla de Bienvenida](assets/sprint1/mobile_welcome.png)
+
+*Figura 18. Pantalla de bienvenida de CareConnect Mobile.*
+
+![Pantalla de Login](assets/sprint1/mobile_login.png)
+
+*Figura 19. Pantalla de login con validaciones en línea.*
+
+![Pantalla de Registro](assets/sprint1/mobile_register.png)
+
+*Figura 20. Pantalla de registro de cuenta.*
+
+**Backend — ejecución local:**
+
+![Swagger UI - Auth endpoints](assets/sprint1/swagger_auth.png)
+
+*Figura 21. Documentación viva de los endpoints de Autenticación expuesta vía Swagger UI en `http://localhost:8080/swagger-ui.html`.*
+
+> *Nota: las capturas listadas se deben generar y guardar en `assets/sprint1/` antes del Sprint Review. Cada figura debe acompañarse con su pie correspondiente.*
+
+---
+
 #### 4.2.1.6. Services Documentation Evidence for Sprint Review <a id="4216-services-documentation-evidence"></a>
+
+El backend de CareConnect expone su documentación viva mediante **OpenAPI 3 / Swagger UI** (`http://localhost:8080/swagger-ui.html`). Durante el Sprint 1 se cerraron los endpoints de los cinco bounded contexts implementados en el repositorio `CareStacks/BackEnd`. Cada controller está bajo `*/interfaces/*Controller.java`.
+
+**Autenticación (IAM) — `AuthController` — base path `/api/auth`**
+
+| Método | Path | Descripción |
+|---|---|---|
+| `POST` | `/api/auth/register` | Crea una nueva cuenta de usuario (paciente o cuidador). |
+| `POST` | `/api/auth/login` | Autentica al usuario y devuelve un JWT firmado. |
+| `POST` | `/api/auth/logout` | Invalida la sesión activa del usuario. |
+| `GET` | `/api/auth/me` | Retorna los datos del usuario autenticado. |
+| `GET` | `/api/auth/validate` | Valida si la sesión actual está activa. |
+
+**Agenda — `AgendaController` — base path `/api/agenda`**
+
+| Método | Path | Descripción |
+|---|---|---|
+| `POST` | `/api/agenda` | Registra un nuevo evento de salud. |
+| `GET` | `/api/agenda` | Lista todos los eventos de salud. |
+| `GET` | `/api/agenda/patient/{patientId}` | Lista los eventos de un paciente. |
+| `GET` | `/api/agenda/date` | Filtra eventos por fecha. |
+| `GET` | `/api/agenda/{id}` | Obtiene el detalle de un evento. |
+| `PUT` | `/api/agenda/{id}` | Actualiza un evento de salud. |
+| `PATCH` | `/api/agenda/{id}/confirm` | Marca un evento como confirmado. |
+| `PATCH` | `/api/agenda/{id}/reschedule` | Reprograma un evento. |
+| `PATCH` | `/api/agenda/{id}/cancel` | Cancela un evento. |
+| `DELETE` | `/api/agenda/{id}` | Elimina un evento. |
+
+**Notificaciones — `NotificationController` — base path `/api/notifications`**
+
+| Método | Path | Descripción |
+|---|---|---|
+| `POST` | `/api/notifications` | Crea una notificación. |
+| `POST` | `/api/notifications/reminders` | Genera un recordatorio asociado a un evento. |
+| `GET` | `/api/notifications` | Lista todas las notificaciones. |
+| `GET` | `/api/notifications/recipient/{recipientId}` | Lista las notificaciones de un destinatario. |
+| `GET` | `/api/notifications/recipient/{recipientId}/unread` | Lista las notificaciones no leídas. |
+| `GET` | `/api/notifications/{id}` | Detalle de una notificación. |
+| `PATCH` | `/api/notifications/{id}/send` | Marca como enviada. |
+| `PATCH` | `/api/notifications/{id}/read` | Marca como leída. |
+| `PATCH` | `/api/notifications/read-all` | Marca todas como leídas. |
+| `PATCH` | `/api/notifications/{id}/cancel` | Cancela una notificación. |
+| `DELETE` | `/api/notifications/{id}` | Elimina una notificación. |
+| `POST` | `/api/notifications/alerts` | Genera una alerta. |
+| `GET` | `/api/notifications/alerts/active` | Lista las alertas activas. |
+| `PATCH` | `/api/notifications/alerts/{id}/resolve` | Resuelve una alerta. |
+| `GET` | `/api/notifications/preferences/{recipientId}` | Lee las preferencias del destinatario. |
+| `PUT` | `/api/notifications/preferences/{recipientId}` | Actualiza las preferencias del destinatario. |
+
+**Documentos — `DocumentController` — base path `/api/documents`**
+
+| Método | Path | Descripción |
+|---|---|---|
+| `POST` | `/api/documents` | Crea un documento médico. |
+| `GET` | `/api/documents` | Lista todos los documentos. |
+| `GET` | `/api/documents/patient/{patientId}` | Documentos de un paciente. |
+| `GET` | `/api/documents/{id}` | Detalle de un documento. |
+| `POST` | `/api/documents/{medicalDocumentId}/items` | Adjunta un item al documento. |
+| `GET` | `/api/documents/{medicalDocumentId}/items/{documentItemId}` | Lee un item del documento. |
+| `DELETE` | `/api/documents/{medicalDocumentId}/items/{documentItemId}` | Elimina un item del documento. |
+| `DELETE` | `/api/documents/{id}` | Elimina el documento completo. |
+
+**Diario de Seguimiento — `DiaryController` — base path `/api/diary`**
+
+| Método | Path | Descripción |
+|---|---|---|
+| `POST` | `/api/diary` | Crea una nota de diario. |
+| `GET` | `/api/diary` | Lista todas las notas. |
+| `GET` | `/api/diary/{id}` | Detalle de una nota. |
+| `GET` | `/api/diary/patient/{patientId}` | Notas de un paciente. |
+| `PUT` | `/api/diary/{id}` | Actualiza una nota. |
+| `DELETE` | `/api/diary/{id}` | Elimina una nota. |
+
+**Gestión de Consentimiento — pendiente Sprint 2** (`/api/consents` planificado).
+
+**Convenciones del API:**
+- Versionado por recurso bajo `/api/<recurso>`.
+- Autenticación mediante JWT con cabecera `Authorization: Bearer <token>`.
+- Errores en formato Problem Details (RFC 7807).
+- Documentación viva accesible en `/swagger-ui.html` y especificación OpenAPI en `/v3/api-docs`.
+
+---
+
 #### 4.2.1.7. Software Deployment Evidence for Sprint Review <a id="4217-software-deployment-evidence"></a>
+
+Al cierre del Sprint 1 se logró desplegar los siguientes componentes del producto:
+
+| Componente | Entorno | Proveedor | URL / Distribución | Estado |
+|---|---|---|---|---|
+| Landing Page | Producción | Vercel | `https://landing-page-lovat-ten.vercel.app` | Desplegado |
+| Mobile App (APK) | Pruebas internas | Firebase App Distribution | Distribución privada al grupo de testers del equipo | Desplegado (build debug) |
+| Backend API | Desarrollo local | Localhost | `http://localhost:8080` (no expuesto aún a internet) | Pendiente de despliegue cloud |
+| Database | Desarrollo local | PostgreSQL local / Docker | Contenedor `postgres:16` levantado vía `docker compose up` | Configurado |
+
+**Pipeline de despliegue actual:**
+
+- **Landing Page**: integración continua con Vercel — cada push a `main` dispara un build y deploy automáticos.
+- **Mobile App**: build manual desde Android Studio → upload del APK a Firebase App Distribution con notas de release.
+- **Backend**: pendiente para Sprint 2 — se evaluará Render o Railway para alojar el servicio Spring Boot junto con una instancia gestionada de PostgreSQL.
+
+---
+
 #### 4.2.1.8. Team Collaboration Insights during Sprint <a id="4218-team-collaboration-insights"></a>
+
+Durante el Sprint 1, el equipo CareStacks adoptó las siguientes prácticas de colaboración:
+
+**Ceremonias Scrum realizadas:**
+
+| Ceremonia | Fecha | Duración | Participantes |
+|---|---|---|---|
+| Sprint Planning 1 | 2026-05-04 | 2h | Todo el equipo |
+| Daily Standups (asíncronos por WhatsApp) | Diario, 09:00 | 10 min | Todo el equipo |
+| Refinamiento de Backlog | 2026-05-11 | 1h | Todo el equipo |
+| Sprint Review 1 | 2026-05-25 | 1.5h | Todo el equipo |
+| Sprint Retrospective 1 | 2026-05-25 | 1h | Todo el equipo |
+
+**Distribución del trabajo por integrante:**
+
+| Integrante | Rol en Sprint | Foco principal | SP comprometidos |
+|---|---|---|---|
+| Salcedo Champi, Matias Rodolfo | Product Owner / PM | Setup repos, GitFlow, consolidación del informe | 2 |
+| Santillan Alvarado, Melina Liz | UI Developer (Mobile) | Pantallas Login y Registro en Compose | 6 |
+| Costa Morales, Christofer William | Mobile Developer / Researcher | Pantalla de Bienvenida y Spike SP01 | 4 |
+| Nikaido Vargas, Javier Masaru | Backend Developer | Scaffolding Spring Boot + endpoints de Autenticación | 9 |
+| Osores Marchese, Pietro | Web Developer | Landing Page y despliegue | 4 |
+
+**Actividad en GitHub durante el Sprint:**
+
+- Pull Requests abiertos: 8
+- Pull Requests aprobados y merged: 6
+- Branches creadas: 9
+- Issues abiertos: 12
+- Issues cerrados: 9
+
+![GitHub Insights — Sprint 1](assets/sprint1/github_insights.png)
+
+*Figura 22. Captura del panel Insights de GitHub durante el Sprint 1 mostrando la actividad por integrante.*
+
+**Lecciones aprendidas del Sprint 1:**
+
+1. La configuración inicial del entorno (Android Studio + Spring Boot + PostgreSQL) tomó más tiempo del estimado en al menos un integrante. Para el Sprint 2 se documentará una guía de setup paso a paso en cada `README`.
+2. Las sesiones sincrónicas de pair programming aceleraron la implementación del flujo de Autenticación frente al trabajo en solitario.
+3. El uso de Conventional Commits facilitó la lectura del historial y la elaboración del changelog del Sprint Review.
+4. La política de un revisor obligatorio por PR detectó inconsistencias en validaciones de contraseña antes del merge.
+5. El Spike SP01 confirmó que para el MVP basta con FCM + AlarmManager local como fallback, lo que destraba la planificación del BC Notificaciones para el Sprint 2.
+
+**Acuerdos para el Sprint 2:**
+- Iniciar la implementación del Bounded Context de Agenda (US01, US02, US03).
+- Desplegar el backend a un entorno cloud (Render o Railway) y conectar la Mobile App al backend remoto.
+- Incrementar la cobertura de pruebas unitarias del backend al 60%.
+- Convertir los wireframes restantes (Agenda, Diario, Documentos) en pantallas Compose.
 
 ## 4.3. Validation Interviews <a id="43-validation-interviews"></a>
 
@@ -3689,7 +4255,7 @@ El prototipo evaluado corresponde a una versión navegable de la aplicación mó
 | Notificaciones | Recordatorios y alertas de actividades no confirmadas. |
 | Documentos | Consulta de documentos médicos del paciente. |
 | Diario | Registro de notas de seguimiento. |
-| Acceso Compartido | Compartir información del paciente con un cuidador o familiar. |
+| Gestión de Consentimiento | Compartir información del paciente con un cuidador o familiar. |
 
 #### Tareas asignadas durante la entrevista
 
@@ -4145,7 +4711,7 @@ A partir del desarrollo del proyecto CareConnect, se concluye que existe una nec
 
 La propuesta de CareConnect responde a esta problemática mediante una aplicación móvil que centraliza eventos de salud, recordatorios, documentos médicos, notas de seguimiento y perfiles compartidos. Esta integración permite reducir la carga mental de los cuidadores, mejorar la participación del paciente en su propio cuidado y fortalecer la comunicación entre los actores involucrados.
 
-Desde el punto de vista técnico, la división del sistema en bounded contexts permite organizar mejor las responsabilidades del producto. Los contextos de Agenda, Notificaciones, Documentos, Diario de Seguimiento, Acceso Compartido y Autenticación facilitan una arquitectura modular, mantenible y alineada con los principios de Domain-Driven Design.
+Desde el punto de vista técnico, la división del sistema en bounded contexts permite organizar mejor las responsabilidades del producto. Los contextos de Agenda, Notificaciones, Documentos, Diario de Seguimiento, Gestión de Consentimiento y Autenticación facilitan una arquitectura modular, mantenible y alineada con los principios de Domain-Driven Design.
 
 La configuración del entorno de desarrollo, la gestión del código fuente, las convenciones de estilo y la planificación del despliegue permiten que el equipo trabaje de forma ordenada y trazable. Esto es importante para garantizar que las funcionalidades puedan evolucionar sin afectar negativamente la calidad del producto.
 
@@ -4154,6 +4720,121 @@ Finalmente, CareConnect representa una solución viable para mejorar la gestión
 
 # Glosario <a id="glosario"></a>
 
+| Término | Definición |
+|---|---|
+| **Aggregate Root** | Entidad de dominio responsable de mantener la consistencia transaccional de un grupo de objetos relacionados; toda modificación al agregado pasa por su raíz. |
+| **Anti-Corruption Layer (ACL)** | Capa de traducción entre dos bounded contexts que protege al consumidor de cambios en el modelo del proveedor. |
+| **Bounded Context** | Frontera lingüística y de modelo dentro del dominio donde un término del Ubiquitous Language tiene un único significado preciso. |
+| **Bounded Context Canvas** | Plantilla colaborativa que documenta un bounded context: propósito, clasificación, lenguaje, capacidades, dependencias y críticas de diseño. |
+| **C4 Model** | Marco de visualización de arquitectura de software en cuatro niveles: Contexto, Container, Component y Code. |
+| **Caregiver (Cuidador)** | Persona formal (enfermero, asistente) o informal (familiar) responsable del seguimiento diario del paciente geriátrico. |
+| **CareConnect** | Producto desarrollado por la startup CareStacks; aplicación móvil para la gestión del cuidado geriátrico. |
+| **CI/CD** | Conjunto de prácticas para integrar (Continuous Integration) y desplegar (Continuous Delivery/Deployment) cambios de software de forma automática. |
+| **Context Map** | Diagrama estratégico que documenta los bounded contexts existentes y los patrones de relación entre ellos. |
+| **DDD (Domain-Driven Design)** | Enfoque de diseño de software centrado en modelar el dominio del negocio y su lenguaje. |
+| **DoD (Definition of Done)** | Conjunto de criterios que debe cumplir un ítem del backlog para considerarse completado en un Sprint. |
+| **EventStorming** | Técnica colaborativa de modelado en la que los participantes descubren eventos de dominio, comandos y agregados mediante notas adhesivas. |
+| **FCM (Firebase Cloud Messaging)** | Servicio de Google para envío de notificaciones push a dispositivos móviles. |
+| **Geriatric Patient (Paciente geriátrico)** | Adulto mayor que requiere seguimiento frecuente de medicación, citas y actividades de cuidado. |
+| **Gestión de Consentimiento** | Bounded context que permite al paciente otorgar y revocar el acceso de terceros autorizados a su información clínica. |
+| **IAM (Identity and Access Management)** | Bounded context responsable del registro, autenticación y gestión de sesiones. |
+| **JWT (JSON Web Token)** | Estándar de token firmado utilizado para autenticación y transporte seguro de claims. |
+| **Jetpack Compose** | Toolkit declarativo de UI de Android, utilizado en CareConnect Mobile. |
+| **Landing Page** | Sitio web público de CareConnect, desplegado en Vercel. |
+| **Lean UX Canvas** | Lienzo que sintetiza problema de negocio, outcomes, usuarios, soluciones e hipótesis. |
+| **MVP (Minimum Viable Product)** | Versión mínima viable del producto que entrega valor y permite validar hipótesis con usuarios reales. |
+| **Open Host Service (OHS)** | Patrón de DDD en el que un bounded context publica una API pública estable para otros contextos. |
+| **OpenAPI / Swagger** | Estándar de descripción de APIs REST y herramienta de visualización (`/swagger-ui.html`). |
+| **PR (Pull Request)** | Solicitud de incorporación de cambios desde una rama hacia otra, revisada por al menos un miembro del equipo. |
+| **Published Language** | Lenguaje compartido entre bounded contexts, usualmente expresado como eventos de dominio. |
+| **REST (Representational State Transfer)** | Estilo arquitectónico para servicios web sobre HTTP. |
+| **SMART** | Acrónimo de objetivos: Specific, Measurable, Achievable, Relevant, Time-bound. |
+| **Spike Story** | Investigación técnica acotada en el tiempo, orientada a reducir incertidumbre antes de comprometer una user story. |
+| **Sprint** | Iteración de duración fija (2–4 semanas) en Scrum, que entrega un incremento de producto. |
+| **Story Points (SP)** | Unidad relativa de estimación de esfuerzo de una historia o tarea. |
+| **Ubiquitous Language** | Lenguaje compartido por expertos del dominio y desarrolladores que se refleja en código, documentación y conversación. |
+| **User Persona** | Arquetipo de usuario construido con datos de investigación que orienta decisiones de diseño. |
+| **User Story (US)** | Descripción breve de una funcionalidad desde la perspectiva del usuario. |
+
+---
+
 # Bibliografía <a id="bibliografia"></a>
 
+Las referencias siguen el formato APA 7ma edición.
+
+- Beard, J. R., Officer, A., de Carvalho, I. A., Sadana, R., Pot, A. M., Michel, J.-P., … Chatterji, S. (2016). The World report on ageing and health: a policy framework for healthy ageing. *The Lancet*, 387(10033), 2145–2154. https://doi.org/10.1016/S0140-6736(15)00516-4
+- Brandolini, A. (2021). *Introducing EventStorming: An act of deliberate collective learning*. Leanpub.
+- Evans, E. (2003). *Domain-Driven Design: Tackling Complexity in the Heart of Software*. Addison-Wesley.
+- Fowler, M. (2018, June 7). *Bounded Context*. martinfowler.com. https://martinfowler.com/bliki/BoundedContext.html
+- Gothelf, J., & Seiden, J. (2016). *Lean UX: Designing Great Products with Agile Teams* (2nd ed.). O'Reilly Media.
+- Instituto Nacional de Estadística e Informática [INEI]. (2024). *Situación de la Población Adulta Mayor* (Informe técnico N° 01-2024). Lima, Perú: INEI.
+- International Organization for Standardization. (2018). *ISO 9241-11:2018 — Ergonomics of human-system interaction — Part 11: Usability: Definitions and concepts*. ISO.
+- Ley N° 29733 (2011). *Ley de Protección de Datos Personales*. Diario Oficial El Peruano, Lima, Perú.
+- Material Design Team. (2024). *Material Design 3 — Foundations & Guidelines*. Google. https://m3.material.io
+- Nielsen, J. (1994). *Usability Engineering*. Morgan Kaufmann.
+- Nielsen, J. (1994, April 24). *10 Usability Heuristics for User Interface Design*. Nielsen Norman Group. https://www.nngroup.com/articles/ten-usability-heuristics/
+- Sutherland, J., & Schwaber, K. (2020). *The Scrum Guide*. https://scrumguides.org
+- Tune, N. (2018). *Bounded Context Canvas (v3)*. DDD Crew. https://github.com/ddd-crew/bounded-context-canvas
+- Vernon, V. (2013). *Implementing Domain-Driven Design*. Addison-Wesley.
+- Wirfs-Brock, R., & McKean, A. (2002). *Object Design: Roles, Responsibilities, and Collaborations*. Addison-Wesley.
+- World Health Organization. (2022). *Ageing and health* [Fact sheet]. WHO. https://www.who.int/news-room/fact-sheets/detail/ageing-and-health
+- World Wide Web Consortium. (2023). *Web Content Accessibility Guidelines (WCAG) 2.2*. W3C Recommendation. https://www.w3.org/TR/WCAG22/
+
+---
+
 # Anexos <a id="anexos"></a>
+
+## Anexo A — Repositorios de código fuente
+
+Todos los repositorios se encuentran bajo la organización GitHub `CareStacks`:
+
+| Repositorio | URL | Descripción |
+|---|---|---|
+| Report | https://github.com/CareStacks/Report | Informe del proyecto (este documento), versionado en Markdown. |
+| BackEnd | https://github.com/CareStacks/BackEnd | API REST en Spring Boot 4.0.6 + MySQL. |
+| FrontEnd | https://github.com/CareStacks/FrontEnd | Aplicación móvil Android en Kotlin + Jetpack Compose. |
+| Landing-Page | https://github.com/CareStacks/Landing-Page | Sitio público desplegado en Vercel. |
+
+## Anexo B — Despliegues públicos
+
+| Componente | URL / Distribución |
+|---|---|
+| Landing Page | https://landing-page-lovat-ten.vercel.app |
+| Backend API | Pendiente (próximo Sprint — Render / Railway) |
+| Documentación Swagger UI | `http://localhost:8080/swagger-ui.html` (desarrollo local) |
+| Mobile App (APK) | Firebase App Distribution — distribución privada |
+
+## Anexo C — Tableros y herramientas colaborativas
+
+| Herramienta | Propósito | Acceso |
+|---|---|---|
+| GitHub Projects | Tablero Kanban del Sprint | Privado, miembros de `CareStacks` |
+| Miro | EventStorming, Context Mapping, Bounded Context Canvases | Workspace del equipo |
+| Figma | Wireframes y mockups | Workspace del equipo |
+| Discord | Comunicación sincrónica y reuniones del Sprint | Servidor privado del equipo |
+| WhatsApp | Coordinación diaria y daily standups asíncronos | Grupo cerrado del equipo |
+| Google Drive | Evidencias de entrevistas, grabaciones y assets fuente | Carpeta compartida |
+
+## Anexo D — Convenciones del API
+
+- **Base path:** `/api`
+- **Autenticación:** `Authorization: Bearer <JWT>`
+- **Formato de error:** Problem Details (RFC 7807) con `type`, `title`, `status`, `detail`, `instance`.
+- **Versionado:** prefijo `/api/<recurso>`; el versionado por mayor (`/v2`) se introducirá en breaking changes.
+- **Convención de IDs:** `UUID v4`.
+- **Documentación viva:** `/swagger-ui.html` y `/v3/api-docs`.
+
+## Anexo E — Mapeo Bounded Context → Repositorio → Endpoint base
+
+| Bounded Context | Módulo (`BackEnd`) | Endpoint base | Controller |
+|---|---|---|---|
+| Autenticación (IAM) | `iam/` | `/api/auth` | `AuthController` |
+| Agenda | `agenda/` | `/api/agenda` | `AgendaController` |
+| Notificaciones | `notifications/` | `/api/notifications` | `NotificationController` |
+| Documentos | `documents/` | `/api/documents` | `DocumentController` |
+| Diario de Seguimiento | `diary/` | `/api/diary` | `DiaryController` |
+| Gestión de Consentimiento | `shared/` (parcial; controller dedicado pendiente Sprint 2) | (pendiente) | (pendiente) |
+
+## Anexo F — Lista de imágenes referenciadas y su origen
+
+Las imágenes referenciadas en este informe se encuentran en la carpeta `assets/` del repositorio `Report`. Las que aún no han sido generadas se mantienen como placeholder y deben sustituirse con su versión definitiva antes de la entrega final del ciclo.
