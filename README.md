@@ -4064,13 +4064,13 @@ A continuación se documenta la evidencia de ejecución de los entregables del S
 
 ![Swagger UI - Auth endpoints](assets/sprint1/swagger_auth.png)
 
-*Figura 21. Documentación viva de los endpoints de Autenticación expuesta vía Swagger UI en `http://localhost:8080/swagger-ui.html`.*
+*Figura 21. Documentación viva de los endpoints de Autenticación expuesta vía Swagger UI en `https://careconnect-backend-hvyq.onrender.com/swagger-ui.html`.*
 
 ---
 
 #### 4.2.1.6. Services Documentation Evidence for Sprint Review <a id="4216-services-documentation-evidence"></a>
 
-El backend de CareConnect expone su documentación viva mediante **OpenAPI 3 / Swagger UI** (`http://localhost:8080/swagger-ui.html`). Durante el Sprint 1 se cerraron los endpoints de los cinco bounded contexts implementados en el repositorio `CareStacks/BackEnd`. Cada controller está bajo `*/interfaces/*Controller.java`.
+El backend de CareConnect expone su documentación viva mediante **OpenAPI 3 / Swagger UI** (`https://careconnect-backend-hvyq.onrender.com/swagger-ui.html`). Durante el Sprint 1 se cerraron los endpoints de los cinco bounded contexts implementados en el repositorio `CareStacks/BackEnd`. Cada controller está bajo `*/interfaces/*Controller.java`.
 
 **Autenticación (IAM) — `AuthController` — base path `/api/auth`**
 
@@ -4158,14 +4158,14 @@ Al cierre del Sprint 1 se logró desplegar los siguientes componentes del produc
 |---|---|---|---|---|
 | Landing Page | Producción | Vercel | `https://landing-page-lovat-ten.vercel.app` | Desplegado |
 | Mobile App (APK) | Pruebas internas | Firebase App Distribution | Distribución privada al grupo de testers del equipo | Desplegado (build debug) |
-| Backend API | Desarrollo local | Localhost | `http://localhost:8080` | Operativo en entorno local del equipo |
+| Backend API | Desarrollo claude | Render | `https://careconnect-backend-hvyq.onrender.com/swagger-ui.html` | Operativo en entorno claude |
 | Database | Desarrollo local | PostgreSQL local / Docker | Contenedor `postgres:16` levantado vía `docker compose up` | Configurado |
 
 **Pipeline de despliegue actual:**
 
 - **Landing Page**: integración continua con Vercel — cada push a `main` dispara un build y deploy automáticos.
 - **Mobile App**: build manual desde Android Studio → upload del APK a Firebase App Distribution con notas de release.
-- **Backend**: ejecución local en `http://localhost:8080` con Spring Boot + MySQL. El despliegue cloud se evaluará en una iteración posterior.
+- **Backend**: ejecución local en `https://careconnect-backend-hvyq.onrender.com/swagger-ui.html` con Spring Boot + MySQL. El despliegue cloud se evaluará en una iteración posterior.
 
 ---
 
@@ -4799,8 +4799,8 @@ Todos los repositorios se encuentran bajo la organización GitHub `CareStacks`:
 | Componente | URL / Distribución |
 |---|---|
 | Landing Page | https://landing-page-lovat-ten.vercel.app |
-| Backend API | `http://localhost:8080` (entorno de desarrollo local del equipo) |
-| Documentación Swagger UI | `http://localhost:8080/swagger-ui.html` (desarrollo local) |
+| Backend API | `https://careconnect-backend-hvyq.onrender.com/swagger-ui.html` (entorno de  render)|
+| Documentación Swagger UI | `https://careconnect-backend-hvyq.onrender.com/swagger-ui.html` (desarrollo claude) |
 | Mobile App (APK) | Firebase App Distribution — distribución privada |
 
 ## Anexo C — Tableros y herramientas colaborativas
