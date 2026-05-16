@@ -3891,6 +3891,12 @@ Firebase Cloud Messaging se utiliza para enviar notificaciones push a pacientes 
 La configuración de despliegue de CareConnect permite distribuir la aplicación móvil, exponer los servicios backend, mantener una base de datos centralizada y utilizar servicios externos para notificaciones y correos. Esta organización facilita la validación progresiva del producto, permite realizar pruebas con usuarios reales y prepara la solución para futuras iteraciones de mejora.
 
 
+## URLs del Backend
+
+- [Backend live](https://careconnect-backend-hvyq.onrender.com)
+- [OpenAPI / Docs JSON](https://careconnect-backend-hvyq.onrender.com/v3/api-docs)
+- [Swagger UI](https://careconnect-backend-hvyq.onrender.com/swagger-ui.html)
+
 ## 4.2. Landing Page & Mobile Application Implementation <a id="42-landing-page--mobile-application-implementation"></a>
 
 ### 4.2.1. Sprint 1 <a id="421-sprint-1"></a>
