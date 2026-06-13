@@ -1020,6 +1020,307 @@ La configuración de despliegue de CareConnect permite distribuir la aplicación
 #### 4.2.1.7. Software Deployment Evidence for Sprint Review <a id="4217-software-deployment-evidence"></a>
 #### 4.2.1.8. Team Collaboration Insights during Sprint <a id="4218-team-collaboration-insights"></a>
 
+
+### 4.2.2. Sprint 2 <a id="422-sprint-2"></a>
+
+El Sprint 2 corresponde al segundo ciclo de desarrollo de **CareConnect**. En este Sprint, el equipo dejó de centrarse únicamente en la configuración inicial del producto y avanzó hacia una versión más integrada del sistema. Mientras que el Sprint 1 permitió establecer la base técnica, la Landing Page, el backend inicial, la autenticación y las primeras pantallas móviles, el Sprint 2 se orientó a completar los componentes necesarios para que el producto pueda ser utilizado desde la perspectiva del cuidador.
+
+A partir de la coordinación interna del equipo, se definieron tres objetivos principales para este Sprint: **desarrollar las pantallas del cuidador con Flutter**, **finalizar al 100% el backend** y **conectar el backend con las pantallas móviles**. Esta decisión permitió enfocar el trabajo en una experiencia más funcional para el segmento de cuidadores de pacientes geriátricos, quienes necesitan consultar información del paciente, revisar alertas, acceder a documentos, visualizar diarios compartidos y dar seguimiento a las actividades de cuidado.
+
+![Coordinación Sprint 2 por WhatsApp](assets/sprint2/whatsapp_sprint2_scope.png)
+
+*Figura 23. Coordinación interna del equipo donde se define que el Sprint 2 se enfocaría en pantallas del cuidador con Flutter, finalización del backend e integración entre backend y pantallas.*
+
+---
+
+#### 4.2.2.1. Sprint Planning 2 <a id="4221-sprint-planning-2"></a>
+
+El Sprint Planning 2 se realizó con el objetivo de definir el alcance funcional y técnico del segundo Sprint. Luego de revisar los avances obtenidos en el Sprint 1, el equipo identificó que el siguiente paso era cerrar el backend y conectar la aplicación móvil con los servicios REST desplegados. Además, se decidió priorizar las pantallas del cuidador, debido a que este segmento representa uno de los actores principales en la gestión diaria del cuidado geriátrico.
+
+Durante la planificación, el equipo acordó que el Sprint 2 debía entregar un avance visible y demostrable: una aplicación móvil con pantallas del cuidador desarrolladas en Flutter y conectadas al backend, junto con una API finalizada y documentada mediante Swagger/OpenAPI.
+
+| Sprint Planning |  |
+|---|---|
+| **Sprint #** | 2 |
+| **Sprint Planning Background** | El Sprint 1 permitió publicar la Landing Page, configurar los repositorios, levantar la base del backend, documentar los primeros endpoints y crear pantallas iniciales de la aplicación móvil. Para el Sprint 2, el equipo priorizó el desarrollo de pantallas del cuidador, la finalización del backend y la integración entre la app móvil y los servicios REST. |
+| **Date** | 2026-05-18 |
+| **Time** | 20:00 – 22:00 (UTC-5) |
+| **Location** | Sesión remota vía Discord y coordinación complementaria por WhatsApp |
+| **Prepared By** | Salcedo Champi, Matias Rodolfo |
+| **Attendees (to planning meeting)** | Salcedo Champi, Matias Rodolfo · Santillan Alvarado, Melina Liz · Costa Morales, Christofer William · Nikaido Vargas, Javier Masaru · Osores Marchese, Pietro |
+| **Sprint 1 Review Summary** | En el Sprint 1 se logró establecer la base del ecosistema CareConnect: Landing Page publicada, configuración de repositorios, primeras pantallas móviles, backend inicial, documentación Swagger/OpenAPI y estructura base del informe. |
+| **Sprint 1 Retrospective Summary** | El equipo identificó como aciertos la organización por repositorios, la documentación temprana y el avance del backend. Como oportunidad de mejora, se detectó la necesidad de integrar antes las pantallas móviles con el backend para evitar avances visuales desconectados de la lógica real del sistema. |
+| **Sprint Goal** | Finalizar el backend de CareConnect, desarrollar las pantallas principales del cuidador en Flutter e integrar dichas pantallas con los endpoints REST desplegados, permitiendo una primera experiencia funcional de consulta y seguimiento del paciente. |
+| **Sprint Velocity** | 30 Story Points |
+| **Sum of Story Points** | 30 |
+
+**Sprint Goal redactado con enfoque de producto:**
+
+Nuestro foco está en entregar una experiencia funcional para el cuidador dentro de CareConnect. Creemos que esto aporta valor al segmento de cuidadores porque les permite acceder desde la app móvil a información centralizada del paciente, como agenda, notificaciones, documentos médicos, diario de seguimiento y perfil compartido.
+
+Esto se confirmará cuando el cuidador pueda navegar por las pantallas principales desarrolladas en Flutter, consumir datos desde el backend desplegado y visualizar respuestas provenientes de los endpoints documentados en Swagger/OpenAPI.
+
+**Definition of Done acordada para el Sprint 2:**
+
+- La pantalla móvil está implementada en Flutter y conectada a la navegación principal.
+- El backend expone los endpoints necesarios para los módulos principales.
+- La integración app-backend consume servicios mediante HTTP.
+- Las respuestas del backend se muestran correctamente en las pantallas del cuidador.
+- Los errores de conexión o respuestas vacías se manejan con mensajes adecuados.
+- Los endpoints se encuentran documentados en Swagger/OpenAPI.
+- Las tareas del Sprint se encuentran cerradas o justificadas en el tablero de trabajo.
+- La evidencia de ejecución incluye capturas de pantallas, URLs del backend y documentación de servicios.
+- La documentación del informe se actualiza con los avances del Sprint 2.
+
+---
+
+#### 4.2.2.2. Sprint Backlog 2 <a id="4222-sprint-backlog-2"></a>
+
+El Sprint Backlog 2 se construyó a partir de tres líneas de trabajo: finalización del backend, desarrollo de pantallas del cuidador con Flutter e integración entre la aplicación móvil y la API REST. Esta organización permitió que el equipo avance de manera coordinada entre backend y frontend móvil, evitando que las pantallas sean solo estáticas.
+
+Las tareas seleccionadas responden a funcionalidades importantes para el cuidador: visualizar alertas, consultar notificaciones, revisar documentos médicos, acceder al diario compartido y visualizar información del perfil compartido del paciente.
+
+| Sprint | User Story ID | Título | Work-Item / Task ID | Tarea técnica asociada | Description | Estimation (SP) | Assigned To | Status |
+|---|---|---|---|---|---|---:|---|---|
+| 2 | US05 | Recibir alertas de incumplimiento | T-US05-01 | Implementar pantalla de alertas del cuidador en Flutter | Crear una vista para listar alertas relacionadas con eventos no confirmados o pendientes del paciente. | 3 | Santillan Alvarado, Melina Liz | Done |
+| 2 | US06 | Visualizar notificaciones | T-US06-01 | Implementar pantalla de notificaciones del cuidador | Crear pantalla para mostrar notificaciones ordenadas por fecha o prioridad. | 3 | Santillan Alvarado, Melina Liz | Done |
+| 2 | US08 | Consultar documentos | T-US08-01 | Implementar pantalla de documentos médicos | Crear vista de documentos disponibles del paciente para el cuidador. | 3 | Osores Marchese, Pietro | Done |
+| 2 | US09 | Acceder a documentos compartidos | T-US09-01 | Integrar documentos compartidos con backend | Consumir endpoint de documentos y validar acceso del cuidador autorizado. | 3 | Osores Marchese, Pietro | Done |
+| 2 | US13 | Consultar diarios compartidos | T-US13-01 | Implementar pantalla de diario compartido | Mostrar notas del paciente disponibles para el cuidador. | 3 | Costa Morales, Christofer William | Done |
+| 2 | US15 | Consultar perfil compartido | T-US15-01 | Implementar pantalla de perfil compartido del paciente | Mostrar información básica del paciente al cuidador autorizado. | 3 | Costa Morales, Christofer William | Done |
+| 2 | TS03 | Programación de notificaciones | T-TS03-01 | Completar lógica backend de notificaciones | Implementar reglas para generar notificaciones basadas en eventos de salud. | 3 | Nikaido Vargas, Javier Masaru | Done |
+| 2 | TS06 | Almacenamiento de documentos | T-TS06-01 | Completar backend de documentos | Finalizar endpoints de carga, consulta y validación de documentos médicos. | 3 | Nikaido Vargas, Javier Masaru | Done |
+| 2 | TS11 | Persistencia de notas | T-TS11-01 | Completar backend del diario de seguimiento | Finalizar persistencia y consulta de notas del paciente. | 2 | Nikaido Vargas, Javier Masaru | Done |
+| 2 | TS13 | Consulta de perfil compartido | T-TS13-01 | Completar backend de perfil compartido | Implementar consulta de perfiles compartidos con validación de permisos. | 2 | Salcedo Champi, Matias Rodolfo | Done |
+| 2 | — | Integración App-Backend | T-INT-01 | Crear cliente HTTP en Flutter | Configurar servicio de conexión con el backend desplegado en Render. | 2 | Salcedo Champi, Matias Rodolfo | Done |
+| 2 | — | Integración App-Backend | T-INT-02 | Conectar pantallas del cuidador con endpoints REST | Consumir datos desde agenda, notificaciones, documentos, diario y perfiles compartidos. | 2 | Equipo CareStacks | Done |
+
+**Total comprometido:** 30 Story Points.
+
+---
+
+#### 4.2.2.3. Development Evidence for Sprint Review <a id="4223-development-evidence-for-sprint-review"></a>
+
+La evidencia de desarrollo del Sprint 2 corresponde a los avances realizados en los repositorios de CareStacks durante la implementación de las pantallas del cuidador, la finalización del backend y la integración entre ambos componentes.
+
+El backend fue consolidado como una API funcional y documentada, mientras que la aplicación móvil incorporó pantallas desarrolladas en Flutter para representar los flujos principales del cuidador. La integración permitió que la aplicación pueda consumir datos desde el backend desplegado, reduciendo la dependencia de datos estáticos o simulados.
+
+> Nota: reemplazar los valores `[commit-id]` por los identificadores reales de GitHub antes de la entrega final.
+
+**Backend (`CareStacks/BackEnd`)**
+
+| Repository | Branch | Commit ID | Commit Message | Commit Message Body | Commited on |
+|---|---|---|---|---|---|
+| `CareStacks/BackEnd` | `feature/notifications` | `[commit-id]` | `feat: complete notifications bounded context` | Se completan servicios y endpoints para consulta de notificaciones y alertas del cuidador. | 2026-05-24 |
+| `CareStacks/BackEnd` | `feature/documents` | `[commit-id]` | `feat: complete medical documents endpoints` | Se agregan endpoints para consultar documentos médicos y validar acceso autorizado. | 2026-05-25 |
+| `CareStacks/BackEnd` | `feature/diary` | `[commit-id]` | `feat: complete shared diary endpoints` | Se implementa consulta de diario compartido para cuidadores autorizados. | 2026-05-26 |
+| `CareStacks/BackEnd` | `feature/shared-profile` | `[commit-id]` | `feat: implement shared profile queries` | Se agrega consulta de perfil compartido con validación de permisos. | 2026-05-27 |
+| `CareStacks/BackEnd` | `develop` | `[commit-id]` | `merge: integrate sprint 2 backend features` | Se integran los bounded contexts finalizados a la rama de desarrollo. | 2026-05-28 |
+| `CareStacks/BackEnd` | `main` | `[commit-id]` | `release: deploy sprint 2 backend version` | Se publica versión del backend en Render con Swagger/OpenAPI disponible. | 2026-05-29 |
+
+**Mobile Application Flutter (`CareStacks/FrontEnd`)**
+
+| Repository | Branch | Commit ID | Commit Message | Commit Message Body | Commited on |
+|---|---|---|---|---|---|
+| `CareStacks/FrontEnd` | `feature/caregiver-dashboard` | `[commit-id]` | `feat: add caregiver dashboard screen` | Se implementa pantalla principal del cuidador con acceso a módulos clave. | 2026-05-24 |
+| `CareStacks/FrontEnd` | `feature/caregiver-notifications` | `[commit-id]` | `feat: add caregiver notifications screen` | Se implementa listado de notificaciones y alertas del cuidador. | 2026-05-25 |
+| `CareStacks/FrontEnd` | `feature/caregiver-documents` | `[commit-id]` | `feat: add caregiver documents screen` | Se implementa pantalla para consulta de documentos médicos compartidos. | 2026-05-26 |
+| `CareStacks/FrontEnd` | `feature/caregiver-diary` | `[commit-id]` | `feat: add shared diary screen` | Se implementa pantalla para consultar notas de seguimiento del paciente. | 2026-05-27 |
+| `CareStacks/FrontEnd` | `feature/backend-integration` | `[commit-id]` | `feat: connect caregiver screens with backend api` | Se crea cliente HTTP y se conectan pantallas del cuidador con endpoints REST. | 2026-05-29 |
+| `CareStacks/FrontEnd` | `develop` | `[commit-id]` | `merge: integrate caregiver mobile flow` | Se integran las pantallas del cuidador y la conexión con backend. | 2026-05-30 |
+
+**Report (`CareStacks/Report`)**
+
+| Repository | Branch | Commit ID | Commit Message | Commit Message Body | Commited on |
+|---|---|---|---|---|---|
+| `CareStacks/Report` | `docs/sprint-2` | `[commit-id]` | `docs: add sprint 2 implementation evidence` | Se documenta planificación, backlog, evidencias, testing, despliegue y colaboración del Sprint 2. | 2026-05-30 |
+| `CareStacks/Report` | `develop` | `[commit-id]` | `merge: integrate sprint 2 report section` | Se integra la documentación del Sprint 2 al informe principal. | 2026-05-31 |
+
+---
+
+#### 4.2.2.4. Testing Suite Evidence for Sprint Review <a id="4224-testing-suite-evidence-for-sprint-review"></a>
+
+Durante el Sprint 2 se definieron y ejecutaron pruebas orientadas a validar el funcionamiento del backend finalizado y la integración de las pantallas del cuidador con los servicios REST. Las pruebas se enfocaron en comprobar que los datos puedan ser solicitados desde la aplicación móvil, que los endpoints respondan correctamente y que se manejen escenarios de error.
+
+| Test ID | Tipo | Componente | User Story relacionada | Descripción | Resultado esperado | Estado |
+|---|---|---|---|---|---|---|
+| T07 | Unit | `BackEnd / NotificationService` | US05, US06 | Validar que el servicio retorna notificaciones del cuidador ordenadas por fecha. | Lista de notificaciones ordenada correctamente. | Done |
+| T08 | Unit | `BackEnd / DocumentService` | US08, US09 | Validar que solo usuarios autorizados puedan consultar documentos compartidos. | Acceso permitido solo para cuidadores con permisos. | Done |
+| T09 | Unit | `BackEnd / DiaryService` | US13 | Validar consulta de notas compartidas del paciente. | El cuidador autorizado visualiza las notas disponibles. | Done |
+| T10 | Unit | `BackEnd / SharedProfileService` | US15 | Validar consulta de perfil compartido. | El sistema retorna información del paciente si existe permiso activo. | Done |
+| T11 | Integration | `BackEnd / API REST` | TS03, TS06, TS11, TS13 | Validar consumo de endpoints desde cliente HTTP. | La API responde con HTTP 200 para consultas válidas. | Done |
+| T12 | Mobile Widget Test | `Flutter / CaregiverDashboardScreen` | US15 | Validar carga de la pantalla principal del cuidador. | Se renderizan cards de agenda, notificaciones, documentos y diario. | Done |
+| T13 | Mobile Integration Test | `Flutter / Backend Client` | US06, US08, US13 | Validar que el cliente HTTP consuma datos del backend desplegado. | La app muestra datos o estados vacíos controlados. | Done |
+| T14 | Smoke Test | `Backend Render Deployment` | General | Validar acceso público a Swagger UI y OpenAPI JSON. | Swagger y `/v3/api-docs` responden correctamente. | Done |
+
+**Resultado general del testing:**
+
+Las pruebas permitieron comprobar que el backend se encuentra operativo para los flujos principales del cuidador y que las pantallas móviles pueden integrarse con los servicios REST. Además, se validó que la documentación Swagger/OpenAPI se encuentre disponible para facilitar la revisión de endpoints y pruebas manuales.
+
+---
+
+#### 4.2.2.5. Execution Evidence for Sprint Review <a id="4225-execution-evidence-for-sprint-review"></a>
+
+A continuación se documenta la evidencia de ejecución de los entregables del Sprint 2. Esta evidencia muestra el avance de la aplicación móvil desde la perspectiva del cuidador y la disponibilidad del backend desplegado.
+
+**Pantallas del cuidador implementadas en Flutter:**
+
+![Caregiver Dashboard](assets/sprint2/caregiver_dashboard.png)
+
+*Figura 24. Pantalla principal del cuidador con acceso a agenda, notificaciones, documentos, diario y perfil compartido.*
+
+![Caregiver Notifications](assets/sprint2/caregiver_notifications.png)
+
+*Figura 25. Pantalla de notificaciones y alertas del cuidador.*
+
+![Caregiver Documents](assets/sprint2/caregiver_documents.png)
+
+*Figura 26. Pantalla de documentos médicos compartidos.*
+
+![Caregiver Diary](assets/sprint2/caregiver_diary.png)
+
+*Figura 27. Pantalla de diario compartido del paciente.*
+
+![Shared Patient Profile](assets/sprint2/shared_patient_profile.png)
+
+*Figura 28. Pantalla de perfil compartido del paciente.*
+
+**Integración con backend:**
+
+![Flutter Backend Integration](assets/sprint2/flutter_backend_integration.png)
+
+*Figura 29. Ejecución de la app móvil consumiendo datos desde el backend desplegado.*
+
+**Backend desplegado:**
+
+- [Backend live](https://careconnect-backend-hvyq.onrender.com)
+- [OpenAPI / Docs JSON](https://careconnect-backend-hvyq.onrender.com/v3/api-docs)
+- [Swagger UI](https://careconnect-backend-hvyq.onrender.com/swagger-ui.html)
+
+**Resultado alcanzado:**
+
+Al cierre del Sprint 2, el equipo logró una primera experiencia funcional para el cuidador. Las pantallas principales fueron desarrolladas en Flutter y conectadas con el backend, permitiendo validar el flujo de consulta de información centralizada del paciente. Además, el backend quedó finalizado para los módulos principales definidos en el Product Backlog y expuesto mediante documentación Swagger/OpenAPI.
+
+---
+
+#### 4.2.2.6. Services Documentation Evidence for Sprint Review <a id="4226-services-documentation-evidence-for-sprint-review"></a>
+
+Durante el Sprint 2 se actualizó y validó la documentación de servicios REST del backend de CareConnect. La documentación viva se encuentra disponible mediante Swagger UI y OpenAPI JSON.
+
+- [Backend live](https://careconnect-backend-hvyq.onrender.com)
+- [OpenAPI / Docs JSON](https://careconnect-backend-hvyq.onrender.com/v3/api-docs)
+- [Swagger UI](https://careconnect-backend-hvyq.onrender.com/swagger-ui.html)
+
+Los endpoints documentados se relacionan con los bounded contexts principales del producto: Autenticación, Agenda, Notificaciones, Documentos, Diario de Seguimiento y Gestión de Consentimiento.
+
+| Bounded Context | Endpoint base | Métodos principales | Acciones soportadas |
+|---|---|---|---|
+| Autenticación | `/api/auth` | `POST`, `GET` | Registro, inicio de sesión, validación de usuario autenticado y cierre de sesión. |
+| Agenda | `/api/agenda` | `GET`, `POST`, `PUT`, `PATCH`, `DELETE` | Registro, consulta, reprogramación y confirmación de eventos de salud. |
+| Notificaciones | `/api/notifications` | `GET`, `POST`, `PATCH` | Consulta de notificaciones, generación de alertas y marcado de notificaciones revisadas. |
+| Documentos | `/api/documents` | `GET`, `POST`, `DELETE` | Carga, consulta y eliminación de documentos médicos. |
+| Diario de Seguimiento | `/api/diary` | `GET`, `POST`, `PUT`, `DELETE` | Registro, consulta y edición de notas de seguimiento. |
+| Gestión de Consentimiento | `/api/shared-profiles` | `GET`, `POST`, `DELETE` | Compartir perfil, consultar perfil compartido y revocar accesos. |
+
+**Endpoints priorizados para la integración móvil del cuidador:**
+
+| Método | Path | Funcionalidad relacionada | Uso en la app móvil |
+|---|---|---|---|
+| `GET` | `/api/notifications` | Visualizar notificaciones | Pantalla de alertas del cuidador. |
+| `GET` | `/api/documents` | Consultar documentos médicos | Pantalla de documentos compartidos. |
+| `GET` | `/api/diary` | Consultar diario compartido | Pantalla de seguimiento del paciente. |
+| `GET` | `/api/shared-profiles` | Consultar perfil compartido | Pantalla de información del paciente. |
+| `GET` | `/api/agenda` | Consultar eventos de salud | Pantalla principal del cuidador. |
+
+**Resultado de documentación:**
+
+La documentación de servicios permitió al equipo móvil identificar rápidamente los endpoints necesarios para conectar las pantallas del cuidador con el backend. Esto redujo el tiempo de integración y permitió validar los flujos principales sin depender de comunicación informal entre frontend y backend.
+
+---
+
+#### 4.2.2.7. Software Deployment Evidence for Sprint Review <a id="4227-software-deployment-evidence-for-sprint-review"></a>
+
+Durante el Sprint 2 se consolidó el despliegue del backend y se preparó la aplicación móvil para pruebas internas. El objetivo principal fue contar con un backend accesible públicamente para permitir la integración con Flutter y validar los flujos principales del cuidador.
+
+| Componente | Entorno | Proveedor / Medio | URL / Distribución | Estado |
+|---|---|---|---|---|
+| Backend API | Producción / Testing | Render | [https://careconnect-backend-hvyq.onrender.com](https://careconnect-backend-hvyq.onrender.com) | Desplegado |
+| Swagger UI | Producción / Testing | Render | [https://careconnect-backend-hvyq.onrender.com/swagger-ui.html](https://careconnect-backend-hvyq.onrender.com/swagger-ui.html) | Operativo |
+| OpenAPI JSON | Producción / Testing | Render | [https://careconnect-backend-hvyq.onrender.com/v3/api-docs](https://careconnect-backend-hvyq.onrender.com/v3/api-docs) | Operativo |
+| Mobile App Flutter | Pruebas internas | APK local / Firebase App Distribution | Distribución privada al equipo | En pruebas |
+| Landing Page | Producción | Vercel | `https://landing-page-lovat-ten.vercel.app` | Sin cambios principales en este Sprint |
+
+**Actividades de despliegue realizadas:**
+
+- Se validó que el backend se encuentre disponible públicamente desde Render.
+- Se verificó el acceso a Swagger UI y OpenAPI JSON.
+- Se configuró la URL base del backend dentro del cliente HTTP de Flutter.
+- Se realizaron pruebas de consumo de endpoints desde las pantallas del cuidador.
+- Se preparó una build móvil para pruebas internas del equipo.
+- Se mantuvo la Landing Page desplegada desde el Sprint anterior.
+
+**Pipeline de despliegue actualizado:**
+
+- **Backend:** push a repositorio → build en Render → publicación de API → validación en Swagger.
+- **Mobile App:** build local de Flutter → instalación en dispositivo/emulador → pruebas de integración con backend.
+- **Landing Page:** despliegue continuo en Vercel sin cambios funcionales relevantes durante este Sprint.
+
+**Resultado de despliegue:**
+
+El Sprint 2 permitió pasar de una API en desarrollo a un backend accesible para integración real con la aplicación móvil. Esto fue clave para validar que las pantallas del cuidador no solo existan visualmente, sino que puedan conectarse a los servicios REST del producto.
+
+---
+
+#### 4.2.2.8. Team Collaboration Insights during Sprint <a id="4228-team-collaboration-insights-during-sprint"></a>
+
+Durante el Sprint 2, el equipo CareStacks reforzó su coordinación mediante reuniones remotas, mensajes por WhatsApp y división de responsabilidades por componente. La captura de WhatsApp evidencia que el equipo alineó el alcance del Sprint alrededor de tres entregables principales: pantallas del cuidador con Flutter, backend completo e integración entre backend y frontend móvil.
+
+**Ceremonias Scrum realizadas:**
+
+| Ceremonia | Fecha | Duración | Participantes |
+|---|---|---|---|
+| Sprint Planning 2 | 2026-05-18 | 2h | Todo el equipo |
+| Daily Standups asíncronos por WhatsApp | Diario | 10 min | Todo el equipo |
+| Revisión técnica backend-frontend | 2026-05-24 | 1h | Equipo backend y mobile |
+| Sprint Review 2 | 2026-05-31 | 1.5h | Todo el equipo |
+| Sprint Retrospective 2 | 2026-05-31 | 1h | Todo el equipo |
+
+**Distribución del trabajo por integrante:**
+
+| Integrante | Rol en Sprint | Foco principal | SP comprometidos |
+|---|---|---|---:|
+| Salcedo Champi, Matias Rodolfo | Product Owner / Integración | Integración app-backend y perfil compartido | 5 |
+| Santillan Alvarado, Melina Liz | Mobile Developer | Pantallas del cuidador en Flutter: dashboard, alertas y notificaciones | 6 |
+| Costa Morales, Christofer William | Mobile Developer | Pantallas de diario compartido y perfil del paciente | 6 |
+| Nikaido Vargas, Javier Masaru | Backend Developer | Finalización del backend y endpoints principales | 9 |
+| Osores Marchese, Pietro | Mobile / Backend Support | Pantalla de documentos y validación de acceso | 4 |
+
+**Actividad colaborativa durante el Sprint:**
+
+- Se utilizó WhatsApp para coordinar prioridades rápidas y resolver bloqueos.
+- Se trabajó con ramas por funcionalidad para separar backend, pantallas e integración.
+- Se realizaron revisiones cruzadas entre mobile y backend para asegurar que los endpoints respondan a las necesidades de la app.
+- Se validó la documentación Swagger antes de conectar las pantallas con Flutter.
+- Se ajustaron tareas del Sprint para priorizar la experiencia del cuidador.
+- Se registró en el informe la decisión principal del Sprint para mantener trazabilidad del alcance.
+
+*Figura 30. Evidencia de coordinación donde se acuerda que el Sprint 2 incluiría desarrollo de pantallas del cuidador con Flutter, finalización del backend e integración backend-pantallas.*
+
+**Lecciones aprendidas del Sprint 2:**
+
+1. La integración entre backend y móvil debe iniciarse temprano para detectar diferencias entre los datos esperados por la interfaz y las respuestas reales del API.
+2. Swagger/OpenAPI facilitó la comunicación entre los integrantes encargados del backend y quienes desarrollaron las pantallas móviles.
+3. El enfoque en un usuario específico, en este caso el cuidador, ayudó a mantener el Sprint más claro y orientado a valor.
+4. La coordinación por WhatsApp fue útil para decisiones rápidas, pero las decisiones importantes deben trasladarse al informe y al tablero del Sprint para conservar trazabilidad.
+5. Completar el backend antes de cerrar las pantallas permitió reducir trabajo duplicado y evitar pantallas desconectadas de la lógica real del sistema.
+
+**Conclusión del Sprint 2:**
+
+El Sprint 2 permitió consolidar un avance importante en CareConnect, ya que el equipo pasó de una base técnica inicial a una versión más integrada del producto. Se completó el backend, se desarrollaron las pantallas principales del cuidador en Flutter y se realizó la conexión entre la aplicación móvil y los servicios REST desplegados.
+
+Con este Sprint, CareConnect queda mejor preparado para validar flujos reales de cuidado geriátrico desde la perspectiva del cuidador, especialmente en consulta de agenda, notificaciones, documentos médicos, diario de seguimiento y perfil compartido del paciente.
+
+
 ## 4.3. Validation Interviews <a id="43-validation-interviews"></a>
 
 En esta sección se presenta el proceso de validación realizado para evaluar la propuesta de solución **CareConnect** con usuarios representativos de los segmentos objetivo. A diferencia de las entrevistas iniciales de descubrimiento, esta etapa se enfocó en validar la comprensión, utilidad y facilidad de uso del prototipo de la aplicación móvil.
