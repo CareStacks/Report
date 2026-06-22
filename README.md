@@ -2,7 +2,8 @@
 
 <h3>Universidad Peruana de Ciencias Aplicadas</h3>
 
-<img alt="upc-logo" src="/assets/UPC_logo_transparente.png" width="200"/><br>
+<img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/876f8396-4c3a-48ac-8b23-1b92fd70c91c" />
+
 
 **Ingeniería de Software**  
 
