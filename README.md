@@ -4177,7 +4177,7 @@ El Sprint 2 corresponde al segundo ciclo de desarrollo de **CareConnect**. En es
 
 A partir de la coordinación interna del equipo, se definieron tres objetivos principales para este Sprint: **desarrollar las pantallas del cuidador con Flutter**, **finalizar al 100% el backend** y **conectar el backend con las pantallas móviles**. Esta decisión permitió enfocar el trabajo en una experiencia más funcional para el segmento de cuidadores de pacientes geriátricos, quienes necesitan consultar información del paciente, revisar alertas, acceder a documentos, visualizar diarios compartidos y dar seguimiento a las actividades de cuidado.
 
-![Coordinación Sprint 2 por WhatsApp](assets/sprint2/whatsapp_sprint2_scope.png)
+![Coordinación Sprint 2 por WhatsApp](assets/whatsapp_sprint2_scope.png)
 
 *Figura 23. Coordinación interna del equipo donde se define que el Sprint 2 se enfocaría en pantallas del cuidador con Flutter, finalización del backend e integración entre backend y pantallas.*
 
@@ -4311,35 +4311,58 @@ Las pruebas permitieron comprobar que el backend se encuentra operativo para los
 
 #### 4.2.2.5. Execution Evidence for Sprint Review <a id="4225-execution-evidence-for-sprint-review"></a>
 
-A continuación se documenta la evidencia de ejecución de los entregables del Sprint 2. Esta evidencia muestra el avance de la aplicación móvil desde la perspectiva del cuidador y la disponibilidad del backend desplegado.
+A continuación se documenta la evidencia de ejecución de los entregables del Sprint 2. Esta evidencia muestra el avance de la aplicación móvil desde la perspectiva del cuidador, incluyendo las pantallas principales implementadas, la navegación entre módulos y la visualización de información del paciente asignado.
 
-**Pantallas del cuidador implementadas en Flutter:**
+Durante este Sprint se implementaron las vistas principales del cuidador, permitiendo consultar pacientes vinculados, revisar eventos de agenda, acceder a documentos médicos, visualizar entradas del diario, revisar el perfil del cuidador y consultar notificaciones relevantes. Estas pantallas evidencian que el producto avanzó hacia una experiencia funcional y navegable, alineada con las historias de usuario priorizadas para el seguimiento del cuidado geriátrico.
 
-![Caregiver Dashboard](assets/sprint2/caregiver_dashboard.png)
+**Pantallas del cuidador implementadas en Sprint 2:**
 
-*Figura 24. Pantalla principal del cuidador con acceso a agenda, notificaciones, documentos, diario y perfil compartido.*
+<div align="center">
 
-![Caregiver Notifications](assets/sprint2/caregiver_notifications.png)
+<table>
+  <tr>
+    <td align="center">
+      <img src="assets/WhatsApp Image 2026-06-21 at 11.08.05 PM.jpeg" width="260"/><br>
+      <em>Figura 24. Pantalla principal del cuidador con paciente asignado, evento pendiente y resumen del día.</em>
+    </td>
+    <td align="center">
+      <img src="assets/WhatsApp Image 2026-06-21 at 11.08.16 PM.jpeg" width="260"/><br>
+      <em>Figura 25. Continuación de la pantalla principal con resumen del paciente y accesos rápidos.</em>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="assets/WhatsApp Image 2026-06-21 at 11.08.35 PM.jpeg" width="260"/><br>
+      <em>Figura 26. Pantalla de agenda con eventos de medicación y control geriátrico.</em>
+    </td>
+    <td align="center">
+      <img src="assets/WhatsApp Image 2026-06-21 at 11.08.52 PM.jpeg" width="260"/><br>
+      <em>Figura 27. Pantalla de documentos médicos recientes del paciente.</em>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="assets/WhatsApp Image 2026-06-21 at 11.09.07 PM.jpeg" width="260"/><br>
+      <em>Figura 28. Pantalla de diario con registros de bienestar y seguimiento del paciente.</em>
+    </td>
+    <td align="center">
+      <img src="assets/WhatsApp Image 2026-06-21 at 11.09.52 PM.jpeg" width="260"/><br>
+      <em>Figura 29. Pantalla de perfil del cuidador con resumen de cuidado y pacientes vinculados.</em>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <img src="assets/WhatsApp Image 2026-06-21 at 11.10.23 PM.jpeg" width="260"/><br>
+      <em>Figura 30. Pantalla de notificaciones con alertas y avisos pendientes del cuidador.</em>
+    </td>
+  </tr>
+</table>
 
-*Figura 25. Pantalla de notificaciones y alertas del cuidador.*
-
-![Caregiver Documents](assets/sprint2/caregiver_documents.png)
-
-*Figura 26. Pantalla de documentos médicos compartidos.*
-
-![Caregiver Diary](assets/sprint2/caregiver_diary.png)
-
-*Figura 27. Pantalla de diario compartido del paciente.*
-
-![Shared Patient Profile](assets/sprint2/shared_patient_profile.png)
-
-*Figura 28. Pantalla de perfil compartido del paciente.*
+</div>
 
 **Integración con backend:**
 
-![Flutter Backend Integration](assets/sprint2/flutter_backend_integration.png)
-
-*Figura 29. Ejecución de la app móvil consumiendo datos desde el backend desplegado.*
+Además de las pantallas móviles, el Sprint 2 mantuvo la integración con el backend desplegado para consultar información relacionada con pacientes, agenda, documentos, diario y notificaciones. La documentación de servicios quedó disponible mediante Swagger/OpenAPI para facilitar la validación manual de endpoints.
 
 **Backend desplegado:**
 
@@ -4347,9 +4370,13 @@ A continuación se documenta la evidencia de ejecución de los entregables del S
 - [OpenAPI / Docs JSON](https://careconnect-backend-hvyq.onrender.com/v3/api-docs)
 - [Swagger UI](https://careconnect-backend-hvyq.onrender.com/swagger-ui.html)
 
+**Descripción de la evidencia presentada:**
+
+Las capturas muestran que, durante el Sprint 2, se logró implementar una navegación completa para el rol de cuidador. La pantalla de inicio presenta información resumida del paciente asignado, próximos eventos y accesos rápidos hacia las funcionalidades principales. La sección de agenda permite visualizar eventos de salud como medicación diaria y controles geriátricos. La pantalla de documentos centraliza archivos médicos recientes, mientras que el diario permite consultar registros de bienestar y notas de seguimiento. Además, el perfil del cuidador muestra información personal, resumen de cuidado y pacientes vinculados. Finalmente, la sección de notificaciones permite revisar avisos pendientes relacionados con eventos de salud y asignación del plan de cuidado.
+
 **Resultado alcanzado:**
 
-Al cierre del Sprint 2, el equipo logró una primera experiencia funcional para el cuidador. Las pantallas principales fueron desarrolladas en Flutter y conectadas con el backend, permitiendo validar el flujo de consulta de información centralizada del paciente. Además, el backend quedó finalizado para los módulos principales definidos en el Product Backlog y expuesto mediante documentación Swagger/OpenAPI.
+Al cierre del Sprint 2, el equipo logró una primera experiencia funcional para el cuidador. Las pantallas principales fueron implementadas y organizadas en módulos coherentes con el Product Backlog: Inicio, Agenda, Documentos, Diario, Perfil y Notificaciones. Esto permitió validar visualmente el flujo de consulta y seguimiento del paciente geriátrico desde la perspectiva del cuidador, consolidando un avance importante respecto al Sprint 1. Además, el backend quedó expuesto mediante documentación Swagger/OpenAPI, permitiendo verificar los servicios REST necesarios para la integración.
 
 ---
 
