@@ -5002,6 +5002,11 @@ La configuración del entorno de desarrollo, la gestión del código fuente, las
 
 Finalmente, CareConnect representa una solución viable para mejorar la gestión del cuidado geriátrico, especialmente en contextos donde la información todavía se maneja mediante cuadernos, alarmas aisladas o mensajes de WhatsApp. Su enfoque en simplicidad, colaboración y centralización de información permite ofrecer una experiencia más segura y clara tanto para pacientes como para cuidadores.
 
+# About the Product
+  > https://youtu.be/YFN2_9v4vJA
+---
+# About the Team
+  > https://youtu.be/ZwQVJLCs5eM
 
 # Glosario <a id="glosario"></a>
 
@@ -5119,3 +5124,11 @@ Todos los repositorios se encuentran bajo la organización GitHub `CareStacks`:
 | Documentos | `documents/` | `/api/documents` | `DocumentController` |
 | Diario de Seguimiento | `diary/` | `/api/diary` | `DiaryController` |
 | Gestión de Consentimiento | No implementado en este Sprint | — | — |
+
+
+## Anexo F — Videos del producto y del equipo
+
+| Video | Propósito | Acceso |
+|---|---|---|
+| About the Product | Presentación general del producto, explicando su propósito, funcionalidades principales, propuesta de valor y problema que busca resolver. | [YouTube](https://youtu.be/YFN2_9v4vJA) |
+| About the Team | Presentación del equipo de trabajo, incluyendo integrantes, roles, responsabilidades y organización durante el desarrollo del proyecto. | [YouTube](https://youtu.be/ZwQVJLCs5eM) |
