@@ -1,8 +1,8 @@
-<div align="center">
+<div align ="center">
 
-### Logo de Universidad
+<h3>Universidad Peruana de Ciencias Aplicadas</h3>
 
-**Universida Peruana de Ciencias Aplicadas**  
+<img alt="upc-logo" src="/assets/UPC_logo_transparente.png" width="200"/><br>
 
 **Ingeniería de Software**  
 
