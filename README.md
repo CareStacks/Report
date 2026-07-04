@@ -1,3 +1,5 @@
+<div align ="center">
+  
 **Ingeniería de Software**  
 
 **2026-10**  
@@ -6,7 +8,7 @@
 **1ACC0238 - Aplicaciones para Dispositivos Móviles**  
 <br><div align ="center">
 
-<h3>Universidad Peruana de Ciencias Aplicadas</h3>
+<h3>Universidad Peruana de zCiencias Aplicadas</h3>
 
 <img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/876f8396-4c3a-48ac-8b23-1b92fd70c91c" />
 
