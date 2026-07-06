@@ -4687,29 +4687,137 @@ Valeria afirmó que sí usaría CareConnect en una rutina real de cuidado, ya qu
 
 ---
 
+#### Entrevista de validación 3
+
+| Campo | Información |
+|---|---|
+| Entrevistada | Sofía |
+| Edad | 22 años |
+| Segmento | Cuidadora informal de pacientes geriátricos |
+| Experiencia | Cuida a su abuela junto con su madre (cuidado compartido entre varios familiares) |
+| Modalidad | Virtual |
+| Duración aproximada | 4 minutos |
+| Producto evaluado | Landing page / prototipo de CareConnect |
+
+**Resumen de la entrevista:**
+
+Sofía indicó que CareConnect le parece una solución bastante útil para organizar el cuidado de su abuela. Actualmente maneja la información entre notas del celular y un cuaderno que utiliza su madre, lo que ocasiona que a veces no coincidan y exista el riesgo de que se les pase alguna actividad o de duplicar una dosis de medicación. Por ello considera que tener todo en una sola agenda centralizada para medicación, citas y terapias evitaría estos problemas.
+
+Sobre la pantalla principal, mencionó que se entiende rápido, ya que apenas ingresa puede ver lo que falta hacer durante el día, que es justamente lo que necesita cuando está apurada. Destacó que no tuvo que buscar mucho para saber cuál era la primera actividad pendiente. También valoró de forma muy positiva la confirmación de actividades, pues con su abuela les ha pasado que ella le da la pastilla y su madre, al no saberlo, casi se la da de nuevo; si cada cuidador marca lo que ya realizó, esa confusión desaparece.
+
+Respecto a las alertas, comentó que son directas y claras, ya que indican qué hacer y a qué hora sin necesidad de interpretar nada. Como mejora, solo pediría poder configurar cuánto tiempo antes se envía el aviso. En relación con el diario de seguimiento, señaló que le gustó esa parte, porque hoy comparten ese tipo de información por WhatsApp y se pierde entre otros mensajes; tenerlo en un solo lugar permitiría que cualquier cuidador revise cómo estuvo la semana.
+
+Asimismo, consideró útil poder consultar documentos médicos desde la aplicación, sobre todo para las citas, ya que a veces el doctor pide un análisis anterior y hay que buscarlo entre papeles; tenerlo en el celular resulta mucho más práctico.
+
+**Comentarios principales de la entrevistada:**
+
+- La agenda centralizada evitaría que se pase alguna actividad o que se duplique una dosis de medicación.
+- La pantalla principal permite entender rápidamente qué actividades están pendientes en el día.
+- La confirmación de actividades evita que dos cuidadores administren la misma medicación por duplicado.
+- Las alertas son directas y claras; indican qué hacer y a qué hora.
+- El diario de seguimiento centraliza información que hoy se pierde en WhatsApp.
+- La consulta de documentos médicos facilita tener los análisis a la mano para las citas.
+
+**Funcionalidad más valorada:**
+
+Sofía indicó que las funcionalidades que usaría con mayor frecuencia serían el **diario de seguimiento y la confirmación de actividades**, ya que en su caso son varias personas las que cuidan a su abuela y lo que más necesitan es coordinarse entre ellas.
+
+**Aspectos de mejora identificados:**
+
+La entrevistada señaló que la parte de compartir el perfil del paciente le resultó confusa. Aunque entendió la idea, al inicio no sabía dónde se encontraba esa opción ni cómo funcionaba el permiso, por lo que considera que necesita una explicación más clara la primera vez que se usa.
+
+**Oportunidades de mejora:**
+
+- Hacer más visible y accesible la opción de compartir el perfil del paciente.
+- Explicar con mayor claridad el funcionamiento de los permisos de acceso compartido la primera vez.
+- Permitir configurar con cuánto tiempo de anticipación se reciben las alertas.
+- Incorporar una breve guía inicial para las funciones menos evidentes.
+
+**Intención de uso:**
+
+Sofía afirmó que sí usaría CareConnect en una rutina real de cuidado, porque resuelve justamente el problema que tiene en casa: varias personas cuidando a una misma persona sin una forma ordenada de coordinarse.
+
+---
+
+#### Entrevista de validación 4
+
+| Campo | Información |
+|---|---|
+| Entrevistado | Alonso |
+| Edad | 20 años |
+| Segmento | Cuidador informal de pacientes geriátricos |
+| Experiencia | Apoya a distancia el cuidado de su abuelo, mientras su madre lo asiste en casa |
+| Modalidad | Virtual |
+| Duración aproximada | 4 minutos |
+| Producto evaluado | Landing page / prototipo de CareConnect |
+
+**Resumen de la entrevista:**
+
+Alonso indicó que CareConnect le parece muy útil para organizar el cuidado de su abuelo, quien toma varios medicamentos en horarios distintos y por ello resulta fácil confundirse. Considera que tener todo en un solo calendario centralizado para medicación, citas y terapias simplifica bastante el día a día.
+
+Sobre la pantalla principal, mencionó que se ve ordenada y que lo pendiente aparece de frente, por lo que en general permite entender rápidamente qué actividades faltan. Como mejora, sugirió resaltar más la actividad más urgente, por ejemplo mediante un color o un indicador de prioridad. También destacó la confirmación de actividades como una de las funciones más útiles que vio: al no estar siempre en casa, le serviría revisar desde el celular si su madre ya le dio la medicina a su abuelo, sin necesidad de llamar o escribir.
+
+Respecto a las alertas, comentó que se entienden bien y valoró especialmente que el sistema avise cuando una actividad no fue confirmada, ya que eso es justo lo que necesita saber y no solo el recordatorio inicial. En relación con el diario de seguimiento, señaló que lo usaría sobre todo para cosas puntuales, como cuando su abuelo se sintió mal o cuando el doctor cambió una dosis, y que para el resto de la familia sería una buena forma de estar al tanto.
+
+Asimismo, consideró bastante útil poder consultar documentos médicos desde la aplicación, ya que hoy los papeles de su abuelo los guarda su madre en un folder y, si ella no está, nadie encuentra nada; tenerlos en la app resuelve ese problema.
+
+**Comentarios principales del entrevistado:**
+
+- La agenda centralizada simplifica el manejo de varios medicamentos en horarios distintos.
+- La pantalla principal se ve ordenada y muestra lo pendiente de frente.
+- La confirmación de actividades permite saber a distancia si la medicación ya fue administrada.
+- Las alertas son claras y valora que avisen cuando una actividad no se confirmó.
+- El diario de seguimiento es útil para registrar hechos puntuales (malestares, cambios de dosis).
+- La consulta de documentos médicos evita depender de que una sola persona tenga los papeles.
+
+**Funcionalidad más valorada:**
+
+Alonso indicó que las funcionalidades que usaría con mayor frecuencia serían las **alertas y la confirmación de actividades**, ya que, al apoyar el cuidado a distancia parte del día, lo que más le sirve es saber en tiempo real si algo ya se hizo o quedó pendiente.
+
+**Aspectos de mejora identificados:**
+
+El entrevistado señaló que la sección de notificaciones le pareció un poco cargada. Cuando hay varias alertas juntas cuesta distinguir cuál es importante y cuál ya pasó, por lo que separarlas o poder filtrarlas ayudaría a la comprensión.
+
+**Oportunidades de mejora:**
+
+- Reducir la carga visual de la sección de notificaciones.
+- Permitir filtrar u ordenar las alertas por importancia y por estado (pendiente / pasada).
+- Resaltar la actividad más urgente mediante color o un indicador de prioridad.
+- Mantener visible la información de confirmación para el apoyo a distancia.
+
+**Intención de uso:**
+
+Alonso afirmó que sí usaría CareConnect en una rutina real de cuidado, porque le permite estar pendiente de su abuelo incluso cuando no está en casa y evita que la familia dependa de mensajes sueltos para coordinar quién hace qué.
+
+---
+
 #### Síntesis de entrevistas del Segmento 1
 
-A partir de las entrevistas realizadas a Daniel Rodríguez y Valeria Dobbertin, se identifican coincidencias importantes respecto al valor de CareConnect para cuidadores de pacientes geriátricos.
+A partir de las entrevistas realizadas a Daniel Rodríguez, Valeria Dobbertin, Sofía y Alonso, se identifican coincidencias importantes respecto al valor de CareConnect para cuidadores de pacientes geriátricos.
 
-Ambos entrevistados consideran que la aplicación sería útil para organizar mejor las actividades de cuidado, especialmente en relación con la medicación, citas, terapias y recordatorios. También coinciden en que la confirmación de actividades ayudaría a evitar confusiones cuando varias personas participan en el cuidado del mismo paciente.
+Los cuatro entrevistados consideran que la aplicación sería útil para organizar mejor las actividades de cuidado, especialmente en relación con la medicación, citas, terapias y recordatorios. También coinciden en que la confirmación de actividades ayudaría a evitar confusiones cuando varias personas participan en el cuidado del mismo paciente.
 
-La agenda y las alertas fueron las funcionalidades más valoradas por ambos participantes, ya que responden directamente a uno de los principales problemas del cuidado diario: recordar y verificar actividades importantes. Además, el diario de seguimiento y la consulta de documentos médicos fueron percibidos como funciones útiles para mejorar la comunicación y mantener información relevante centralizada.
+La agenda, las alertas y la confirmación de actividades fueron las funcionalidades más valoradas por los participantes, ya que responden directamente a uno de los principales problemas del cuidado diario: recordar y verificar actividades importantes. Además, el diario de seguimiento y la consulta de documentos médicos fueron percibidos como funciones útiles para mejorar la comunicación y mantener información relevante centralizada; en el caso de Sofía, el diario y la confirmación de actividades fueron incluso las funciones que usaría con mayor frecuencia por la necesidad de coordinar el cuidado entre varios familiares, mientras que Alonso destacó las alertas y la confirmación por brindar visibilidad en tiempo real cuando apoya el cuidado a distancia.
 
 | Aspecto evaluado | Resultado observado |
 |---|---|
-| Utilidad de la agenda | Alta. Ambos entrevistados la consideran clave para organizar medicamentos, citas y terapias. |
+| Utilidad de la agenda | Alta. Los entrevistados la consideran clave para organizar medicamentos, citas y terapias. |
 | Claridad de la pantalla principal | Positiva. Los participantes indicaron que permite identificar actividades pendientes. |
 | Confirmación de actividades | Muy valorada. Ayuda a evitar dudas sobre si una medicación ya fue administrada. |
 | Alertas | Claras y oportunas. Se perciben como útiles para recordar tareas importantes. |
 | Diario de seguimiento | Útil para registrar observaciones y mejorar la comunicación entre cuidadores y familiares. |
 | Documentos médicos | Función práctica para evitar pérdida de información y facilitar el acceso rápido. |
-| Intención de uso | Alta. Ambos entrevistados afirmaron que usarían CareConnect en una rutina real de cuidado. |
+| Intención de uso | Alta. Los cuatro entrevistados afirmaron que usarían CareConnect en una rutina real de cuidado. |
 
 **Principales oportunidades de mejora identificadas:**
 
 - Mejorar la navegación entre secciones.
 - Hacer más visibles los textos e íconos principales.
 - Reforzar los accesos rápidos a agenda, alertas y diario.
+- Aclarar el funcionamiento del acceso compartido (compartir perfil del paciente) y hacer más visible esa opción.
+- Permitir configurar con cuánto tiempo de anticipación se reciben las alertas.
+- Reducir la carga visual de la sección de notificaciones y permitir filtrar u ordenar las alertas por importancia y estado.
+- Resaltar la actividad más urgente mediante color o un indicador de prioridad.
 - Mantener una interfaz clara para usuarios que necesitan actuar rápido durante la rutina de cuidado.
 
 **Conclusión del segmento:**
@@ -4722,7 +4830,7 @@ Las entrevistas de validación del segmento de cuidadores permiten concluir que 
 
 ---
 
-#### Entrevista de validación 3
+#### Entrevista de validación 5
 
 | Campo | Información |
 |---|---|
@@ -4773,7 +4881,7 @@ Nelly afirmó que sí usaría una aplicación como CareConnect para organizar su
 
 ---
 
-#### Entrevista de validación 4
+#### Entrevista de validación 6
 
 | Campo | Información |
 |---|---|
