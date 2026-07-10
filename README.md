@@ -286,6 +286,18 @@ A continuación se describe, por cada integrante del equipo, las acciones realiz
 | Nikaido Vargas, Javier Masaru | Identificó necesidad de capacitarse en mensajería asíncrona y eventos de dominio para desacoplar Agenda de Notificaciones; consultó documentación de Spring Events y patrones de Vernon. | El aprendizaje permanente sobre patrones de integración es clave para diseñar sistemas que escalen. |
 | Osores Marchese, Pietro | Reconoció su necesidad de actualizar conocimientos en despliegue en la nube (Railway, Render) y CI/CD con GitHub Actions, y completó tutoriales oficiales para implementarlos. | La automatización del despliegue es una habilidad que se mantiene actualizada constantemente ante la evolución del ecosistema cloud. |
 
+### Actualización — Avance 4 (Sprint 3)
+
+Durante el Sprint 3 (avance final), cada integrante aplicó nuevos conocimientos para cerrar el MVP de CareConnect, integrarlo y validarlo con usuarios, reforzando el logro del ABET – EAC – Student Outcome 7.
+
+| Integrante | Acciones realizadas en el Sprint 3 | Conclusiones |
+|---|---|---|
+| Salcedo Champi, Matias Rodolfo | Lideró el cierre e integración final de la aplicación en Flutter y unificó componentes y estados vacíos con las guías de estilo del Capítulo III. | Consolidar un MVP funcional exige aplicar de forma continua criterios de consistencia visual y de arquitectura aprendidos durante el proyecto. |
+| Santillan Alvarado, Melina Liz | Diseñó y ejecutó las entrevistas de validación con usuarios representativos y aplicó heurísticas de usabilidad y accesibilidad para adultos mayores. | Validar el producto con usuarios reales obliga a seguir actualizando métodos de evaluación centrados en el usuario. |
+| Costa Morales, Christofer William | Completó los flujos del paciente (agenda y diario de seguimiento) y reforzó las pruebas de integración de la aplicación móvil. | Cerrar flujos end-to-end requiere profundizar de forma permanente en testing y en el manejo de estados. |
+| Nikaido Vargas, Javier Masaru | Validó los servicios core del backend, ejecutó smoke testing de la API y actualizó la documentación Swagger/OpenAPI. | El aprendizaje continuo en testing y documentación sostiene la calidad del producto en su entrega final. |
+| Osores Marchese, Pietro | Finalizó los módulos de Documentos y Gestión de Consentimiento (perfil compartido, permisos y revocación de acceso) y ajustó el despliegue del backend. | Implementar el consentimiento clínico exige mantenerse actualizado en privacidad de datos y control de acceso. |
+
 ---
 
 <div style="page-break-before: always;"></div>
@@ -5555,7 +5567,7 @@ Todos los repositorios se encuentran bajo la organización GitHub `CareStacks`:
 | Notificaciones | `notifications/` | `/api/notifications` | `NotificationController` |
 | Documentos | `documents/` | `/api/documents` | `DocumentController` |
 | Diario de Seguimiento | `diary/` | `/api/diary` | `DiaryController` |
-| Gestión de Consentimiento | No implementado en este Sprint | — | — |
+| Gestión de Consentimiento | `consents/` | `/api/consents` · `/api/invitations` | `ConsentManagementController` · `CaregiverInvitationController` |
 
 
 ## Anexo F — Videos del producto y del equipo
