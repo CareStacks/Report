@@ -4199,7 +4199,6 @@ El Sprint 2 corresponde al segundo ciclo de desarrollo de **CareConnect**. En es
 
 A partir de la coordinación interna del equipo, se definieron tres objetivos principales para este Sprint: **desarrollar las pantallas del cuidador con Flutter**, **finalizar al 100% el backend** y **conectar el backend con las pantallas móviles**. Esta decisión permitió enfocar el trabajo en una experiencia más funcional para el segmento de cuidadores de pacientes geriátricos, quienes necesitan consultar información del paciente, revisar alertas, acceder a documentos, visualizar diarios compartidos y dar seguimiento a las actividades de cuidado.
 
-![Coordinación Sprint 2 por WhatsApp](assets/whatsapp_sprint2_scope.png)
 
 *Figura 23. Coordinación interna del equipo donde se define que el Sprint 2 se enfocaría en pantallas del cuidador con Flutter, finalización del backend e integración entre backend y pantallas.*
 
@@ -4667,17 +4666,17 @@ La evidencia de ejecución del Sprint 3 corresponde a la versión final de la ap
 
 | Módulo | Evidencia | Descripción |
 |---|---|---|
-| Autenticación | ![Login final](assets/sprint3/login_final.png) | Pantalla de inicio de sesión validada con redirección según rol. |
-| Registro | ![Registro final](assets/sprint3/register_final.png) | Formulario de creación de cuenta con campos principales y validaciones visuales. |
-| Home paciente | ![Home paciente](assets/sprint3/home_paciente_final.png) | Vista inicial del paciente con actividades del día, recordatorios y accesos rápidos. |
-| Home cuidador | ![Home cuidador](assets/sprint3/home_cuidador_final.png) | Vista inicial del cuidador con resumen del paciente, alertas y módulos compartidos. |
-| Agenda | ![Agenda final](assets/sprint3/agenda_final.png) | Calendario y listado de eventos de salud, con opciones de registro, confirmación y reprogramación. |
-| Notificaciones | ![Notificaciones final](assets/sprint3/notificaciones_final.png) | Vista de recordatorios, alertas y estados de notificación para ambos roles. |
-| Documentos | ![Documentos final](assets/sprint3/documentos_final.png) | Listado de documentos médicos y acceso al detalle del documento. |
-| Subir documento | ![Subir documento](assets/sprint3/subir_documento_final.png) | Flujo para registrar documentos médicos con tipo, descripción y archivo. |
-| Diario de seguimiento | ![Diario final](assets/sprint3/diario_final.png) | Registro y consulta de notas sobre el estado o evolución del paciente. |
-| Perfil compartido | ![Perfil compartido](assets/sprint3/perfil_compartido_final.png) | Pantalla para compartir información del paciente con un cuidador autorizado. |
-| Gestión de accesos | ![Gestión de accesos](assets/sprint3/gestion_accesos_final.png) | Vista para revisar y revocar accesos concedidos a cuidadores o familiares. |
+| Autenticación || Pantalla de inicio de sesión validada con redirección según rol. |
+| Registro | | Formulario de creación de cuenta con campos principales y validaciones visuales. |
+| Home paciente || Vista inicial del paciente con actividades del día, recordatorios y accesos rápidos. |
+| Home cuidador | ![Home cuidador](assets/home_cuidador_final.png) | Vista inicial del cuidador con resumen del paciente, alertas y módulos compartidos. |
+| Agenda | ![Agenda final](assets/agenda_final.png) | Calendario y listado de eventos de salud, con opciones de registro, confirmación y reprogramación. |
+| Notificaciones | ![Notificaciones final](assets/notificaciones_final.png) | Vista de recordatorios, alertas y estados de notificación para ambos roles. |
+| Documentos | ![Documentos final](assets/documentos_final.png) | Listado de documentos médicos y acceso al detalle del documento. |
+| Subir documento | ![Subir documento](assets/subir_documento_final.png) | Flujo para registrar documentos médicos con tipo, descripción y archivo. |
+| Diario de seguimiento | ![Diario final](assets/diario_final.png) | Registro y consulta de notas sobre el estado o evolución del paciente. |
+| Perfil compartido | ![Perfil compartido](assets/perfil_compartido_final.png) | Pantalla para compartir información del paciente con un cuidador autorizado. |
+| Gestión de accesos | ![Gestión de accesos](assets/gestion_accesos_final.png) | Vista para revisar y revocar accesos concedidos a cuidadores o familiares. |
 
 **Integración con backend:**
 
