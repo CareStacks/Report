@@ -4528,7 +4528,6 @@ En este Sprint, el equipo trabajó en la finalización al 100% de la aplicación
 
 A partir de la coordinación interna del equipo, se definieron tres objetivos principales para este Sprint: **finalizar la aplicación móvil al 100%**, **validar la integración de los módulos principales con el backend desplegado** y **realizar entrevistas de validación con usuarios representativos**. Esta decisión permitió que el Sprint 3 no solo cierre el desarrollo del producto, sino que también genere evidencia de validación sobre la utilidad, claridad y facilidad de uso de CareConnect.
 
-![Coordinación Sprint 3 por WhatsApp](assets/whatsapp_sprint3_scope.png)
 
 *Figura 31. Coordinación interna del equipo donde se define que el Sprint 3 se enfocaría en finalizar la aplicación móvil, validar la integración con backend y realizar entrevistas de validación del producto.*
 
